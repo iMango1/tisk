@@ -12,6 +12,7 @@ jQuery( document ).ready(function() {
     var cena_bez_mnozstvi = 0;
     var cena_s_mnozstvim = 0;
     
+    var cena_celkem = 0;
     jQuery(".select-fotka-<?php echo $kolotoc; ?>").change(function() {
 
         nova_cena = zakladni_cena;
