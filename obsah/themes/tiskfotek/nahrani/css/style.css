@@ -1,0 +1,767 @@
+@charset "UTF-8";
+
+.krok{
+	float: left;
+	display: block;
+}
+.krok a {
+	height: 40px;
+	display: block;
+	padding-left: 10px;
+	padding-right: 44px;
+    line-height: 40px;
+    margin-right: 3px;
+	color: #fff;
+	cursor: pointer;
+    text-transform: uppercase;
+    font-size: 13px!important;
+}
+.krok .cislo{
+    background: #fff;
+    color: #59247c;
+    border-radius: 4px;
+    padding: 3px 8px;
+    line-height: 30px;
+    font-weight: 700;
+    margin-right: 17px;
+}
+.krok.aktivni a{
+	cursor: default;
+	background: #59267C;
+}
+.krok.aktivni a{
+    cursor: pointer;
+}
+.krok.nepristupne a{
+	cursor: default;
+}
+
+.krok a:hover{
+	color: #fff;
+	background: #59267C;
+}
+.kroky_blok{
+	display: block;
+	height: 40px;
+	background: #8F5DB7;
+	color: #fff;
+    font-family: "Open Sans";
+}
+#nahrani-fotek .kroky_blok{
+    margin-bottom: 10px;
+}
+#nahrani-fotek .napoveda{
+    margin-bottom: 10px;
+    height: 168px;
+}
+#nahrani-fotek .napoveda .sloupec{
+    background: #59247c;
+    height: 168px;
+    color: #fff;
+}
+#nahrani-fotek .napoveda .levy{
+    margin-right: 5px;
+    width: 49%;
+}
+#nahrani-fotek .napoveda .pravy{
+    margin-left: 5px;
+    width: 50%;
+}
+#nahrani-fotek .napoveda h2{
+    font-size: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    margin-top: 21px;
+    font-weight: 700;
+}
+
+#nahrani-fotek .col-md-4.ikony{
+    padding: 0;
+}
+#nahrani-fotek .napoveda .ikony .leva.rar{
+    width: 89px;
+    height: 97px;
+    margin-top: 45px;
+    background: url(../img/rar.png) no-repeat;
+    float: left;
+
+}
+#nahrani-fotek .napoveda .ikony .prava.zip{
+    width: 89px;
+    height: 97px;
+    margin-top: 30px;
+    background: url(../img/zip.png) no-repeat;
+    margin-left: 85px;
+}
+
+#nahrani-fotek .napoveda .ikony .leva.jpg{
+    width: 89px;
+    height: 97px;
+    margin-top: 45px;
+    background: url(../img/jpg.png) no-repeat;
+    float: left;
+
+}
+#nahrani-fotek .napoveda .ikony .prava.tif{
+    width: 89px;
+    height: 97px;
+    margin-top: 29px;
+    background: url(../img/tif.png) no-repeat;
+    margin-left: 85px;
+}
+
+.fileupload-buttonbar{
+    background: #f3f3f3;
+    padding: 35px 13px;
+}
+.row.fileupload-buttonbar{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.fileupload-buttonbar .btn span, .table-striped .btn span{
+    display: inline;
+}
+
+.fileupload-buttonbar .btn .fa{
+    font-size: 28px;
+    margin-right: 7px;
+    vertical-align: middle;
+}
+.table-striped .btn .fa{
+    font-size: 23px;
+    margin-right: 7px;
+    vertical-align: middle;
+}
+
+.fileupload-buttonbar .btn,
+.fileupload-buttonbar .toggle,
+.table-striped .btn{
+    margin-bottom: 5px;
+    line-height: 50px;
+    text-shadow: 0px 0px 0px rgba(0,0,0,.5);
+    font-size: 16px!important;
+}
+.fileupload-buttonbar .btn{
+    margin-right: 10px;
+    height: 72px;
+    min-width: 225px;
+}
+.fileupload-buttonbar .toggle{
+    float: right;
+    margin: 0px;
+    vertical-align: middle;
+    height: 80px;
+    margin-right: 8px;
+}
+
+.footer-uploader{
+    background: #8f5cb8;
+    height: 40px;
+    color: #fff;
+    line-height: 40px;
+}
+
+.footer-uploader p{
+    line-height: 40px;
+    text-transform: uppercase;
+}
+
+.table-striped{
+    margin-top: 10px;
+    margin-bottom: 10px!important;
+}
+.table-striped td, .table-striped tr, .table-striped{
+    border: 0;
+    text-align: center;
+}
+
+.table-striped tr{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 100px;
+}
+
+.table-striped td{    
+    border: 0!important;
+    background: url(../img/border.png) no-repeat right;
+    vertical-align: middle!important;
+}
+
+.table-striped td:last-child{
+    border-top: 0!important;
+    background: transparent;
+    border-right: 0px;
+}
+
+.fileinput-button input{
+    height: 70px!important;
+}
+.table-striped .btn{
+    margin-right: 0!important;
+    line-height: 30px;
+}
+.pokracovat.btn{
+    margin-right: 0px;
+}
+.predchozi.btn{
+    margin-left: 0px;
+    margin-top: 0;
+}
+
+
+
+td.tlacitka-nahrani{
+    text-align: right!important;
+    padding-right: 80px!important;
+    max-width: 270px;
+}
+.template-download td:last-child{
+    text-align: right!important;
+    padding-right: 30px!important;
+    max-width: 250px;
+}
+.template-download td:last-child .delete{
+    margin-right: 30px!important;
+}
+.progress-animated .progress-bar,
+.progress-animated .bar {
+  background: url("../img/progressbar.gif") !important;
+  filter: none;
+}
+.fileupload-process {
+  float: right;
+  display: none;
+}
+.fileupload-processing .fileupload-process,
+.files .processing .preview {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: url("../img/loading.gif") center no-repeat;
+  background-size: contain;
+}
+.files audio,
+.files video {
+  max-width: 300px;
+}
+.files td p{
+    margin: 0!important;
+}
+.files td p.name{
+    padding-left: 20px;
+    min-width: 350px;;
+    text-align: left;
+}
+.files td p.size{
+    min-width: 70px;
+}
+@media (max-width: 767px) {
+  .fileupload-buttonbar .toggle,
+  .files .toggle,
+  .files .btn span {
+    display: none;
+  }
+  .files .name {
+    width: 80px;
+    word-wrap: break-word;
+    
+  }
+  .files audio,
+  .files video {
+    max-width: 80px;
+  }
+  .files img,
+  .files canvas {
+    max-width: 100%;
+  }
+}
+
+
+
+#dropzone {
+    background: palegreen;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: bold;
+}
+#dropzone.in {
+    width: 600px;
+    height: 200px;
+    line-height: 200px;
+    font-size: larger;
+}
+#dropzone.hover {
+    background: lawngreen;
+}
+#dropzone.fade {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    opacity: 1;
+}
+
+.fileupload-buttonbar.stick{
+    display: block;
+    position: fixed;
+    top: 110px;
+    z-index: 10000;
+    width: 1140px;
+    -webkit-box-shadow: 0 4px 4px -2px #000000;
+    -moz-box-shadow: 0 4px 4px -2px #000000;
+    box-shadow: 0 4px 4px -2px #000000;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.kroky_blok.stick{
+    position: fixed;
+    top: 70px;
+    z-index: 10000;
+    width: 1140px;
+    -webkit-box-shadow: 0 4px 4px -2px #000000;
+    -moz-box-shadow: 0 4px 4px -2px #000000;
+    box-shadow: 0 4px 4px -2px #000000;
+}
+
+/* DRUHÝ KROK */
+
+.nastavit-celkem{
+    display: block;
+	height: 80px;
+    border-top: 7px solid #E5E5E5;
+	background: #8F5DB7;
+	color: #fff;
+    padding-top: 0px; 
+}
+.nastavit-celkem h3{
+    font-size:15px;
+    margin-left: 15px;
+    margin: 5px 0px 5px 15px;
+}
+.kroky-nastaveni-blok.stick{
+    position: fixed;
+    top: 70px;
+    z-index: 10000;
+    width: 1140px;
+    -webkit-box-shadow: 0 4px 4px -2px #000000;
+    -moz-box-shadow: 0 4px 4px -2px #000000;
+    box-shadow: 0 4px 4px -2px #000000;
+}
+.fotka_objednavka{
+    height: 108px;
+}
+
+.product-block .col-md-2{
+    text-align: center;
+}
+.potvrzeni{
+    text-align: center;
+    padding-right: 30px!important;
+}
+.nastavit-hromadne.btn{
+    background: #59267C;
+    padding: 4px 12px;
+    margin-top: 0px;
+}
+.nastavit-hromadne.btn:hover{
+    background: #7734a6;
+    color: #fff;
+}
+.nastavit-celkem .chosen-container-single .chosen-single{
+    padding: 5px 5px!important;
+}
+.nastavit-celkem .chosen-container-single .chosen-single div b{
+    background-position: 0 5px !important;
+}
+.pole-blok{
+    display: block;
+    padding: 10px 0;
+    min-height: 135px;
+}
+.product-block .pole-blok:nth-child(even){
+    background: #f3f3f3;
+}
+
+.product-block .left{
+    float: none
+}
+.product-block .add-items{
+    width: 50px;
+    height: 29px;
+    margin: 3px 3px;
+}
+
+.product-block .add-items a{
+    width: 50px;
+    height: 29px;
+    display: block;
+}
+.product-block .add-items a i{
+    width: 50px;
+    height: 29px;
+    display: block;
+    text-align: center;
+    line-height: 28px;
+}
+#product-addons-total{
+    width:8.33333333%;
+    display: inline-block;
+}
+
+.col-md-4.ikony-druhy-krok{
+    padding: 0px;
+    /*padding-top: 30px;*/
+    font-size: 17px;
+}
+.col-md-4.ikony-druhy-krok .fa.fa-trash-o{
+    /*padding-top: 10px;*/
+    /*color: #E74C3C;*/
+    cursor: pointer;
+}
+
+.col-md-4.ikony-druhy-krok .fa.fa-files-o{
+    cursor: pointer;
+}
+.page-template-nastaveni-fotek .pocet-tlacitka{
+    margin-left: -30px;
+    padding-right: 5px!important;
+    width: 80px!important;
+}
+.col-md-6.ikony-druhy-krok{
+    padding: 0px;
+    /*padding-top: 30px;*/
+    font-size: 17px;
+    margin-left: -10px;
+    margin-top: 1px;
+}
+.col-md-6.ikony-druhy-krok .fa.fa-trash-o{
+    /*padding-top: 10px;*/
+    /*color: #E74C3C;*/
+    cursor: pointer;
+}
+
+.col-md-6.ikony-druhy-krok .fa.fa-files-o{
+    cursor: pointer;
+}
+
+
+
+.duplikace-tlacitko{
+    min-width: 50px;
+    height: 54px;
+    background-color: rgb(33,150,243);
+    color: #fff;
+    display: block;
+    position: relative;
+    margin-bottom: 3px;
+    text-align: center;
+    padding-top: 15px;
+    cursor: pointer;
+    -webkit-transition: background 500ms ease;
+    -moz-transition: background 500ms ease;
+    -o-transition: background 500ms ease;
+    transition: background 500ms ease;
+}
+.duplikace-tlacitko:hover{
+    background: #fff;
+    color: rgb(33,150,243);
+    border: 2px solid rgb(33,150,243);
+    padding-top: 13px;
+}
+.vymazani-tlacitko{
+    min-width: 50px;
+    height: 53px;
+    background-color: rgb(244,67,54);
+    color: #fff;
+    display: block;
+    position: relative;
+    text-align: center;
+    padding-top: 13px;
+    cursor: pointer;
+    -webkit-transition: background 500ms ease;
+    -moz-transition: background 500ms ease;
+    -o-transition: background 500ms ease;
+    transition: background 500ms ease;
+}
+.vymazani-tlacitko:hover{
+    background: #fff;
+    color: rgb(244,67,54);
+    border: 2px solid rgb(244,67,54);
+    padding-top: 11px;
+}
+
+.woocommerce-cart .vymazani-tlacitko, .woocommerce-cart .duplikace-tlacitko{
+    display: none;
+}
+.nazev-pole{
+    font-size: 17px;
+    text-align: center;
+}
+
+.addon-select option:hover{
+    background: #8f5db7!important;
+}
+.chosen-container .chosen-results li{
+    padding: 12px 5px 12px 10px;
+}
+.chosen-container .chosen-results{
+    padding: 0px;
+}
+.chosen-container-single .chosen-single span{
+    padding-left: 7px;
+}
+.product-addon{
+    margin: 3px 0!important;
+}
+.group-result{
+    color: #8F5DB7;
+}
+.kvalita{
+    display: block;
+    height: 44px;
+    text-align: left;
+    padding-top: 12px;
+    padding-left: 12px;
+    width: 100%;
+}
+.kvalita.neaktivni{
+    color: #c6c6c6;
+    background: #f8f8f8;
+    border: 1px solid #e5e5e5;
+}
+.prumerna{
+    color: #fff;
+    background: #F39C12;
+    
+}
+.prumerna:after {
+    content: "\f06a";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    font-size: 18px;
+    position: absolute;
+    right: 23px;
+    line-height: 21px;
+}
+
+.vyborna{
+    color: #fff !important;
+    background: #2ECC71 !important;
+}
+
+.vyborna:after {
+    content: "\f058";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    font-size: 18px;
+    position: absolute;
+    right: 23px;
+    line-height: 21px;
+}
+
+.kvalita.vyborna:after, .kvalita.prumerna:after, .kvalita.spatna:after {
+    right: 39px;
+}
+
+.spatna{
+    color: #fff;
+    background: #CF000F;
+}
+
+.spatna:after {
+    content: "\f057";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    font-size: 18px;
+    position: absolute;
+    right: 23px;
+    line-height: 21px;
+}
+
+.product-specs, .item-avl{
+    display: none!important;
+}
+.chosen-disabled .chosen-drop{
+display:none!important;
+}
+
+/* DRUHÝ KROK */
+
+#tabulka-fotek{
+    margin-top: 10px;
+    position: relative;
+}
+
+.product-block{
+	border-bottom: none!important;
+    position: relative!important;
+    padding: 0px!important;
+}
+
+#tabulka-fotek .product{
+    min-height: 140px;
+}
+
+#tabulka-fotek .product:nth-child(even){
+    background: #f3f3f3;
+}
+.tlacitka_blok{
+    margin-top: 55px;
+    margin-bottom: 10px;
+    min-height: 45px;
+}
+
+.tlacitka_blok .koko {
+    margin-left: 0 !important;
+}
+
+.celkova-cena{
+    display: block;
+    line-height: 40px;
+    margin-top: 10px;
+    padding-left: 54px;
+    padding-right: 53px;
+    background: #8f5cb8;
+    color: #fff;
+    border-radius: 3px;
+}
+
+#nahravani{
+    width: 49px;
+    height: 49px;
+    background: url(../img/loading-purple.gif);
+    background-size: 49px 49px;
+    margin-right: 110px;
+}
+.cena-fotky{
+    font-size: 17px;
+    min-height: 110px;
+    text-align: center;
+    padding: 45px 0px 0px 30px!important; 
+}
+.cena-fotky span{
+    font-weight: bold;
+}
+.woocommerce-cart .cart .cena-fotky{
+    display: none;
+}
+.blok-tlacitka-cena{
+    padding: 0px;
+    min-width: 110px;
+}
+.product-addon-id_objednavky{
+    visibility: hidden;
+    position: absolute;
+}
+
+/* ------------TŘETÍ KROK ------- */
+.woocommerce-cart .shop_table td{
+    border: none!important;
+}
+.woocommerce-cart .shop_table th{
+    border-right: none!important;
+}
+table.cart .product-thumbnail{
+    width: 200px!important;
+}
+.woocommerce-page table.cart .product-thumbnail img{
+/*    width: 80px!important; */
+    height: 135px!important;
+}
+/*
+.woocommerce-checkout #order_review .cart_item img{
+    max-height: 120px;
+}
+*/
+.product-name{
+    padding-left: 25px;
+    padding-top: 20px;
+}
+.product-price{
+    color: #777!important;
+}
+.product-subtotal{
+     color: #8f5db7;   
+}
+
+.product-quantity .add-items{
+    width: 50px;
+    margin: 3px 0px 3px 3px!important;
+}
+
+.add-items i.fa{
+    padding: 0 20px!important;
+}
+
+.treti-shipping{
+    display: inline;
+}
+.shop_table.cart{
+    border: 0!important;
+}
+.shop_table.cart thead tr th{
+    background: #8f5db7!important;
+    color: #fff!important;
+    border-bottom: 5px #E5E5E5 solid;
+}
+.page-id-3017 .woocommerce .cart_totals:first-child{
+    display: none;
+}
+/* ------------------------ Responzivita ------------------------ */
+@media (max-width: 480px) { 
+    .kroky_blok { height: 80px;}
+    .krok {width: 100%;}
+    .krok a { margin-right: 0; }
+
+    #nahrani-fotek .napoveda{height: 570px; margin: 0;}
+    #nahrani-fotek .napoveda .sloupec { height: 285px; }
+    #nahrani-fotek .napoveda .levy {width: 100% !important; margin-bottom: 10px;}
+    #nahrani-fotek .napoveda .pravy{width: 100% !important; margin-left: 0;}
+    #nahrani-fotek .napoveda h2 { padding-top: 15px; margin-top: 0;}
+    #nahrani-fotek .napoveda .ikony .leva.rar { margin-top: 30px; margin-left: 18%;}
+    #nahrani-fotek .napoveda .ikony .prava.zip { margin-top: 15px; margin-left: 48%;}
+    #nahrani-fotek .napoveda .ikony .leva.jpg { margin-top: 30px; margin-left: 18%;}
+    #nahrani-fotek .napoveda .ikony .prava.tif { margin-top: 15px; margin-left: 48%;}
+    #nahrani-fotek .napoveda h2 { padding-top: 15px; margin-top: 0;}
+    #nahrani-fotek .napoveda .sloupec.pravy .col-md-8,
+    #nahrani-fotek .napoveda .sloupec.levy .col-md-8{padding-left: 7px;}
+    
+    
+    #fileupload > div.row.fileupload-buttonbar > div.col-lg-12 {padding-left: 0;}
+    .fileupload-buttonbar .btn { height: 50px; width: 300px; text-align: left;}
+    .fileupload-buttonbar .btn, .fileupload-buttonbar .toggle, .table-striped .btn {line-height: 30px;}
+    .files td p.name { padding-left: 0px; min-width: 100px;}
+
+}
+
+@media (max-width: 991px) { 
+/* Druhá stránka */
+    .nastavit-celkem {display: none; }    
+    .list-item.last-list {display: none;}
+    .kvalita{
+        margin-bottom: 20px;
+    }
+    .ikony-druhy-krok{
+        display: none;
+    }
+    .product-block .add-items a i {
+        width: 50px;
+        height: 44px;
+        display: block;
+        text-align: center;
+        line-height: 44px;
+    }
+    .product-block .add-items {
+        width: 50px;
+        height: 29px;
+        margin: 0px;
+}

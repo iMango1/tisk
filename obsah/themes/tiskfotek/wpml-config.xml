@@ -1,0 +1,21 @@
+<wpml-config>
+    <admin-texts>
+        <key name="theme_inputs">
+            <key name="contact_address" />
+            <key name="top_left_text" />
+            <key name="top_right_text" />
+            <key name="site_title" />
+            <key name="site_slogan" />
+            <key name="footer3_top_left_txt" />
+            <key name="footer3_top_right_button_text" />
+            <key name="footer3_top_right_button_link" />
+            <key name="copyrights" />
+            <key name="welcome_bb" />
+            <key name="contact_decription" />
+            <key name="office_location" />
+            <key name="office_address" />
+            <key name="soon_large_heading" />
+            <key name="soon_decription" />
+        </key>
+    </admin-texts>
+</wpml-config>

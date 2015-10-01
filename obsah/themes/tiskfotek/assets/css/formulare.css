@@ -1,0 +1,35 @@
+#wpmem_login legend {
+    font-size: 30px;
+}
+#wpmem_login .div_text,
+#wpmem_login label {float: left;}
+
+#wpmem_login .div_text {height: 100%;}
+#wpmem_login input,
+#wpmem_reg input {
+    min-width: 250px;
+    max-width: 271px;
+    border: 1px solid #c9c9c9;
+    padding: 0 12px;
+    border-radius: 3px;
+    height: 40px;
+    margin-left: 10px;
+}
+#wpmem_login label[for=pwd] {margin-left: 20px;}
+#wpmem_login input[type=text], #wpmem_login input[type=password] {min-width: 250px;}
+#wpmem_login input[name=Submit] { height: 25px;}
+#wpmem_login input[name=rememberme] {height: 13px; margin-top: 20px;}
+
+.button_div {
+    height: 40px;
+    float: left;
+    width: 25%;
+    margin-left: 10px; 
+    float: left;
+}
+
+.link-text {
+    text-align: left;
+    float: left;
+    margin: 10px 0;
+}
