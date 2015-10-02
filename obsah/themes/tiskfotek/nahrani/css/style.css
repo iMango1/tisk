@@ -725,13 +725,14 @@ table.cart .product-thumbnail{
 }
 /* ------------------------ Responzivita ------------------------ */
 @media (max-width: 480px) { 
-    .kroky_blok { height: 80px;}
+    .kroky_blok { height:200px;}
+    .kroky_blok.stick {position: absolute; z-index: 0;}
     .krok {width: 100%;}
     .krok a { margin-right: 0; }
 
     #nahrani-fotek .napoveda{height: 570px; margin: 0;}
-    #nahrani-fotek .napoveda .sloupec { height: 285px; }
-    #nahrani-fotek .napoveda .levy {width: 100% !important; margin-bottom: 10px;}
+    #nahrani-fotek .napoveda .sloupec { height: 330px; }
+    #nahrani-fotek .napoveda .levy {width: 100% !important; margin-bottom: 95px;}
     #nahrani-fotek .napoveda .pravy{width: 100% !important; margin-left: 0;}
     #nahrani-fotek .napoveda h2 { padding-top: 15px; margin-top: 0;}
     #nahrani-fotek .napoveda .ikony .leva.rar { margin-top: 30px; margin-left: 18%;}
@@ -742,7 +743,9 @@ table.cart .product-thumbnail{
     #nahrani-fotek .napoveda .sloupec.pravy .col-md-8,
     #nahrani-fotek .napoveda .sloupec.levy .col-md-8{padding-left: 7px;}
     
-    
+    form#fileupload { margin-top: 275px;}
+    .fileupload-buttonbar{ padding: 0; }
+    .fileupload-buttonbar.stick {width: 100%}
     #fileupload > div.row.fileupload-buttonbar > div.col-lg-12 {padding-left: 0;}
     .fileupload-buttonbar .btn { height: 50px; width: 300px; text-align: left;}
     .fileupload-buttonbar .btn, .fileupload-buttonbar .toggle, .table-striped .btn {line-height: 30px;}
