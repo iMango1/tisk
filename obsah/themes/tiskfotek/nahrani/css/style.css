@@ -622,7 +622,7 @@ display:none!important;
     background: #f3f3f3;
 }
 .tlacitka_blok{
-    margin-top: 55px;
+    margin-top: 60px;
     margin-bottom: 10px;
     min-height: 45px;
 }
@@ -635,10 +635,11 @@ display:none!important;
     display: block;
     line-height: 40px;
     margin-top: 10px;
-    padding-left: 54px;
-    padding-right: 53px;
-    background: #8f5cb8;
-    color: #fff;
+    padding-left: 51px;
+    padding-right: 51px;
+    background: #fff;
+    color: #000;
+    border: 2px solid #8f5cb8;
     border-radius: 3px;
 }
 
