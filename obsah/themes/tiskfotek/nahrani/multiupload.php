@@ -28,22 +28,7 @@ print_r($vsechny_nahrane_fotky);
         </div>
         
         <div class="napoveda">
-            <div class="col-md-6 sloupec levy">
-                <div class="col-md-4 col-xs-12 ikony">
-                    <div class="leva rar"></div>
-                    <div class="prava zip"></div>
-                </div>
-                <div class="col-md-8">
-                    <h2>Podpora komprimovaných formátů</h2>
-                    <p>
-                        Můžete nahrávat komprimované soubory 
-                        ve formátech ZIP a RAR.
-                        Vhodná a rychlá volba pro případ, že u všech
-                        fotografií požadujete stejné parametry tisku.
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-6 sloupec pravy">
+             <div class="col-md-6 sloupec levy">
                 <div class="col-md-4 col-xs-12 ikony">
                     <div class="leva jpg"></div>
                     <div class="prava tif"></div>
@@ -55,6 +40,22 @@ print_r($vsechny_nahrane_fotky);
                         ve formátech JPG a TIF.
                         V tomto případě parametry tisku nastavujete
                         v dalším kroku objednávky pro každou fotografi zvlášť.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 sloupec pravy">
+                <div class="col-md-4 col-xs-12 ikony">
+                    <div class="leva rar"></div>
+                    <div class="prava zip"></div>
+                </div>
+                <div class="col-md-8">
+                    <h2>Podpora komprimovaných formátů</h2>
+                    <p>
+                        Můžete nahrávat komprimované soubory 
+                        ve formátech ZIP a RAR.
+                        Vhodná a rychlá volba pro případ, že u všech
+                        fotografií požadujete stejné parametry tisku.
                     </p>
                 </div>
             </div>
