@@ -62,7 +62,9 @@ jQuery( document ).ready(function() {
 
     }); 
     
-    jQuery(".cena-fotka-<?php echo $kolotoc; ?> span").change(function() {
+    jQuery(".cena-fotky span").change(function() {
+        //jQuery('.celkova-cena span').html(cena_celkem.toFixed(2));
+       // alert("piz");
     });     
     
     
