@@ -48,6 +48,10 @@ jQuery( document ).ready(function() {
             jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material .chosen-container").addClass("chosen-disabled");
             jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu").hide();
             jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku .chosen-container").removeClass("chosen-disabled");
+            //RESET ZELENÉ PRO LESKLÝ FOTOPAPÍR
+            jQuery(  "div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "background", "transparent", "important" );
+            jQuery(  "div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "color", "#999", "important" );
+            jQuery(  "div.product-addon.product-addon-material" ).find( "span" ).removeClass( "vyborna" ); 
         }
         else if(vysledek == "Obraz na plátně"){
             //RESET ZADANÝCH HODNOT
@@ -80,6 +84,12 @@ jQuery( document ).ready(function() {
             jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material .chosen-container").removeClass("chosen-disabled");
             jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku").show();
             jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku .chosen-container").removeClass("chosen-disabled");
+            //NASTAVENÍ LESKLÉHO FOTOPAPÍRU
+            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material select").val("leskly-fotopapir-1");
+            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material select').trigger("chosen:updated");
+            jQuery(  "div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "background", "#2ECC71", "important" );
+            jQuery(  "div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "color", "#2ECC71", "important" );
+            jQuery(  "div.product-addon.product-addon-material" ).find( "span" ).addClass( "vyborna" ); 
         }
         //nic nenení zakliknuto
         else{
