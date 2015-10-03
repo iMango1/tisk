@@ -93,7 +93,7 @@ $loop = new WP_Query( $args );
 jQuery(document).ready(function(){
     jQuery("#formular-0 #fotka-0 .addon-wrap-3032-id_objednavky input").val("<?php echo $objednavka_id; ?>");
     jQuery("select[name='addon-3032-typ']").val("orez-1");
-    jQuery("select[name='addon-3032-material']").val("leskly-fotopapir-1");
+    //jQuery("select[name='addon-3032-material']").val("leskly-fotopapir-1");
 });
 
 
