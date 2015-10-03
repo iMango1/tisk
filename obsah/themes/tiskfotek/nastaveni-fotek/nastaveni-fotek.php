@@ -351,6 +351,25 @@ jQuery(document).ready(function(){
     jQuery(function() {
         jQuery(".format .chosen-container .chosen-single span").replaceWith( "<span>Výber formátu</span>" );
     });
+    jQuery(function() { 
+     /*
+        var celkovy_pocet = <?php echo $celkovy_pocet; ?>;
+        var i = 0;
+        var cena_celkem = 0.00;
+        var nazev_elementu; 
+        var cena_v_divu = new Array();
+        var pripocet = parseFloat(cena_v_divu_na_float)+cena_celkem;
+        
+        for (i=0;i<celkovy_pocet;i++){
+            cena_celkem = 0;
+            nazev_elementu = '.cena-fotka-'+i+' span';
+            cena_v_divu[i] = jQuery(nazev_elementu).text();
+            if(cena_v_divu[i] < )
+            cena_celkem + = parseFloat(cena_v_divu[i]);
+        }
+        jQuery('.celkova-cena span').html(cena_celkem.toFixed(2));
+        */
+    });
     </script>
 	</div>
 </div>
