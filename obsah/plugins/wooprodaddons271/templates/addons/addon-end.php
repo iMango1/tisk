@@ -112,11 +112,11 @@ else if (dpi<?php echo $kolotoc; ?> >= 150)
        $(  "div.product-addon.product-addon-typ" ).find( "a.chosen-single" ).css( "background", "#2ECC71", "important" );
        $(  "div.product-addon.product-addon-typ" ).find( "a.chosen-single" ).css( "color", "#2ECC71", "important" );
        $(  "div.product-addon.product-addon-typ" ).find( "span" ).addClass( "vyborna" ); 
-    
+   /* 
        $(  "div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "background", "#2ECC71", "important" );
        $(  "div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "color", "#2ECC71", "important" );
        $(  "div.product-addon.product-addon-material" ).find( "span" ).addClass( "vyborna" ); 
-    
+    */
     
     jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select').change(function() {
         hodnota = $(this).val();
