@@ -11,7 +11,6 @@ jQuery( document ).ready(function() {
     var nova_cena = 0;
     var cena_bez_mnozstvi = 0;
     var cena_s_mnozstvim = 0;
-    var cena_celkem = 0;
     jQuery(".select-fotka-<?php echo $kolotoc; ?>").change(function() {
 
         nova_cena = zakladni_cena;
@@ -26,7 +25,6 @@ jQuery( document ).ready(function() {
                 nova_cena += jQuery(this).data('price');
                 cena_bez_mnozstvi = nova_cena;
                 nova_cena = cena_bez_mnozstvi * jQuery("#formular-<?php echo $kolotoc; ?> .items-num").val();
-                cena_celkem = nova_cena;
             }
         });
         
@@ -36,7 +34,6 @@ jQuery( document ).ready(function() {
     
     jQuery("#formular-<?php echo $kolotoc; ?> .items-num").change(function() {
         nova_cena = cena_bez_mnozstvi * jQuery(this).val();
-        cena_celkem = nova_cena;
         jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
     });
     
@@ -47,7 +44,6 @@ jQuery( document ).ready(function() {
         jQuery("#formular-<?php  echo $kolotoc; ?> .items-num").val(nova_hodnota);
         
         nova_cena = cena_bez_mnozstvi * jQuery("#formular-<?php  echo $kolotoc; ?> .items-num").val();
-        cena_celkem = nova_cena;
         jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
     });   
     jQuery("#formular-<?php echo $kolotoc;?> .pocet-tlacitka .odebrat").click(function(){
@@ -56,16 +52,11 @@ jQuery( document ).ready(function() {
             var nova_hodnota = parseInt(stara_hodnota) - 1;
             jQuery("#formular-<?php  echo $kolotoc; ?> .items-num").val(nova_hodnota);
             nova_cena = cena_bez_mnozstvi * jQuery("#formular-<?php  echo $kolotoc; ?> .items-num").val();
-            cena_celkem = nova_cena;
             jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
         }
 
     }); 
-    
-    jQuery(".cena-fotky span").change(function() {
-        //jQuery('.celkova-cena span').html(cena_celkem.toFixed(2));
-       // alert("piz");
-    });     
+
     
     
     
