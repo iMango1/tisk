@@ -20,8 +20,10 @@ $objednavka = new WC_Order($muj_post->ID);
 <table class="shop_table woocommerce-checkout-review-order-table">
 	<thead>
 		<tr>
-			<th class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
-			<th class="product-total">Počet</th>
+		<!--		<th class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th> -->	
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+			<th class="product-total">Množství</th>
 			<th class="product-total"><?php _e( 'Total', 'woocommerce' ); ?></th>
 		</tr>
 	</thead>
@@ -35,15 +37,17 @@ $objednavka = new WC_Order($muj_post->ID);
 				if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_checkout_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
 					?>
 					<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
-						<td class="product-name">
+						
 							<?php // echo apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key ); ?>
 							<?php // echo apply_filters( 'woocommerce_checkout_cart_item_quantity', ' <strong class="product-quantity">' . sprintf( '&times; %s', $cart_item['quantity'] ) . '</strong>', $cart_item, $cart_item_key ); ?>
 							<?php //echo WC()->cart->get_item_data( $cart_item ); ?>
-							<div class="row">
-                               <div class="col-md-2">
+							
+                              <td class="product-thumbnail">
                                    <?php echo $cart_item["addons"][0]["display"]; ?>
-                               </div>
-                                <div class="col-md-5">
+                                </td>
+                        <td class="product-name">
+                        <div class="row">
+                                <div class="col-md-6">
                                    <dl class="variation">
                                     <?php if($cart_item["addons"][1]["name"] != "id_objednavky - id"){ ?>
                                     
@@ -60,7 +64,7 @@ $objednavka = new WC_Order($muj_post->ID);
                                     <?php } ?>
                                     </dl>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-6">
                                    <?php if($cart_item["addons"][3]["name"] != "id_objednavky - id"){ ?>
                                    
                                     <dt><?php echo $cart_item["addons"][3]["name"]; ?></dt>
@@ -82,7 +86,7 @@ $objednavka = new WC_Order($muj_post->ID);
                     <?php  echo apply_filters( 'woocommerce_checkout_cart_item_quantity', ' <strong class="product-quantity">' . sprintf( '&times; %s', $cart_item['quantity'] ) . '</strong>', $cart_item, $cart_item_key ); ?>
 
 						</td>
-						<td class="product-total">
+						<td class="product-total" style="text-align: center; color: #8f5db7;">
 							<?php echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); ?>
 						</td>
 					</tr>

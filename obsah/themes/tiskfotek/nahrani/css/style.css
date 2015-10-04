@@ -681,7 +681,8 @@ display:none!important;
 table.cart .product-thumbnail{
     width: 200px!important;
 }
-.woocommerce-page table.cart .product-thumbnail img{
+.woocommerce-page table.cart .product-thumbnail img,
+.woocommerce-page table.woocommerce-checkout-review-order-table img{
 /*    width: 80px!important; */
     height: 135px!important;
 }
@@ -713,13 +714,22 @@ table.cart .product-thumbnail{
 .treti-shipping{
     display: inline;
 }
-.shop_table.cart{
+.shop_table.cart,
+.shop_table.woocommerce-checkout-review-order-table td, .shop_table.woocommerce-checkout-review-order-table th, .shop_table.woocommerce-checkout-review-order-table {
     border: 0!important;
 }
-.shop_table.cart thead tr th{
+.shop_table.woocommerce-checkout-review-order-table thead tr th {
+text-align: center;
+}
+.shop_table.cart thead tr th,
+.shop_table.woocommerce-checkout-review-order-table thead tr th{
     background: #8f5db7!important;
     color: #fff!important;
     border-bottom: 5px #E5E5E5 solid;
+}
+.shop_table.woocommerce-checkout-review-order-table td.product-thumbnail {
+    height: 169px;
+     text-align: center;
 }
 .page-id-3017 .woocommerce .cart_totals:first-child{
     display: none;
