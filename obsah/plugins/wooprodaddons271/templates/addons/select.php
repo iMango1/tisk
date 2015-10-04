@@ -87,8 +87,8 @@ jQuery( document ).ready(function() {
             //NASTAVENÍ LESKLÉHO FOTOPAPÍRU
             jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material select").val("leskly-fotopapir-1");
             jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material select').trigger("chosen:updated");
-            jQuery(  "div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "background", "#2ECC71", "important" );
-            jQuery(  "div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "color", "#2ECC71", "important" );
+            jQuery(  "div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
+            jQuery(  "div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
             jQuery(  "div.product-addon.product-addon-material" ).find( "span" ).addClass( "vyborna" ); 
         }
         //nic nenení zakliknuto
