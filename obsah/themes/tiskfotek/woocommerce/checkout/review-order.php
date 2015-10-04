@@ -96,7 +96,7 @@ $objednavka = new WC_Order($muj_post->ID);
 	<tfoot>
 
 		<tr class="cart-subtotal">
-			<th colspan="2"><?php _e( 'Cart Subtotal', 'woocommerce' ); ?></th>
+			<th colspan="2"><?php _e( 'Cena bez dopravy', 'woocommerce' ); ?></th>
 			<td><?php wc_cart_totals_subtotal_html(); ?></td>
 		</tr>
 
@@ -143,7 +143,7 @@ $objednavka = new WC_Order($muj_post->ID);
 		<?php do_action( 'woocommerce_review_order_before_order_total' ); ?>
 
 		<tr class="order-total">
-			<th colspan="2"><?php _e( 'Order Total', 'woocommerce' ); ?></th>
+			<th colspan="2"><?php _e( 'Celková cena', 'woocommerce' ); ?></th>
 			<td><?php wc_cart_totals_order_total_html(); ?></td>
 		</tr>
 
