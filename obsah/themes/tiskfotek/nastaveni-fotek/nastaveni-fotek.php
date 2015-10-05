@@ -352,6 +352,7 @@ jQuery(document).ready(function(){
         jQuery(".format .chosen-container .chosen-single span").replaceWith( "<span>Výber formátu</span>" );
     });
     jQuery(function() { 
+        /*
         var zakladni_cena = 0;
         var nova_cena = 0;
         var cena_bez_mnozstvi = 0;
@@ -415,6 +416,16 @@ jQuery(document).ready(function(){
                 });
             });
         }
+        */
+        var i=0;
+        var pocet_fotek = <?php echo $celkovy_pocet; ?>;
+        
+            jQuery('.cena-fotka-'+i).bind("DOMSubtreeModified",function(){
+                
+                var cenovka = jQuery(".cena-fotka-"+i+" span").text();                
+                jQuery(".celkova-cena span").html(cenovka);
+            });
+    
     });
     </script>
 	</div>
