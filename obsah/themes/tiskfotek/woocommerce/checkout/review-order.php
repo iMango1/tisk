@@ -97,14 +97,10 @@ $objednavka = new WC_Order($muj_post->ID);
 			do_action( 'woocommerce_review_order_after_cart_contents' );
 		?>
 	</tbody>
-    </table>
-	
-    <h3 class="block-head">Celkem k platbě</h3>
-    <table cellspacing="0">
-		<tbody>
-            
+	<tfoot>
+
 		<tr class="cart-subtotal">
-			<th colspan="2"><?php _e( 'Cena za tisk', 'woocommerce' ); ?></th>
+			<th colspan="2"><?php _e( 'Cena bez dopravy', 'woocommerce' ); ?></th>
 			<td><?php wc_cart_totals_subtotal_html(); ?></td>
 		</tr>
 
@@ -151,11 +147,11 @@ $objednavka = new WC_Order($muj_post->ID);
 		<?php do_action( 'woocommerce_review_order_before_order_total' ); ?>
 
 		<tr class="order-total">
-			<th colspan="2"><?php _e( 'Celkem za objednávku', 'woocommerce' ); ?></th>
+			<th colspan="2"><?php _e( 'Celková cena', 'woocommerce' ); ?></th>
 			<td><?php wc_cart_totals_order_total_html(); ?></td>
 		</tr>
 
 		<?php do_action( 'woocommerce_review_order_after_order_total' ); ?>
 
-	</tbody>
+	</tfoot>
 </table>
