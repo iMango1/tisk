@@ -29,12 +29,14 @@ jQuery( document ).ready(function() {
         });
         
         jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
+        jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
     });
     
     
     jQuery("#formular-<?php echo $kolotoc; ?> .items-num").change(function() {
         nova_cena = cena_bez_mnozstvi * jQuery(this).val();
         jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
+        jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
     });
     
     
@@ -45,6 +47,7 @@ jQuery( document ).ready(function() {
         
         nova_cena = cena_bez_mnozstvi * jQuery("#formular-<?php  echo $kolotoc; ?> .items-num").val();
         jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
+        jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
     });   
     jQuery("#formular-<?php echo $kolotoc;?> .pocet-tlacitka .odebrat").click(function(){
         var stara_hodnota = jQuery("#formular-<?php  echo $kolotoc; ?> .items-num").val();
@@ -53,6 +56,7 @@ jQuery( document ).ready(function() {
             jQuery("#formular-<?php  echo $kolotoc; ?> .items-num").val(nova_hodnota);
             nova_cena = cena_bez_mnozstvi * jQuery("#formular-<?php  echo $kolotoc; ?> .items-num").val();
             jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
+            jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
         }
 
     }); 
@@ -78,6 +82,7 @@ jQuery( document ).ready(function() {
         });
         
         jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
+        jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
         
     });
 
