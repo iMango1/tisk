@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			_e( 'Doprava', 'woocommerce' );
 		}
 	?></th>
-	<td colspan="2">
+	<td colspan="3">
 		<?php if ( ! empty( $available_methods ) ) : ?>
 
 			<?php if ( 1 === count( $available_methods ) ) :

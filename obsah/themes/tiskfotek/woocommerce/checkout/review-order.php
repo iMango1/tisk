@@ -97,11 +97,14 @@ $objednavka = new WC_Order($muj_post->ID);
 			do_action( 'woocommerce_review_order_after_cart_contents' );
 		?>
 	</tbody>
+    
+    
+    
 	<tfoot>
 
 		<tr class="cart-subtotal">
-			<th colspan="2"><?php _e( 'Cena za tisk', 'woocommerce' ); ?></th>
-			<td><?php wc_cart_totals_subtotal_html(); ?></td>
+			<th><?php _e( 'Cena za tisk', 'woocommerce' ); ?></th>
+			<td colspan="3"><?php wc_cart_totals_subtotal_html(); ?></td>
 		</tr>
 
 		<?php foreach ( WC()->cart->get_coupons() as $code => $coupon ) : ?>
@@ -147,8 +150,8 @@ $objednavka = new WC_Order($muj_post->ID);
 		<?php do_action( 'woocommerce_review_order_before_order_total' ); ?>
 
 		<tr class="order-total">
-			<th colspan="2"><?php _e( 'Celkem za objednávku', 'woocommerce' ); ?></th>
-			<td><?php wc_cart_totals_order_total_html(); ?></td>
+			<th><?php _e( 'Celkem za objednávku', 'woocommerce' ); ?></th>
+			<td colspan="3"><?php wc_cart_totals_order_total_html(); ?></td>
 		</tr>
 
 		<?php do_action( 'woocommerce_review_order_after_order_total' ); ?>
