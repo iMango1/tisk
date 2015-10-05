@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             <i class="fa fa-trash-o"></i>
         </div>
     </div>
-    <div class="col-md-6 cena-fotky cena-fotka-<?php echo $kolotoc; ?>" id="cena-<?php echo $kolotoc; ?>">
+    <div class="col-md-6 cena-fotky cena-fotka-<?php echo $kolotoc; ?>" id="cena-<?php echo $kolotoc; ?>" data-soucasna-cena="0.00">
         <span>0.00</span>
     </div>
 </div>

@@ -11,9 +11,14 @@ jQuery( document ).ready(function() {
     var nova_cena = 0;
     var cena_bez_mnozstvi = 0;
     var cena_s_mnozstvim = 0;
+    var celkem = 0.00;
+    
+    //PŘI ZMĚNĚ SELECTU
     jQuery(".select-fotka-<?php echo $kolotoc; ?>").change(function() {
 
         nova_cena = zakladni_cena;
+        
+        
         jQuery('.select-fotka-<?php echo $kolotoc; ?> option:selected').each(function() {
             if( jQuery(this).data('price') == null ){
                 nova_cena = nova_cena;
@@ -32,14 +37,14 @@ jQuery( document ).ready(function() {
         jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
     });
     
-    
+    //PŘI ZMĚNĚ POČTU NAPSÁNÍM
     jQuery("#formular-<?php echo $kolotoc; ?> .items-num").change(function() {
         nova_cena = cena_bez_mnozstvi * jQuery(this).val();
         jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
         jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
     });
     
-    
+    //PŘI ZMĚNĚ KLIKNUTÍM NA PLUSKO
     jQuery("#formular-<?php echo $kolotoc;?> .pocet-tlacitka .pridat").click(function(){
        var stara_hodnota = jQuery("#formular-<?php  echo $kolotoc; ?> .items-num").val();
         var nova_hodnota = parseInt(stara_hodnota) + 1;
@@ -49,6 +54,7 @@ jQuery( document ).ready(function() {
         jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
         jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
     });   
+    //PŘI ZMĚNĚ KLIKNUTÍM NA MINUS
     jQuery("#formular-<?php echo $kolotoc;?> .pocet-tlacitka .odebrat").click(function(){
         var stara_hodnota = jQuery("#formular-<?php  echo $kolotoc; ?> .items-num").val();
         if(stara_hodnota>1){
@@ -83,6 +89,7 @@ jQuery( document ).ready(function() {
         
         jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
         jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
+        jQuery('.cenovka_k_secteni-<?php echo $kolotoc; ?>').html(nova_cena.toFixed(2));
         
     });
 
