@@ -441,6 +441,10 @@ jQuery(document).ready(function(){
         
                 jQuery('.cena-fotka-<?php echo $i; ?>').bind("DOMSubtreeModified",function(){    
                     celkem = 0;
+                    jQuery('.cena-fotky span').each(function(){
+                        
+                    });
+                    
                     var cenovka = parseFloat(jQuery(".cena-fotka-<?php echo $i; ?> span").text());
                 });
         
