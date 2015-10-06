@@ -352,100 +352,27 @@ jQuery(document).ready(function(){
         jQuery(".format .chosen-container .chosen-single span").replaceWith( "<span>Výber formátu</span>" );
     });
     jQuery(function() { 
-        /*
-        var zakladni_cena = 0;
-        var nova_cena = 0;
-        var cena_bez_mnozstvi = 0;
-        var cena_s_mnozstvim = 0;
+   
         var celkem = 0.00;
-        var jedna_fotka = Array();
-        var pocet_fotek = <?php echo $celkovy_pocet; ?>;
-        var i;
-        for (i=0;i<pocet_fotek;i++){    
-            //PŘI ZMĚNĚ SELECTU
-            jQuery(".select-fotka-"+i).change(function() {
-                
-                 jQuery('.select-fotka-'+i+' option:selected').each(function() {
-                     if( jQuery(this).data('price') == null ){
-                         nova_cena = nova_cena;
-                     }
-                     else if (!(jQuery(this).data('price'))){
-                         nova_cena = nova_cena;
-                     }
-                     else{
-                         nova_cena += jQuery(this).data('price');
-                         cena_bez_mnozstvi = nova_cena;
-                         jedna_fotka[i] = cena_bez_mnozstvi * jQuery("#formular-<?php echo $kolotoc; ?> .items-num").val();
-                     }
-                 });
-                
-            });
-        
-            //PŘI ZMĚNĚ POČTU NAPSÁNÍM
-            jQuery("#formular-"+i+" .items-num").change(function() {
-                jedna_fotka[i] = cena_bez_mnozstvi * jQuery(this).val(); 
-            });
-        
-            //PŘI ZMĚNĚ KLIKNUTÍM NA PLUSKO
-            jQuery("#formular-"+i+" .pocet-tlacitka .pridat").click(function(){
-                var stara_hodnota = jQuery("#formular-"+i+" .items-num").val();
-                var nova_hodnota = parseInt(stara_hodnota) + 1;
-                jQuery("#formular-"+i+" .items-num").val(nova_hodnota);
-                jedna_fotka[i] = cena_bez_mnozstvi * jQuery("#formular-"+i+" .items-num").val();
-            });   
-       
-            //PŘI ZMĚNĚ KLIKNUTÍM NA MINUS
-           jQuery("#formular-"+i+" .pocet-tlacitka .odebrat").click(function(){
-               var stara_hodnota = jQuery("#formular-"+i+" .items-num").val();
-               if(stara_hodnota>1){
-                   var nova_hodnota = parseInt(stara_hodnota) - 1;
-                   jQuery("#formular-"+i+" .items-num").val(nova_hodnota);
-                   jedna_fotka[i] = cena_bez_mnozstvi * jQuery("#formular-<?php  echo $kolotoc; ?> .items-num").val();
-               }
-            });
-    }
-    
-    
-        
-        for(i=0;i<pocet_fotek;i++){
-            jQuery(".select-fotka-"+i).change(function() {
-                jQuery('.select-fotka-'+i+' option:selected').each(function() {
-                    celkem = jedna_fotka[i];
-                    jQuery(".celkova-cena span").html(celkem.toFixed(2));
-                    alert(jedna_fotka[i]);
-                });
-            });
-        }
-        */
-        
-        
-        
-        
-        var celkem = 0.00;
-            
-
+        var cena_zmenene;    
+        var cena_jednotlive;
         <?php 
         for($i=0;$i<$celkovy_pocet;$i++) {?>
-      /*      var i=0;
-            var pocet_fotek = <?php echo $celkovy_pocet; ?>;
-            jQuery('.cena-fotky span').each(function(){
-            celkem = 0;
-                jQuery('.cena-fotka-<?php echo $i; ?>').bind("DOMSubtreeModified",function(){
-                    
-                    var cenovka = parseFloat(jQuery(".cena-fotka-<?php echo $i; ?> span").text());                
-                    celkem = celkem + parseFloat(cenovka);
-                    jQuery(".celkova-cena span").html(celkem.toFixed(2));
-                });
-            });*/
-       
-        
+
                 jQuery('.cena-fotka-<?php echo $i; ?>').bind("DOMSubtreeModified",function(){    
                     celkem = 0;
-                    jQuery('.cena-fotky span').each(function(){
+                    cena_zmenene = parseFloat(jQuery(".cena-fotka-<?php echo $i; ?> span").text());
+                        celkem = cena_zmenene;
+                    <?php for($k=0;$k<$celkovy_pocet;$k++) { 
+                            if ($k != $i){
+                    ?>
                         
-                    });
-                    
-                    var cenovka = parseFloat(jQuery(".cena-fotka-<?php echo $i; ?> span").text());
+                        cena_jednotlive = parseFloat(jQuery(".cena-fotka-<?php echo $k; ?> span").text());
+                        celkem = celkem + cena_jednotlive;
+                    <?php }
+                        } 
+                    ?> 
+                    jQuery(".celkova-cena span").html(celkem.toFixed(2));
                 });
         
         <?php } ?>
