@@ -1,35 +1,50 @@
-#wpmem_login legend {
-    font-size: 30px;
+label {
+    font-size: 14px;
+    text-align: left !important;
 }
-#wpmem_login .div_text,
-#wpmem_login label {float: left;}
+.form-group {   
+    margin-bottom: 0;
+}
 
-#wpmem_login .div_text {height: 100%;}
-#wpmem_login input,
-#wpmem_reg input {
-    min-width: 250px;
-    max-width: 271px;
+.form-control {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -ms-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     border: 1px solid #c9c9c9;
-    padding: 0 12px;
+    width:100%;
     border-radius: 3px;
     height: 40px;
-    margin-left: 10px;
+    margin-bottom: 10px;
 }
-#wpmem_login label[for=pwd] {margin-left: 20px;}
-#wpmem_login input[type=text], #wpmem_login input[type=password] {min-width: 250px;}
-#wpmem_login input[name=Submit] { height: 25px;}
-#wpmem_login input[name=rememberme] {height: 13px; margin-top: 20px;}
-
-.button_div {
-    height: 40px;
-    float: left;
-    width: 25%;
-    margin-left: 10px; 
-    float: left;
+.form-group .form-control:focus {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(143,93,183, 0.6);
+    border: 0;
+    
 }
 
-.link-text {
-    text-align: left;
-    float: left;
-    margin: 10px 0;
+.col-sm-4 {
+    padding-left: 0;
+    padding-right: 0;
+} 
+a[name='register'] .col-sm-4, .col-sm-12 {
+    padding-left: 15px;
+    padding-right: 0;
+}
+
+#wpmem_login > a > div > form > div:nth-child(16) > div > input:nth-child(2) {
+    margin-right: 0px;
+}
+#wpmem_login > a > div > form > div.col-sm-12 > span {
+    float: right;
+}
+
+.btn-primary {
+    background:  rgb(143,93,183);
+    border-color:  rgb(143,93,183);
+}
+
+.btn-primary:hover {
+    background: #59267c !important;
+    border-color: #59267c !important;
 }

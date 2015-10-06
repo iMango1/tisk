@@ -6956,7 +6956,7 @@ input[type=text], input[type=password], input[type=email], input[type=tel], text
 	border: 1px #DFDFDF solid;
 	background: #fff;
 	height: 40px;
-	color: #555;
+	/*color: #555;*/
 	font-size: 12px;
 	line-height: 30px;
 	-moz-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;

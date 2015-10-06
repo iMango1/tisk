@@ -124,7 +124,7 @@ function order_fields($fields) {
 }
 
 
-/* REGISTRACE PŘEPSANÍ WP-MEMBERS PLUGINU */
+/* REGISTRACE A LOGIN PŘEPSANÍ WP-MEMBERS PLUGINU */
 
 /**
  * Login Dialog
@@ -215,16 +215,16 @@ function wpmem_inc_login( $page="page", $redirect_to = null )
 	$str .= "<div class=\"row grey\"><div class=\"col-sm-6 grey\">";
 	$str  = $str . wpmem_login_form( $page, $arr );
 	$str .= "</div>\n";
-	$str .= "<div class=\"col-sm-6\">";
+/*	$str .= "<div class=\"col-sm-6\">";
 	$str .= "<h3>New Users</h3>\n";
 	$str .= "<p>If you are a Dutch Cheese Maker broker or customer and would like to apply for access, click \"Create Account\" and enter the information requested on the next page.</p>\n";
 
 	$link = apply_filters( 'wpmem_reg_link', WPMEM_REGURL );
 	$str  .= '<div style="text-align:center;"><a class="btn btn-primary contact-btn" href="' . $link . '">Create Account</a></div>';
 		
-	$str .= "</div>\n";
-	$str .= "</div>\n";
-	return $str;
+	$str .= "</div>\n"; 
+	$str .= "</div>\n"; */
+	return $str; 
 }
 /**
  * Login Form Dialog
@@ -476,7 +476,7 @@ function wpmem_inc_registration( $toggle = 'new', $heading = '' )
 		'txt_after'       => '[/wpmem_txt]',
 		'row_before'      => '<div class="form-group">',
 		'row_after'       => '</div>',
-		'buttons_before'  => '<div class="form-group"><div class="col-sm-offset-4 col-sm-8">',
+		'buttons_before'  => '<div class="form-group"><div style="float: right; padding-right: 15px;">',
 		'buttons_after'   => '</div></div>',
 		
 		
@@ -658,7 +658,7 @@ function wpmem_inc_registration( $toggle = 'new', $heading = '' )
 				$input.= apply_filters( 'wpmem_tos_link_txt', sprintf( __( 'Please indicate that you agree to the %s TOS %s', 'wp-members' ), $tos_pop, '</a>' ), $toggle );
 				
 				// in previous versions, the div class would end up being the same as the row before.
-				$field_before = ( $wrap_inputs ) ? '<div class="col-sm-offset-4 col-sm-8">' : '';
+				$field_before = ( $wrap_inputs ) ? '<div class="col-sm-offset-4 col-sm-4">' : '';
 				$field_after  = ( $wrap_inputs ) ? '</div>' : '';
 
 			} else {
@@ -842,7 +842,7 @@ function wpmem_inc_registration( $toggle = 'new', $heading = '' )
 	$form = '<form name="form" method="post"' . $enctype . ' action="' . get_permalink() . '" id="' . $form_id . '" class="' . $form_class . '">' . $n . $form. $n . '</form>';
 	
 	// apply anchor
-	$form = '<a name="register"></a>' . $n . $form;
+	$form = '<a name="register"><div class=col-sm-6>' . $n . $form;
 	
 	// apply main div wrapper
 	$form = $main_div_before . $n . $form . $n . $main_div_after . $n;
