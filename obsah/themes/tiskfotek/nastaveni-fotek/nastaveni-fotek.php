@@ -417,15 +417,36 @@ jQuery(document).ready(function(){
             });
         }
         */
-        var i=0;
-        var pocet_fotek = <?php echo $celkovy_pocet; ?>;
         
-            jQuery('.cena-fotka-'+i).bind("DOMSubtreeModified",function(){
-                
-                var cenovka = jQuery(".cena-fotka-"+i+" span").text();                
-                jQuery(".celkova-cena span").html(cenovka);
-            });
-    
+        
+        
+        
+        var celkem = 0.00;
+            
+
+        <?php 
+        for($i=0;$i<$celkovy_pocet;$i++) {?>
+      /*      var i=0;
+            var pocet_fotek = <?php echo $celkovy_pocet; ?>;
+            jQuery('.cena-fotky span').each(function(){
+            celkem = 0;
+                jQuery('.cena-fotka-<?php echo $i; ?>').bind("DOMSubtreeModified",function(){
+                    
+                    var cenovka = parseFloat(jQuery(".cena-fotka-<?php echo $i; ?> span").text());                
+                    celkem = celkem + parseFloat(cenovka);
+                    jQuery(".celkova-cena span").html(celkem.toFixed(2));
+                });
+            });*/
+       
+        
+                jQuery('.cena-fotka-<?php echo $i; ?>').bind("DOMSubtreeModified",function(){    
+                    celkem = 0;
+                    var cenovka = parseFloat(jQuery(".cena-fotka-<?php echo $i; ?> span").text());
+                });
+        
+        <?php } ?>
+        
+ 
     });
     </script>
 	</div>
