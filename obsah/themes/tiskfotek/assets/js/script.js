@@ -1029,4 +1029,32 @@
 		return this;
 	};
 
-})(jQuery);
+    
+/*
+* REGISTRACE
+*/
+    
+$('.registrace-tlacitko').click(function(e){
+	$(".registrace-zobrazeni").show("slow");
+	});  
+    
+var delay = (function(){
+  var timer = 0;
+  return function(callback, ms){
+  clearTimeout (timer);
+  timer = setTimeout(callback, ms);
+ };
+})();
+
+$('#billing_company').keyup(function() {
+  delay(function(){
+   $( "#billing_dic" ).show("slow");
+   $( "#billing_ico" ).show("slow");  
+   $( 'label[for="billing_ico"]' ).show("slow");  
+   $( 'label[for="billing_dic"]' ).show("slow");  
+          
+  }, 1000 );
+});   
+    
+})(jQuery); // KONEC jQuery
+

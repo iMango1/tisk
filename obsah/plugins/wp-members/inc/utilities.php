@@ -44,7 +44,8 @@ if ( ! function_exists( 'wpmem_create_formfield' ) ):
  * @param  string $class    Optional for setting a specific CSS class for the field.
  * @return string $str      The field returned as a string.
  */
-function wpmem_create_formfield( $name, $type, $value, $valtochk=null, $class='textbox' ) {
+
+function wpmem_create_formfield( $name, $type, $value, $valtochk=null, $class='textbox', $placeholder ) {
 
 	switch ( $type ) {
 
@@ -60,7 +61,7 @@ function wpmem_create_formfield( $name, $type, $value, $valtochk=null, $class='t
 
 	case "text":
 		$value = stripslashes( esc_attr( $value ) );
-		$str = "<input name=\"$name\" type=\"$type\" id=\"$name\" value=\"$value\" class=\"$class\" />";
+		$str = "<input name=\"$name\" type=\"$type\" id=\"$name\" value=\"$value\" class=\"$class\" placeholder=\"$placeholder\" />";
 		break;
 
 	case "textarea":

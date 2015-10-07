@@ -180,7 +180,8 @@ function wpmem_inc_login( $page="page", $redirect_to = null )
 			'type'   => 'password', 
 			'tag'    => 'pwd', 
 			'class'  => 'form-control',
-			'div'    => 'col-sm-8'
+			'div'    => 'col-sm-8',
+            'placeholder' => 'Heslo'
 		)
 	);
 	
@@ -212,18 +213,19 @@ function wpmem_inc_login( $page="page", $redirect_to = null )
 
 	$arr  = wp_parse_args( $args, $defaults );
 
-	$str .= "<div class=\"row grey\"><div class=\"col-sm-6 grey\">";
+	$str .= "<div class=\"row\"><div class=\"col-sm-6 prihlaseni\">";
 	$str  = $str . wpmem_login_form( $page, $arr );
 	$str .= "</div>\n";
-/*	$str .= "<div class=\"col-sm-6\">";
-	$str .= "<h3>New Users</h3>\n";
-	$str .= "<p>If you are a Dutch Cheese Maker broker or customer and would like to apply for access, click \"Create Account\" and enter the information requested on the next page.</p>\n";
+	$str .= "<div class=\"col-sm-6 registrace\">";
+	$str .= "<h3>Nový zákazník</h3>\n";
+	$str .= "<p>Jste zde poprvé a přejete si vytvořit zákaznický účte? Nabízí spousty výhod. Pro vytvoření účtu klikně na tlačítko \"Vytvořit účet\".</p>\n";
 
 	$link = apply_filters( 'wpmem_reg_link', WPMEM_REGURL );
-	$str  .= '<div style="text-align:center;"><a class="btn btn-primary contact-btn" href="' . $link . '">Create Account</a></div>';
-		
+	/*$str  .= '<div style="text-align:center;"><a class="btn btn-primary contact-btn" href="' . $link . '">Vytvořit účet</a></div>'; */
+	$str  .= '<div style="text-align:center;"><button class="btn btn-primary contact-btn registrace-tlacitko">Vytvořit účet</button></div>';
+    
 	$str .= "</div>\n"; 
-	$str .= "</div>\n"; */
+	$str .= "</div>\n"; 
 	return $str; 
 }
 /**
@@ -296,7 +298,7 @@ function wpmem_login_form( $page, $arr )
 	// build the input rows
 	foreach ( $inputs as $input ) {
 		$label = '<label for="' . $input['tag'] . '" class="col-sm-4 control-label">' . $input['name'] . '</label>';
-		$field = wpmem_create_formfield( $input['tag'], $input['type'], '', '', $input['class'] );
+		$field = wpmem_create_formfield( $input['tag'], $input['type'], '', '', $input['class'], $input['name'] );
 		$field_before = ( $wrap_inputs ) ? '<div class="' . $input['div'] . '">' : '';
 		$field_after  = ( $wrap_inputs ) ? '</div>' : '';
 		$rows[] = array( 
@@ -470,11 +472,11 @@ function wpmem_inc_registration( $toggle = 'new', $heading = '' )
 		'heading_after'   => '</h3>',
 		'fieldset_before' => '',
 		'fieldset_after'  => '',
-		'main_div_before' => '<div id="wpmem_login">',
+		'main_div_before' => '<div id="wpmem_login formular-registrace">',
 		'main_div_after'  => '</div>',
 		'txt_before'      => '[wpmem_txt]',
 		'txt_after'       => '[/wpmem_txt]',
-		'row_before'      => '<div class="form-group">',
+		'row_before'      => '<div class="form-group col-sm-6">',
 		'row_after'       => '</div>',
 		'buttons_before'  => '<div class="form-group"><div style="float: right; padding-right: 15px;">',
 		'buttons_after'   => '</div></div>',
@@ -534,7 +536,7 @@ function wpmem_inc_registration( $toggle = 'new', $heading = '' )
 		// this is a new registration
 		$val   = ( isset( $_POST['log'] ) ) ? stripslashes( $_POST['log'] ) : '';
 		$label = '<label for="username" class="col-sm-4 control-label">' . __( 'Choose a Username', 'wp-members' ) . $req_mark . '</label>';
-		$input = wpmem_create_formfield( 'log', 'text', $val, '', 'form-control' );
+		$input = wpmem_create_formfield( 'log', 'text', $val, '', 'form-control', 'Uživatelské jméno' );
 
 	}
 	$field_before = ( $wrap_inputs ) ? '<div class="col-sm-8">' : '';
@@ -680,7 +682,7 @@ function wpmem_inc_registration( $toggle = 'new', $heading = '' )
 				if( ! isset( $valtochk ) ) { $valtochk = ''; }
 				
 				// for all other input types
-				$input = wpmem_create_formfield( $field[2], $field[3], $val , $valtochk, 'form-control' );
+				$input = wpmem_create_formfield( $field[2], $field[3], $val , $valtochk, 'form-control', $field[1] );
 				
 				// determine input wrappers
 				$field_before = ( $wrap_inputs ) ? '<div class="col-sm-8">' : '';
@@ -842,7 +844,7 @@ function wpmem_inc_registration( $toggle = 'new', $heading = '' )
 	$form = '<form name="form" method="post"' . $enctype . ' action="' . get_permalink() . '" id="' . $form_id . '" class="' . $form_class . '">' . $n . $form. $n . '</form>';
 	
 	// apply anchor
-	$form = '<a name="register"><div class=col-sm-6>' . $n . $form;
+	$form = '<a name="register"><div class="col-sm-12 registrace-zobrazeni">' . $n . $form;
 	
 	// apply main div wrapper
 	$form = $main_div_before . $n . $form . $n . $main_div_after . $n;
