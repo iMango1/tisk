@@ -181,7 +181,6 @@ function wpmem_inc_login( $page="page", $redirect_to = null )
 			'tag'    => 'pwd', 
 			'class'  => 'form-control',
 			'div'    => 'col-sm-8',
-            'placeholder' => 'Heslo'
 		)
 	);
 	
@@ -260,7 +259,7 @@ function wpmem_login_form( $page, $arr )
 		'row_after'       => '',
 		'buttons_before'  => '<div class="form-group"><div class="col-sm-offset-4 col-sm-8">',
 		'buttons_after'   => '</div></div>',
-		'link_before'     => '<div class="row"><div class="col-sm-offset-2 col-sm-10">',
+		'link_before'     => '<div class="row"><div class="col-sm-offset-4 col-sm-9">',
 		'link_after'      => '</div></div>',
 		
 		// classes & ids
@@ -539,7 +538,7 @@ function wpmem_inc_registration( $toggle = 'new', $heading = '' )
 		$input = wpmem_create_formfield( 'log', 'text', $val, '', 'form-control', 'Uživatelské jméno' );
 
 	}
-	$field_before = ( $wrap_inputs ) ? '<div class="col-sm-8">' : '';
+	$field_before = ( $wrap_inputs ) ? '<div class="col-sm-12">' : '';
 	$field_after  = ( $wrap_inputs ) ? '</div>': '';
 	
 	// add the username row to the array
@@ -685,7 +684,7 @@ function wpmem_inc_registration( $toggle = 'new', $heading = '' )
 				$input = wpmem_create_formfield( $field[2], $field[3], $val , $valtochk, 'form-control', $field[1] );
 				
 				// determine input wrappers
-				$field_before = ( $wrap_inputs ) ? '<div class="col-sm-8">' : '';
+				$field_before = ( $wrap_inputs ) ? '<div class="col-sm-12">' : '';
 				$field_after  = ( $wrap_inputs ) ? '</div>' : '';
 			}
 
@@ -843,8 +842,30 @@ function wpmem_inc_registration( $toggle = 'new', $heading = '' )
 	$enctype = ( $enctype == 'multipart/form-data' ) ? ' enctype="multipart/form-data"' : '';
 	$form = '<form name="form" method="post"' . $enctype . ' action="' . get_permalink() . '" id="' . $form_id . '" class="' . $form_class . '">' . $n . $form. $n . '</form>';
 	
+    //Leva strana registrace
+    $levastrana = '<hr><div class="col-sm-6 registrace-zobrazeni">
+			<div class="not-important" id="need_help">
+				<h3>Potřebujete pomoc?</h3>
+				<p>Nevíte si s něčím rady? Pomůžeme Vám.</p>
+				<br>
+				<address>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="col-md-3"><i class="fa fa-envelope fa-3x"></i></div>
+							<div class="col-md-9"><strong>E-mail:</strong><br><a href="mailto:info@tiskfotek.eu">info@tiskfotek.eu</a></div>
+						</div>
+						
+						<div class="col-md-6">
+							<div class="col-md-3"><i class="fa fa-phone fa-3x"></i></div>
+							<div class="col-md-9"><strong>Telefon:</strong><br>+420 775 707 808</div>
+						</div>
+					</div>
+				</address>
+			</div>
+			
+		</div>';
 	// apply anchor
-	$form = '<a name="register"><div class="col-sm-12 registrace-zobrazeni">' . $n . $form;
+	$form = $levastrana . '<a name="register"><div class="col-sm-6 registrace-zobrazeni">' . $n . $form;
 	
 	// apply main div wrapper
 	$form = $main_div_before . $n . $form . $n . $main_div_after . $n;
