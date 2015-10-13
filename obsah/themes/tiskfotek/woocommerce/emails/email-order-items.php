@@ -23,6 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
+            
+
 foreach ( $items as $item_id => $item ) :
 	$_product     = apply_filters( 'woocommerce_order_item_product', $order->get_product_from_item( $item ), $item );
 	$item_meta    = new WC_Order_Item_Meta( $item['item_meta'], $_product );
@@ -30,8 +32,7 @@ foreach ( $items as $item_id => $item ) :
 	if ( apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 		?>
 			<?php
-
-
+            
 				// Show title/image etc
 			/*	if ( $show_image ) {
 					echo apply_filters( 'woocommerce_order_item_thumbnail', '<img src="' . ( $_product->get_image_id() ? current( wp_get_attachment_image_src( $_product->get_image_id(), 'thumbnail') ) : wc_placeholder_img_src() ) .'" alt="' . __( 'Product Image', 'woocommerce' ) . '" height="' . esc_attr( $image_size[1] ) . '" width="' . esc_attr( $image_size[0] ) . '" style="vertical-align:middle; margin-right: 10px;" />', $item );
@@ -80,14 +81,14 @@ foreach ( $items as $item_id => $item ) :
                 */
         
 //FOTOOBRAZY - PŘIDÁNÍ POMLČKY!!
-        /*
+       /*
                 foreach($item as $klic => $jedna_polozka) {
-                    if(( strpos($jedna_polozka,"Fotoob") !== false )){
-                //    array_push($item,"-");
-                    array_splice( $item, count($item)-1, 0, "-" );
+                    if(( $jedna_polozka == "Fotoobraz" )){
+                        end($item);
+                        prev($item) = "-";
                    }
                 }
-        */
+  */
     ?>
 			
 			
@@ -95,27 +96,36 @@ foreach ( $items as $item_id => $item ) :
                 <tr>
                     <td style="text-align:center; border-bottom: 1px solid #c9c9c9; background: #f3f3f3;"><img height="50" src="<?php echo $item["item_meta"]["Fotky"][0]; ?>" style="height:50px;"></td>
                    <?php 
-                    foreach($item as $klic => $jedna_polozka) { 
-                    if(( $klic != "name" ) &&
-                    ( $klic != "type" ) &&
-                    ( $klic != "item_meta" ) &&
-                    ( $klic != "qty" ) &&
-                    ( $klic != "tax_class" ) &&
-                    ( $klic != "product_id" ) &&
-                    ( $klic != "variation_id" ) &&
-                    ( $klic != "line_subtotal" ) &&
-                    ( $klic != "line_total" ) &&
-                    ( $klic != "line_subtotal_tax" ) &&
-                    ( $klic != "line_tax" ) &&
-                    ( $klic != "Fotky" ) &&
-                    ( $klic != "id_objednavky - id" ) &&
-                    ( $klic != "item_meta_array" ) && 
-                    ( $klic != "line_tax_data" ) ){   
-                    
-                    ?>
-                    <td style="border-bottom: 1px solid #c9c9c9; background: #f3f3f3;"><?php echo $jedna_polozka; ?></td>     
-                    <?php 
-                        
+                    $k = 0;
+                    foreach($item as $klic => $jedna_polozka) {
+                        if(( $klic != "name" ) &&
+                        ( $klic != "type" ) &&
+                        ( $klic != "item_meta" ) &&
+                        ( $klic != "qty" ) &&
+                        ( $klic != "tax_class" ) &&
+                        ( $klic != "product_id" ) &&
+                        ( $klic != "variation_id" ) &&
+                        ( $klic != "line_subtotal" ) &&
+                        ( $klic != "line_total" ) &&
+                        ( $klic != "line_subtotal_tax" ) &&
+                        ( $klic != "line_tax" ) &&
+                        ( $klic != "Fotky" ) &&
+                        ( $klic != "id_objednavky - id" ) &&
+                        ( $klic != "item_meta_array" ) && 
+                        ( $klic != "line_tax_data" ) ){   
+
+                            
+                            if($jedna_polozka == "Fotoobraz"){
+                            echo "<td style='border-bottom: 1px solid #c9c9c9; background: #f3f3f3;'>$jedna_polozka</td>";
+                            echo "<td style='border-bottom: 1px solid #c9c9c9; background: #f3f3f3;'>".$item["Velikost fotoobrazu"]."</td>";
+                            echo "<td style='border-bottom: 1px solid #c9c9c9; background: #f3f3f3;'>-</td>";
+                            echo "<td style='border-bottom: 1px solid #c9c9c9; background: #f3f3f3;'>".$item["Typ"]."</td>";
+                            break;
+                            }
+                            else 
+                                echo "<td style='border-bottom: 1px solid #c9c9c9; background: #f3f3f3;'>$jedna_polozka</td>";    
+            
+                        $k++;
                         } 
                     } 
                     
@@ -127,7 +137,7 @@ foreach ( $items as $item_id => $item ) :
 			
 
 		<?php
-//	echo "<pre>",print_r($item),"</pre>";	
+	//echo "<pre>",print_r($item),"</pre>";	
     }
 
 	if ( $show_purchase_note && is_object( $_product ) && ( $purchase_note = get_post_meta( $_product->id, '_purchase_note', true ) ) ) : ?>
@@ -136,6 +146,7 @@ foreach ( $items as $item_id => $item ) :
 
 <?php endforeach; ?>
 <?php 
+
 $totals = $order->get_order_item_totals()
 ?>
     <tr>
