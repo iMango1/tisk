@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<td class="thumb"><div></div></td>
 
-	<td class="name">
+	<td class="name" colspan="4">
 		<div class="view">
 			<?php echo ! empty( $item['name'] ) ? esc_html( $item['name'] ) : __( 'Shipping', 'woocommerce' ); ?>
 		</div>

@@ -12,7 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <tr class="item <?php echo apply_filters( 'woocommerce_admin_html_order_item_class', ( ! empty( $class ) ? $class : '' ), $item ); ?>" data-order_item_id="<?php echo $item_id; ?>">
 	<td class="check-column"><input type="checkbox" /></td>
-	<td class="thumb">
+	<td class="thumb" style="text-align:center;" width="10%">
+		<!--
 		<?php if ( $_product ) : ?>
 			<a href="<?php echo esc_url( admin_url( 'post.php?post=' . absint( $_product->id ) . '&action=edit' ) ); ?>" class="tips" data-tip="<?php
 
@@ -32,23 +33,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 					echo '<br/>' . wc_get_formatted_variation( $_product->variation_data, true );
 				}
 
-			?>"><?php echo $_product->get_image( 'shop_thumbnail', array( 'title' => '' ) ); ?></a>
+			?>"><?php echo $_product->get_image( 'shop_thumbnail', array( 'title' => '' ) ); ?></a>-->
 		<?php else : ?>
 			<?php echo wc_placeholder_img( 'shop_thumbnail' ); ?>
 		<?php endif; ?>
+		
+		
+		<?php 
+            $url_fotky = $item["Fotky"];
+            $rozkouskovane = explode('"',$url_fotky);
+            
+            echo "<a href='".$rozkouskovane[1]."' target='_blank'><img src='".$rozkouskovane[1]."' width='80'></a>";
+            
+        ?>
 	</td>
-	<td class="name" data-sort-value="<?php echo esc_attr( $item['name'] ); ?>">
+	<!--
+    <td class="name" data-sort-value="<?php echo esc_attr( $item['name'] ); ?>">
 
 		<?php echo ( $_product && $_product->get_sku() ) ? esc_html( $_product->get_sku() ) . ' &ndash; ' : ''; ?>
 
 		<?php if ( $_product ) : ?>
-			<a target="_blank" href="<?php echo esc_url( admin_url( 'post.php?post=' . absint( $_product->id ) . '&action=edit' ) ); ?>">
+			<!-- <a target="_blank" href="<?php echo esc_url( admin_url( 'post.php?post=' . absint( $_product->id ) . '&action=edit' ) ); ?>">
 				<?php echo esc_html( $item['name'] ); ?>
-			</a>
+			</a> -->
 		<?php else : ?>
-			<?php echo esc_html( $item['name'] ); ?>
+			<?php // echo esc_html( $item['name'] ); ?>
 		<?php endif; ?>
-
+<!--
 		<input type="hidden" class="order_item_id" name="order_item_id[]" value="<?php echo esc_attr( $item_id ); ?>" />
 		<input type="hidden" name="order_item_tax_class[<?php echo absint( $item_id ); ?>]" value="<?php echo isset( $item['tax_class'] ) ? esc_attr( $item['tax_class'] ) : ''; ?>" />
 
@@ -57,12 +68,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="view">
 			<?php
 				global $wpdb;
-
+/*
 				if ( $metadata = $order->has_meta( $item_id ) ) {
                 //    echo "<pre>",print_r($order->has_meta( $item_id )),"</pre>";
 					echo '<table cellspacing="0" class="display_meta">';
+                    
 					foreach ( $metadata as $meta ) {
-
+                       // echo "<pre>",print_r($meta),"</pre>";
 						// Skip hidden core fields
 						if ( in_array( $meta['meta_key'], apply_filters( 'woocommerce_hidden_order_itemmeta', array(
 							'_qty',
@@ -95,6 +107,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 					}
 					echo '</table>';
 				}
+                */
 			?>
 		</div>
 		<div class="edit" style="display: none;">
@@ -149,10 +162,51 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php do_action( 'woocommerce_after_order_itemmeta', $item_id, $item, $_product ) ?>
 
 	</td>
+-->
+    <?php 
+                    foreach($item as $klic => $jedna_polozka) {
+                        if(( $klic != "name" ) &&
+                        ( $klic != "type" ) &&
+                        ( $klic != "item_meta" ) &&
+                        ( $klic != "qty" ) &&
+                        ( $klic != "tax_class" ) &&
+                        ( $klic != "product_id" ) &&
+                        ( $klic != "variation_id" ) &&
+                        ( $klic != "line_subtotal" ) &&
+                        ( $klic != "line_total" ) &&
+                        ( $klic != "line_subtotal_tax" ) &&
+                        ( $klic != "line_tax" ) &&
+                        ( $klic != "Fotky" ) &&
+                        ( $klic != "id_objednavky - id" ) &&
+                        ( $klic != "item_meta_array" ) && 
+                        ( $klic != "line_tax_data" ) ){   
+
+                            
+                            if($jedna_polozka == "Fotoobraz"){
+                                echo "<td width='10%'>$jedna_polozka</td>";
+                                echo "<td width='23%'>".$item["Velikost fotoobrazu"]."</td>";
+                                echo "<td width='16%'>-</td>";
+                                echo "<td width='10%'>".$item["Typ"]."</td>";
+                                break;
+                            }
+                            else{ 
+                                if(strpos($klic,'Formát')!== false || strpos($klic,'Typ') !== false)
+                                    echo "<td width='10%'>$jedna_polozka</td>";
+                                elseif(strpos($klic,'Materi') !== false || strpos($klic,'fotopap') !== false )
+                                    echo "<td width='23%'>$jedna_polozka</td>";
+                                else
+                                    echo "<td width='16%'>$jedna_polozka</td>";    
+                            
+                            }
+
+                        } 
+                    } 
+                    
+                    ?>
 
 	<?php do_action( 'woocommerce_admin_order_item_values', $_product, $item, absint( $item_id ) ); ?>
 
-	<td class="item_cost" width="1%" data-sort-value="<?php echo esc_attr( $order->get_item_subtotal( $item, false, true ) ); ?>">
+	<td class="item_cost" width="5%" data-sort-value="<?php echo esc_attr( $order->get_item_subtotal( $item, false, true ) ); ?>">
 		<div class="view">
 			<?php
 				if ( isset( $item['line_total'] ) ) {
@@ -165,7 +219,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 	</td>
 
-	<td class="quantity" width="1%">
+	<td class="quantity" width="5%">
 		<div class="view">
 			<?php
 				echo ( isset( $item['qty'] ) ) ? esc_html( $item['qty'] ) : '';
@@ -184,7 +238,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 	</td>
 
-	<td class="line_cost" width="1%" data-sort-value="<?php echo esc_attr( isset( $item['line_total'] ) ? $item['line_total'] : '' ); ?>">
+	<td class="line_cost" width="5%" data-sort-value="<?php echo esc_attr( isset( $item['line_total'] ) ? $item['line_total'] : '' ); ?>">
 		<div class="view">
 			<?php
 				if ( isset( $item['line_total'] ) ) {

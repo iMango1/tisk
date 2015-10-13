@@ -49,7 +49,12 @@ if ( wc_tax_enabled() ) {
 		<thead>
 			<tr>
 				<th><input type="checkbox" class="check-column" /></th>
-				<th class="item sortable" colspan="2" data-sort="string-ins"><?php _e( 'Item', 'woocommerce' ); ?></th>
+				<!--<th class="item sortable" colspan="2" data-sort="string-ins"><?php _e( 'Item', 'woocommerce' ); ?></th>-->
+				<th style="text-align:center;">Fotografie</th>
+				<th>Formát</th>
+				<th>Materiál</th>
+				<th>Deska</th>
+				<th>Typ</th>
 
 				<?php do_action( 'woocommerce_admin_order_item_headers', $order ); ?>
 
@@ -81,7 +86,7 @@ if ( wc_tax_enabled() ) {
 		<tbody id="order_line_items">
         <p style="margin-left: 20px; font-weight:normal; font-size: 23px;">ID OBJEDNÁVKY NA FTP: <span style="color: rgb(153,114,181);">
 <?php 
-		  // echo "<pre>",print_r($line_items),"</pre>";
+		   
 
           foreach($line_items as $klicek => $polozka){
             
@@ -95,15 +100,17 @@ if ( wc_tax_enabled() ) {
 </p>
         		
 		<?php
-
+  
         
             foreach ( $line_items as $item_id => $item ) {
-				$_product  = $order->get_product_from_item( $item );
+            //    echo "<pre>",print_r($item),"</pre>";    
+				
+                $_product  = $order->get_product_from_item( $item );
 				$item_meta = $order->get_item_meta( $item_id );
 
 				include( 'html-order-item.php' );
 
-				do_action( 'woocommerce_order_item_' . $item['type'] . '_html', $item_id, $item, $order );
+				do_action( 'woocommerce_order_item_' . $item['type'] . '_html', $item_id, $item, $order ); 
 			}
 		?>
 		</tbody>
