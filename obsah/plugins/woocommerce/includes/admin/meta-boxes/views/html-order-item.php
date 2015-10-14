@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 ?>
+<script src="js/lightbox.js"></script>
 <tr class="item <?php echo apply_filters( 'woocommerce_admin_html_order_item_class', ( ! empty( $class ) ? $class : '' ), $item ); ?>" data-order_item_id="<?php echo $item_id; ?>">
 	<td class="check-column"><input type="checkbox" /></td>
 	<td class="thumb" style="text-align:center;" width="10%">
@@ -43,7 +44,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             $url_fotky = $item["Fotky"];
             $rozkouskovane = explode('"',$url_fotky);
             
-            echo "<a href='".$rozkouskovane[1]."' target='_blank'><img src='".$rozkouskovane[1]."' width='80'></a>";
+            echo "<a href='".$rozkouskovane[1]."' data-lightbox='fotky' target='_blank'><img src='".$rozkouskovane[1]."' width='80'></a>";
             
         ?>
 	</td>
