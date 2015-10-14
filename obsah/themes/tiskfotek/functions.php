@@ -61,7 +61,7 @@ body:after {
   position: absolute;
   left: 0;
   width: 100%;
-  z-index: 10000;
+  z-index: 10000000;
   text-align: center;
   line-height: 0;
   font-weight: normal;
