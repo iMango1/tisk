@@ -20,21 +20,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 <?php do_action( 'woocommerce_email_before_order_table', $order, true, false ); ?>
 
 <h2><a href="<?php echo admin_url( 'post.php?post=' . $order->id . '&action=edit' ); ?>"><?php printf( __( 'Order #%s', 'woocommerce'), $order->get_order_number() ); ?></a> (<?php printf( '<time datetime="%s">%s</time>', date_i18n( 'c', strtotime( $order->order_date ) ), date_i18n( wc_date_format(), strtotime( $order->order_date ) ) ); ?>)</h2>
-
+<!--
 <table cellspacing="0" cellpadding="6" style="width: 100%; border: 1px solid #eee;" border="1" bordercolor="#eee">
-<!--	<thead>
+	<thead>
 		<tr>
 			<th scope="col" style="text-align:left; border: 1px solid #eee;"><?php _e( 'Product', 'woocommerce' ); ?></th>
 			<th scope="col" style="text-align:left; border: 1px solid #eee;"><?php _e( 'Quantity', 'woocommerce' ); ?></th>
 			<th scope="col" style="text-align:left; border: 1px solid #eee;"><?php _e( 'Price', 'woocommerce' ); ?></th>
 		</tr>
-	</thead>-->
-	<tbody>
+	</thead>
+	<tbody>-->
 		<?php echo $order->email_order_items_table( false, true ); ?>
-	</tbody>
+<!--	</tbody>
 
 </table>
-<!--
+
 	<table>
 		<?php
 			if ( $totals = $order->get_order_item_totals() ) {
