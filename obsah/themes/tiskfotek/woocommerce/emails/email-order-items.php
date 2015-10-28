@@ -94,7 +94,7 @@ foreach ( $items as $item_id => $item ) :
 			
                 
                 <tr>
-                    <td style="text-align:center; border-bottom: 1px solid #c9c9c9; background: #f3f3f3;"><img height="50" src="<?php echo $item["item_meta"]["Fotky"][0]; ?>" style="height:50px;"></td>
+                    <td style="text-align:center; border-bottom: 1px solid #c9c9c9; background: #f3f3f3;"><img src="<?php echo $item["item_meta"]["Fotky"][0]; ?>" style="width:95px;"></td>
                    <?php 
                     $k = 0;
                     foreach($item as $klic => $jedna_polozka) {
