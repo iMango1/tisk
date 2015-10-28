@@ -178,7 +178,36 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
             
         
         
-        <table role="presentation" class="table table-striped"><tbody class="files"></tbody></table>
+        <table role="presentation" class="table table-striped">
+           
+           <tbody class="files">
+    
+            </tbody>
+            
+            <?php
+                    if(isset($_SESSION)){
+            $slozka = $_SESSION["nazev_slozky"];
+            $soubory_v_slozce = glob("/home/web/skakaciatrakce.cz/objednavky/$slozka/*.*"); 
+            
+            
+            for ($i=0; $i<count($soubory_v_slozce); $i++) {
+                
+                $foto = $soubory_v_slozce[$i];
+                $foto_roz = explode("objednavky/", $foto);
+            ?>
+                <img src="http://objednavky.skakaciatrakce.cz/<?php echo $foto_roz[1]; ?>">
+                <input type="hidden" name="fotky[]" value="http://objednavky.skakaciatrakce.cz/<?php echo $foto_roz[1]; ?>">
+                <input type="hidden" name="fotky_miniatury[]" value="http://objednavky.skakaciatrakce.cz/<?php echo $foto_roz[1]; ?>">
+                <script>
+                jQuery( document ).ready(function() {
+                    jQuery(".pokracovat").removeClass("disabled");
+                });
+                </script>
+            <?php
+            }
+        }
+         ?>   
+            </table>
        
         <button class="pokracovat btn btn-large main-bg pull-right disabled">Pokračovat k objednávce</button>
         
@@ -194,7 +223,9 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
 
 
     <?php
-	$args = array(
+        
+        
+        $args = array(
 		'post_type' => 'product',
 		'posts_per_page' => 12
 		);
