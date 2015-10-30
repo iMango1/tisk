@@ -182,31 +182,72 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
            
            <tbody class="files">
     
-            </tbody>
+    
             
             <?php
-                    if(isset($_SESSION)){
+             //VELIKOSTI SOUBORŮ
+                function velikost($bytes, $decimals = 2) {
+                    $sz = 'BKMGTP';
+                    $factor = floor((strlen($bytes) - 1) / 3);
+                    return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) ." ". @$sz[$factor];
+                }   
+               
+            if(isset($_SESSION["nazev_slozky"])){
+            //ZRUŠENÍ DISABLED U TLAČÍTKA - protože existují fotografie
+            ?>
+                <script>
+                    jQuery( document ).ready(function() {
+                        jQuery(".pokracovat").removeClass("disabled");
+                    });
+                </script>
+            <?php
+                        
             $slozka = $_SESSION["nazev_slozky"];
             $soubory_v_slozce = glob("/home/web/skakaciatrakce.cz/objednavky/$slozka/*.*"); 
-            
             
             for ($i=0; $i<count($soubory_v_slozce); $i++) {
                 
                 $foto = $soubory_v_slozce[$i];
                 $foto_roz = explode("objednavky/", $foto);
+                $id_a_fotka = $foto_roz[1];
+                $jen_foto = explode("/",$id_a_fotka);
+                $url = "/home/web/skakaciatrakce.cz/objednavky/".$foto_roz[1];
+
             ?>
-                <img src="http://objednavky.skakaciatrakce.cz/<?php echo $foto_roz[1]; ?>">
-                <input type="hidden" name="fotky[]" value="http://objednavky.skakaciatrakce.cz/<?php echo $foto_roz[1]; ?>">
-                <input type="hidden" name="fotky_miniatury[]" value="http://objednavky.skakaciatrakce.cz/<?php echo $foto_roz[1]; ?>">
-                <script>
-                jQuery( document ).ready(function() {
-                    jQuery(".pokracovat").removeClass("disabled");
-                });
-                </script>
+                    <tr class="template-download">
+                          <td>
+                            <span class="preview">
+                                <img src="http://objednavky.skakaciatrakce.cz/<?php echo $foto_roz[1]; ?>" style="max-width:100px; max-heihgt:100px">
+
+                            </span>
+                        </td>
+                        <td>
+                            <p class="name">
+                                <?php echo $jen_foto[1];?>
+                            </p>
+                            <input type="hidden" name="fotky[]" value="http://www.skakaciatrakce.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/<?php echo $jen_foto[1];?>">
+                            <input type="hidden" name="fotky_miniatury[]" value="http://www.skakaciatrakce.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/thumbnail/<?php echo $jen_foto[1];?>">
+                        </td>
+                        <td>
+                            <?php echo velikost(filesize($url))."B"; ?>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger delete" data-type="DELETE" data-url="http://www.skakaciatrakce.cz/obsah/themes/tiskfotek/nahrani/server/php/index.php?file=<?php echo $jen_foto[1];?>">
+                                <i class="glyphicon glyphicon-trash"></i>
+                                <span>Vymazat</span>
+                            </button>
+                            <input type="checkbox" name="delete" value="1" class="toggle">
+            
+                        </td>
+                    </tr>
+                       
+
             <?php
             }
+            
         }
          ?>   
+           </tbody>
             </table>
        
         <button class="pokracovat btn btn-large main-bg pull-right disabled">Pokračovat k objednávce</button>
