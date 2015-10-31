@@ -14,6 +14,39 @@ global $objednavka_id;
 $fotky_pred_kop = $_POST["fotky"]; 
 $fotky_miniatury = $_POST["fotky_miniatury"];
 
+$diakritika = array(
+    'á' => 'a',
+    'é' => 'e',
+    'ě' => 'e',
+    'í' => 'i',
+    'ý' => 'y',
+    'ó' => 'o',
+    'ú' => 'u',
+    'ů' => 'u',
+    'ž' => 'z',
+    'š' => 's',
+    'č' => 'c',
+    'ř' => 'r',
+    'ď' => 'd',
+    'ť' => 't',
+    'ň' => 'n',
+    'Á' => 'A',
+    'É' => 'E',
+    'Ě' => 'E',
+    'Í' => 'I',
+    'Ý' => 'Y',
+    'Ó' => 'O',
+    'Ú' => 'U',
+    'Ů' => 'U',
+    'Ž' => 'Z',
+    'Š' => 'S',
+    'Č' => 'C',
+    'Ř' => 'R',
+    'Ď' => 'D',
+    'Ť' => 'T',
+    'Ň' => 'N',
+    ' ' => '_'
+);
 
 date_default_timezone_set('Europe/Prague');
 
@@ -48,14 +81,21 @@ mkdir("/home/web/skakaciatrakce.cz/objednavky/$objednavka_id", 0777);
 $fotky = array();
 
     foreach($fotky_nazev_pred_kop as $kolotoc => $fotka_nazev_pred_kop){
+        
+        $s_dia = $fotka_nazev_pred_kop;
+        
+        $bez_diakritiky = strtr( $s_dia, $diakritika );
+        $fotka_nazev_pred_kop = $bez_diakritiky;
+        
+        $stare_jmeno = "/home/web/skakaciatrakce.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/$s_dia";
+        $nove_jmeno = "/home/web/skakaciatrakce.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/$bez_diakritiky";
+        
+        rename($stare_jmeno,$nove_jmeno);
+        
         $co = "http://www.skakaciatrakce.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/$fotka_nazev_pred_kop";
         $kam = "/home/web/skakaciatrakce.cz/objednavky/$objednavka_id/$fotka_nazev_pred_kop";
         copy($co,$kam);  
-        
-      //  $prejmenovany_soubor = str_replace("%20"," ", $fotka_nazev_pred_kop);
-        
-      //  $kam = "/home/web/skakaciatrakce.cz/objednavky/$objednavka_id/$prejmenovany_soubor";
-        
+
         $fotky[$kolotoc] = $kam;
         $_SESSION[$kolotoc]["id_fotky"] = $kolotoc;
         $_SESSION[$kolotoc]["nazev_slozky"] = $objednavka_id;
@@ -64,8 +104,7 @@ $fotky = array();
         $_SESSION[$kolotoc]["typ_souboru"] = pathinfo($fotka_nazev_pred_kop, PATHINFO_EXTENSION);
         $_SESSION[$kolotoc]["url_fotky"] = $fotky[$kolotoc]; 
         $_SESSION[$kolotoc]["url_fotky_upload"] = $co;
-        
-    //    rename("/home/web/skakaciatrakce.cz/objednavky/$objednavka_id/$fotka_nazev_pred_kop", "/home/web/skakaciatrakce.cz/objednavky/$objednavka_id/$prejmenovany_soubor");
+
         
     }
 
@@ -77,8 +116,6 @@ $fotky = array();
         }
 
         $vsechny_nahrane_fotky = $_SESSION;
-
-// echo "<pre>",print_r($_SESSION),"</pre>";
 
 $args = array(
 	'post_type' => 'product',

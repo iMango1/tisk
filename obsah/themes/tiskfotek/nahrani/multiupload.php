@@ -398,8 +398,8 @@ $(document).bind('dragover', function (e) {
                     <span>{%=file.name%}</span>
                 {% } %}
             </p>
-            <input type="hidden" name="fotky[]" value="{%=file.url%}">
-            <input type="hidden" name="fotky_miniatury[]" value="{%=file.thumbnailUrl%}">
+            <input type="hidden" name="fotky[]" value="http://www.skakaciatrakce.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/{%=file.name%}">
+            <input type="hidden" name="fotky_miniatury[]" value="http://www.skakaciatrakce.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/thumbnail/{%=file.name%}">
             
             {% if (file.error) { %}
                 <div><span class="label label-danger">Chyba</span> {%=file.error%}</div>

@@ -70,7 +70,7 @@ class Product_Addon_Field_File_Upload extends Product_Addon_Field {
                     
 					$value  = $upload;
                  
-                    
+                    $originalni_nazev = $fotka_nazev;
                     
                  
                     $format = $_POST["addon-3032-format"];
@@ -81,10 +81,6 @@ class Product_Addon_Field_File_Upload extends Product_Addon_Field {
                     $typ = $_POST["addon-3032-typ"];
                     $pocet = $_POST["quantity"];
                     
-                    
-                    
-    //$pojmenovani = $format.$fotopapir.$material.$velikost_fotoobrazu.$deska.$typ.$pocet."ks__FOTKA-".$_POST["cislo_f"].".".$_POST["typ_s"];
-                
                 $format_kousek = explode("-", $format);
                 $deska_kousek = explode("-", $deska);
                 $fotoobraz_kousek = explode("-", $velikost_fotoobrazu);
@@ -93,9 +89,9 @@ class Product_Addon_Field_File_Upload extends Product_Addon_Field {
                 $fotoobraz_bez_cisla = $fotoobraz_kousek[0]."-".$fotoobraz_kousek[1]."-".$fotoobraz_kousek[2]."-".$fotoobraz_kousek[3]."-".$fotoobraz_kousek[4]."-".$fotoobraz_kousek[5]."-".$fotoobraz_kousek[6];
                     
 if($format_kousek[0] == "fotoobraz")
-    $pojmenovani = $format_kousek[0]."__".$pocet."ks__".$fotoobraz_bez_cisla."__FOTKA-".$_POST["cislo_f"].".".$_POST["typ_s"];
+    $pojmenovani = $format_kousek[0]."__".$pocet."ks__".$fotoobraz_bez_cisla."__".$_POST["nazev_f"];
 else
-    $pojmenovani = $format_kousek[0]."__".$pocet."ks__".$deska_bez_cisla."__FOTKA-".$_POST["cislo_f"].".".$_POST["typ_s"];              
+    $pojmenovani = $format_kousek[0]."__".$pocet."ks__".$deska_bez_cisla."__".$_POST["nazev_f"];              
                     
                     
                     $cele_url_fotky = "http://objednavky.skakaciatrakce.cz/".$_POST["nazev_s"]."/$pojmenovani";
