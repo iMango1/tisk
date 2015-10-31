@@ -6,6 +6,9 @@
 
 get_header();
 
+$url = $_SERVER["SERVER_NAME"];
+$url_roz = explode(".", $url);
+$_NAZEV_WEBU = $url_roz[1];
 ?>
 
 <div id="sticky-anchor-kroky"></div>
