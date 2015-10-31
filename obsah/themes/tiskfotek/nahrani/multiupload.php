@@ -264,7 +264,25 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
 
 
     <?php
-        
+            //SCRIPT PRO MAZÁNÍ SOUBORŮ VE SLOŽCE NAHRÁNÍ. ODKOMENTÁŘOVAT POUZE TEHDY KDYŽ SE NĚCO POSERE A FOTOGRAFIE SE NESMAŽOU!!!
+            /*
+            $normal = glob("/home/web/skakaciatrakce.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/*.*"); 
+            
+            for ($i=0; $i<count($normal); $i++) {
+                
+                $foto = $normal[$i];
+                unlink($foto);
+            }
+            
+            $mini = glob("/home/web/skakaciatrakce.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/thumbnail/*.*"); 
+            
+            for ($i=0; $i<count($mini); $i++) {
+                
+                $foto = $mini[$i];
+                unlink($foto);
+            }
+            
+            */
         
         $args = array(
 		'post_type' => 'product',
