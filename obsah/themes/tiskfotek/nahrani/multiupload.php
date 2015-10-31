@@ -6,13 +6,6 @@
 
 get_header();
 
-
-/*
-session_start();
-
-global $vsechny_nahrane_fotky;
-print_r($vsechny_nahrane_fotky);
-*/
 ?>
 
 <div id="sticky-anchor-kroky"></div>
