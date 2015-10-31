@@ -284,56 +284,10 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
             
             */
         
-        $args = array(
-		'post_type' => 'product',
-		'posts_per_page' => 12
-		);
-	$loop = new WP_Query( $args );
-  
-  //  echo "<pre>",print_r(end($loop->posts)),"</pre>";
-    ?> <!--
-<select>
-
-    <?php
- /*   foreach($loop->posts as $jeden_produkt)
-        echo "<option value='".$jeden_produkt->ID."'> $jeden_produkt->post_title </option>";
-*/
-    
-    ?>
-</select>
-
-    <ul class="products">
-	<?php
-/*
-		if ( $loop->have_posts() ) {
-			while ( $loop->have_posts() ) : $loop->the_post();
-				wc_get_template_part( 'content', 'product' );
-			endwhile;
-		} else {
-			echo __( 'No products found' );
-		}
-		wp_reset_postdata();
-	*/?>
-</ul> -->
-   <?php
-//    echo "<pre>",print_r($loop),"</pre>";
-    
 ?>
 	</div>
 </div>
 
-
-
-<?php
-    
-
-  /*  $i = count($_FILES);
-    echo "Počet: $i";
-    for ($i=0; $i < 50; $i++) { 
-        $soubor[$i] = $_FILES["files"]["name"];
-    }
-*/
-?>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">
