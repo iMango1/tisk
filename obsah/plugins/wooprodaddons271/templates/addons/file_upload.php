@@ -45,7 +45,7 @@
 
     //foreach ($fotky as $i => $fotka) {
 		echo "<img src='$url_min' style='margin-right: 10px' class='fotka_objednavka'>"; 
-		echo "<input type='hidden' value='http://objednavky.skakaciatrakce.cz/".$fotky_nazev[$kolotoc]."' data-price='".get_product_addon_price_for_display( $option['price'] )."' name='fotky[]'>"; 
+		echo "<input type='hidden' value='http://objednavky.$_NAZEV_WEBU.cz/".$fotky_nazev[$kolotoc]."' data-price='".get_product_addon_price_for_display( $option['price'] )."' name='fotky[]'>"; 
         echo "<input type='hidden' value='$url_up' data-price='".get_product_addon_price_for_display( $option['price'] )."' name='fotky_upload[]'>"; 
 
         echo "<input type='hidden' value='$kolotoc' name='cislo_f'>";

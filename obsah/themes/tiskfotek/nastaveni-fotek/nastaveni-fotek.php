@@ -10,6 +10,9 @@ session_start();
 global $kolotoc;
 global $vsechny_nahrane_fotky;
 global $objednavka_id;
+$url = $_SERVER["SERVER_NAME"];
+$url_roz = explode(".", $url);
+$_NAZEV_WEBU = $url_roz[1];
 
 $fotky_pred_kop = $_POST["fotky"]; 
 $fotky_miniatury = $_POST["fotky_miniatury"];
@@ -55,7 +58,7 @@ if(get_current_user_id() == "0"){
     $rand_id_uzivatele = rand(1000,99999);
 
     
-    $slozky = scandir("/home/web/skakaciatrakce.cz/objednavky");
+    $slozky = scandir("/home/web/$_NAZEV_WEBU.cz/objednavky");
     foreach($slozky as $slozka){
         while (strpos($slozka,$rand_id_uzivatele."---") !== false) {
             $rand_id_uzivatele = rand(1000,99999);
@@ -72,7 +75,7 @@ else {
 
 $_SESSION["nazev_slozky"] = $objednavka_id;
 
-mkdir("/home/web/skakaciatrakce.cz/objednavky/$objednavka_id", 0777);
+mkdir("/home/web/$_NAZEV_WEBU.cz/objednavky/$objednavka_id", 0777);
 
     foreach ($fotky_pred_kop as $i => $fotka_pred_kop) {
         $fotka_kousek_url[$i] = explode("|/", $fotka_pred_kop);
@@ -87,13 +90,13 @@ $fotky = array();
         $bez_diakritiky = strtr( $s_dia, $diakritika );
         $fotka_nazev_pred_kop = $bez_diakritiky;
         
-        $stare_jmeno = "/home/web/skakaciatrakce.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/$s_dia";
-        $nove_jmeno = "/home/web/skakaciatrakce.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/$bez_diakritiky";
+        $stare_jmeno = "/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/$s_dia";
+        $nove_jmeno = "/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/$bez_diakritiky";
         
         rename($stare_jmeno,$nove_jmeno);
         
-        $co = "http://www.skakaciatrakce.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/$fotka_nazev_pred_kop";
-        $kam = "/home/web/skakaciatrakce.cz/objednavky/$objednavka_id/$fotka_nazev_pred_kop";
+        $co = "http://www.$_NAZEV_WEBU.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/$fotka_nazev_pred_kop";
+        $kam = "/home/web/$_NAZEV_WEBU.cz/objednavky/$objednavka_id/$fotka_nazev_pred_kop";
         copy($co,$kam);  
 
         $fotky[$kolotoc] = $kam;
@@ -365,7 +368,7 @@ jQuery(document).ready(function(){
             success: function (dataofconfirm) {
 
                 if(<?php echo $i; ?> == <?php echo $pomoc_celkovy_pocet; ?>)
-                    location.href = 'http://www.skakaciatrakce.cz/kosik'; 
+                    location.href = 'http://www.<?php echo $_NAZEV_WEBU; ?>.cz/kosik'; 
             }
         });
         

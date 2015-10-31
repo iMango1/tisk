@@ -5,10 +5,13 @@
  */
 
 get_header();
-
+/*
 $url = $_SERVER["SERVER_NAME"];
 $url_roz = explode(".", $url);
+
 $_NAZEV_WEBU = $url_roz[1];
+*/
+$_NAZEV_WEBU = "skakaciatrakce";
 ?>
 
 <div id="sticky-anchor-kroky"></div>
@@ -134,7 +137,7 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
         
     <div id="sticky-anchor-tlacitka"></div>    		
 	<!-- The file upload form used as target for the file upload widget -->
-    <form id="fileupload" action="http://www.skakaciatrakce.cz/nastaveni-fotografii/" method="POST" enctype="multipart/form-data">
+    <form id="fileupload" action="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/nastaveni-fotografii/" method="POST" enctype="multipart/form-data">
         <!-- Redirect browsers with JavaScript disabled to the origin page
         <noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript> -->
         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
@@ -199,7 +202,7 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
             <?php
                         
             $slozka = $_SESSION["nazev_slozky"];
-            $soubory_v_slozce = glob("/home/web/skakaciatrakce.cz/objednavky/$slozka/*.*"); 
+            $soubory_v_slozce = glob("/home/web/$_NAZEV_WEBU.cz/objednavky/$slozka/*.*"); 
             
             for ($i=0; $i<count($soubory_v_slozce); $i++) {
                 
@@ -207,13 +210,13 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
                 $foto_roz = explode("objednavky/", $foto);
                 $id_a_fotka = $foto_roz[1];
                 $jen_foto = explode("/",$id_a_fotka);
-                $url = "/home/web/skakaciatrakce.cz/objednavky/".$foto_roz[1];
+                $url = "/home/web/$_NAZEV_WEBU.cz/objednavky/".$foto_roz[1];
 
             ?>
                     <tr class="template-download">
                           <td>
                             <span class="preview">
-                                <img src="http://objednavky.skakaciatrakce.cz/<?php echo $foto_roz[1]; ?>" style="max-width:100px; max-heihgt:100px">
+                                <img src="http://objednavky.<?php echo $_NAZEV_WEBU; ?>.cz/<?php echo $foto_roz[1]; ?>" style="max-width:100px; max-heihgt:100px">
 
                             </span>
                         </td>
@@ -221,14 +224,14 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
                             <p class="name">
                                 <?php echo $jen_foto[1];?>
                             </p>
-                            <input type="hidden" name="fotky[]" value="http://www.skakaciatrakce.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/<?php echo $jen_foto[1];?>">
-                            <input type="hidden" name="fotky_miniatury[]" value="http://www.skakaciatrakce.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/thumbnail/<?php echo $jen_foto[1];?>">
+                            <input type="hidden" name="fotky[]" value="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/<?php echo $jen_foto[1];?>">
+                            <input type="hidden" name="fotky_miniatury[]" value="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/thumbnail/<?php echo $jen_foto[1];?>">
                         </td>
                         <td>
                             <?php echo velikost(filesize($url))."B"; ?>
                         </td>
                         <td>
-                            <button class="btn btn-danger delete" data-type="DELETE" data-url="http://www.skakaciatrakce.cz/obsah/themes/tiskfotek/nahrani/server/php/index.php?file=<?php echo $jen_foto[1];?>">
+                            <button class="btn btn-danger delete" data-type="DELETE" data-url="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/obsah/themes/tiskfotek/nahrani/server/php/index.php?file=<?php echo $jen_foto[1];?>">
                                 <i class="glyphicon glyphicon-trash"></i>
                                 <span>Vymazat</span>
                             </button>
@@ -262,7 +265,7 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
     <?php
             //SCRIPT PRO MAZÁNÍ SOUBORŮ VE SLOŽCE NAHRÁNÍ. ODKOMENTÁŘOVAT POUZE TEHDY KDYŽ SE NĚCO POSERE A FOTOGRAFIE SE NESMAŽOU!!!
             /*
-            $normal = glob("/home/web/skakaciatrakce.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/*.*"); 
+            $normal = glob("/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/*.*"); 
             
             for ($i=0; $i<count($normal); $i++) {
                 
@@ -270,7 +273,7 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
                 unlink($foto);
             }
             
-            $mini = glob("/home/web/skakaciatrakce.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/thumbnail/*.*"); 
+            $mini = glob("/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/thumbnail/*.*"); 
             
             for ($i=0; $i<count($mini); $i++) {
                 
@@ -401,8 +404,8 @@ $(document).bind('dragover', function (e) {
                     <span>{%=file.name%}</span>
                 {% } %}
             </p>
-            <input type="hidden" name="fotky[]" value="http://www.skakaciatrakce.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/{%=file.name%}">
-            <input type="hidden" name="fotky_miniatury[]" value="http://www.skakaciatrakce.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/thumbnail/{%=file.name%}">
+            <input type="hidden" name="fotky[]" value="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/{%=file.name%}">
+            <input type="hidden" name="fotky_miniatury[]" value="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/thumbnail/{%=file.name%}">
             
             {% if (file.error) { %}
                 <div><span class="label label-danger">Chyba</span> {%=file.error%}</div>
