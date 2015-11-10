@@ -3,6 +3,51 @@ session_start();
 global $kolotoc;
 global $vsechny_nahrane_fotky;
 ?>
+<script>
+//ÚPRAVA CEN!!!
+    jQuery( document ).ready(function() {         
+        jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').change(function() {
+            
+            var vybrany_fotopapir = jQuery(this).val();            
+            
+            var vysledek = jQuery('.addon-wrap-3032-format .select-fotka-<?php echo $kolotoc; ?>').val();
+            var pro_vymazani_id = vysledek.split("-");
+            
+            var rozmery = pro_vymazani_id[0].split("x");
+            var sirka = rozmery[0], vyska = rozmery[1], obsah = sirka*vyska;
+            
+            if(obsah > 600){
+                if(obsah > 623.7 && obsah <= 1247.3){
+                    if(jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val() == "lesk-glacier-1"){
+                        jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?> option:selected').data("price",obsah*0.1205);
+//                        alert($('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?> option:selected').data('price'));
+                    }
+                    if(jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val() == "lesk-omnijet-2"){
+                        jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?> option:selected').data("price",obsah*0.0964);
+                      //  alert($('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?> option:selected').data('price'));
+                    }
+                }
+                if(obsah >= 1247.4 && obsah < 2494.8){
+                    if(jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val() == "lesk-glacier-1"){
+                        jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?> option:selected').data("price",obsah*0.1163);
+                      //  alert($('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?> option:selected').data('price'));
+                    }
+                    if(jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val() == "lesk-omnijet-2"){
+                        jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?> option:selected').data("price",obsah*0.0922);
+                       // alert($('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?> option:selected').data('price'));
+                    }
+                }
+                if(obsah >= 2494.8){
+                    alert("Větší");
+                }
+            }
+            
+           // addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>
+            
+        });
+    });
+    
+</script>
 
 <script>
 jQuery( document ).ready(function() {
@@ -100,7 +145,11 @@ jQuery( document ).ready(function() {
         
 </script>
 
+
     
+
+
+
 
 <script>
 jQuery( document ).ready(function() {
@@ -174,6 +223,8 @@ if ( ! $product->is_purchasable() ) {
 }
 
 ?>
+
+
 <script>
   jQuery(function() {
    
