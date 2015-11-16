@@ -3413,7 +3413,8 @@ blockquote span {
 .icon-box-9 h3 {
 	text-align: center;
 	margin: 0 0 10px;
-	background: #fff;
+	background: #8f5db7;
+    color: #fff;
 	padding: 9px 0;
 	font-weight: 600;
 	font-size: 14px;
@@ -5851,6 +5852,11 @@ blockquote span {
 	margin: 0 15px 0 0;
 	color: #A8A8A8;
 	line-height: 170%;
+    display: none;
+}
+.post-info .post-meta li.meta-date,
+.post-info .post-meta li.entry-edit-link{
+    display: block;
 }
 .post-info .post-meta li i {
 	margin-right: 7px;
@@ -7807,7 +7813,6 @@ fieldset[disabled] .btn-danger.active {
 	padding: 0 0 15px;
 	border-bottom: 1px #ddd solid;
 	font-weight:600;
-	text-transform:capitalize;
 	font-size:16px;
 	line-height:16px
 }
