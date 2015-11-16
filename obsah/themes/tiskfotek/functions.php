@@ -1250,6 +1250,11 @@ function wpmem_inc_resetpassword()
 	return $str;
 }
 
+add_filter( 'widget_meta_poweredby', 'func' );
 
+function func( $p1 ) {
+    // Replace with custom powered by link
+    return ' ';
+}
 
 
