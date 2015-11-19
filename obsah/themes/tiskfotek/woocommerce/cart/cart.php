@@ -187,7 +187,25 @@ global $woocommerce, $muj_post;
 </table>
 
 <?php do_action( 'woocommerce_after_cart_table' ); ?>
+<div class="kupony-obal" style="margin-bottom:30px;">
+                    <div class="coupon left">
 
+						<label for="coupon_code" class="left-lbl"><?php _e( 'Coupon', 'woocommerce' ); ?>:</label> <input type="text" name="coupon_code" class="small-txt" id="coupon_code" value="" placeholder="<?php _e( 'Coupon code', 'woocommerce' ); ?>" /> <input type="submit" class="btn btn-default" name="apply_coupon" value="<?php _e( 'Apply Coupon', 'woocommerce' ); ?>" />
+
+						<?php do_action( 'woocommerce_cart_coupon' ); ?>
+
+					</div>
+
+    
+                <div class="right">
+				<input type="submit" class="btn btn-default" name="update_cart" value="<?php _e( 'Update Cart', 'woocommerce' ); ?>" /> 
+                <?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
+				<?php do_action( 'woocommerce_cart_actions' ); ?>
+
+				<?php wp_nonce_field( 'woocommerce-cart' ); ?>
+                </div>
+    
+    </div>    
 
 
 <div class="celkem-obal">
@@ -199,17 +217,17 @@ global $woocommerce, $muj_post;
     
     	<?php if ( WC()->cart->coupons_enabled() ) { ?>
 	<div class="kupony-obal">
-                    <div class="coupon left">
+      <!--              <div class="coupon left">
 
 						<label for="coupon_code" class="left-lbl"><?php _e( 'Coupon', 'woocommerce' ); ?>:</label> <input type="text" name="coupon_code" class="small-txt" id="coupon_code" value="" placeholder="<?php _e( 'Coupon code', 'woocommerce' ); ?>" /> <input type="submit" class="btn btn-default" name="apply_coupon" value="<?php _e( 'Apply Coupon', 'woocommerce' ); ?>" />
 
 						<?php do_action( 'woocommerce_cart_coupon' ); ?>
 
-					</div>
+					</div>-->
 				<?php } ?>
     
                 <div class="right">
-				<input type="submit" class="btn btn-default" name="update_cart" value="<?php _e( 'Update Cart', 'woocommerce' ); ?>" /> <input type="submit" class="btn main-bg" name="proceed" value="<?php _e( 'Proceed to Checkout', 'woocommerce' ); ?>" />
+<!--				<input type="submit" class="btn btn-default" name="update_cart" value="<?php _e( 'Update Cart', 'woocommerce' ); ?> /> --> <input type="submit" class="btn main-bg" name="proceed" value="Přejít na další krok<?php // _e( 'Proceed to Checkout', 'woocommerce' ); ?>" />
                 <?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
 				<?php do_action( 'woocommerce_cart_actions' ); ?>
 
