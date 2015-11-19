@@ -646,6 +646,11 @@ jQuery( document ).ready(function() {
             
         });
     });  
+});   
+jQuery(function(){
+    jQuery(".nastavit-hromadne").click(function(){
+        jQuery(".pokracovat").removeClass("disabled");
+    });
 });
 </script>
 <script>

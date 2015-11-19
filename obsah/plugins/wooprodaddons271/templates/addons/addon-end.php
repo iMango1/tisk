@@ -49,7 +49,7 @@ jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select').change(f
      else if (formatS<?php echo $kolotoc; ?> == "fo"){     html = '<div class="kvalita neaktivni"> Vyberte materiál<'+'/div>' }
 //vypocet
 var dpi<?php echo $kolotoc; ?> = 2.54 * fotkaS<?php echo $kolotoc; ?> / formatS<?php echo $kolotoc; ?>;
-              
+
 
 // kontrola kvality podle dpi
 if (isFinite(dpi<?php echo $kolotoc; ?>)) {
