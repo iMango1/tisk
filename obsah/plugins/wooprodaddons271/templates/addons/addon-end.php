@@ -28,6 +28,12 @@ else{
 }
 ?>     
 <script>
+jQuery( document ).ready(function() {
+    jQuery(".nastavit-hromadne").click(function(){
+        jQuery('.addon-wrap-3032-format select.addon-select').change();
+    });
+});
+    
     
 jQuery( document ).ready(function() {
 //Deklarace promenny pro JS
@@ -67,13 +73,6 @@ else
     
     //Odeslaní výstupu do HTML           
     document.getElementById("obal_kvalita-<?php echo $kolotoc; ?>").innerHTML = html; 
-
-    jQuery(".nastavit-hromadne").click(function(){
-        var klic;
-        for(klic=0;klic<3;klic++){
-            document.getElementById("obal_kvalita-"+klic).innerHTML = html; 
-        }
-    });
     
 });
     
@@ -105,8 +104,15 @@ else if (dpi<?php echo $kolotoc; ?> >= 150)
 
     });
  
+
+//KVALITA PŘI HROMADNÉM NASTAVENÍ
+jQuery( document ).ready(function() {
+    jQuery(".nastavit-hromadne").click(function(){
+        jQuery('.addon-wrap-3032-format select.addon-select').change();
+    });
+});
     
-   
+    
 // Pri vybrani se změni input na zeleny s fajfkou
 //Orez a leskly fotopapir je defaultne
        $(  "div.product-addon.product-addon-typ" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );

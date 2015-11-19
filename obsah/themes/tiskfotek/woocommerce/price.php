@@ -78,6 +78,7 @@ jQuery( document ).ready(function() {
         jQuery(".nastavit-hromadne").click(function(){
             jQuery('.addon-wrap-3032-format select.addon-select').val( jQuery('.nastavit-celkem .addon-3032-format').val() );  
             jQuery('.addon-wrap-3032-format select.addon-select').trigger("chosen:updated");
+            jQuery('.addon-wrap-3032-format select.addon-select').change();
         })
 	});
     
@@ -104,6 +105,7 @@ jQuery( document ).ready(function() {
         jQuery(".nastavit-hromadne").click(function(){
             jQuery('.addon-wrap-3032-material-pro-fotoobrazy select.addon-select').val( jQuery('.nastavit-celkem .addon-3032-material-pro-fotoobrazy').val() );  
             jQuery('.addon-wrap-3032-material-pro-fotoobrazy select.addon-select').trigger("chosen:updated");
+            jQuery('.addon-wrap-3032-material-pro-fotoobrazy select.addon-select').change();
         })
 	});
     //Nastavit hromadně - Material pro velké formáty
