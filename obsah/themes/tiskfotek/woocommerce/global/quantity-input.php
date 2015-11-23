@@ -29,7 +29,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 <div class="col-md-1 blok-tlacitka-cena">
     <div class="col-md-6 ikony-druhy-krok">
-        <div class="duplikace-tlacitko"  onclick="duplikace('cely-produkt-fotka-<?php echo $kolotoc; ?>')">
+    <!--    <div class="duplikace-tlacitko disabled"  onclick="duplikace('cely-produkt-fotka-<?php echo $kolotoc; ?>')">-->
+           <div class="duplikace-tlacitko" style="cursor:default;">
             <i class="fa fa-files-o"></i>
         </div>
      <!--   <div class="vymazani-tlacitko" onClick="removeElement('cely-produkt-<?php echo $kolotoc; ?>');"> -->
