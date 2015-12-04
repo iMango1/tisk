@@ -337,10 +337,11 @@ jQuery(document).ready(function(){
 <div class="tlacitka_blok">
     <a  href="<?php echo $url; ?>" class="koko btn main-bg pull-left">Předchozí krok</a>
     <button id="potvrzeni" class="pokracovat btn main-bg pull-right disabled">Pokračovat k objednávce</button>
-    <div id="nahravani" class="pull-right"></div>
+    <div id="nahravani" class="pull-right">Zpracování objednávky - prosím čekejte</div>
+    <!--<div id="nahravani_text" class="pull-right">Zpracování objednávky - prosím čekejte</div>-->
 </div>
 
- <div class="footer-uploader">
+ <div class="footer-uploader row">
      <div class="col-md-6">
          <p>Digitální fotosběrna</p>
      </div>   
@@ -378,9 +379,11 @@ jQuery(document).ready(function(){
        
     jQuery(function() {    
         jQuery("#nahravani").hide();
+        //jQuery("#nahravani_text").hide();
         jQuery("#potvrzeni").click(function() {
             jQuery("#potvrzeni").hide();    
             jQuery("#nahravani").fadeIn("slow");
+          //  jQuery("#nahravani_text").fadeIn("slow");
         });
     }); 
 

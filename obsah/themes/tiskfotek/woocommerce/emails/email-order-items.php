@@ -113,7 +113,9 @@ foreach ( $items as $item_id => $item ) :
                         ( $klic != "id_objednavky - id" ) &&
                         ( $klic != "item_meta_array" ) && 
                         ( $klic != "line_tax_data" ) ){   
+                            
 
+                    
                             
                             if($jedna_polozka == "Fotoobraz"){
                             echo "<td style='border-bottom: 1px solid #c9c9c9; background: #f3f3f3;'>$jedna_polozka</td>";
@@ -122,10 +124,16 @@ foreach ( $items as $item_id => $item ) :
                             echo "<td style='border-bottom: 1px solid #c9c9c9; background: #f3f3f3;'>".$item["Typ"]."</td>";
                             break;
                             }
+
                             else 
-                                echo "<td style='border-bottom: 1px solid #c9c9c9; background: #f3f3f3;'>$jedna_polozka</td>";    
+                                echo "<td style='border-bottom: 1px solid #c9c9c9; background: #f3f3f3;'>".
+                                ($jedna_polozka == "Žádná deska" ? "-" : $jedna_polozka)."</td>";    
             
-                        $k++;
+                      //  $k++;
+                        
+                    
+                            
+                            
                         } 
                     } 
                     
@@ -137,7 +145,7 @@ foreach ( $items as $item_id => $item ) :
 			
 
 		<?php
-	//echo "<pre>",print_r($item),"</pre>";	
+	// echo "<pre>",print_r($item),"</pre>";	
     }
 
 	if ( $show_purchase_note && is_object( $_product ) && ( $purchase_note = get_post_meta( $_product->id, '_purchase_note', true ) ) ) : ?>
