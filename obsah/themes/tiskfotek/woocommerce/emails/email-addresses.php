@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<tr>
 
-		<td valign="top" width="50%">
+		<td valign="top" width="50%" style="padding:0px;">
 
 			<h3><?php _e( 'Billing address', 'woocommerce' ); ?></h3>
 
@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php if ( ! wc_ship_to_billing_address_only() && $order->needs_shipping_address() && ( $shipping = $order->get_formatted_shipping_address() ) ) : ?>
 
-		<td valign="top" width="50%">
+		<td valign="top" width="50%" style="padding:0px;">
 
 			<h3><?php _e( 'Shipping address', 'woocommerce' ); ?></h3>
 

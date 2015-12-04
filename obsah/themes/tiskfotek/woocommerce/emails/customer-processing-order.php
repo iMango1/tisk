@@ -39,6 +39,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?>
 </table>
 -->
+
+
+
 <?php do_action( 'woocommerce_email_after_order_table', $order, $sent_to_admin, $plain_text ); ?>
 
 <?php do_action( 'woocommerce_email_order_meta', $order, $sent_to_admin, $plain_text ); ?>

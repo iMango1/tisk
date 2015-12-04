@@ -79,7 +79,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly ?>
 <?php if ( $order->billing_phone ) : ?>
 	<p><strong><?php _e( 'Tel:', 'woocommerce-order-status-manager' ); ?></strong> <?php echo $order->billing_phone; ?></p>
 <?php endif; ?>
-
 <?php wc_get_template( 'emails/email-addresses.php', array( 'order' => $order ) ); ?>
 
 <?php do_action( 'woocommerce_email_footer' ); ?>
