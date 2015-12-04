@@ -200,7 +200,7 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
                     });
                 </script>
             <?php
-                        
+            //echo "<pre>",print_r($_SESSION),"</pre>";       
             $slozka = $_SESSION["nazev_slozky"];
             $soubory_v_slozce = glob("/home/web/$_NAZEV_WEBU.cz/objednavky/$slozka/*.*"); 
             
@@ -211,11 +211,13 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
                 $id_a_fotka = $foto_roz[1];
                 $jen_foto = explode("/",$id_a_fotka);
                 $url = "/home/web/$_NAZEV_WEBU.cz/objednavky/".$foto_roz[1];
-
+                
+                if($_SESSION["status"]==1){
             ?>
                     <tr class="template-download">
                           <td>
                             <span class="preview">
+                               
                                 <img src="http://objednavky.<?php echo $_NAZEV_WEBU; ?>.cz/<?php echo $foto_roz[1]; ?>" style="max-width:100px; max-heihgt:100px">
 
                             </span>
@@ -242,6 +244,7 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
                        
 
             <?php
+                }
             }
             
         }

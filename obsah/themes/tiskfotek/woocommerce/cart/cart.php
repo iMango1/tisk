@@ -23,8 +23,7 @@ global $woocommerce, $muj_post;
         $objednavka = new WC_Order($muj_post->ID); 
     //    $id_objednavky = trim(str_replace('#', '', $objednavka->get_order_number()));
         $id_objednavky = $objednavka->get_order_number();
-    
-    
+$_SESSION["status"] = 0;
 ?>
 
 <div class="kroky-nastaveni-blok" style="margin-bottom:20px;">

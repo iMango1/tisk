@@ -74,6 +74,7 @@ else {
 }
 
 $_SESSION["nazev_slozky"] = $objednavka_id;
+$_SESSION["status"] = 1;
 
 mkdir("/home/web/$_NAZEV_WEBU.cz/objednavky/$objednavka_id", 0777);
 
@@ -82,7 +83,7 @@ mkdir("/home/web/$_NAZEV_WEBU.cz/objednavky/$objednavka_id", 0777);
         $fotky_nazev_pred_kop[$i] = $fotka_kousek_url[$i][1];
     }
 $fotky = array();
-
+    $pocet = 0;
     foreach($fotky_nazev_pred_kop as $kolotoc => $fotka_nazev_pred_kop){
         
         $s_dia = $fotka_nazev_pred_kop;
@@ -107,7 +108,8 @@ $fotky = array();
         $_SESSION[$kolotoc]["typ_souboru"] = pathinfo($fotka_nazev_pred_kop, PATHINFO_EXTENSION);
         $_SESSION[$kolotoc]["url_fotky"] = $fotky[$kolotoc]; 
         $_SESSION[$kolotoc]["url_fotky_upload"] = $co;
-
+        $_SESSION[$kolotoc]["status"] = 1;
+        $_SESSION["pocet_fotek"] = $pocet + 1;
         
     }
 
@@ -349,7 +351,7 @@ jQuery(document).ready(function(){
          <p class="pull-right">Multiuploader 1.0.3</p>
      </div>    
 </div>
-        
+        <?php // echo "<pre>",print_r($_SESSION),"</pre>"; ?>
   <script src="http://malsup.github.io/min/jquery.form.min.js"></script>
    <script>
 
