@@ -172,7 +172,9 @@
     line-height: 40px;
     text-transform: uppercase;
 }
-
+.page-template-nastaveni-fotek .footer-uploader{
+    margin-top: 30px;
+}
 .table-striped{
     margin-top: 10px;
     margin-bottom: 10px!important;
@@ -399,6 +401,7 @@ td.tlacitka-nahrani{
     width: 50px;
     height: 29px;
     margin: 3px 3px;
+    cursor: pointer;
 }
 
 .product-block .add-items a{
@@ -413,6 +416,7 @@ td.tlacitka-nahrani{
     text-align: center;
     line-height: 28px;
 }
+
 #product-addons-total{
     width:8.33333333%;
     display: inline-block;
@@ -644,12 +648,14 @@ display:none!important;
 }
 
 #nahravani{
-    width: 49px;
-    height: 49px;
-    background: url(../img/loading-purple.gif);
-    background-size: 49px 49px;
-    margin-right: 110px;
+    height: 80px;
+    background: url(../img/loading-purple.gif) no-repeat 155px top;
+    background-size: 49px 49px;    
+    padding-top: 50px;
+    color: #8f5cb8;
+    font-weight: bold;
 }
+
 .cena-fotky{
     font-size: 17px;
     min-height: 110px;
