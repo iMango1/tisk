@@ -648,7 +648,7 @@ display:none!important;
 }
 
 #nahravani{
-    height: 80px;
+    height: 75px;
     background: url(../img/loading-purple.gif) no-repeat 155px top;
     background-size: 49px 49px;    
     padding-top: 50px;
