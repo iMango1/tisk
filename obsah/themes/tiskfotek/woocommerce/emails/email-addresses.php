@@ -19,7 +19,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<h3><?php _e( 'Billing address', 'woocommerce' ); ?></h3>
 
-			<p><?php echo $order->get_formatted_billing_address(); ?></p>
+			<p><?php echo $order->get_formatted_billing_address(); ?>
+			 <?php echo "<br><strong>IČO:</strong> $order->billing_ico, <strong>DIČ:</strong> $order->billing_dic"; ?>
+			</p>
 
 		</td>
 
@@ -29,8 +31,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<h3><?php _e( 'Shipping address', 'woocommerce' ); ?></h3>
 
-			<p><?php echo $shipping; ?></p>
-
+			<p><?php echo $shipping; ?>
+            <?php echo "<br><strong>IČO:</strong> $order->shipping_ico, <strong>DIČ:</strong> $order->shipping_dic"; ?>
+            </p>
 		</td>
 
 		<?php endif; ?>
@@ -38,3 +41,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</tr>
 
 </table>
+
