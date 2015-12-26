@@ -321,6 +321,7 @@ COOKIES<br>
 
    function addToCart(p_id) {
       $.get('/wp/?post_type=product&add-to-cart=' + p_id, function() {
+          console.log("VYTVOŘENA TMP FOTKA");
       });
    }
 </script>

@@ -365,19 +365,7 @@ jQuery(document).ready(function(){
         $id_item = $id_item_pole[0];
         
         $wpnonce = $jednotlive[2];
-        
-        print_r($k_vymazani[1]); 
-        echo "<br>";
-        print_r($id_item);
-        echo "<br>";
-        print_r($wpnonce);
-        echo "<br>";
-
-        
-        echo "<pre>",print_r($_SESSION),"</pre>";
-        
-        
-        
+               
         ?>
   <script src="http://malsup.github.io/min/jquery.form.min.js"></script>
    <script>
