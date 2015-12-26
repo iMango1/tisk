@@ -134,7 +134,7 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
                 
             </div> <!-- col-md-6 -->
         </div> <!-- Napoveda -->        
-        
+    <p class="pokud_registrovany">Pokud jste registrovaný zákazník, přihlaste se prosím v horní části stránky.</p>
     <div id="sticky-anchor-tlacitka"></div>    		
 	<!-- The file upload form used as target for the file upload widget -->
     <form id="fileupload" action="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/nastaveni-fotografii/" method="POST" enctype="multipart/form-data">

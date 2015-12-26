@@ -848,3 +848,9 @@ a.post-thumbnail:hover {
 .woocommerce-cart.page-id-3017 .woocommerce .success-box{
     display: none!important;
 }
+
+.pokud_registrovany{
+    font-weight: bold;
+    color: #8F5DB7;
+    margin: 10px 0px;
+}
