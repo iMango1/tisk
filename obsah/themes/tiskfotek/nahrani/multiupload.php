@@ -297,7 +297,11 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
         $prvni = key($kosik->cart_contents);
         $k_vymazani = explode("kosik/",$kosik->get_remove_url($prvni));
         $vymaz = $k_vymazani[1];
-    echo $vymaz;
+        if ( WC()->cart->get_cart_contents_count() == 0 ) {
+            $_SESSION["pridano"] = 1;
+        }
+        else   
+            $_SESSION["pridano"] = 0; 
 ?>
 
 SESSION<br>
@@ -309,9 +313,11 @@ COOKIES<br>
 <script>    
    
     jQuery(function () {
-      addToCart(3032);
-      return false;
-   });    
+        <?php if ( WC()->cart->get_cart_contents_count() == 0 ){ ?>
+            addToCart(3032);
+            return false;
+        <?php } ?>
+    });    
 
    function addToCart(p_id) {
       $.get('/wp/?post_type=product&add-to-cart=' + p_id, function() {

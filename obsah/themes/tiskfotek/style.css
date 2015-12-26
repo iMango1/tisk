@@ -1,4 +1,4 @@
-﻿/*
+/*
   Theme Name:   EXCEPTION
   Theme URI:    http://exception.it-rays.net
   Author:       IT-RAYS
@@ -843,3 +843,8 @@ a.post-thumbnail:hover {
 	color: #fff;
 	font-size: 14px;
 	line-height: 1.28571
+}
+
+.woocommerce-cart.page-id-3017 .woocommerce .success-box{
+    display: none!important;
+}

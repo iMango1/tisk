@@ -374,7 +374,7 @@ jQuery(document).ready(function(){
         echo "<br>";
 
         
-        print_r($jednotlive);
+        echo "<pre>",print_r($_SESSION),"</pre>";
         
         
         
@@ -409,11 +409,14 @@ jQuery(document).ready(function(){
                     console.log("počet js :"+poc);
                     console.log("<?php echo "Fotka $i + 1 z $celkovy_pocet, POČET ODESLANE:" ?>"+poc);
                         if(poc == celkovy_pocet){
-                            $.get("?remove_item=<?php echo $id_item;?>&_wpnonce=<?php echo $wpnonce;?>", function() {
-                                console.log("ODSTRANĚNO -> <?php echo $vymaz; ?>");
+                            <?php if($_SESSION["pridano"] == 1){ ?>
+                                $.get("?remove_item=<?php echo $id_item;?>&_wpnonce=<?php echo $wpnonce;?>", function() {
+                                    console.log("ODSTRANĚNO ->");
+                                    location.href = 'http://www.<?php echo $_NAZEV_WEBU; ?>.cz/kosik'; 
+                                });
+                            <?php }else{ ?>
                                 location.href = 'http://www.<?php echo $_NAZEV_WEBU; ?>.cz/kosik'; 
-                         });
-
+                            <?php } ?>
                         }   
                 }
             });
