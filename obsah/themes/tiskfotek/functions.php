@@ -16,16 +16,14 @@ $array = array(
  * @package IT-RAYS-Framework
  * @version 1.0.0
  *
- */
-locate_template( 'it-framework/init.php', true );
-
+ */	
+locate_template( 'it-framework/init.php', true );		
 add_action( 'init', 'my_setcookie' );
 function my_setcookie() {
     global $vsechny_nahrane_fotky;
 
-   setcookie( 'nahrane-fotky', serialize($vsechny_nahrane_fotky) , time() + 3600 * 8, COOKIEPATH, COOKIE_DOMAIN );
+    // setcookie( 'nahrane-fotky', serialize($vsechny_nahrane_fotky) , time() + 3600 * 8, COOKIEPATH, COOKIE_DOMAIN );
 }
-
 add_action( 'wp_login_failed', 'my_front_end_login_fail' );  // hook failed login
 
 function my_front_end_login_fail( $username ) {

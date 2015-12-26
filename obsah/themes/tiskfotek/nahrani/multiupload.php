@@ -289,9 +289,35 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
 ?>
 	</div>
 </div>
+<?php
+  
+        global $woocommerce;
+        $kosik = $woocommerce->cart; 
+        reset($kosik->cart_contents);
+        $prvni = key($kosik->cart_contents);
+        $k_vymazani = explode("kosik/",$kosik->get_remove_url($prvni));
+        $vymaz = $k_vymazani[1];
+    echo $vymaz;
+?>
 
+SESSION<br>
+<?php echo "<pre>",print_r($_SESSION),"</pre>"; ?>
+COOKIES<br>
+<?php echo "<pre>",print_r($_COOKIE),"</pre>"; ?>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>    
+   
+    jQuery(function () {
+      addToCart(3032);
+      return false;
+   });    
+
+   function addToCart(p_id) {
+      $.get('/wp/?post_type=product&add-to-cart=' + p_id, function() {
+      });
+   }
+</script>
 <script type="text/javascript">
 $('#fileupload').fileupload({
     dropZone: $('#dropzone')

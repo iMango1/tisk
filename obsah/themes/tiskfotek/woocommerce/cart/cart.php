@@ -19,13 +19,48 @@ do_action( 'woocommerce_before_cart' ); ?>
 <?php 
 
 global $woocommerce, $muj_post;
-        
+       
+
+
+        $cart = WC()->instance()->cart;
+        $cart_id = $cart->generate_cart_id(3032);
+        $cart_item_id = $cart->find_product_in_cart($cart_id);
+        /*
+        if($cart_item_id){
+            $cart->set_quantity($cart_item_id,0);
+        }*/
+    //echo"<pre>",print_r($cart),"</pre>";
+
+//$cart->set_quantity($prvni,0);
+    //echo $prvni;
+
+    reset($cart->cart_contents);
+    $prvni = key($cart->cart_contents);
+    $k_vymazani = explode("kosik/",$cart->get_remove_url($prvni));
+    $vymaz = $k_vymazani[1];
+   /*
+    if($kokos != 0){
+        $cart->remove_cart_item($prvni);
+        $kokos = 1;
+    }
+*/
         $objednavka = new WC_Order($muj_post->ID); 
     //    $id_objednavky = trim(str_replace('#', '', $objednavka->get_order_number()));
         $id_objednavky = $objednavka->get_order_number();
 $_SESSION["status"] = 0;
 ?>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
+<script>
+//SMAZÁNÍ PRVNÍ FOTOGRAFIE
+    /*
+jQuery(function () {
+    $.get("<?php echo $vymaz; ?>", function() {
+        console.log("ODSTRANĚNO - <?php echo $vymaz; ?>");
+    });
+});
+*/
+</script>
 <div class="kroky-nastaveni-blok" style="margin-bottom:20px;">
     <div class="kroky_blok">
         <div class="krok jedna_upload aktivni"><a href="../../upload-fotografii"><span class="cislo">1</span> Upload fotografií</a></div>

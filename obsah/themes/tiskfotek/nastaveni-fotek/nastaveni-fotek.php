@@ -128,7 +128,6 @@ $args = array(
 	);
 $loop = new WP_Query( $args );
 
-
 ?>
 
 <script>
@@ -304,7 +303,7 @@ jQuery(document).ready(function(){
         if ( $loop->have_posts() ) {
 			for($i = 0; $i < $pocet_fotek; $i++) {
             while ( $loop->have_posts() ) {
-
+                
                 $loop->the_post();
 				wc_get_template_part( 'content', 'single-product' );
                 $kolotoc++;
@@ -316,6 +315,7 @@ jQuery(document).ready(function(){
             
 		}
 		wp_reset_postdata();
+
         
 /*
 		if ( $loop->have_posts() ) {
@@ -338,7 +338,7 @@ jQuery(document).ready(function(){
 <?php $url = htmlspecialchars($_SERVER['HTTP_REFERER']); ?>
 <div class="tlacitka_blok">
     <a  href="<?php echo $url; ?>" class="koko btn main-bg pull-left">Předchozí krok</a>
-    <button id="potvrzeni" class="pokracovat btn main-bg pull-right disabled">Pokračovat k objednávce</button>
+    <button type="submit" id="potvrzeni" class="pokracovat btn main-bg pull-right disabled">Pokračovat k objednávce</button>
     <div id="nahravani" class="pull-right">Zpracování objednávky - prosím čekejte</div>
     <!--<div id="nahravani_text" class="pull-right">Zpracování objednávky - prosím čekejte</div>-->
 </div>
@@ -351,32 +351,76 @@ jQuery(document).ready(function(){
          <p class="pull-right">Multiuploader 1.0.3</p>
      </div>    
 </div>
-        <?php // echo "<pre>",print_r($_SESSION),"</pre>"; ?>
+
+           <?php 
+        global $woocommerce;
+        $kosik = $woocommerce->cart; 
+        reset($kosik->cart_contents);
+        $prvni = key($kosik->cart_contents);
+        $k_vymazani = explode("kosik/",$kosik->get_remove_url($prvni));
+        
+        $jednotlive =  explode("=",$k_vymazani[1]);
+        
+        $id_item_pole = explode("&",$jednotlive[1]);
+        $id_item = $id_item_pole[0];
+        
+        $wpnonce = $jednotlive[2];
+        
+        print_r($k_vymazani[1]); 
+        echo "<br>";
+        print_r($id_item);
+        echo "<br>";
+        print_r($wpnonce);
+        echo "<br>";
+
+        
+        print_r($jednotlive);
+        
+        
+        
+        ?>
   <script src="http://malsup.github.io/min/jquery.form.min.js"></script>
    <script>
+    
 
     jQuery('#potvrzeni').click(function(){
-        var i = 0;
-        <?php $pomoc_celkovy_pocet = $celkovy_pocet - 1;  ?>
-        <?php for($i=0;$i<$celkovy_pocet;$i++) {?>
-        var myform = document.getElementById("formular-<?php echo $i; ?>");
-        var fd = new FormData(myform);
-        $.ajax({
-            url: "kosik",
-            data: fd,
-            cache: false,
-            processData: false,
-            contentType: false,
-            type: 'POST',
-            success: function (dataofconfirm) {
-
-                if(<?php echo $i; ?> == <?php echo $pomoc_celkovy_pocet; ?>)
-                    location.href = 'http://www.<?php echo $_NAZEV_WEBU; ?>.cz/kosik'; 
-            }
-        });
+        <?php 
+            $pomoc_celkovy_pocet = $celkovy_pocet - 1;
+            $pocet_odeslane  = 0;
+        ?>
+        var celkovy_pocet = <?php echo $celkovy_pocet; ?>;
+        var poc = 0;
         
+        <?php 
+        for($i=0;$i<$celkovy_pocet;$i++) {
+            
+        ?>
+            var myform = document.getElementById("formular-<?php echo $i; ?>");
+            var fd = new FormData(myform);
+            $.ajax({
+                url: "?add-to-cart=group&product_id=3032",
+                data: fd,
+                cache: false,
+                processData: false,
+                contentType: false,
+                type: 'POST',
+                success: function (dataofconfirm) {
+                   poc++;
+                    console.log("počet js :"+poc);
+                    console.log("<?php echo "Fotka $i + 1 z $celkovy_pocet, POČET ODESLANE:" ?>"+poc);
+                        if(poc == celkovy_pocet){
+                            $.get("?remove_item=<?php echo $id_item;?>&_wpnonce=<?php echo $wpnonce;?>", function() {
+                                console.log("ODSTRANĚNO -> <?php echo $vymaz; ?>");
+                                location.href = 'http://www.<?php echo $_NAZEV_WEBU; ?>.cz/kosik'; 
+                         });
+
+                        }   
+                }
+            });
+
         <?php } ?>
-          
+   
+ 
     });
        
     jQuery(function() {    
@@ -427,7 +471,10 @@ jQuery(document).ready(function(){
     </script>
 	</div>
 </div>
-
+SESSION<br>
+<?php echo "<pre>",print_r($_SESSION),"</pre>"; ?>
+COOKIES<br>
+<?php echo "<pre>",print_r($_COOKIE),"</pre>"; ?>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/chosen.jquery.min.js"></script>

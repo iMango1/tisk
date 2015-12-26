@@ -115,10 +115,11 @@ jQuery( document ).ready(function() {
     
 // Pri vybrani se změni input na zeleny s fajfkou
 //Orez a leskly fotopapir je defaultne
+    
        $(  "div.product-addon.product-addon-typ" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
        $(  "div.product-addon.product-addon-typ" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
        $(  "div.product-addon.product-addon-typ" ).find( "span" ).addClass( "vyborna" ); 
-
+  
     
     jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select').change(function() {
         hodnota = $(this).val();
