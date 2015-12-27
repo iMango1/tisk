@@ -627,13 +627,8 @@ jQuery( document ).ready(function() {
         
 </script>
 
-
-    
-
-
-
-
 <script>
+/* PROZATÍM STARÉ POKRAČOVAT V OBJEDNÁVCE
 jQuery( document ).ready(function() {
     jQuery(".addon-wrap-3032-format .select-fotka-<?php echo $kolotoc; ?>").change(function() {
         jQuery('.select-fotka-<?php echo $kolotoc; ?> option:selected').each(function(){
@@ -646,7 +641,7 @@ jQuery( document ).ready(function() {
             
         });
     });  
-});   
+});   */
 jQuery(function(){
     jQuery(".nastavit-hromadne").click(function(){
         jQuery(".pokracovat").removeClass("disabled");

@@ -462,6 +462,49 @@ jQuery(document).ready(function(){
     </script>
 	</div>
 </div>
+ <script>
+jQuery( document ).ready(function() {   
+    var vysledek = "",predchozi = "";
+    var celkovy_pocet = <?php echo $celkovy_pocet; ?>;
+    var mezipocet = 0, vys = 0;
+<?php for($i = 0; $i < $celkovy_pocet; $i++){ ?>
+   
+    jQuery('.product-addon-format .fotka-<?php echo $i;?> select').change(function() {
+        var selected = jQuery(':selected', this);
+        vysledek = selected.parent().attr('label');
+        if(vysledek == "Fotografie"){
+            mezipocet++;
+        }
+        else if(vysledek == "Obraz na plátně"){
+
+        }
+        else if(vysledek == "Velké formáty"){
+
+        }
+        //nic není zakliknuto
+        else {
+            mezipocet--;
+        }
+        console.log(mezipocet);
+    });
+    jQuery('.product-addon-velikost-fotoobrazu .fotka-<?php echo $i;?> select').change(function() {
+       
+        mezipocet++;console.log(mezipocet);
+    });
+    jQuery('.product-addon-vyber-fotopapiru .fotka-<?php echo $i;?> select').change(function() {
+        mezipocet++;console.log(mezipocet);
+     });
+<?php } ?>
+    jQuery('select').change(function(){
+        if(mezipocet >= celkovy_pocet)
+            jQuery(".pokracovat").removeClass("disabled");
+        else
+            jQuery(".pokracovat").addClass("disabled");
+    });
+
+});
+</script>
+
 SESSION<br>
 <?php echo "<pre>",print_r($_SESSION),"</pre>"; ?>
 COOKIES<br>
