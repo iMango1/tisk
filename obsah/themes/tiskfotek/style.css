@@ -860,3 +860,21 @@ a.post-thumbnail:hover {
 .login-box .left .txt-box{
     color: #777;
 }
+
+.info-box{
+    background: #5CB85C!important;
+    border: 0;
+    color: #FFF;
+}
+.info-box a{
+    color: #FFF;
+    font-weight: bold;
+}
+.info-box a:hover{
+    color: #fff;
+    text-decoration: underline;
+}
+
+.woocommerce-checkout .error-box{
+    display: none;
+}
