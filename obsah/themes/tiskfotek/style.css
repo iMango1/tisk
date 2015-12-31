@@ -856,3 +856,7 @@ a.post-thumbnail:hover {
     background: #5cb85c;
     margin: 10px 0px;
 }
+
+.login-box .left .txt-box{
+    color: #777;
+}

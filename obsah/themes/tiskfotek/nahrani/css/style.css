@@ -689,8 +689,8 @@ table.cart .product-thumbnail{
 }
 .woocommerce-page table.cart .product-thumbnail img,
 .woocommerce-page table.woocommerce-checkout-review-order-table img{
-/*    width: 80px!important; */
-    height: 135px!important;
+    max-width: 130px !important;
+    max-height: 135px !important;
 }
 /*
 .woocommerce-checkout #order_review .cart_item img{
