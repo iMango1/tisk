@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<h2><?php _e( 'Cart Totals', 'woocommerce' ); ?></h2>
 
 	<table cellspacing="0">
-
+	
 		<tr class="cart-subtotal">
 			<th><?php _e( 'Subtotal', 'woocommerce' ); ?></th>
 			<td><?php wc_cart_totals_subtotal_html(); ?></td>

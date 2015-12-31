@@ -19,12 +19,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<h3 class="block-head"><?php _e( 'Cart Totals', 'woocommerce' ); ?></h3>
 
 	<table cellspacing="0">
-
+<!--
 		<tr class="cart-subtotal">
 			<th><?php _e( 'Celkem za tisk', 'woocommerce' ); ?></th>
 			<td><?php wc_cart_totals_subtotal_html(); ?></td>
 		</tr>
-
+-->
 		<?php foreach ( WC()->cart->get_coupons() as $code => $coupon ) : ?>
 			<tr class="cart-discount coupon-<?php echo esc_attr( $code ); ?>">
 				<th><?php wc_cart_totals_coupon_label( $coupon ); ?></th>
@@ -36,7 +36,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<?php do_action( 'woocommerce_cart_totals_before_shipping' ); ?>
 
-			<?php wc_cart_totals_shipping_html(); ?>
+			<?php // wc_cart_totals_shipping_html(); ?>
 
 			<?php do_action( 'woocommerce_cart_totals_after_shipping' ); ?>
 
@@ -66,7 +66,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php endif; ?>
 
 		<?php do_action( 'woocommerce_cart_totals_before_order_total' ); ?>
-
+		
 		<tr class="order-total">
 			<th><?php _e( 'Celkem za objednávku', 'woocommerce' ); ?></th>
 			<td><?php wc_cart_totals_order_total_html(); ?></td>
