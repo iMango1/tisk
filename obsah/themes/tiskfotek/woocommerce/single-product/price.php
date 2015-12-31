@@ -104,6 +104,9 @@ jQuery( document ).ready(function() {
         jQuery(".nastavit-hromadne").click(function(){
             jQuery('.addon-wrap-3032-velikost-fotoobrazu select.addon-select').val( jQuery('.nastavit-celkem .addon-3032-velikost-fotoobrazu').val() );  
             jQuery('.addon-wrap-3032-velikost-fotoobrazu select.addon-select').trigger("chosen:updated");
+            jQuery(  "div.product-addon.product-addon-velikost-fotoobrazu" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
+            jQuery(  "div.product-addon.product-addon-velikost-fotoobrazu" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
+            jQuery(  "div.product-addon.product-addon-velikost-fotoobrazu" ).find( "span" ).addClass( "vyborna" );
         })
 	});
     //Nastavit hromadně - Material pro velké formáty
