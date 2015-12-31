@@ -42,9 +42,9 @@ if ( $order ) : ?>
             </div>
         </div>
 
-
-		<p><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); ?></p>
-
+        <p style="color:#5CB85C; font-size: 22px">
+            <?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); ?>
+        </p>
 		<ul class="order_details">
 			<li class="order">
 				<?php _e( 'Order Number:', 'woocommerce' ); ?>

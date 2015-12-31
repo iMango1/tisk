@@ -35,6 +35,7 @@ $get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', WC()->cart->g
 </div>
 
 
+
 <form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url( $get_checkout_url ); ?>" enctype="multipart/form-data">
 
 	<?php if ( sizeof( $checkout->checkout_fields ) > 0 ) : ?>
@@ -66,5 +67,16 @@ $get_checkout_url = apply_filters( 'woocommerce_get_checkout_url', WC()->cart->g
 	<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
 
 </form>
-
+<script>
+jQuery(document).ready(function(){ 
+        if(jQuery("input.shipping_method").val() == 'flat_rate'){
+            alert("kk");
+            jQuery(".payment_method_cheque").hide();
+        }
+        else {
+            jQuery(".payment_method_cheque").show();
+        }
+//    });
+});
+</script>
 <?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>

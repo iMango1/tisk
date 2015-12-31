@@ -1,5 +1,6 @@
 <?php
 global $kolotoc;
+global $pizza;
 session_start();
 
 /**
@@ -18,15 +19,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="col-md-1 pocet-tlacitka">
     
-    <div class="left add-items pridat"><a><i class="fa fa-plus"></i></a></div>
+    <div class="left add-items pridat" style="cursor:pointer;"><a><i class="fa fa-plus"></i></a></div>
     
     <div class="left">
         <input type="text" class="items-num" name="<?php echo esc_attr( $input_name ); ?>" value="<?php echo esc_attr( $input_value ); ?>" title="<?php _ex( 'Qty', 'Product quantity input tooltip', 'woocommerce' ) ?>" size="4" />
     </div>
     
-    <div class="left add-items odebrat"><a><i class="fa fa-minus"></i></a></div>
+    <div class="left add-items odebrat" style="cursor:pointer;"><a><i class="fa fa-minus"></i></a></div>
   
 </div>
+<script>
+jQuery(document).ready(function(){
+    jQuery(".shop_table.cart .fotka-<?php echo $pizza; ?> .pocet-tlacitka .pridat").click(function(){
+       var stara_hodnota = jQuery(".fotka-<?php echo $pizza; ?> .items-num").val();
+        var nova_hodnota = parseInt(stara_hodnota) + 1;
+        jQuery(".fotka-<?php echo $pizza; ?> .items-num").val(nova_hodnota);
+    });   
+    //PŘI ZMĚNĚ KLIKNUTÍM NA MINUS
+    jQuery(".shop_table.cart .fotka-<?php echo $pizza; ?> .pocet-tlacitka .odebrat").click(function(){
+        var stara_hodnota = jQuery(".fotka-<?php echo $pizza; ?> .items-num").val();
+        if(stara_hodnota>1){
+            var nova_hodnota = parseInt(stara_hodnota) - 1;
+            jQuery(".fotka-<?php echo $pizza; ?> .items-num").val(nova_hodnota);
+        }
+
+    }); 
+});
+</script>
 <div class="col-md-1 blok-tlacitka-cena">
     <div class="col-md-6 ikony-druhy-krok">
     <!--    <div class="duplikace-tlacitko disabled"  onclick="duplikace('cely-produkt-fotka-<?php echo $kolotoc; ?>')">-->

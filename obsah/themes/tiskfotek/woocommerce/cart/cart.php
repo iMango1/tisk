@@ -96,13 +96,15 @@ jQuery(function () {
     /*    echo "<pre>";
         print_r($_COOKIE);
         echo "</pre><br>".$_SESSION[0]["url_fotky"]; */
-		foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+        global $pizza;
+        $pizza = 0;
+		foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) { $pizza++;
 			$_product     = apply_filters( 'woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key );
 			$product_id   = apply_filters( 'woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key );
-
+        
 			if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
 				?>
-				<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
+				<tr class="fotka-<?php echo $pizza; ?> <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
 
 					<td class="product-remove">
 						<?php
@@ -281,3 +283,4 @@ jQuery(function () {
 </div>
 
 <?php do_action( 'woocommerce_after_cart' ); ?>
+
