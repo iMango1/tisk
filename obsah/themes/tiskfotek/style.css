@@ -851,6 +851,8 @@ a.post-thumbnail:hover {
 
 .pokud_registrovany{
     font-weight: bold;
-    color: #8F5DB7;
+    color: #fff;
+    padding: 10px 33px;
+    background: #5cb85c;
     margin: 10px 0px;
 }
