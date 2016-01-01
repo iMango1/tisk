@@ -297,34 +297,39 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
         $prvni = key($kosik->cart_contents);
         $k_vymazani = explode("kosik/",$kosik->get_remove_url($prvni));
         $vymaz = $k_vymazani[1];
-        if ( WC()->cart->get_cart_contents_count() == 0 ) {
-            $_SESSION["pridano"] = 1;
-        }
-        else   
-            $_SESSION["pridano"] = 0; 
+
 ?>
 
-SESSION<br>
-<?php echo "<pre>",print_r($_SESSION),"</pre>"; ?>
-COOKIES<br>
-<?php echo "<pre>",print_r($_COOKIE),"</pre>"; ?>
+
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>    
    
     jQuery(function () {
-        <?php if ( WC()->cart->get_cart_contents_count() == 0 ){ ?>
+        <?php if (!isset($_COOKIE["woocommerce_cart_hash"])){ ?>
             addToCart(3032);
             return false;
         <?php } ?>
     });    
 
-   function addToCart(p_id) {
+   function addToCart(p_id){
       $.get('/wp/?post_type=product&add-to-cart=' + p_id, function() {
           console.log("VYTVOŘENA TMP FOTKA");
       });
    }
 </script>
+<?php 
+    if (!isset($_COOKIE["woocommerce_cart_hash"])){
+        $_SESSION["pridano"] = 1;
+    }
+    else{
+        $_SESSION["pridano"] = 0; 
+    }
+?>
+SESSION<br>
+<?php echo "<pre>",print_r($_SESSION),"</pre>"; ?>
+COOKIES<br>
+<?php echo "<pre>",print_r($_COOKIE),"</pre>"; ?>
 <script type="text/javascript">
 $('#fileupload').fileupload({
     dropZone: $('#dropzone')
