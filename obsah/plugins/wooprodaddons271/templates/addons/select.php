@@ -164,6 +164,7 @@ jQuery( document ).ready(function() {
         
 
     });
+    
 
    
 });
@@ -183,7 +184,7 @@ jQuery( document ).ready(function() {
 			$loop ++;
 			$price = $option['price'] > 0 ? ' (' . woocommerce_price( get_product_addon_price_for_display( $option['price'] ) ) . ')' : '';
 			?>
-            <?php if(($option["label"] == "Fotografie") || ($option["label"] == "Obraz na plátně") || ($option["label"] == "Velké formáty"))  : ?>
+            <?php if(($option["label"] == "Fotografie") || ($option["label"] == "Obraz na plátně") || ($option["label"] == "Velké formáty") || ($option["label"] == "Ostatní") )  : ?>
                 <optgroup label="<?php echo $option["label"]; ?>">
             <?php else : ?>
 			<option data-price="<?php echo get_product_addon_price_for_display( $option['price'] ); ?>" value="<?php echo sanitize_title( $option['label'] ) . '-' . $loop; ?>" <?php selected( $current_value, sanitize_title( $option['label'] ) . '-' . $loop ); ?>><?php echo wptexturize( $option['label'] ) ?></option>

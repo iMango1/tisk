@@ -628,20 +628,18 @@ jQuery( document ).ready(function() {
 </script>
 
 <script>
-/* PROZATÍM STARÉ POKRAČOVAT V OBJEDNÁVCE
 jQuery( document ).ready(function() {
-    jQuery(".addon-wrap-3032-format .select-fotka-<?php echo $kolotoc; ?>").change(function() {
-        jQuery('.select-fotka-<?php echo $kolotoc; ?> option:selected').each(function(){
-            if(jQuery(this).val() == null){
-                jQuery(".pokracovat").addClass("disabled");
-            }
-            else
-                jQuery(".pokracovat").removeClass("disabled");
-            
-            
-        });
-    });  
-});   */
+    jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select').change(function() {
+        var selected = jQuery(this).val();
+
+        if(selected == "vlastni-rozmery-21"){
+            var format = prompt("Zadejte vlastní rozměry ve formátu šířka x výška (hodnoty uvádějte v centimetrech)","10x20");
+            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select").append('<option data-price="0" value="'+ format +'">'+format+'</option>');
+            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select").val(format);
+            jQuery('.addon-wrap-3032-format .select-fotka-<?php echo $kolotoc; ?>').trigger("chosen:updated");
+        }   
+    });
+});  
 jQuery(function(){
     jQuery(".nastavit-hromadne").click(function(){
         jQuery(".pokracovat").removeClass("disabled");
