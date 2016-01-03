@@ -629,6 +629,7 @@ jQuery( document ).ready(function() {
 
 <script>
 jQuery( document ).ready(function() {
+
     //VÝCHOZÍ HODNOTA VÝCHOZÍHO FORMÁTU
     jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-format").show();
     jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format").hide();
@@ -636,6 +637,8 @@ jQuery( document ).ready(function() {
         var selected = jQuery(this).val();
         //PŘI VÝBĚRU VLASNTÍHO FORMÁTU
         if(selected == "vlastni-rozmery-21"){
+            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select').val(jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select option:first").val());
+            jQuery('.addon-wrap-3032-format .select-fotka-<?php echo $kolotoc; ?>').trigger("chosen:updated");
             //ZOBRAZENÍ INPUTU
             jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-format").hide();
             jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").attr("placeholder", "Vlastní formát v cm (10x20)");
@@ -696,7 +699,7 @@ jQuery( document ).ready(function() {
         var vyska = parseFloat(pole_zadane[1]);
         var typ;
         console.log(sirka+"x"+vyska);
-        jQuery('#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input').val(sirka+"x"+vyska);
+      //  jQuery('#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input').val(sirka+"x"+vyska);
         //ROZDĚLENÍ
         if(sirka >= 20)
             typ = "velke";
@@ -754,9 +757,14 @@ jQuery( document ).ready(function() {
         //KVALITA V ADDON-END
     });
     
-    
 });  
+
+
+    
 jQuery(function(){
+    
+    
+    
     jQuery(".nastavit-hromadne").click(function(){
         jQuery(".pokracovat").removeClass("disabled");
     });

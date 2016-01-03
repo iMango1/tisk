@@ -14,6 +14,8 @@ $url = $_SERVER["SERVER_NAME"];
 $url_roz = explode(".", $url);
 $_NAZEV_WEBU = $url_roz[1];
 
+
+
 $fotky_pred_kop = $_POST["fotky"]; 
 $fotky_miniatury = $_POST["fotky_miniatury"];
 
@@ -109,7 +111,7 @@ $fotky = array();
         $_SESSION[$kolotoc]["url_fotky"] = $fotky[$kolotoc]; 
         $_SESSION[$kolotoc]["url_fotky_upload"] = $co;
         $_SESSION[$kolotoc]["status"] = 1;
-        $_SESSION["pocet_fotek"] = $pocet + 1;
+        $_SESSION["pocet_fotek"] = 0;
         
     }
 
@@ -121,6 +123,7 @@ $fotky = array();
         }
 
         $vsechny_nahrane_fotky = $_SESSION;
+$_SESSION["pocet_fotek"] = count($fotky);
 
 $args = array(
 	'post_type' => 'product',
@@ -286,7 +289,68 @@ jQuery(document).ready(function(){
                 </div>
             </div>
         </div>
+ <script>
+     
+jQuery( document ).ready(function() {   
+    var vysledek = "",predchozi = "";
+    var celkovy_pocet = <?php echo $_SESSION["pocet_fotek"]; ?>;
+    var mezipocet = 0, vys = 0;
+<?php for($i = 0; $i < $_SESSION["pocet_fotek"]; $i++){ ?>
+   
+    
+    jQuery('.product-addon-format .fotka-<?php echo $i;?> select').change(function() {
+        var selected = jQuery(':selected', this);
+        var vybrano = jQuery(this).val();
+        vysledek = selected.parent().attr('label');
+        if(vysledek == "Fotografie"){
+            mezipocet++;
+        }
+        else if(vysledek == "Obraz na plátně"){
 
+        }
+        else if(vysledek == "Velké formáty"){
+
+        }
+        else if(vysledek == "Ostatní"){
+            
+        }
+        //nic není zakliknuto
+        else {
+            mezipocet--;
+        }
+    });
+    jQuery('.product-addon-velikost-fotoobrazu .fotka-<?php echo $i;?> select').change(function() {
+        mezipocet++;console.log(mezipocet);
+    });
+    jQuery('.product-addon-vyber-fotopapiru .fotka-<?php echo $i;?> select').change(function() {
+        mezipocet++;console.log(mezipocet);
+     });
+     jQuery("#fotka-<?php echo $i; ?> .product-addon-vlastni-format input").focusout(function(){
+        var zadane_neosetrene = jQuery(this).val().replace(',', '.');
+        var zadane = zadane_neosetrene.toLowerCase();
+        var pole_zadane = zadane.split("x");
+        var sirka = parseFloat(pole_zadane[0]);
+        if(sirka < 20)
+            mezipocet++;
+     });
+    console.log(mezipocet);
+<?php } ?>
+    
+    jQuery('select').change(function() {
+        if(mezipocet >= celkovy_pocet)
+            jQuery(".pokracovat").removeClass("disabled");
+        else
+            jQuery(".pokracovat").addClass("disabled");
+    });
+    jQuery('input').focusout(function() {
+        if(mezipocet >= celkovy_pocet)
+            jQuery(".pokracovat").removeClass("disabled");
+        else
+            jQuery(".pokracovat").addClass("disabled");
+    });
+
+});
+</script>
        <div id="tabulka-fotek">
         <?php
         $kolotoc = 0;
@@ -462,48 +526,7 @@ jQuery(document).ready(function(){
     </script>
 	</div>
 </div>
- <script>
-jQuery( document ).ready(function() {   
-    var vysledek = "",predchozi = "";
-    var celkovy_pocet = <?php echo $celkovy_pocet; ?>;
-    var mezipocet = 0, vys = 0;
-<?php for($i = 0; $i < $celkovy_pocet; $i++){ ?>
-   
-    jQuery('.product-addon-format .fotka-<?php echo $i;?> select').change(function() {
-        var selected = jQuery(':selected', this);
-        vysledek = selected.parent().attr('label');
-        if(vysledek == "Fotografie"){
-            mezipocet++;
-        }
-        else if(vysledek == "Obraz na plátně"){
 
-        }
-        else if(vysledek == "Velké formáty"){
-
-        }
-        //nic není zakliknuto
-        else {
-            mezipocet--;
-        }
-        console.log(mezipocet);
-    });
-    jQuery('.product-addon-velikost-fotoobrazu .fotka-<?php echo $i;?> select').change(function() {
-       
-        mezipocet++;console.log(mezipocet);
-    });
-    jQuery('.product-addon-vyber-fotopapiru .fotka-<?php echo $i;?> select').change(function() {
-        mezipocet++;console.log(mezipocet);
-     });
-<?php } ?>
-    jQuery('select').change(function(){
-        if(mezipocet >= celkovy_pocet)
-            jQuery(".pokracovat").removeClass("disabled");
-        else
-            jQuery(".pokracovat").addClass("disabled");
-    });
-
-});
-</script>
 
 SESSION<br>
 <?php echo "<pre>",print_r($_SESSION),"</pre>"; ?>
