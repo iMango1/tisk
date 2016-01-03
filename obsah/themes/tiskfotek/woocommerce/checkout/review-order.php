@@ -16,6 +16,16 @@ $objednavka = new WC_Order($muj_post->ID);
         
 ?>
 
+<?php 
+$chosen_methods = WC()->session->get( 'chosen_shipping_methods' );
+$chosen_payment_methods = WC()->session->get('chosen_payment_method');
+$chosen_shipping = $chosen_methods[0];
+//echo "<pre>",print_r(WC()->session),"</pre>";
+if($chosen_shipping == "international_delivery"){ 
+    
+}
+?>
+
 
 <table class="shop_table woocommerce-checkout-review-order-table">
 	<thead>
