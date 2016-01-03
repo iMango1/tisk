@@ -676,6 +676,25 @@ display:none!important;
     visibility: hidden;
     position: absolute;
 }
+.product-addon-vlastni-format {
+    height: 44px!important;
+}
+.product-addon-vlastni-format p input.input-text {
+    height: 44px!important;
+    margin-bottom: 20px;
+}
+.product-addon-vlastni-format p{
+    margin: 0;
+}
+
+.product-addon-vlastni-format .fa{
+    top: 16px;
+    right: 20px;
+    position: absolute;
+    cursor: pointer;
+    font-size: 18px;
+    color: #F00;
+}
 
 /* ------------TŘETÍ KROK ------- */
 .woocommerce-cart .shop_table td{

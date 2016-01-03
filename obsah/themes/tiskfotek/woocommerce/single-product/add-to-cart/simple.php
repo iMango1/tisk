@@ -629,14 +629,34 @@ jQuery( document ).ready(function() {
 
 <script>
 jQuery( document ).ready(function() {
+    //VÝCHOZÍ HODNOTA VÝCHOZÍHO FORMÁTU
+    jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-format").show();
+    jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format").hide();
     jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select').change(function() {
         var selected = jQuery(this).val();
-
+        //PŘI VÝBĚRU VLASNTÍHO FORMÁTU
         if(selected == "vlastni-rozmery-21"){
-            var format = prompt("Zadejte vlastní rozměry ve formátu šířka x výška (hodnoty uvádějte v centimetrech)","10x20");
-            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select").append('<option data-price="0" value="'+ format +'">'+format+'</option>');
-            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select").val(format);
-            jQuery('.addon-wrap-3032-format .select-fotka-<?php echo $kolotoc; ?>').trigger("chosen:updated");
+            //ZOBRAZENÍ INPUTU
+            jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-format").hide();
+            jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").attr("placeholder", "Vlastní formát v cm (10x20)");
+            jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format").show();
+            jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format").append('<i class="fa fa-times"></i>');
+            //PO KLIKNUTÍ NA KŘÍŽEK
+            jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format .fa").click(function(){
+                //ZMĚNA NA VÝCHOZÍ HODNOTU
+                jQuery("#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format" ).find( "a.chosen-single" ).css( "background", "");
+                jQuery("#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format" ).find( "a.chosen-single" ).css( "color", "");
+                jQuery("#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format" ).find( "span" ).removeClass( "vyborna" ); 
+                //ZOBRAZENÍ FORMÁTU A SKRYTÍ VLASTNÍHO
+                jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-format").show();
+                jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format").hide();
+                jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select').val(jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select option:first").val());
+                jQuery('.addon-wrap-3032-format .select-fotka-<?php echo $kolotoc; ?>').trigger("chosen:updated");
+                //VYMAZÁNÍ INPUTU
+                jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").val("");
+                
+            });
+            
         }   
     });
 });  
