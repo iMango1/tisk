@@ -152,7 +152,8 @@ $order = wc_get_order( $order_id );
 		do_action( 'woocommerce_order_items_table', $order );
 		?>
 	</tbody>
-	<tfoot>
+	</table>
+	<table>
 	<?php
 		$has_refund = false;
 
@@ -223,8 +224,8 @@ $order = wc_get_order( $order_id );
 				<td colspan="2"><?php echo wptexturize( $order->customer_note ); ?></td>
 			</tr>
 		<?php } ?>
-	</tfoot>
-</table>
+	</table>
+
 
 <?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?>
 
