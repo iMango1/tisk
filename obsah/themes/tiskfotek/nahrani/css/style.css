@@ -696,6 +696,9 @@ display:none!important;
     color: #F00;
 }
 
+.page-template-nastaveni-fotek  .success-box{
+    display: none;
+}
 /* ------------TŘETÍ KROK ------- */
 .woocommerce-cart .shop_table td{
     border: none!important;
