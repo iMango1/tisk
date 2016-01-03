@@ -641,7 +641,7 @@ jQuery( document ).ready(function() {
             jQuery('.addon-wrap-3032-format .select-fotka-<?php echo $kolotoc; ?>').trigger("chosen:updated");
             //ZOBRAZENÍ INPUTU
             jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-format").hide();
-            jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").attr("placeholder", "Vlastní formát v cm (10x20)");
+            jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").attr("placeholder", "Napište zde váš rozměr");
             jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format").show();
             jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format").append('<i class="fa fa-times"></i>');
             
