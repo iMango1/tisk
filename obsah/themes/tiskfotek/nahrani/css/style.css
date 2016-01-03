@@ -334,6 +334,18 @@ td.tlacitka-nahrani{
     -moz-box-shadow: 0 4px 4px -2px #000000;
     box-shadow: 0 4px 4px -2px #000000;
 }
+.pokud_registrovany a.btn.tlacitko-reg{
+    display: block;
+    padding: 5px;
+    font-size: 12px;
+    background: #439a43;
+    color: #fff;
+    margin-top: -3.5px;
+}
+
+.pokud_registrovany a.btn.tlacitko-reg:hover{
+    background: #398339;
+}
 
 /* DRUHÝ KROK */
 

@@ -134,7 +134,7 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
                 
             </div> <!-- col-md-6 -->
         </div> <!-- Napoveda -->        
-    <p class="pokud_registrovany">Pokud jste registrovaný zákazník, přihlaste se prosím v horní části stránky.</p>
+    <div class="pokud_registrovany">Pokud jste registrovaný zákazník, přihlaste se prosím v horní části stránky nebo klikněte <i class="fa fa-arrow-right"></i><a class="btn tlacitko-reg pull-right" href="prihlaseni/">Přihlášení/Registrace</a></div>
     <div id="sticky-anchor-tlacitka"></div>    		
 	<!-- The file upload form used as target for the file upload widget -->
     <form id="fileupload" action="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/nastaveni-fotografii/" method="POST" enctype="multipart/form-data">
@@ -326,10 +326,12 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
         $_SESSION["pridano"] = 0; 
     }
 ?>
+<!--
 SESSION<br>
 <?php echo "<pre>",print_r($_SESSION),"</pre>"; ?>
 COOKIES<br>
 <?php echo "<pre>",print_r($_COOKIE),"</pre>"; ?>
+-->
 <script type="text/javascript">
 $('#fileupload').fileupload({
     dropZone: $('#dropzone')
