@@ -42,6 +42,14 @@ jQuery( document ).ready(function() {
             jQuery(".nastavit-celkem .material .chosen-container").addClass("chosen-disabled");
             jQuery(".nastavit-celkem .velikost-fotoobrazu").hide();
             jQuery(".nastavit-celkem .nalepit-na-desku .chosen-container").removeClass("chosen-disabled");
+            
+            jQuery(".nastavit-hromadne").click(function(){
+                jQuery('.addon-wrap-3032-vyber-fotopapiru select.addon-select').trigger("chosen:updated");
+                jQuery(  "div.product-addon.product-addon-vyber-fotopapiru" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
+                jQuery(  "div.product-addon.product-addon-vyber-fotopapiru" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
+                jQuery(  "div.product-addon.product-addon-vyber-fotopapiru" ).find( "span" ).addClass( "vyborna" );
+            });
+            
         }
         else if(vysledek == "Obraz na plátně"){
             jQuery(".nastavit-celkem .vyber-fotopapiru .chosen-container").addClass("chosen-disabled");
@@ -85,10 +93,7 @@ jQuery( document ).ready(function() {
     jQuery(function(){
         jQuery(".nastavit-hromadne").click(function(){
             jQuery('.addon-wrap-3032-vyber-fotopapiru select.addon-select').val( jQuery('.nastavit-celkem .addon-3032-vyber-fotopapiru').val() );  
-            jQuery('.addon-wrap-3032-vyber-fotopapiru select.addon-select').trigger("chosen:updated");
-            jQuery(  "div.product-addon.product-addon-vyber-fotopapiru" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
-            jQuery(  "div.product-addon.product-addon-vyber-fotopapiru" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
-            jQuery(  "div.product-addon.product-addon-vyber-fotopapiru" ).find( "span" ).addClass( "vyborna" );
+
         })
 	});
     
