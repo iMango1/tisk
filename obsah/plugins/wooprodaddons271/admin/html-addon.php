@@ -47,7 +47,7 @@ global $post;
 						<thead>
 							<tr>
 								<th><?php _e('Option Label', 'woocommerce-product-addons'); ?></th>
-								<th class="price_column"><?php _e('Option Price', 'woocommerce-product-addons'); ?></th>
+								<th class="koko price_column"><?php _e('Option Price', 'woocommerce-product-addons'); ?></th>
 								<th class="minmax_column"><?php _e('Min', 'woocommerce-product-addons'); ?></th>
 								<th class="minmax_column"><?php _e('Max', 'woocommerce-product-addons'); ?></th>
 								<th width="1%"></th>
