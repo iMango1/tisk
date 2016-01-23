@@ -707,7 +707,25 @@ display:none!important;
     font-size: 18px;
     color: #F00;
 }
-
+.nastavit-celkem .product-addon-vlastni-format {
+    height: 30px!important;
+}
+.nastavit-celkem .product-addon-vlastni-format p input.input-text {
+    height: 30px!important;
+    margin-bottom: 20px;
+}
+.nastavit-celkem .product-addon-vlastni-format input{
+    height: 30px!important;
+    color: #000;
+}
+.nastavit-celkem .product-addon-vlastni-format .fa{
+    top: 6px;
+    right: 17px;
+    position: absolute;
+    cursor: pointer;
+    font-size: 18px;
+    color: #F00;
+}
 .page-template-nastaveni-fotek  .success-box{
     display: none;
 }

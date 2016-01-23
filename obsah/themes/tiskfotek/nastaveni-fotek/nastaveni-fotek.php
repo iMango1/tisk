@@ -164,6 +164,7 @@ jQuery(document).ready(function(){
             <div class="nastavit-celkem">
                 <h3>Hromadné nastavení parametrů všech fotografií</h3>
                 <div class="col-md-2 format">
+                   <div class="format-select">
                     <select class="addon addon-select chosen-select addon-3032-format" name="addon-3032-format" style="display: none;">
 				        <option value="">Formát</option>
                         <optgroup label="Fotografie">
@@ -192,6 +193,11 @@ jQuery(document).ready(function(){
                             <option data-price="" value="vlastni-rozmery-21">Vlastní rozměry</option>
                         </optgroup>
                     </select>
+                    </div>
+                    <div class="product-addon-vlastni-format">
+                    <input type="text" class="input-text addon addon-custom" data-price="" name="addon-3032-vlastni-format[rozmer]" value="" placeholder="Napište zde váš rozměr">
+                    <i class="fa fa-times"></i>
+                    </div>
                 </div>
                 <div class="col-md-2 vyber-fotopapiru">                   
                     <select class="addon addon-select chosen-select addon-3032-vyber-fotopapiru" name="addon-3032-vyber-fotopapiru" style="display: none;">
@@ -268,6 +274,115 @@ jQuery(document).ready(function(){
         </div>
  <script>
      
+jQuery( document ).ready(function() {  
+    
+    jQuery(".nastavit-celkem .product-addon-format").show();
+    jQuery(".nastavit-celkem .product-addon-vlastni-format").hide();  
+    
+    jQuery('.nastavit-celkem .format select').change(function() {
+        var selected = jQuery(this).val();
+        //PŘI VÝBĚRU VLASNTÍHO FORMÁTU
+        if(selected == "vlastni-rozmery-21"){
+            jQuery('.nastavit-celkem .format select').val(jQuery(".nastavit-celkem .format select option:first").val());
+            jQuery('.nastavit-celkem .format .chosen-container').trigger("chosen:updated");
+            //ZOBRAZENÍ INPUTU
+            jQuery(".nastavit-celkem .format .format-select").hide();
+            jQuery(".nastavit-celkem .product-addon-vlastni-format input").attr("placeholder", "Napište zde váš rozměr");
+            jQuery(".nastavit-celkem .product-addon-vlastni-format").show();
+            jQuery(".nastavit-celkem .product-addon-vlastni-format").append('<i class="fa fa-times"></i>');
+            
+            //PO KLIKNUTÍ NA KŘÍŽEK
+            jQuery(".nastavit-celkem .product-addon-vlastni-format .fa").click(function(){
+                //ZOBRAZENÍ FORMÁTU A SKRYTÍ VLASTNÍHO
+                jQuery(".nastavit-celkem .format-select").show();
+                jQuery(".nastavit-celkem .product-addon-vlastni-format").hide();
+                jQuery('.nastavit-celkem .format select').val(jQuery(".nastavit-celkem .format select option:first").val());
+                jQuery('.addon-wrap-3032-format .select-fotka-<?php echo $kolotoc; ?>').trigger("chosen:updated");
+                //VYMAZÁNÍ INPUTU
+                jQuery(".nastavit-celkem .product-addon-vlastni-format input").val("");
+                
+                
+                jQuery('.nastavit-celkem .velikost-fotoobrazu select').prop('selectedIndex',0);
+                jQuery('.nastavit-celkem .vyber-fotopapiru select').prop('selectedIndex',0);
+                //UPDATE RESETOVANÝCH INPUTŮ
+                jQuery('.nastavit-celkem .velikost-fotoobrazu select').trigger("chosen:updated");
+                jQuery('.nastavit-celkem .vyber-fotopapiru select').trigger("chosen:updated");
+                //NASTAVENÍ VIDITELNOSTI
+                jQuery('.nastavit-celkem .vyber-fotopapiru select').prop('selectedIndex',0);
+                jQuery('.nastavit-celkem .vyber-fotopapiru select').trigger("chosen:updated");
+                jQuery(".nastavit-celkem .vyber-fotopapiru .chosen-container").addClass("chosen-disabled");
+                jQuery(".nastavit-celkem .material-pro-velke-formaty").hide();
+                jQuery(".nastavit-celkem .velikost-fotoobrazu").hide();
+                jQuery(".nastavit-celkem .material").show();
+                jQuery(".nastavit-celkem .material .chosen-container").addClass("chosen-disabled");
+                jQuery(".nastavit-celkem .nalepit-na-desku .chosen-container").addClass("chosen-disabled");
+
+            });
+        }
+    });
+    
+    //POČTY
+    jQuery('.nastavit-celkem .product-addon-vlastni-format input').focusout(function() {
+
+        //PARSOVÁNÍ
+        var zadane_neosetrene = jQuery(this).val().replace(',', '.');
+        var zadane = zadane_neosetrene.toLowerCase();
+        var pole_zadane = zadane.split("x");
+        var sirka = parseFloat(pole_zadane[0]);
+        var vyska = parseFloat(pole_zadane[1]);
+        var typ;
+        console.log(sirka+"x"+vyska);
+        //ROZDĚLENÍ
+        if(sirka >= 20)
+            typ = "velke";
+        else
+            typ = "fotografie";
+        //ZOBRAZENÍ INPUTŮ
+        if(typ == "fotografie"){
+            //RESET ZADANÝCH HODNOT
+            jQuery('.nastavit-celkem .velikost-fotoobrazu select').prop('selectedIndex',0);
+            jQuery('.nastavit-celkem .vyber-fotopapiru select').prop('selectedIndex',0);
+            //UPDATE RESETOVANÝCH INPUTŮ
+            jQuery('.nastavit-celkem .velikost-fotoobrazu select').trigger("chosen:updated");
+            jQuery('.nastavit-celkem .vyber-fotopapiru select').trigger("chosen:updated");
+            //NASTAVENÍ VIDITELNOSTI
+            jQuery(".nastavit-celkem .vyber-fotopapiru .chosen-container").addClass("chosen-disabled");
+            jQuery(".nastavit-celkem .velikost-fotoobrazu").hide();
+            jQuery(".nastavit-celkem .material-pro-velke-formaty").hide();
+            jQuery(".nastavit-celkem .material").show();
+            jQuery(".nastavit-celkem .material .chosen-container").removeClass("chosen-disabled");
+            jQuery(".nastavit-celkem .nalepit-na-desku").show();
+            jQuery(".nastavit-celkem .nalepit-na-desku .chosen-container").removeClass("chosen-disabled");
+            //NASTAVENÍ LESKLÉHO FOTOPAPÍRU
+            jQuery(".nastavit-celkem .material select").val("leskly-fotopapir-1");
+            jQuery(".nastavit-celkem .material select").trigger("chosen:updated");
+            //NASTAVENÍ POMLČEK PŘI NEVYPLNĚNÍ
+            jQuery(".nastavit-celkem .nalepit-na-desku select").val("zadna-deska-3");
+            jQuery('.nastavit-celkem .nalepit-na-desku select').trigger("chosen:updated");        
+        }
+        if(typ == "velke"){
+            //RESET ZADANÝCH HODNOT
+            jQuery('.nastavit-celkem .material select').prop('selectedIndex',0);
+            jQuery('.nastavit-celkem .velikost-fotoobrazu select').prop('selectedIndex',0);
+            //UPDATE RESETOVANÝCH INPUTŮ
+            jQuery('.nastavit-celkem .velikost-fotoobrazu select').trigger("chosen:updated");
+            jQuery('.nastavit-celkem .material select').trigger("chosen:updated");
+            //NASTAVENÍ VIDITELNOSTI
+            jQuery(".nastavit-celkem .vyber-fotopapiru .chosen-container").removeClass("chosen-disabled");
+            jQuery(".nastavit-celkem .material-pro-velke-formaty").hide();
+            jQuery(".nastavit-celkem .material").show();
+            jQuery(".nastavit-celkem .material .chosen-container").addClass("chosen-disabled");
+            jQuery(".nastavit-celkem .velikost-fotoobrazu").hide();
+            jQuery(".nastavit-celkem .nalepit-na-desku .chosen-container").removeClass("chosen-disabled");
+            //NASTAVENÍ POMLČEK PŘI NEVYPLNĚNÍ
+            jQuery(".nastavit-celkem .nalepit-na-desku select").val("zadna-deska-3");
+            jQuery('.nastavit-celkem .nalepit-na-desku select').trigger("chosen:updated");
+        }
+
+    });
+});
+</script>  
+<script>
 jQuery( document ).ready(function() {   
     var vysledek = "",predchozi = "";
     var celkovy_pocet = <?php echo $_SESSION["pocet_fotek"]; ?>;
@@ -512,6 +627,14 @@ jQuery( document ).ready(function() {
         
  
     });
+       
+       jQuery(function(){
+        jQuery(".nastavit-hromadne").click(function(){
+            
+            jQuery(".pokracovat").removeClass("disabled");
+            
+        });
+       });
     </script>
 	</div>
 </div>
