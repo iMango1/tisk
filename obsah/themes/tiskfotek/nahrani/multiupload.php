@@ -266,6 +266,32 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
 
 
     <?php
+        
+        global $wpdb;
+       /* 
+        $parametry["fotopapir"]["2000"] = 0.123;
+        $parametry["fotopapir"]["4000"] = 0.2;
+        $parametry["fotopapir"]["4000"] = 0.3;
+        
+        $parametry["deska"]["2000"] = 0.4;
+        $parametry["deska"]["3000"] = 0.454;
+        
+        
+        $wpdb->update( 
+	'tskf_postmeta', 
+	array( 
+		'meta_value' => serialize($parametry)
+	), 
+	array( 'meta_key' => "ceny_produktu" ), 
+	array( 
+		'%s'
+	) 
+);
+*/
+        $results = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_produktu"', OBJECT );
+        
+        echo "<pre>",print_r($results),"</pre>";
+         echo "<pre>",print_r(unserialize($results[0]->meta_value)),"</pre>";
             //SCRIPT PRO MAZÁNÍ SOUBORŮ VE SLOŽCE NAHRÁNÍ. ODKOMENTÁŘOVAT POUZE TEHDY KDYŽ SE NĚCO POSERE A FOTOGRAFIE SE NESMAŽOU!!!
             /*
             $normal = glob("/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/*.*"); 
