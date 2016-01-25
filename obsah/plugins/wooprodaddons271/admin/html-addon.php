@@ -50,6 +50,7 @@ global $post;
 								<th class="koko price_column"><?php _e('Option Price', 'woocommerce-product-addons'); ?></th>
 								<th class="minmax_column"><?php _e('Min', 'woocommerce-product-addons'); ?></th>
 								<th class="minmax_column"><?php _e('Max', 'woocommerce-product-addons'); ?></th>
+								<th width="1%">Přidat cenu</th>
 								<th width="1%"></th>
 							</tr>
 						</thead>
@@ -60,6 +61,7 @@ global $post;
 						</tfoot>
 						<tbody>
 							<?php
+                            echo "<pre>",print_r($addon),"</pre>";
 							foreach ( $addon['options'] as $option )
 								include( 'html-addon-option.php' );
 							?>
