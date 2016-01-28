@@ -268,14 +268,60 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
     <?php
         
         global $wpdb;
-       /* 
-        $parametry["fotopapir"]["2000"] = 0.123;
-        $parametry["fotopapir"]["4000"] = 0.2;
-        $parametry["fotopapir"]["4000"] = 0.3;
+       /*
+        $parametry["LESK - GLACIER"]["384"] = "0.129";
+        $parametry["LESK - GLACIER"]["623,7"] = "0.1205";
+        $parametry["LESK - GLACIER"]["1247,4"] = "0.1163";
+        $parametry["LESK - GLACIER"]["2494,8"] = "0.1122";
         
-        $parametry["deska"]["2000"] = 0.4;
-        $parametry["deska"]["3000"] = 0.454;
+        $parametry["LESK - OMNIJET"]["384"] = "0.1045";
+        $parametry["LESK - OMNIJET"]["623,7"] = "0.0964";
+        $parametry["LESK - OMNIJET"]["1247,4"] = "0.0922";
+        $parametry["LESK - OMNIJET"]["2494,8"] = "0.0901";
         
+        $parametry["LESK - Photo BARYT"]["384"] = "0.144";
+        $parametry["LESK - Photo BARYT"]["623,7"] = "0.140";
+        $parametry["LESK - Photo BARYT"]["1247,4"] = "0.1344";
+        $parametry["LESK - Photo BARYT"]["2494,8"] = "0.1302";
+        
+        $parametry["LESK - Premium GLOSSY"]["384"] = "0.1125";
+        $parametry["LESK - Premium GLOSSY"]["623,7"] = "0.1044";
+        $parametry["LESK - Premium GLOSSY"]["1247,4"] = "0.1003";
+        $parametry["LESK - Premium GLOSSY"]["2494,8"] = "0.0961";
+        
+        $parametry["LESK - Premium LUSTER"]["384"] = "0.1205";
+        $parametry["LESK - Premium LUSTER"]["623,7"] = "0.1124";
+        $parametry["LESK - Premium LUSTER"]["1247,4"] = "0.1083";
+        $parametry["LESK - Premium LUSTER"]["2494,8"] = "0.1061";
+        
+        $parametry["LESK - Smooth GLOSS"]["384"] = "0.1362";
+        $parametry["LESK - Smooth GLOSS"]["623,7"] = "0.1283";
+        $parametry["LESK - Smooth GLOSS"]["1247,4"] = "0.1203";
+        $parametry["LESK - Smooth GLOSS"]["2494,8"] = "0.1161";
+        //----------
+        $parametry["MAT - Enhanced MATTE"]["384"] = "0.1045";
+        $parametry["MAT - Enhanced MATTE"]["623,7"] = "0.0964";
+        $parametry["MAT - Enhanced MATTE"]["1247,4"] = "0.0922";
+        $parametry["MAT - Enhanced MATTE"]["2494,8"] = "0.09013";
+        
+        $parametry["MAT - Matte REAL"]["384"] = "0.129";
+        $parametry["MAT - Matte REAL"]["623,7"] = "0.1205";
+        $parametry["MAT - Matte REAL"]["1247,4"] = "0.1143";
+        $parametry["MAT - Matte REAL"]["2494,8"] = "0.1101";
+        
+        $parametry["MAT - Velvet FINE ART"]["384"] = "0.1767";
+        $parametry["MAT - Velvet FINE ART"]["623,7"] = "0.1726";
+        //-----
+        //OBRAZY NA RÁMU NA PLÁTNĚ JSOU FIXNÍ!
+        $parametry["POUZE PLÁTNO - LESK SATIN CANVAS"]["384"] = "0.2172";
+        $parametry["POUZE PLÁTNO - LESK SATIN CANVAS"]["623,7"] = "0.2086";
+        $parametry["POUZE PLÁTNO - LESK SATIN CANVAS"]["1247,4"] = "0.1965";
+        $parametry["POUZE PLÁTNO - LESK SATIN CANVAS"]["2494,8"] = "0.1922";
+        
+        $parametry["POUZE PLÁTNO - MAT EXCLUSIVE - bez rámu"]["384"] = "0.2172";
+        $parametry["POUZE PLÁTNO - MAT EXCLUSIVE - bez rámu"]["623,7"] = "0.2086";
+        $parametry["POUZE PLÁTNO - MAT EXCLUSIVE - bez rámu"]["1247,4"] = "0.1965";
+        $parametry["POUZE PLÁTNO - MAT EXCLUSIVE - bez rámu"]["2494,8"] = "0.1922";
         
         $wpdb->update( 
 	'tskf_postmeta', 
