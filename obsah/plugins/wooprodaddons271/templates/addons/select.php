@@ -2,7 +2,11 @@
 global $kolotoc;
 $loop = 0;
 $current_value = isset( $_POST['addon-' . sanitize_title( $addon['field-name'] ) ] ) ? $_POST[ 'addon-' . sanitize_title( $addon['field-name'] ) ] : '';
+global $wpdb;
+$results = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_produktu"', OBJECT );
 
+$addon["vlastni_ceny"] = unserialize($results[0]->meta_value);
+ //echo "<pre>",print_r($addon),"</pre>";
 //Přidané
 /*
 $current_value = array();
@@ -13,7 +17,6 @@ foreach ($_POST['addon-' . sanitize_title($addon['field-name'] ) ] as $post_jede
 //KONEC!
 
 ?>
-
 <script>
 //ZMĚNA INPUTŮ
 
@@ -187,7 +190,8 @@ jQuery( document ).ready(function() {
             <?php if(($option["label"] == "Fotografie") || ($option["label"] == "Obraz na plátně") || ($option["label"] == "Velké formáty") || ($option["label"] == "Ostatní") )  : ?>
                 <optgroup label="<?php echo $option["label"]; ?>">
             <?php else : ?>
-			<option data-price="<?php echo get_product_addon_price_for_display( $option['price'] ); ?>" value="<?php echo sanitize_title( $option['label'] ) . '-' . $loop; ?>" <?php selected( $current_value, sanitize_title( $option['label'] ) . '-' . $loop ); ?>><?php echo wptexturize( $option['label'] ) ?></option>
+			<option data-price="<?php echo get_product_addon_price_for_display( $option['price'] ); ?>" value="<?php echo sanitize_title( $option['label'] ) . '-' . $loop; ?>" <?php selected( $current_value, sanitize_title( $option['label'] ) . '-' . $loop ); ?>><?php echo wptexturize( $option['label'] ) ?>
+            </option>
                     <?php if($option["label"] == "15x23" || $option["label"] == "Fotoobraz" || $option["label"] == "A2") {?>
                 </optgroup>
         <?php } ?>
