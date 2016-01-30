@@ -5,7 +5,8 @@ global $vsechny_nahrane_fotky;
 global $wpdb;
 $results = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_produktu"', OBJECT );
 
-
+$_SESSION["vlastni_ceny"] = unserialize($results[0]->meta_value);
+//echo "<pre>",print_r($_SESSION),"</pre>";
 ?>
 <script>
 //ÚPRAVA CEN!!!
@@ -326,6 +327,164 @@ $results = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like 
                     zmena("MAT - Velvet FINE ART",blok,obsah);
                 }
             }
+            }
+        });
+        
+                //ÚPRAVA PŘI HROMADNÉM NASTAVENÍ
+        
+        jQuery('.nastavit-hromadne').click(function() {
+            
+            var vybrany_fotopapir = jQuery(".nastavit-celkem .vyber-fotopapiru select").val();            
+            
+            var vysledek = jQuery('.nastavit-celkem .format select').val();
+            var pro_vymazani_id = vysledek.split("-");
+            
+            var rozmery = pro_vymazani_id[0].split("x");
+            var sirka = rozmery[0], vyska = rozmery[1], obsah = sirka*vyska;
+            var cena_bez_mnozstvi = 0, nova_cena = 0.00;
+            
+            var fotopapiry_ceny = <?php echo json_encode(unserialize($results[0]->meta_value)); ?>;
+            
+            if(pro_vymazani_id[0]=="a4")
+                obsah = 623.7;
+            if(pro_vymazani_id[0]=="a3")
+                obsah = 1247.4;
+            if(pro_vymazani_id[0]=="a2")
+                obsah = 2494.8;
+            
+            function cena(nazev_papir,obsah_blok,obsah_fotky){
+                return (Math.round(fotopapiry_ceny[nazev_papir][obsah_blok]*obsah_fotky));
+            }
+            
+            function zmena_h(nazev_papir,blok_obsah,fotka_obsah){
+                    jQuery('.addon-wrap-3032-vyber-fotopapiru select option:selected').attr("data-price",cena(nazev_papir,blok_obsah,obsah));
+                    jQuery('.addon-wrap-3032-vyber-fotopapiru select').trigger("chosen:updated");
+                    cena_bez_mnozstvi = jQuery(".addon-wrap-3032-vyber-fotopapiru select").data('price');
+                    nova_cena = cena_bez_mnozstvi * jQuery(".product-block .items-num").val();
+                    jQuery('.cena-fotky span').html(nova_cena.toFixed(2));
+                    jQuery('.cena-fotky').attr("data-soucasna-cena",nova_cena.toFixed(2));    
+            }
+            
+            var text = jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?> :selected').text();
+
+            if(obsah>=384 && obsah < 623.7){
+            
+            }
+
+            if(obsah >= 623.7 && obsah < 1247.4){
+                var blok = "623,7";
+                if(vybrany_fotopapir == "mat-enhanced-mate-1"){
+                    zmena_h("MAT - Enhanced MATTE",blok,obsah);
+                }
+                if(vybrany_fotopapir == "mat-matte-real-2"){
+                    zmena_h("MAT - Matte REAL",blok,obsah);
+                }
+                if(vybrany_fotopapir == "mat-velvet-fine-art-3"){
+                    zmena_h("MAT - Velvet FINE ART",blok,obsah);
+                }
+                if(vybrany_fotopapir == "lesk-glacier-4"){
+                    zmena_h("LESK - GLACIER",blok,obsah);  
+                }
+                if(vybrany_fotopapir == "lesk-omnijet-5"){
+                    zmena_h("LESK - OMNIJET",blok,obsah);
+                }
+                if(vybrany_fotopapir == "lesk-photo-baryt-6"){
+                    zmena_h("LESK - Photo BARYT",blok,obsah);
+                }
+                if(vybrany_fotopapir == "lesk-premium-glossy-7"){
+                    zmena_h("LESK - Premium GLOSSY",blok,obsah);
+                }
+                if(vybrany_fotopapir == "lesk-premium-luster-8"){
+                    zmena_h("LESK - Premium LUSTER",blok,obsah);
+                }
+                if(vybrany_fotopapir == "lesk-smooth-gloss-9"){
+                    zmena_h("LESK - Smooth GLOSS",blok,obsah);
+                }
+                if(vybrany_fotopapir == "pouze-platno-lesk-satin-canvas-10"){
+                    zmena_h("POUZE PLÁTNO - LESK SATIN CANVAS",blok,obsah);
+                }
+                if(vybrany_fotopapir == "pouze-platno-mat-exclusive-bez-ramu-11"){
+                    zmena_h("POUZE PLÁTNO - MAT EXCLUSIVE - bez rámu",blok,obsah);
+                }
+            }
+
+            if(obsah >= 1247.4 && obsah < 2494.8){
+                var blok = "1247,4";
+                if(vybrany_fotopapir == "mat-enhanced-mate-1"){
+                    zmena_h("MAT - Enhanced MATTE",blok,obsah);
+                }
+                if(vybrany_fotopapir == "mat-matte-real-2"){
+                    zmena_h("MAT - Matte REAL",blok,obsah);
+                }
+                if(vybrany_fotopapir == "mat-velvet-fine-art-3"){
+                    zmena_h("MAT - Velvet FINE ART",blok,obsah);
+                }
+                if(vybrany_fotopapir == "lesk-glacier-4"){
+                    zmena_h("LESK - GLACIER",blok,obsah);  
+                }
+                if(vybrany_fotopapir == "lesk-omnijet-5"){
+                    zmena_h("LESK - OMNIJET",blok,obsah);
+                }
+                if(vybrany_fotopapir == "lesk-photo-baryt-6"){
+                    zmena_h("LESK - Photo BARYT",blok,obsah);
+                }
+                if(vybrany_fotopapir == "lesk-premium-glossy-7"){
+                    zmena_h("LESK - Premium GLOSSY",blok,obsah);
+                }
+                if(vybrany_fotopapir == "lesk-premium-luster-8"){
+                    zmena_h("LESK - Premium LUSTER",blok,obsah);
+                }
+                if(vybrany_fotopapir == "lesk-smooth-gloss-9"){
+                    zmena_h("LESK - Smooth GLOSS",blok,obsah);
+                }
+                if(vybrany_fotopapir == "pouze-platno-lesk-satin-canvas-10"){
+                    zmena_h("POUZE PLÁTNO - LESK SATIN CANVAS",blok,obsah);
+                }
+                if(vybrany_fotopapir == "pouze-platno-mat-exclusive-bez-ramu-11"){
+                    zmena_h("POUZE PLÁTNO - MAT EXCLUSIVE - bez rámu",blok,obsah);
+                }
+            }
+            if(obsah >= 2494.8){
+                var blok = "2494,8";
+                if(vybrany_fotopapir == "mat-enhanced-mate-1"){
+                    zmena_h("MAT - Enhanced MATTE",blok,obsah);
+                }
+                if(vybrany_fotopapir == "mat-matte-real-2"){
+                    zmena_h("MAT - Matte REAL",blok,obsah);
+                }
+                if(vybrany_fotopapir == "mat-velvet-fine-art-3"){
+                    zmena_h("MAT - Velvet FINE ART",blok,obsah);
+                }
+                if(vybrany_fotopapir == "lesk-glacier-4"){
+                    zmena_h("LESK - GLACIER",blok,obsah);  
+                }
+                if(vybrany_fotopapir == "lesk-omnijet-5"){
+                    zmena_h("LESK - OMNIJET",blok,obsah);
+                }
+                if(vybrany_fotopapir == "lesk-photo-baryt-6"){
+                    zmena_h("LESK - Photo BARYT",blok,obsah);
+                }
+                if(vybrany_fotopapir == "lesk-premium-glossy-7"){
+                    zmena_h("LESK - Premium GLOSSY",blok,obsah);
+                }
+                if(vybrany_fotopapir == "lesk-premium-luster-8"){
+                    zmena_h("LESK - Premium LUSTER",blok,obsah);
+                }
+                if(vybrany_fotopapir == "lesk-smooth-gloss-9"){
+                    zmena_h("LESK - Smooth GLOSS",blok,obsah);
+                }
+                if(vybrany_fotopapir == "pouze-platno-lesk-satin-canvas-10"){
+                    zmena_h("POUZE PLÁTNO - LESK SATIN CANVAS",blok,obsah);
+                }
+                if(vybrany_fotopapir == "pouze-platno-mat-exclusive-bez-ramu-11"){
+                    zmena_h("POUZE PLÁTNO - MAT EXCLUSIVE - bez rámu",blok,obsah);
+                }
+            }
+            if(obsah >= 623.7){
+                var blok = "623,7";
+                if(vybrany_fotopapir == "mat-velvet-fine-art-3"){
+                    zmena_h("MAT - Velvet FINE ART",blok,obsah);
+                }
             }
         });
         
