@@ -18,11 +18,3 @@ if ( ! $post->post_excerpt ) {
 }
 
 ?>
-<!--
-<div itemprop="description">
-    <div class="list-item last-list">
-    <label class="control-label"><i class="fa fa-align-justify"></i><?php echo __('Quick Overview:','itrays') ?></label>
-    <?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
-    </div>
-</div>
--->

@@ -44,6 +44,9 @@ $_SESSION["vlastni_ceny"] = unserialize($results[0]->meta_value);
                     cena_bez_mnozstvi = jQuery(".addon-wrap-3032-vyber-fotopapiru .select-fotka<?php echo $kolotoc; ?>").data('price');
                     nova_cena = cena_bez_mnozstvi * jQuery("#formular-<?php echo $kolotoc; ?> .items-num").val();
                     jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
+                
+                    jQuery('#formular-<?php echo $kolotoc; ?> input.cena_fotopapir').val(cena(nazev_papir,blok_obsah,obsah));
+                    
                     jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));    
             }
             
@@ -795,7 +798,7 @@ if ( ! $product->is_purchasable() ) {
    
     jQuery( ".vymazat-produkt-<?php echo $kolotoc; ?>" ).click(function() {
         
-        jQuery( "#cely-produkt-fotka-<?php echo $kolotoc; ?>" ).fadeOut("fast");
+        jQuery( "#cely-produkt-fotka-<?php echo $kolotoc; ?>" ).remove();
     }); 
 });
 </script>
@@ -814,14 +817,11 @@ if ( ! $product->is_purchasable() ) {
     <?php $fotky = $_POST["fotky"]; ?>
     
     <form class="cart product-block" id="formular-<?php echo $kolotoc; ?>" method="post" enctype='multipart/form-data'>
-    
+        <input type="hidden" class="cena_fotopapir" name="cena_fotopapir" value="">
         <?php //foreach($fotky as $kolotoc => $fotka){ ?>
       
 	 	<?php 
 
-           /* $_SESSION[$kolotoc]["id_fotky"] = $kolotoc;
-            $_SESSION[$kolotoc]["url_fotky"] = $fotka; */
-        
             do_action( 'woocommerce_before_add_to_cart_button' ); ?>
             
 	 	<?php
@@ -846,7 +846,6 @@ if ( ! $product->is_purchasable() ) {
         <button type="submit" class="single_add_to_cart_button btn btn-large add-cart main-bg pull-right"><?php echo $product->single_add_to_cart_text(); ?></button>
       -->
 	</form>
- <!--  <div class="vysledek-kokos"></div> -->
     <?php //$vsechny_nahrane_fotky = $_SESSION; 
     //    print_r($vsechny_nahrane_fotky);
     ?>
