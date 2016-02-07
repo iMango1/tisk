@@ -18,9 +18,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @see woocommerce_default_product_tabs()
  */
 $tabs = apply_filters( 'woocommerce_product_tabs', array() );
-
+/*
 if ( ! empty( $tabs ) ) : ?>
-<!--
+
 	<div role="tabpanel" id="tabs" class="tabs">
             <ul class="nav nav-tabs" role="tablist">
                 <?php foreach ( $tabs as $key => $tab ) : ?>
@@ -38,5 +38,5 @@ if ( ! empty( $tabs ) ) : ?>
             <?php endforeach; ?>
             </div>
     </div>
--->
-<?php endif; ?>
+
+<?php endif; */ ?>
