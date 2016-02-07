@@ -27,6 +27,12 @@ class Product_Addon_Field_Select extends Product_Addon_Field {
 		if ( empty( $this->value ) ) {
 			return false;
 		}
+        
+        global $wpdb;
+        
+        $results = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_produktu"', OBJECT );
+
+        $vlastni_cena = unserialize($results[0]->meta_value);
 
 		$chosen_option = '';
 		$loop          = 0;
@@ -34,7 +40,65 @@ class Product_Addon_Field_Select extends Product_Addon_Field {
 		foreach ( $this->addon['options'] as $option ) {
 			$loop++;
 			if ( sanitize_title( $option['label'] . '-' . $loop ) == $this->value ) {
-				$chosen_option = $option;
+                if($this->value == sanitize_title("MAT – Enhanced Mate". '-' . $loop) ){                    
+                    $cena = $this->addon["cena_fotopapir"];
+                    $vlc = 1;
+                    $chosen_option = $option;
+                }
+                else if($this->value == sanitize_title("MAT – Matte Real". '-' . $loop) ){
+                    $cena = $this->addon["cena_fotopapir"];
+                    $vlc = 1;
+                    $chosen_option = $option;
+                }
+                else if($this->value == sanitize_title("MAT – Velvet Fine Art". '-' . $loop) ){
+                    $cena = $this->addon["cena_fotopapir"];
+                    $vlc = 1;
+                    $chosen_option = $option;
+                }
+                else if($this->value == sanitize_title("LESK – Glacier". '-' . $loop) ){
+                    $cena = $this->addon["cena_fotopapir"];
+                    $vlc = 1;
+                    $chosen_option = $option;
+                }
+                else if($this->value == sanitize_title("LESK – Omnijet". '-' . $loop) ){
+                    $cena = $this->addon["cena_fotopapir"];
+                    $vlc = 1;
+                    $chosen_option = $option;
+                }
+                else if($this->value == sanitize_title("LESK – Photo Baryt". '-' . $loop) ){
+                    $cena = $this->addon["cena_fotopapir"];
+                    $vlc = 1;
+                    $chosen_option = $option;
+                }
+                else if($this->value == sanitize_title("LESK – Premium Glossy". '-' . $loop) ){
+                    $cena = $this->addon["cena_fotopapir"];
+                    $vlc = 1;
+                    $chosen_option = $option;
+                }
+                else if($this->value == sanitize_title("LESK – Premium Luster". '-' . $loop) ){
+                    $cena = $this->addon["cena_fotopapir"];
+                    $vlc = 1;
+                    $chosen_option = $option;
+                }
+                else if($this->value == sanitize_title("LESK – Smooth Gloss". '-' . $loop) ){
+                    $cena = $this->addon["cena_fotopapir"];
+                    $vlc = 1;
+                    $chosen_option = $option;
+                }
+                else if($this->value == sanitize_title("POUZE PLÁTNO – LESK Satin canvas". '-' . $loop) ){
+                    $cena = $this->addon["cena_fotopapir"];
+                    $vlc = 1;
+                    $chosen_option = $option;
+                }
+                else if($this->value == sanitize_title("POUZE PLÁTNO – MAT Exclusive – bez rámu". '-' . $loop) ){
+                    $cena = $this->addon["cena_fotopapir"];
+                    $vlc = 1;
+                    $chosen_option = $option;
+                }
+                else{
+				    $chosen_option = $option;
+                    $vlc = 0;
+                }
 				break;
 			}
 		}
@@ -42,11 +106,21 @@ class Product_Addon_Field_Select extends Product_Addon_Field {
 		if ( ! $chosen_option ) {
 			return false;
 		}
+
+        if($vlc == 0){
 		  $cart_item_data[] = array(
 		  	'name'  => $this->addon['name'],
 		  	'value' => $chosen_option['label'],
 		  	'price' => $this->get_option_price( $chosen_option )
 		  );
+        }
+        else{
+           $cart_item_data[] = array(
+		  	'name'  => $this->addon['name'],
+		  	'value' => $chosen_option['label'],
+		  	'price' => $cena
+		  );             
+        }
         
 		return $cart_item_data;
 	}

@@ -6,7 +6,7 @@ global $wpdb;
 $results = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_produktu"', OBJECT );
 
 $addon["vlastni_ceny"] = unserialize($results[0]->meta_value);
- //echo "<pre>",print_r($addon),"</pre>";
+//echo "<pre>",print_r($addon),"</pre>";
 //Přidané
 /*
 $current_value = array();

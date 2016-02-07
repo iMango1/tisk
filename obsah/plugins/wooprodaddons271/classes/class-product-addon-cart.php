@@ -128,7 +128,8 @@ class Product_Addon_Cart {
 		if ( is_null( $post_data ) ) {
 			$post_data = $_POST;
 		}
-
+        
+        
 		$product_addons = get_product_addons( $product_id );
 
 		if ( empty( $cart_item_meta['addons'] ) ) {
@@ -141,8 +142,11 @@ class Product_Addon_Cart {
 			foreach ( $product_addons as $addon ) {
 
 				$value = isset( $post_data[ 'addon-' . $addon['field-name'] ] ) ? $post_data[ 'addon-' . $addon['field-name'] ] : '';
-            //    $value = $post_data[ 'addon-' . $addon['field-name'] . "[0]"];
 
+                //if($post_data[ 'addon-' . $addon['field-name'] ] == "addon-3032-vyber-fotopapiru"){
+                    $addon["cena_fotopapir"] = $post_data["cena_fotopapir"];
+                //}
+                    
 				if ( is_array( $value ) ) {
 					$value = array_map( 'stripslashes', $value );
 				} else {

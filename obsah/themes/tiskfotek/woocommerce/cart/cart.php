@@ -29,7 +29,7 @@ global $woocommerce, $muj_post;
         if($cart_item_id){
             $cart->set_quantity($cart_item_id,0);
         }*/
-    //echo"<pre>",print_r($cart),"</pre>";
+   // echo"<pre>",print_r($cart->cart_contents),"</pre>";
 
 //$cart->set_quantity($prvni,0);
     //echo $prvni;
