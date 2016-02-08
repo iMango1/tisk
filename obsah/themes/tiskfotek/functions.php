@@ -26,6 +26,62 @@ function my_setcookie() {
 }
 add_action( 'wp_login_failed', 'my_front_end_login_fail' );  // hook failed login
 
+
+/*---------------------------------------------------
+add settings page to menu
+----------------------------------------------------*/
+function add_ceny_parametru() {
+add_menu_page( __( 'Nastavení cen' .'' ), __( 'Nastavení cen' .' ' ), 'manage_options', 'settings', 'page_ceny_parametru');
+}
+
+/*---------------------------------------------------
+add actions
+----------------------------------------------------*/
+add_action( 'admin_menu', 'add_ceny_parametru' );
+/*---------------------------------------------------
+Theme Panel Output
+----------------------------------------------------*/
+function page_ceny_parametru() {
+    global $wpdb;
+    $results = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_produktu"', OBJECT );
+
+    $ceny_parametry = unserialize($results[0]->meta_value);
+    ?>
+    <style>
+        label{
+            width: 160px;
+            display: block;
+            float: left;
+        }
+    </style>
+     <div class="wrap">
+        <div id="icon-options-general"></div>
+        <h2><?php _e( ' Nastavení cen parametrů' ) ?></h2>
+        <?php
+        foreach($ceny_parametry as $k => $ceny_parametr){
+        ?>
+        <form method="POST" action="<?php echo $_SERVER['REQUEST_URI']; ?>">        
+            <div class="notice blok_parametr" style="padding: 10px">
+                <h3 style="margin-bottom: 5px"><?php echo $k; ?></h3>
+                <hr>
+                <ul>
+                <?php foreach($ceny_parametr as $i => $cena){ ?>
+                    <li><label>Od obsahu <strong><?php echo $i;?> cm<sup>2</sup></strong> </label>
+                    <input id="lname" maxlength="45" size="10" name="lname" value="<?php echo $cena; ?>" /><em> Cena za cm<sup>2</sup></em>
+                    </li>
+                <?php }?>
+                </ul>
+            </div>
+        </form>
+        
+        <?php } ?>
+        <pre><?php print_r($ceny); ?></pre>
+     </div>
+     <?php
+}
+
+
+
 function my_front_end_login_fail( $username ) {
    $referrer = $_SERVER['HTTP_REFERER'];  // where did the post submission come from?
    // if there's a valid referrer, and it's not te default log-in screen
