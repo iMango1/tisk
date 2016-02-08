@@ -55,27 +55,41 @@ function page_ceny_parametru() {
         }
     </style>
      <div class="wrap">
-        <div id="icon-options-general"></div>
+        <form method="POST" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+        <span class="dashicons dashicons-media-default"></span>
         <h2><?php _e( ' Nastavení cen parametrů' ) ?></h2>
+        
         <?php
+        if(isset($_POST["submit"])){
+            //echo "<pre>",print_r($_POST),"</pre>";
+            $wpdb->update( 
+	           'tskf_postmeta', 
+	           array('meta_value' => serialize($_POST["cena"])), 
+               array( 'meta_key' => "ceny_produktu" ), 
+	           array('%s') );
+        }
+        
         foreach($ceny_parametry as $k => $ceny_parametr){
         ?>
-        <form method="POST" action="<?php echo $_SERVER['REQUEST_URI']; ?>">        
+             
             <div class="notice blok_parametr" style="padding: 10px">
                 <h3 style="margin-bottom: 5px"><?php echo $k; ?></h3>
                 <hr>
                 <ul>
                 <?php foreach($ceny_parametr as $i => $cena){ ?>
-                    <li><label>Od obsahu <strong><?php echo $i;?> cm<sup>2</sup></strong> </label>
-                    <input id="lname" maxlength="45" size="10" name="lname" value="<?php echo $cena; ?>" /><em> Cena za cm<sup>2</sup></em>
+                    <li>
+                        <label for="cena[<?php echo $k; ?>][<?php echo $i; ?>]">Od obsahu <strong><?php echo $i;?> cm<sup>2</sup></strong> </label>
+                        <input maxlength="45" size="15" name="cena[<?php echo $k; ?>][<?php echo $i; ?>]" value="<?php echo $cena; ?>" /><em> Cena za cm<sup>2</sup></em>
                     </li>
                 <?php }?>
                 </ul>
             </div>
-        </form>
         
-        <?php } ?>
-        <pre><?php print_r($ceny); ?></pre>
+        
+        <?php } 
+         submit_button();
+         ?>
+         </form>
      </div>
      <?php
 }
