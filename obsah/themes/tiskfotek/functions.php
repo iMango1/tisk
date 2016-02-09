@@ -31,7 +31,10 @@ add_action( 'wp_login_failed', 'my_front_end_login_fail' );  // hook failed logi
 add settings page to menu
 ----------------------------------------------------*/
 function add_ceny_parametru() {
-add_menu_page( __( 'Nastavení cen' .'' ), __( 'Nastavení cen' .' ' ), 'manage_options', 'settings', 'page_ceny_parametru');
+//add_menu_page( __( 'Nastavení cen' .'' ), __( 'Nastavení cen' .' ' ), 'manage_options', 'settings', 'page_ceny_parametru');
+    add_menu_page( 'Nastavení cen', 'Nastavení cen', 'manage_options', 'settings', 'page_ceny_parametru_velke', '
+dashicons-feedback');
+    add_submenu_page( 'settings', 'Fotografie', 'Fotografie', 'manage_options', 'page_ceny_parametru_fotografie' );
 }
 
 /*---------------------------------------------------
@@ -41,7 +44,7 @@ add_action( 'admin_menu', 'add_ceny_parametru' );
 /*---------------------------------------------------
 Theme Panel Output
 ----------------------------------------------------*/
-function page_ceny_parametru() {
+function page_ceny_parametru_velke() {
     global $wpdb;
     $results = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_produktu"', OBJECT );
 
@@ -56,7 +59,6 @@ function page_ceny_parametru() {
     </style>
      <div class="wrap">
         <form method="POST" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-        <span class="dashicons dashicons-media-default"></span>
         <h2><?php _e( ' Nastavení cen parametrů' ) ?></h2>
         
         <?php
@@ -67,6 +69,7 @@ function page_ceny_parametru() {
 	           array('meta_value' => serialize($_POST["cena"])), 
                array( 'meta_key' => "ceny_produktu" ), 
 	           array('%s') );
+            header("Location: admin.php?page=settings");
         }
         
         foreach($ceny_parametry as $k => $ceny_parametr){
@@ -94,7 +97,57 @@ function page_ceny_parametru() {
      <?php
 }
 
+function page_ceny_parametru_fotografie() {
+    global $wpdb;
+    $results = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_produktu"', OBJECT );
 
+    $ceny_parametry = unserialize($results[0]->meta_value);
+    ?>
+    <style>
+        label{
+            width: 160px;
+            display: block;
+            float: left;
+        }
+    </style>
+     <div class="wrap">
+        <form method="POST" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+        <h2><?php _e( ' Nastavení cen malých formátů' ) ?></h2>
+        
+        <?php
+        if(isset($_POST["submit"])){
+            $wpdb->update( 
+	           'tskf_postmeta', 
+	           array('meta_value' => serialize($_POST["cena"])), 
+               array( 'meta_key' => "ceny_produktu" ), 
+	           array('%s') );
+            header("Location: admin.php?page=settings");
+        }
+        
+        foreach($ceny_parametry as $k => $ceny_parametr){
+        ?>
+             <!--
+            <div class="notice blok_parametr" style="padding: 10px">
+                <h3 style="margin-bottom: 5px"><?php echo $k; ?></h3>
+                <hr>
+                <ul>
+                <?php foreach($ceny_parametr as $i => $cena){ ?>
+                    <li>
+                        <label for="cena[<?php echo $k; ?>][<?php echo $i; ?>]">Od obsahu <strong><?php echo $i;?> cm<sup>2</sup></strong> </label>
+                        <input maxlength="45" size="15" name="cena[<?php echo $k; ?>][<?php echo $i; ?>]" value="<?php echo $cena; ?>" /><em> Cena za cm<sup>2</sup></em>
+                    </li>
+                <?php }?>
+                </ul>
+            </div>
+        -->
+        
+        <?php } 
+         submit_button();
+         ?>
+         </form>
+     </div>
+     <?php
+}
 
 function my_front_end_login_fail( $username ) {
    $referrer = $_SERVER['HTTP_REFERER'];  // where did the post submission come from?
