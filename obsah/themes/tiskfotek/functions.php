@@ -32,9 +32,10 @@ add settings page to menu
 ----------------------------------------------------*/
 function add_ceny_parametru() {
 //add_menu_page( __( 'Nastavení cen' .'' ), __( 'Nastavení cen' .' ' ), 'manage_options', 'settings', 'page_ceny_parametru');
-    add_menu_page( 'Nastavení cen', 'Nastavení cen', 'manage_options', 'settings', 'page_ceny_parametru_velke', '
+    add_menu_page( 'Nastavení cen', 'Nastavení cen', 'manage_options', 'ceny_main', 'page_ceny', '
 dashicons-feedback');
-    add_submenu_page( 'settings', 'Fotografie', 'Fotografie', 'manage_options', 'page_ceny_parametru_fotografie' );
+    add_submenu_page( 'ceny_main', 'Velké formáty', 'Velké formáty', 'manage_options','velke_formaty','page_ceny_velke_formaty' );
+    add_submenu_page( 'ceny_main', 'Fixní ceny', 'Fixní ceny', 'manage_options','fotografie','page_ceny_fotografie' );
 }
 
 /*---------------------------------------------------
@@ -44,7 +45,24 @@ add_action( 'admin_menu', 'add_ceny_parametru' );
 /*---------------------------------------------------
 Theme Panel Output
 ----------------------------------------------------*/
-function page_ceny_parametru_velke() {
+function page_ceny(){
+    ?>
+    <style>
+        label{
+            width: 160px;
+            display: block;
+            float: left;
+        }
+    </style>
+     <div class="wrap">
+        <h2><?php _e( ' Nastavení cen parametrů' ) ?></h2>
+        <a class="button button-primary" href="admin.php?page=velke_formaty">Velké formáty</a>
+        <a class="button button-primary" href="admin.php?page=fotografie">Fixní ceny</a>
+     </div>
+     <?php
+}
+
+function page_ceny_velke_formaty() {
     global $wpdb;
     $results = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_produktu"', OBJECT );
 
@@ -60,7 +78,7 @@ function page_ceny_parametru_velke() {
      <div class="wrap">
         <form method="POST" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
         <h2><?php _e( ' Nastavení cen parametrů' ) ?></h2>
-        
+        <a class="button button-primary" href="admin.php?page=ceny_main">Zpět na stránku všech parametrů bez uložení</a>
         <?php
         if(isset($_POST["submit"])){
             //echo "<pre>",print_r($_POST),"</pre>";
@@ -97,53 +115,72 @@ function page_ceny_parametru_velke() {
      <?php
 }
 
-function page_ceny_parametru_fotografie() {
+function page_ceny_fotografie() {
     global $wpdb;
-    $results = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_produktu"', OBJECT );
-
-    $ceny_parametry = unserialize($results[0]->meta_value);
+    $v = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_id = 7130', OBJECT );
+//_product_addons
+    $c_par = unserialize($v[0]->meta_value);
+    
     ?>
     <style>
         label{
-            width: 160px;
+            width: 300px;
             display: block;
             float: left;
         }
     </style>
      <div class="wrap">
         <form method="POST" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
-        <h2><?php _e( ' Nastavení cen malých formátů' ) ?></h2>
-        
+        <h2><?php _e( ' Nastavení fixních cen' ) ?></h2>
+            <a class="button button-primary" href="admin.php?page=ceny_main">Zpět na stránku všech parametrů bez uložení</a>
+            
+            
         <?php
         if(isset($_POST["submit"])){
-            $wpdb->update( 
+           /* $wpdb->update( 
 	           'tskf_postmeta', 
 	           array('meta_value' => serialize($_POST["cena"])), 
                array( 'meta_key' => "ceny_produktu" ), 
 	           array('%s') );
-            header("Location: admin.php?page=settings");
+            header("Location: admin.php?page=settings"); */
         }
-        
-        foreach($ceny_parametry as $k => $ceny_parametr){
         ?>
-             <!--
+       
+            <?php foreach($c_par as $cislo_celeho_parametru => $cely_parametr){ ?>
+            <?php if( ($cely_parametr["name"] != "Náhled") && ($cely_parametr["name"] != "Vlastní formát") &&
+                    ($cely_parametr["name"] != "Výběr fotopapíru") && ($cely_parametr["name"] != "Materiál pro velké formáty") &&
+                     ($cely_parametr["name"] != "id_objednavky")
+                    ){ ?>
             <div class="notice blok_parametr" style="padding: 10px">
-                <h3 style="margin-bottom: 5px"><?php echo $k; ?></h3>
+                <h3 style="margin-bottom: 5px"><?php echo $cely_parametr["name"]; ?></h3>
                 <hr>
                 <ul>
-                <?php foreach($ceny_parametr as $i => $cena){ ?>
+                    <?php foreach($cely_parametr["options"] as $cislo_parametru => $parametr_rozmery){ ?>
+                                <?php if( $parametr_rozmery["label"] != "Fotografie" &&
+                                        $parametr_rozmery["label"] != "Obraz na plátně" && 
+                                        $parametr_rozmery["label"] != "Velké formáty" && 
+                                        $parametr_rozmery["label"] != "Fotoobraz" && 
+                                        $parametr_rozmery["label"] != "Ostatní" && 
+                                        $parametr_rozmery["label"] != "Vlastní rozměry" && 
+                                        $parametr_rozmery["label"] != "Žádná deska"){ ?>
                     <li>
-                        <label for="cena[<?php echo $k; ?>][<?php echo $i; ?>]">Od obsahu <strong><?php echo $i;?> cm<sup>2</sup></strong> </label>
-                        <input maxlength="45" size="15" name="cena[<?php echo $k; ?>][<?php echo $i; ?>]" value="<?php echo $cena; ?>" /><em> Cena za cm<sup>2</sup></em>
+                       <label for=""><strong><?php echo $parametr_rozmery["label"]; ?></strong></label>
+                        <input maxlength="30" size="10" name="cena[<?php echo $k; ?>][<?php echo $i; ?>]" value="<?php echo $parametr_rozmery["price"]; ?>" /><em> Kč</em>
                     </li>
-                <?php }?>
+                    <?php } } ?>
+                    
                 </ul>
             </div>
-        -->
-        
-        <?php } 
-         submit_button();
-         ?>
+                
+            <?php }
+                } ?>
+
+            
+    
+        <?php
+        submit_button();
+        ?>
+         <pre><?php print_r($c_par); ?></pre>
          </form>
      </div>
      <?php
