@@ -87,7 +87,7 @@ function page_ceny_velke_formaty() {
 	           array('meta_value' => serialize($_POST["cena"])), 
                array( 'meta_key' => "ceny_produktu" ), 
 	           array('%s') );
-            header("Location: admin.php?page=settings");
+            header("Location: admin.php?page=velke_formaty");
         }
         
         foreach($ceny_parametry as $k => $ceny_parametr){
@@ -120,7 +120,6 @@ function page_ceny_fotografie() {
     $v = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_id = 7130', OBJECT );
 //_product_addons
     $c_par = unserialize($v[0]->meta_value);
-    
     ?>
     <style>
         label{
@@ -143,7 +142,13 @@ function page_ceny_fotografie() {
                array( 'meta_key' => "ceny_produktu" ), 
 	           array('%s') );
             header("Location: admin.php?page=settings"); */
+            
+            $upravene_ceny = postNaPluginPole($_POST["cena"]);
+                        
+            
+            echo "<pre>",print_r($upravene_ceny),"</pre>";
         }
+    
         ?>
        
             <?php foreach($c_par as $cislo_celeho_parametru => $cely_parametr){ ?>
@@ -155,20 +160,31 @@ function page_ceny_fotografie() {
                 <h3 style="margin-bottom: 5px"><?php echo $cely_parametr["name"]; ?></h3>
                 <hr>
                 <ul>
-                    <?php foreach($cely_parametr["options"] as $cislo_parametru => $parametr_rozmery){ ?>
-                                <?php if( $parametr_rozmery["label"] != "Fotografie" &&
-                                        $parametr_rozmery["label"] != "Obraz na plátně" && 
-                                        $parametr_rozmery["label"] != "Velké formáty" && 
-                                        $parametr_rozmery["label"] != "Fotoobraz" && 
-                                        $parametr_rozmery["label"] != "Ostatní" && 
-                                        $parametr_rozmery["label"] != "Vlastní rozměry" && 
-                                        $parametr_rozmery["label"] != "Žádná deska"){ ?>
-                    <li>
+                    <?php foreach($cely_parametr["options"] as $cislo_parametru => $parametr_rozmery){ ?> 
+                            <?php if( $parametr_rozmery["label"] == "Fotografie" ||
+                                    $parametr_rozmery["label"] == "Obraz na plátně" ||
+                                    $parametr_rozmery["label"] == "Velké formáty" ||
+                                    $parametr_rozmery["label"] == "Fotoobraz" ||
+                                    $parametr_rozmery["label"] == "Ostatní" ||
+                                    $parametr_rozmery["label"] == "Vlastní rozměry" ||
+                                    $parametr_rozmery["label"] == "Žádná deska"){ ?>
+                                    
+                            <input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][name]" value="<?php echo $parametr_rozmery["label"]; ?>" />                        
+<input type="hidden" maxlength="30" size="10" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][price]" value="<?php echo $parametr_rozmery["price"]; ?>" />
+<input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][min]" value="" />
+<input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][max]" value="" /> 
+    
+               <?php }
+                    else{ ?>
+    
+                     <li>
                        <label for=""><strong><?php echo $parametr_rozmery["label"]; ?></strong></label>
-                        <input maxlength="30" size="10" name="cena[<?php echo $k; ?>][<?php echo $i; ?>]" value="<?php echo $parametr_rozmery["price"]; ?>" /><em> Kč</em>
+<input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][name]" value="<?php echo $parametr_rozmery["label"]; ?>" />                        
+                        <input maxlength="30" size="10" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][price]" value="<?php echo $parametr_rozmery["price"]; ?>" /><em> Kč</em>
+<input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][min]" value="" />
+<input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][max]" value="" />  
                     </li>
                     <?php } } ?>
-                    
                 </ul>
             </div>
                 
@@ -185,6 +201,28 @@ function page_ceny_fotografie() {
      </div>
      <?php
 }
+
+
+function postNaPluginPole($post){
+    
+    //PŘIDÁNÍ NÁHLEDU
+    array_unshift($post,"");
+    $post[0]["name"] = "Náhled";
+    $post[0]["description"] = "";
+    $post[0]["type"] = "file_upload";
+    $post[0]["position"] = 0;
+    $post[0]["options"][0]["label"] = "Upozornění:";
+    $post[0]["options"][0]["price"] = "";
+    $post[0]["options"][0]["min"] = "";
+    $post[0]["options"][0]["max"] = "";
+    $post[0]["required"] = 0;
+    
+    
+    
+    return $post;
+}
+
+
 
 function my_front_end_login_fail( $username ) {
    $referrer = $_SERVER['HTTP_REFERER'];  // where did the post submission come from?
