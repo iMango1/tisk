@@ -144,13 +144,12 @@ function page_ceny_fotografie() {
             header("Location: admin.php?page=settings"); */
             
             $upravene_ceny = postNaPluginPole($_POST["cena"]);
-                        
+             //$upravene_ceny = $_POST["cena"];
             
             echo "<pre>",print_r($upravene_ceny),"</pre>";
         }
     
         ?>
-       
             <?php foreach($c_par as $cislo_celeho_parametru => $cely_parametr){ ?>
             <?php if( ($cely_parametr["name"] != "Náhled") && ($cely_parametr["name"] != "Vlastní formát") &&
                     ($cely_parametr["name"] != "Výběr fotopapíru") && ($cely_parametr["name"] != "Materiál pro velké formáty") &&
@@ -169,7 +168,13 @@ function page_ceny_fotografie() {
                                     $parametr_rozmery["label"] == "Vlastní rozměry" ||
                                     $parametr_rozmery["label"] == "Žádná deska"){ ?>
                                     
-                            <input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][name]" value="<?php echo $parametr_rozmery["label"]; ?>" />                        
+<input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][name]" value="<?php echo $cely_parametr["name"];?>" />
+<input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][description]" value="<?php echo $cely_parametr["description"];?>" />
+<input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][type]" value="<?php echo $cely_parametr["type"];?>" />
+<input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][position]" value="<?php echo $cely_parametr["position"];?>" /> 
+
+                                  
+<input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][name]" value="<?php echo $parametr_rozmery["label"]; ?>" />                        
 <input type="hidden" maxlength="30" size="10" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][price]" value="<?php echo $parametr_rozmery["price"]; ?>" />
 <input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][min]" value="" />
 <input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][max]" value="" /> 
@@ -178,8 +183,13 @@ function page_ceny_fotografie() {
                     else{ ?>
     
                      <li>
+<input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][name]" value="<?php echo $cely_parametr["name"];?>" />
+<input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][description]" value="<?php echo $cely_parametr["description"];?>" />
+<input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][type]" value="<?php echo $cely_parametr["type"];?>" />
+<input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][position]" value="<?php echo $cely_parametr["position"];?>" /> 
+                      
                        <label for=""><strong><?php echo $parametr_rozmery["label"]; ?></strong></label>
-<input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][name]" value="<?php echo $parametr_rozmery["label"]; ?>" />                        
+<input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][label]" value="<?php echo $parametr_rozmery["label"]; ?>" />                        
                         <input maxlength="30" size="10" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][price]" value="<?php echo $parametr_rozmery["price"]; ?>" /><em> Kč</em>
 <input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][min]" value="" />
 <input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][max]" value="" />  
