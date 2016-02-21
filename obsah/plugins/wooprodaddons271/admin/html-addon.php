@@ -61,7 +61,7 @@ global $post;
 						</tfoot>
 						<tbody>
 							<?php
-                            echo "<pre>",print_r($addon),"</pre>";
+                            //echo "<pre>",print_r($addon),"</pre>";
 							foreach ( $addon['options'] as $option )
 								include( 'html-addon-option.php' );
 							?>

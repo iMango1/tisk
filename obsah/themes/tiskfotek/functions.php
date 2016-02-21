@@ -136,17 +136,18 @@ function page_ceny_fotografie() {
             
         <?php
         if(isset($_POST["submit"])){
-           /* $wpdb->update( 
+            $wpdb->update( 
 	           'tskf_postmeta', 
 	           array('meta_value' => serialize($_POST["cena"])), 
-               array( 'meta_key' => "ceny_produktu" ), 
-	           array('%s') );
-            header("Location: admin.php?page=settings"); */
+               array( 'meta_id' => 7130 ), 
+	           array('%s'),
+	           array( '%d' ) );
+            header("Location: admin.php?page=fotografie"); 
             
            // $upravene_ceny = postNaPluginPole($_POST["cena"]);
-             $upravene_ceny = $_POST["cena"];
+             //$upravene_ceny = $_POST["cena"];
             
-            echo "<pre>",print_r($upravene_ceny),"</pre>";
+            //echo "<pre>",print_r($upravene_ceny),"</pre>";
         }
     
         ?>
