@@ -331,8 +331,43 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
 */
         $results = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_produktu"', OBJECT );
         
-        echo "<pre>",print_r($results),"</pre>";
-         echo "<pre>",print_r(unserialize($results[0]->meta_value)),"</pre>";
+        $parametry = unserialize($results[0]->meta_value);
+        
+        $obsah_fotky = 1247.5;
+        
+        function dalsi_klic($pole,$searchkey) {
+            $nextkey = false; 
+            $foundit = false; 
+            foreach($pole as $key => $value) { 
+                if ($foundit) {
+                    $nextkey = $key; break;
+                } 
+                if ($key == $searchkey){
+                    $foundit = true;
+                }
+            } 
+            return $nextkey; 
+        }
+        
+        foreach($parametry as $nazev_par => $parametr){
+            echo "<hr>".$nazev_par."<br><br>";
+            
+            
+            foreach($parametr as $rozmer => $cena){
+                $par_float = floatval(str_replace(",",".",$rozmer));
+               
+                if(dalsi_klic($parametr,$rozmer) != "")
+                    $dalsi_rozmer = dalsi_klic($parametr,$rozmer);
+                else
+                    $dalsi_rozmer = 99999999;
+                
+                echo "Současný: $rozmer, další:".$dalsi_rozmer."<br>";
+            
+            }
+            
+        }
+        
+        echo "<pre>",print_r(unserialize($results[0]->meta_value)),"</pre>";
             //SCRIPT PRO MAZÁNÍ SOUBORŮ VE SLOŽCE NAHRÁNÍ. ODKOMENTÁŘOVAT POUZE TEHDY KDYŽ SE NĚCO POSERE A FOTOGRAFIE SE NESMAŽOU!!!
             /*
             $normal = glob("/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/*.*"); 
