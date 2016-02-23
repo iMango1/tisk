@@ -70,9 +70,6 @@ $_NAZEV_WEBU = "skakaciatrakce";
 			<p>PODPORA FOTOGRAFICKÝCH FORMÁTŮ
 Můžete nahrávat soubory fotografií ve formátech JPG a TIF. V tomto případě parametry tisku nastavujete v dalším kroku objednávky pro každou fotografi zvlášť.
 			</p>
-
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad modi repellendus, optio eveniet eligendi molestiae? Fugiat, temporibus! A rerum pariatur neque laborum earum, illum voluptatibus eum voluptatem fugiat, porro animi tempora? Sit harum nulla, nesciunt molestias, iusto aliquam aperiam est qui possimus reprehenderit ipsam ea aut assumenda inventore iste! Animi quaerat facere repudiandae earum quisquam accusamus tempora, delectus nesciunt, provident quae aliquam, voluptatum beatae quis similique in maiores repellat eligendi voluptas veniam optio illum vero! Eius, dignissimos esse eligendi veniam.
-			</p>
 		</div> <!-- cd-modal-content -->
 
 		<a href="#0" class="modal-close">Close</a>
@@ -125,8 +122,6 @@ Můžete nahrávat soubory fotografií ve formátech JPG a TIF. V tomto případ
 Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rychlá volba pro případ, že u všech fotografií požadujete stejné parametry tisku.
 			</p>
 
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad modi repellendus, optio eveniet eligendi molestiae? Fugiat, temporibus! A rerum pariatur neque laborum earum, illum voluptatibus eum voluptatem fugiat, porro animi tempora? Sit harum nulla, nesciunt molestias, iusto aliquam aperiam est qui possimus reprehenderit ipsam ea aut assumenda inventore iste! Animi quaerat facere repudiandae earum quisquam accusamus tempora, delectus nesciunt, provident quae aliquam, voluptatum beatae quis similique in maiores repellat eligendi voluptas veniam optio illum vero! Eius, dignissimos esse eligendi veniam.
-			</p>
 		</div> <!-- cd-modal-content -->
 
 		<a href="#0" class="modal-close">Close</a>
