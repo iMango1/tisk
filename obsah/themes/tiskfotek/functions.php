@@ -74,6 +74,15 @@ function page_ceny_velke_formaty() {
             display: block;
             float: left;
         }
+        .pridat{
+            width: 30px;
+            height: 30px;
+            background-color: rgba(153, 114, 181, 1.0);
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
     </style>
      <div class="wrap">
         <form method="POST" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
@@ -89,11 +98,12 @@ function page_ceny_velke_formaty() {
 	           array('%s') );
             header("Location: admin.php?page=velke_formaty");
         }
-        
+        $poc = 0;
         foreach($ceny_parametry as $k => $ceny_parametr){
+            $poc++;
         ?>
              
-            <div class="notice blok_parametr" style="padding: 10px">
+            <div class="notice blok_parametr <?php echo $poc; ?>" style="padding: 10px">
                 <h3 style="margin-bottom: 5px"><?php echo $k; ?></h3>
                 <hr>
                 <ul>
@@ -104,14 +114,28 @@ function page_ceny_velke_formaty() {
                     </li>
                 <?php }?>
                 </ul>
+                <div class="pridat <?php echo $poc; ?>">
+                    +
+                </div>
             </div>
-        
+            <script>
+            jQuery(document).ready(function(){
+                jQuery(".blok_parametr.<?php echo $poc; ?> .pridat").click(function(){
+                        
+                    jQuery(".blok_parametr.<?php echo $poc; ?> ul").append('<li><label style="width:300px;">Od obsahu <strong><input maxlength="45" size="15"/> cm<sup>2</sup></strong> </label><input maxlength="45" size="15" name="cena[<?php echo $k; ?>][]"/><em> Cena za cm<sup>2</sup></em></li>'); 
+                });
+                jQuery("")
+            
+            });
+            </script>
         
         <?php } 
          submit_button();
          ?>
          </form>
      </div>
+     
+     
      <?php
 }
 
@@ -156,7 +180,7 @@ function page_ceny_fotografie() {
                     ($cely_parametr["name"] != "Výběr fotopapíru") && ($cely_parametr["name"] != "Materiál pro velké formáty") &&
                      ($cely_parametr["name"] != "id_objednavky")
                     ){ ?>
-            <div class="notice blok_parametr" style="padding: 10px">
+            <div class="notice blok_parametr <?php echo $cislo_celeho_parametru; ?>" style="padding: 10px">
                 <h3 style="margin-bottom: 5px"><?php echo $cely_parametr["name"]; ?></h3>
                 <hr>
                 <ul>

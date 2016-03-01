@@ -92,7 +92,7 @@ if(!function_exists("dalsi_klic")) {
                 if(dalsi_klic($parametr,$rozmer) != "")
                     $dalsi_rozmer = dalsi_klic($parametr,$rozmer);
                 else
-                    $dalsi_rozmer = 99999999;
+                    $dalsi_rozmer = 9999999.9;
                 
                 $dalsi_rozmer_float = floatval(str_replace(",",".",$dalsi_rozmer));
             ?>
@@ -210,7 +210,7 @@ if(!function_exists("dalsi_klic")) {
                 if(dalsi_klic($parametr,$rozmer) != "")
                     $dalsi_rozmer = dalsi_klic($parametr,$rozmer);
                 else
-                    $dalsi_rozmer = 99999999;
+                    $dalsi_rozmer = 9999999.9;
                 
                 $dalsi_rozmer_float = floatval(str_replace(",",".",$dalsi_rozmer));
             ?>
