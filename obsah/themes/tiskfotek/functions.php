@@ -90,16 +90,17 @@ function page_ceny_velke_formaty() {
         <a class="button button-primary" href="admin.php?page=ceny_main">Zpět na stránku všech parametrů bez uložení</a>
         <?php
         if(isset($_POST["submit"])){
-            //echo "<pre>",print_r($_POST),"</pre>";
-            $wpdb->update( 
+            echo "<pre>",print_r($_POST),"</pre>";
+        /*    $wpdb->update( 
 	           'tskf_postmeta', 
 	           array('meta_value' => serialize($_POST["cena"])), 
                array( 'meta_key' => "ceny_produktu" ), 
 	           array('%s') );
-            header("Location: admin.php?page=velke_formaty");
+            header("Location: admin.php?page=velke_formaty"); */
         }
-        $poc = 0;
+        $poc = 0; 
         foreach($ceny_parametry as $k => $ceny_parametr){
+            $kolo = 0;
             $poc++;
         ?>
              
@@ -107,28 +108,41 @@ function page_ceny_velke_formaty() {
                 <h3 style="margin-bottom: 5px"><?php echo $k; ?></h3>
                 <hr>
                 <ul>
-                <?php foreach($ceny_parametr as $i => $cena){ ?>
-                    <li>
+                <?php foreach($ceny_parametr as $i => $cena){ $kolo++; ?>
+                    <li class="roz_<?php echo $kolo; ?>">
                         <label for="cena[<?php echo $k; ?>][<?php echo $i; ?>]">Od obsahu <strong><?php echo $i;?> cm<sup>2</sup></strong> </label>
                         <input maxlength="45" size="15" name="cena[<?php echo $k; ?>][<?php echo $i; ?>]" value="<?php echo $cena; ?>" /><em> Cena za cm<sup>2</sup></em>
-                    </li>
+                    </li>                    
+                    
                 <?php }?>
                 </ul>
                 <div class="pridat <?php echo $poc; ?>">
                     +
                 </div>
             </div>
-            <script>
+
+                <script>
             jQuery(document).ready(function(){
-                jQuery(".blok_parametr.<?php echo $poc; ?> .pridat").click(function(){
-                        
-                    jQuery(".blok_parametr.<?php echo $poc; ?> ul").append('<li><label style="width:300px;">Od obsahu <strong><input maxlength="45" size="15"/> cm<sup>2</sup></strong> </label><input maxlength="45" size="15" name="cena[<?php echo $k; ?>][]"/><em> Cena za cm<sup>2</sup></em></li>'); 
+                
+                var kolo = <?php echo $kolo; ?>;
+                
+                jQuery(".blok_parametr.<?php echo $poc; ?> .pridat.<?php echo $poc; ?>").click(function(){
+                    
+                    kolo++;
+                    
+                    jQuery(".blok_parametr.<?php echo $poc; ?> ul").append('<li class="roz_'+kolo+'><label style="width:300px;">Od obsahu <strong><input type="text" class="rozmer" name="dsad" maxlength="45" size="15"/> cm<sup>2</sup></strong> </label><input maxlength="45" size="15" name="cena[<?php echo $k; ?>][]"/><em> Cena za cm<sup>2</sup></em></li>'); 
                 });
-                jQuery("")
+                jQuery(".blok_parametr.<?php echo $poc; ?> .roz_<?php echo $kolo+1; ?> .rozmer").keyup(function() {
+                    var value = jQuery( this ).val();
+                    //$( "p" ).text( value );
+                    console.log(value);
+                }).keyup();
             
+                jQuery(".blok_parametr.<?php echo $poc; ?> .roz_"+kolo+" .rozmer").change(function(){
+                    alert("kk");
+                });
             });
             </script>
-        
         <?php } 
          submit_button();
          ?>
