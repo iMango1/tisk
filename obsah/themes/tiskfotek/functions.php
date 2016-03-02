@@ -70,7 +70,7 @@ function page_ceny_velke_formaty() {
     ?>
     <style>
         label{
-            width: 160px;
+            width: 300px;
             display: block;
             float: left;
         }
@@ -82,6 +82,9 @@ function page_ceny_velke_formaty() {
             text-align: center;
             line-height: 30px;
             cursor: pointer;
+        }
+        .blok_parametr li{
+            margin-bottom: 20px
         }
     </style>
      <div class="wrap">
@@ -110,8 +113,8 @@ function page_ceny_velke_formaty() {
                 <ul>
                 <?php foreach($ceny_parametr as $i => $cena){ $kolo++; ?>
                     <li class="roz_<?php echo $kolo; ?>">
-                        <label for="cena[<?php echo $k; ?>][<?php echo $i; ?>]">Od obsahu <strong><?php echo $i;?> cm<sup>2</sup></strong> </label>
-                        <input maxlength="45" size="15" name="cena[<?php echo $k; ?>][<?php echo $i; ?>]" value="<?php echo $cena; ?>" /><em> Cena za cm<sup>2</sup></em>
+                        <label for="cena[<?php echo $k; ?>][<?php echo $i; ?>]">Od obsahu <strong><input type="text" class="rozmer" maxlength="45" size="15" value="<?php echo $i;?>"/> cm<sup>2</sup></strong> </label>
+                        <input maxlength="45" size="15" class="cena" name="cena[<?php echo $k; ?>][<?php echo $i; ?>]" value="<?php echo $cena; ?>" /><em> Cena za cm<sup>2</sup></em>
                     </li>                    
                     
                 <?php }?>
@@ -119,28 +122,49 @@ function page_ceny_velke_formaty() {
                 <div class="pridat <?php echo $poc; ?>">
                     +
                 </div>
+                <span class="kokos"></span>
             </div>
 
                 <script>
             jQuery(document).ready(function(){
+                var zakladni_kolo = 0, hodnota = new Array();
+                jQuery(".blok_parametr.<?php echo $poc; ?> li .rozmer").each(function(){
+                        hodnota[zakladni_kolo] = jQuery(this).val();
+                        zakladni_kolo++;
+                });
                 
                 var kolo = <?php echo $kolo; ?>;
-                
-                jQuery(".blok_parametr.<?php echo $poc; ?> .pridat.<?php echo $poc; ?>").click(function(){
-                    
+                jQuery(".blok_parametr.<?php echo $poc; ?> .pridat.<?php echo $poc; ?>").click(function(){                    
                     kolo++;
-                    
-                    jQuery(".blok_parametr.<?php echo $poc; ?> ul").append('<li class="roz_'+kolo+'><label style="width:300px;">Od obsahu <strong><input type="text" class="rozmer" name="dsad" maxlength="45" size="15"/> cm<sup>2</sup></strong> </label><input maxlength="45" size="15" name="cena[<?php echo $k; ?>][]"/><em> Cena za cm<sup>2</sup></em></li>'); 
+                    jQuery(".blok_parametr.<?php echo $poc; ?> ul").append('<li class="roz_'+kolo+'"><label style="width:300px;">Od obsahu <strong><input type="text" class="rozmer" maxlength="45" size="15"/> cm<sup>2</sup></strong> </label><input maxlength="45" size="15" class="cena" name="cena[<?php echo $k; ?>][]"/><em> Cena za cm<sup>2</sup></em></li>'); 
                 });
-                jQuery(".blok_parametr.<?php echo $poc; ?> .roz_<?php echo $kolo+1; ?> .rozmer").keyup(function() {
-                    var value = jQuery( this ).val();
-                    //$( "p" ).text( value );
-                    console.log(value);
-                }).keyup();
-            
-                jQuery(".blok_parametr.<?php echo $poc; ?> .roz_"+kolo+" .rozmer").change(function(){
-                    alert("kk");
+                
+                jQuery('.blok_parametr.<?php echo $poc; ?>').on('keyup',".rozmer", function(ev){
+                    var i=0;
+                    kolo = 0;
+                    jQuery(".blok_parametr.<?php echo $poc; ?> li .rozmer").each(function(){
+                        hodnota[kolo] = jQuery(this).val();
+                        kolo++;
+                        
+                    });
+                    kolo = 0;
+                    jQuery(".blok_parametr.<?php echo $poc; ?> li .cena").each(function(){
+                        //console.log(this);
+                        jQuery(this).attr('name', "cena[<?php echo $k; ?>]["+hodnota[kolo]+"]");
+                        kolo++;
+                    });
+                    /*console.log(hodnota);
+                    jQuery(".blok_parametr.<?php echo $poc; ?> .kokos").text(hodnota);
+                    */
                 });
+                
+                
+                /*
+                jQuery(".blok_parametr.<?php echo $poc; ?> .roz_4 input").keyup(function(){
+                    var hodnota = jQuery(".blok_parametr.<?php echo $poc; ?> .roz_4 input").val();
+                    jQuery(".blok_parametr.<?php echo $poc; ?> .kokos").text(hodnota);
+                });
+                */
             });
             </script>
         <?php } 
