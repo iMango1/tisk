@@ -77,7 +77,7 @@ function page_ceny_velke_formaty() {
         .pridat{
             width: 30px;
             height: 30px;
-            background-color: rgba(153, 114, 181, 1.0);
+            background-color: #2ecc71;
             color: #fff;
             text-align: center;
             line-height: 30px;
@@ -86,7 +86,7 @@ function page_ceny_velke_formaty() {
         .vymazat{
             width: 30px;
             height: 30px;
-            background-color: firebrick;
+            background-color: #e74c3c;
             color: #fff;
             text-align: center;
             line-height: 30px;
@@ -103,13 +103,13 @@ function page_ceny_velke_formaty() {
         <a class="button button-primary" href="admin.php?page=ceny_main">Zpět na stránku všech parametrů bez uložení</a>
         <?php
         if(isset($_POST["submit"])){
-            echo "<pre>",print_r($_POST),"</pre>";
-        /*    $wpdb->update( 
+        //    echo "<pre>",print_r($_POST),"</pre>";
+            $wpdb->update( 
 	           'tskf_postmeta', 
 	           array('meta_value' => serialize($_POST["cena"])), 
                array( 'meta_key' => "ceny_produktu" ), 
 	           array('%s') );
-            header("Location: admin.php?page=velke_formaty"); */
+            header("Location: admin.php?page=velke_formaty");
         }
         $poc = 0; 
         foreach($ceny_parametry as $k => $ceny_parametr){
