@@ -303,15 +303,24 @@ function page_ceny_fotografie() {
                     </li>
                     <script>
                         jQuery('.blok_parametr.<?php echo $cislo_celeho_parametru; ?>').on('click', '.vymazat.<?php echo $kolo; ?>', function(ev){
-                           // jQuery(".blok_parametr.<?php echo $poc; ?> li.roz_<?php echo $kolo; ?>").remove(); 
                             jQuery(this).parent().remove();
                         });
                         </script>
                     <?php } } ?>
                 </ul>
-                <div class="pridat <?php echo $poc; ?>">
+                <div class="pridat <?php echo $cislo_celeho_parametru; ?>">
                     +
                 </div>
+                
+                <script>
+                jQuery(document).ready(function(){    
+                    jQuery(".blok_parametr.<?php echo $cislo_celeho_parametru; ?> .pridat.<?php echo $cislo_celeho_parametru; ?>").click(function(){                    
+                    /*    jQuery(".blok_parametr.<?php echo $cislo_celeho_parametru; ?> ul").append('<li class="roz_'+kolo+'"><label style="width:300px;">Od obsahu <strong><input type="text" class="rozmer" maxlength="45" size="15"/> cm<sup>2</sup></strong> </label><input maxlength="45" size="15" class="cena" name="cena[<?php echo $k; ?>][]"/><em> Cena za cm<sup>2</sup></em>  <span class="vymazat <?php echo $kolo; ?>">-</span></li>'); */
+                        alert("kokos"); 
+                    });
+                });
+                </script>
+                
             </div>
                 
             <?php 
