@@ -83,6 +83,16 @@ function page_ceny_velke_formaty() {
             line-height: 30px;
             cursor: pointer;
         }
+        .vymazat{
+            width: 30px;
+            height: 30px;
+            background-color: firebrick;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            display: inline-block;
+        }
         .blok_parametr li{
             margin-bottom: 20px
         }
@@ -115,14 +125,23 @@ function page_ceny_velke_formaty() {
                     <li class="roz_<?php echo $kolo; ?>">
                         <label for="cena[<?php echo $k; ?>][<?php echo $i; ?>]">Od obsahu <strong><input type="text" class="rozmer" maxlength="45" size="15" value="<?php echo $i;?>"/> cm<sup>2</sup></strong> </label>
                         <input maxlength="45" size="15" class="cena" name="cena[<?php echo $k; ?>][<?php echo $i; ?>]" value="<?php echo $cena; ?>" /><em> Cena za cm<sup>2</sup></em>
-                    </li>                    
+                        <span class="vymazat <?php echo $kolo; ?>">
+                            -
+                        </span>
+                        <script>
+                        jQuery('.blok_parametr.<?php echo $poc; ?>').on('click', '.vymazat.<?php echo $kolo; ?>', function(ev){
+                           // jQuery(".blok_parametr.<?php echo $poc; ?> li.roz_<?php echo $kolo; ?>").remove(); 
+                            jQuery(this).parent().remove();
+                        });
+                        </script>
+                    </li>  
                     
                 <?php }?>
                 </ul>
                 <div class="pridat <?php echo $poc; ?>">
                     +
                 </div>
-                <span class="kokos"></span>
+
             </div>
 
                 <script>
@@ -136,7 +155,7 @@ function page_ceny_velke_formaty() {
                 var kolo = <?php echo $kolo; ?>;
                 jQuery(".blok_parametr.<?php echo $poc; ?> .pridat.<?php echo $poc; ?>").click(function(){                    
                     kolo++;
-                    jQuery(".blok_parametr.<?php echo $poc; ?> ul").append('<li class="roz_'+kolo+'"><label style="width:300px;">Od obsahu <strong><input type="text" class="rozmer" maxlength="45" size="15"/> cm<sup>2</sup></strong> </label><input maxlength="45" size="15" class="cena" name="cena[<?php echo $k; ?>][]"/><em> Cena za cm<sup>2</sup></em></li>'); 
+                    jQuery(".blok_parametr.<?php echo $poc; ?> ul").append('<li class="roz_'+kolo+'"><label style="width:300px;">Od obsahu <strong><input type="text" class="rozmer" maxlength="45" size="15"/> cm<sup>2</sup></strong> </label><input maxlength="45" size="15" class="cena" name="cena[<?php echo $k; ?>][]"/><em> Cena za cm<sup>2</sup></em>  <span class="vymazat <?php echo $kolo; ?>">-</span></li>'); 
                 });
                 
                 jQuery('.blok_parametr.<?php echo $poc; ?>').on('keyup',".rozmer", function(ev){
@@ -158,13 +177,8 @@ function page_ceny_velke_formaty() {
                     */
                 });
                 
-                
-                /*
-                jQuery(".blok_parametr.<?php echo $poc; ?> .roz_4 input").keyup(function(){
-                    var hodnota = jQuery(".blok_parametr.<?php echo $poc; ?> .roz_4 input").val();
-                    jQuery(".blok_parametr.<?php echo $poc; ?> .kokos").text(hodnota);
-                });
-                */
+
+
             });
             </script>
         <?php } 
