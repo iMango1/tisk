@@ -203,6 +203,25 @@ function page_ceny_fotografie() {
             display: block;
             float: left;
         }
+        .pridat{
+            width: 30px;
+            height: 30px;
+            background-color: #2ecc71;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        .vymazat{
+            width: 30px;
+            height: 30px;
+            background-color: #e74c3c;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            display: inline-block;
+        }
     </style>
      <div class="wrap">
         <form method="POST" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
@@ -212,18 +231,18 @@ function page_ceny_fotografie() {
             
         <?php
         if(isset($_POST["submit"])){
-            $wpdb->update( 
+         /*   $wpdb->update( 
 	           'tskf_postmeta', 
 	           array('meta_value' => serialize($_POST["cena"])), 
                array( 'meta_id' => 7130 ), 
 	           array('%s'),
 	           array( '%d' ) );
             header("Location: admin.php?page=fotografie"); 
-            
+            */
            // $upravene_ceny = postNaPluginPole($_POST["cena"]);
-             //$upravene_ceny = $_POST["cena"];
+            $upravene_ceny = $_POST["cena"];
             
-            //echo "<pre>",print_r($upravene_ceny),"</pre>";
+            echo "<pre>",print_r($upravene_ceny),"</pre>";
         }
     
         ?>
@@ -236,7 +255,7 @@ function page_ceny_fotografie() {
                 <h3 style="margin-bottom: 5px"><?php echo $cely_parametr["name"]; ?></h3>
                 <hr>
                 <ul>
-                    <?php foreach($cely_parametr["options"] as $cislo_parametru => $parametr_rozmery){ ?> 
+                    <?php foreach($cely_parametr["options"] as $cislo_parametru => $parametr_rozmery){ $kolo++;?> 
                             <?php if( $parametr_rozmery["label"] == "Fotografie" ||
                                     $parametr_rozmery["label"] == "Obraz na plátně" ||
                                     $parametr_rozmery["label"] == "Velké formáty" ||
@@ -259,7 +278,7 @@ function page_ceny_fotografie() {
                <?php }
                     else{  ?>
     
-                     <li>
+                     <li class="roz_<?php echo $kolo; ?>">
 <input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][name]" value="<?php echo $cely_parametr["name"];?>" />
 <input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][description]" value="<?php echo $cely_parametr["description"];?>" />
 <input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][type]" value="<?php echo $cely_parametr["type"];?>" />
@@ -277,9 +296,22 @@ function page_ceny_fotografie() {
 <input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][max]" value="" />
 
 <input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][required]" value="<?php echo $cely_parametr["required"];?>" />
+                   <span class="vymazat <?php echo $kolo; ?>">
+                        -
+                    </span>
+                   
                     </li>
+                    <script>
+                        jQuery('.blok_parametr.<?php echo $cislo_celeho_parametru; ?>').on('click', '.vymazat.<?php echo $kolo; ?>', function(ev){
+                           // jQuery(".blok_parametr.<?php echo $poc; ?> li.roz_<?php echo $kolo; ?>").remove(); 
+                            jQuery(this).parent().remove();
+                        });
+                        </script>
                     <?php } } ?>
                 </ul>
+                <div class="pridat <?php echo $poc; ?>">
+                    +
+                </div>
             </div>
                 
             <?php 
