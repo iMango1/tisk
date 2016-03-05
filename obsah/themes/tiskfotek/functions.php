@@ -199,7 +199,7 @@ function page_ceny_fotografie() {
     ?>
     <style>
         label{
-            width: 300px;
+            width: 250px;
             display: block;
             float: left;
         }
@@ -222,6 +222,9 @@ function page_ceny_fotografie() {
             cursor: pointer;
             display: inline-block;
         }
+        .blok_parametr li{
+            margin-bottom: 20px
+        }
     </style>
      <div class="wrap">
         <form method="POST" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
@@ -231,18 +234,18 @@ function page_ceny_fotografie() {
             
         <?php
         if(isset($_POST["submit"])){
-         /*   $wpdb->update( 
+            $wpdb->update( 
 	           'tskf_postmeta', 
 	           array('meta_value' => serialize($_POST["cena"])), 
                array( 'meta_id' => 7130 ), 
 	           array('%s'),
 	           array( '%d' ) );
             header("Location: admin.php?page=fotografie"); 
-            */
-           // $upravene_ceny = postNaPluginPole($_POST["cena"]);
-            $upravene_ceny = $_POST["cena"];
             
-            echo "<pre>",print_r($upravene_ceny),"</pre>";
+           // $upravene_ceny = postNaPluginPole($_POST["cena"]);
+            //$upravene_ceny = $_POST["cena"];
+            
+          //  echo "<pre>",print_r($upravene_ceny),"</pre>";
         }
     
         ?>
@@ -255,7 +258,7 @@ function page_ceny_fotografie() {
                 <h3 style="margin-bottom: 5px"><?php echo $cely_parametr["name"]; ?></h3>
                 <hr>
                 <ul>
-                    <?php foreach($cely_parametr["options"] as $cislo_parametru => $parametr_rozmery){ $kolo++;?> 
+                    <?php foreach($cely_parametr["options"] as $cislo_parametru => $parametr_rozmery){?> 
                             <?php if( $parametr_rozmery["label"] == "Fotografie" ||
                                     $parametr_rozmery["label"] == "Obraz na plátně" ||
                                     $parametr_rozmery["label"] == "Velké formáty" ||
@@ -278,46 +281,58 @@ function page_ceny_fotografie() {
                <?php }
                     else{  ?>
     
-                     <li class="roz_<?php echo $kolo; ?>">
+                     <li class="roz_<?php echo $cislo_parametru; ?>">
 <input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][name]" value="<?php echo $cely_parametr["name"];?>" />
 <input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][description]" value="<?php echo $cely_parametr["description"];?>" />
 <input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][type]" value="<?php echo $cely_parametr["type"];?>" />
 <input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][position]" value="<?php echo $cely_parametr["position"];?>" /> 
                       
-                       <label for=""><strong><?php echo $parametr_rozmery["label"]; ?></strong></label>
-<input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][label]" value="<?php echo $parametr_rozmery["label"]; ?>" />    
+                       <label for=""><strong><input type="text" class="nazev_<?php echo $cislo_parametru; ?>" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][label]" value="<?php echo $parametr_rozmery["label"]; ?>" />    </strong></label>
+
                                            
                         
                         
-                        <input maxlength="30" size="10" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][price]" value="<?php echo $parametr_rozmery["price"]; ?>" /><em> Kč</em>
+                        <input maxlength="30" size="10" type="text" class="cena_<?php echo $cislo_parametru; ?>" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][price]" value="<?php echo $parametr_rozmery["price"]; ?>" /><em> Kč</em>
                         
                         
 <input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][min]" value="" />
 <input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][options][<?php echo $cislo_parametru; ?>][max]" value="" />
 
 <input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][required]" value="<?php echo $cely_parametr["required"];?>" />
-                   <span class="vymazat <?php echo $kolo; ?>">
+                   <span class="vymazat <?php echo $cislo_parametru; ?>">
                         -
                     </span>
                    
                     </li>
-                    <script>
-                        jQuery('.blok_parametr.<?php echo $cislo_celeho_parametru; ?>').on('click', '.vymazat.<?php echo $kolo; ?>', function(ev){
+
+                    <?php } ?>
+                <script>
+                    jQuery(document).ready(function(){
+
+                        
+                        jQuery('.blok_parametr.<?php echo $cislo_celeho_parametru; ?>').on('click', '.vymazat.<?php echo $cislo_parametru; ?>', function(ev){
                             jQuery(this).parent().remove();
                         });
+                        
+                     });
                         </script>
-                    <?php } } ?>
+                    <?php } ?>
                 </ul>
                 <div class="pridat <?php echo $cislo_celeho_parametru; ?>">
                     +
                 </div>
+                    
+                
+                
                 
                 <script>
-                jQuery(document).ready(function(){    
-                    jQuery(".blok_parametr.<?php echo $cislo_celeho_parametru; ?> .pridat.<?php echo $cislo_celeho_parametru; ?>").click(function(){                    
-                    /*    jQuery(".blok_parametr.<?php echo $cislo_celeho_parametru; ?> ul").append('<li class="roz_'+kolo+'"><label style="width:300px;">Od obsahu <strong><input type="text" class="rozmer" maxlength="45" size="15"/> cm<sup>2</sup></strong> </label><input maxlength="45" size="15" class="cena" name="cena[<?php echo $k; ?>][]"/><em> Cena za cm<sup>2</sup></em>  <span class="vymazat <?php echo $kolo; ?>">-</span></li>'); */
-                        alert("kokos"); 
+                jQuery(document).ready(function(){ 
+                    var posledni_cislo_formatu = <?php echo $cislo_parametru; ?>;
+                    jQuery(".blok_parametr.<?php echo $cislo_celeho_parametru; ?> .pridat.<?php echo $cislo_celeho_parametru; ?>").click(function(){                   
+                        posledni_cislo_formatu++;
+                        jQuery(".blok_parametr.<?php echo $cislo_celeho_parametru; ?> ul").append('<li class="roz_'+posledni_cislo_formatu+'"><label><input type="text" name="cena[<?php echo $cislo_celeho_parametru; ?>][options]['+posledni_cislo_formatu+'][label]" class="nazev"></label><input type="text" name="cena[<?php echo $cislo_celeho_parametru; ?>][options]['+posledni_cislo_formatu+'][price]" class="cena"> Kč <span class="vymazat '+posledni_cislo_formatu+'">-</span><input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][options]['+posledni_cislo_formatu+'][min]" value="" /><input type="hidden" name="cena[<?php echo $cislo_celeho_parametru; ?>][options]['+posledni_cislo_formatu+'][max]" value="" /></li>'); 
                     });
+                    
                 });
                 </script>
                 

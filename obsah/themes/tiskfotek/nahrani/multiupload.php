@@ -329,6 +329,7 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
 	) 
 );
 */
+        /*
         $results = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_produktu"', OBJECT );
         
         $parametry = unserialize($results[0]->meta_value);
@@ -366,8 +367,8 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
             }
             
         }
-        
-        echo "<pre>",print_r(unserialize($results[0]->meta_value)),"</pre>";
+        */
+      //  echo "<pre>",print_r(unserialize($results[0]->meta_value)),"</pre>";
             //SCRIPT PRO MAZÁNÍ SOUBORŮ VE SLOŽCE NAHRÁNÍ. ODKOMENTÁŘOVAT POUZE TEHDY KDYŽ SE NĚCO POSERE A FOTOGRAFIE SE NESMAŽOU!!!
             /*
             $normal = glob("/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/*.*"); 
