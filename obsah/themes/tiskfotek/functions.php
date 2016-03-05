@@ -35,6 +35,7 @@ function add_ceny_parametru() {
     add_menu_page( 'Nastavení cen', 'Nastavení cen', 'manage_options', 'ceny_main', 'page_ceny', '
 dashicons-feedback');
     add_submenu_page( 'ceny_main', 'Velké formáty', 'Velké formáty', 'manage_options','velke_formaty','page_ceny_velke_formaty' );
+    add_submenu_page( 'ceny_main', 'Desky', 'Desky', 'manage_options','desky','page_ceny_desky' );
     add_submenu_page( 'ceny_main', 'Fixní ceny', 'Fixní ceny', 'manage_options','fotografie','page_ceny_fotografie' );
 }
 
@@ -57,7 +58,9 @@ function page_ceny(){
      <div class="wrap">
         <h2><?php _e( ' Nastavení cen parametrů' ) ?></h2>
         <a class="button button-primary" href="admin.php?page=velke_formaty">Velké formáty</a>
+        <a class="button button-primary" href="admin.php?page=desky">Desky</a>
         <a class="button button-primary" href="admin.php?page=fotografie">Fixní ceny</a>
+        
      </div>
      <?php
 }
@@ -190,6 +193,98 @@ function page_ceny_velke_formaty() {
      
      <?php
 }
+
+
+
+function page_ceny_desky() {
+    global $wpdb;
+    $results = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_desky"', OBJECT );
+
+    $desky = unserialize($results[0]->meta_value);
+    ?>
+    <style>
+        label{
+            width: 300px;
+            display: block;
+            float: left;
+        }
+        .pridat{
+            width: 30px;
+            height: 30px;
+            background-color: #2ecc71;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        .vymazat{
+            width: 30px;
+            height: 30px;
+            background-color: #e74c3c;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .blok_parametr li{
+            margin-bottom: 20px
+        }
+    </style>
+     <div class="wrap">
+        <form method="POST" action="<?php echo $_SERVER['REQUEST_URI']; ?>">
+        <h2><?php _e( ' Nastavení cen parametrů' ) ?></h2>
+        <a class="button button-primary" href="admin.php?page=ceny_main">Zpět na stránku všech parametrů bez uložení</a>
+        <?php
+        if(isset($_POST["submit"])){
+            echo "<pre>",print_r($_POST),"</pre>";
+            $wpdb->update( 
+	           'tskf_postmeta', 
+	           array('meta_value' => serialize($_POST["desky"])), 
+               array( 'meta_key' => "ceny_desky" ), 
+	           array('%s') );
+            header("Location: admin.php?page=desky");
+        }
+
+        $poc = 0; 
+    
+        foreach($desky as $k => $deska){
+            $kolo = 0;
+            $poc++;
+        ?>
+             
+            <div class="notice blok_parametr <?php echo $k; ?>" style="padding: 10px">
+                <h3 style="margin-bottom: 5px"><?php echo $deska["nazev"]; ?></h3>
+                <input maxlength="45" type="hidden" size="15" class="cena" name="desky[<?php echo $k; ?>][nazev]" value="<?php echo $deska["nazev"]; ?>" />
+            
+                <hr>
+                <ul>
+                
+                    <li class="roz_<?php echo $k; ?>">
+                        <label for="desky[<?php echo $k; ?>][cena]"><strong>Cena za cm<sup>2</sup></strong> </label>
+                        <input maxlength="45" size="15" class="cena" name="desky[<?php echo $k; ?>][cena]" value="<?php echo $deska["cena"]; ?>" />
+                    </li>  
+                    <li class="roz_<?php echo $k; ?>">
+                        <label for="desky[<?php echo $k; ?>][prace]"><strong>Práce</strong></label>
+                        <input maxlength="45" size="15" class="cena" name="desky[<?php echo $k; ?>][prace]" value="<?php echo $deska["prace"]; ?>" />
+                    </li>  
+                </ul>
+
+            </div>
+
+
+        <?php } 
+         submit_button();
+         ?>
+         </form>
+     </div>
+     
+     
+     <?php
+}
+
+
+
 
 function page_ceny_fotografie() {
     global $wpdb;
