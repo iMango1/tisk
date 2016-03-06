@@ -95,6 +95,22 @@ class Product_Addon_Field_Select extends Product_Addon_Field {
                     $vlc = 1;
                     $chosen_option = $option;
                 }
+                //DESKY
+                else if($this->value == sanitize_title("Deska Rayboard 5mm". '-' . $loop) ){
+                    $cena = $this->addon["cena_deska"];
+                    $vlc = 1;
+                    $chosen_option = $option;
+                }
+                else if($this->value == sanitize_title("Deska Rayboard 10mm". '-' . $loop) ){
+                    $cena = $this->addon["cena_deska"];
+                    $vlc = 1;
+                    $chosen_option = $option;
+                }
+                else if($this->value == sanitize_title("Žádná deska". '-' . $loop) ){
+                    $cena = $this->addon["cena_deska"];
+                    $vlc = 1;
+                    $chosen_option = $option;
+                }
                 else{
 				    $chosen_option = $option;
                     $vlc = 0;

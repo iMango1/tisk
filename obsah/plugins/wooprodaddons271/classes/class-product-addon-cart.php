@@ -145,6 +145,7 @@ class Product_Addon_Cart {
 
                 //if($post_data[ 'addon-' . $addon['field-name'] ] == "addon-3032-vyber-fotopapiru"){
                     $addon["cena_fotopapir"] = $post_data["cena_fotopapir"];
+                    $addon["cena_deska"] = $post_data["cena_deska"];
                 //}
                     
 				if ( is_array( $value ) ) {

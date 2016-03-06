@@ -46,8 +46,8 @@ jQuery( document ).ready(function() {
     jQuery(".select-fotka-<?php echo $kolotoc; ?>").change(function() {
 
         nova_cena = zakladni_cena;
-        var vybr = (jQuery(".select-fotka-<?php echo $kolotoc; ?> option:selected").val());
-        if(vybr == "deska-rayboard-5mm-1" || vybr == "deska-rayboard-10mm-2" || vybr == "zadna-deska-3"){
+        var vybr = jQuery(this).val();
+        if(vybr != "deska-rayboard-5mm-1" && vybr != "deska-rayboard-10mm-2"){
         jQuery('.select-fotka-<?php echo $kolotoc; ?> option:selected').each(function() {
             
             
@@ -67,6 +67,7 @@ jQuery( document ).ready(function() {
         
         jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
         jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
+        console.log("select: "+nova_cena+", "+vybr);
         }
     });
 
@@ -277,9 +278,10 @@ jQuery( document ).ready(function() {
                 jQuery('#formular-<?php echo $kolotoc; ?> input.cena_fotopapir').val(n_cena.toFixed(2));
                 
                 jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",n_cena.toFixed(2));    
+                
+                console.log(cena_bez_mnozstvi);
 
-
-            }
+            }  
             
             var text = jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?> :selected').text();
             
@@ -680,21 +682,23 @@ jQuery( document ).ready(function() {
                     var cena_za_desku = (parseFloat(desky_ceny[i]["cena"])*f_obsah)+parseFloat(desky_ceny[i]["prace"]);
 
                     var cena_bez_mnozstvi_vl = d_cena_bez_mn + cena_za_desku;
-
+                    cena_bez_mnozstvi = cena_bez_mnozstvi_vl;
                     nova_cena = cena_bez_mnozstvi_vl * jQuery("#formular-<?php echo $kolotoc; ?> .items-num").val();
 
                     jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
 
 
-                    jQuery('#formular-<?php echo $kolotoc; ?> input.cena_desky').val(nova_cena.toFixed(2));
+                    jQuery('#formular-<?php echo $kolotoc; ?> input.cena_deska').val(cena_za_desku.toFixed(2));
                 
                     jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2)); 
+                    console.log(cena_za_desku+", "+nova_cena+", "+cena_bez_mnozstvi_vl+", "+d_cena_bez_mn);
                 }
             }
             
             
         }
         
+        console.log(obsah+", "+nova_cena+", "+cena_bez_mnozstvi+","+deska);
         
         if(deska == "deska-rayboard-5mm-1"){
             d_zmena("Deska Rayboard 5mm",obsah,cena_bez_mnozstvi);
@@ -706,7 +710,7 @@ jQuery( document ).ready(function() {
             d_zmena("Žádná deska",obsah,cena_bez_mnozstvi);
         }
         
-        console.log(obsah+", "+nova_cena+", "+cena_bez_mnozstvi+","+deska);
+        
     });
     
     
