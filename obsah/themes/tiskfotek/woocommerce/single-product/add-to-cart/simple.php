@@ -64,7 +64,8 @@ if(!function_exists("dalsi_klic")) {
                 //console.log(fotka_obsah + ", " + blok_obsah + ", " + fotopapiry_ceny_<?php echo $kolotoc; ?>[nazev_papir][blok_obsah] + " * " + fotka_obsah + " = " + koko);
                 
                 
-                console.log(cena_<?php echo $kolotoc; ?>(nazev_papir,blok_obsah,fotka_obsah));
+                
+                console.log(cena_<?php echo $kolotoc; ?>(nazev_papir,blok_obsah,fotka_obsah)+", "+nazev_papir+", "+blok_obsah+", "+fotka_obsah);
                 
                 jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?> option:selected').attr("data-price",cena_<?php echo $kolotoc; ?>(nazev_papir,blok_obsah,fotka_obsah));
                 jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').trigger("chosen:updated");
@@ -104,7 +105,7 @@ if(!function_exists("dalsi_klic")) {
             
             
         
-            if(obsah_<?php echo $kolotoc; ?> >= rozmer_fl_<?php echo $kolotoc; ?> && obsah_<?php echo $kolotoc; ?> <= dalsi_rozmer_fl_<?php echo $kolotoc; ?>){
+            if(obsah_<?php echo $kolotoc; ?> > rozmer_fl_<?php echo $kolotoc; ?> && obsah_<?php echo $kolotoc; ?> <= dalsi_rozmer_fl_<?php echo $kolotoc; ?>){
                 var blok_<?php echo $kolotoc; ?> = rozmer_<?php echo $kolotoc; ?>;
 
                 if(jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val() == "mat-enhanced-mate-1"){
@@ -222,7 +223,7 @@ if(!function_exists("dalsi_klic")) {
             
             
         
-            if(obsah_<?php echo $kolotoc; ?> >= rozmer_fl_<?php echo $kolotoc; ?> && obsah_<?php echo $kolotoc; ?> <= dalsi_rozmer_fl_<?php echo $kolotoc; ?>){
+            if(obsah_<?php echo $kolotoc; ?> > rozmer_fl_<?php echo $kolotoc; ?> && obsah_<?php echo $kolotoc; ?> <= dalsi_rozmer_fl_<?php echo $kolotoc; ?>){
                 var blok_<?php echo $kolotoc; ?> = rozmer_<?php echo $kolotoc; ?>;
 
                 if(jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val() == "mat-enhanced-mate-1"){
