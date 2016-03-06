@@ -7,6 +7,13 @@ $results = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like 
 
 $_SESSION["vlastni_ceny"] = unserialize($results[0]->meta_value);
 $parametry = unserialize($results[0]->meta_value);
+
+$v = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_desky"', OBJECT );
+
+$_SESSION["desky_ceny"] = unserialize($v[0]->meta_value);
+$desky_ceny = unserialize($v[0]->meta_value);
+
+
 // echo "<pre>",print_r($_SESSION["vlastni_ceny"]),"</pre>";
 
 if(!function_exists("dalsi_klic")) {
@@ -39,9 +46,11 @@ jQuery( document ).ready(function() {
     jQuery(".select-fotka-<?php echo $kolotoc; ?>").change(function() {
 
         nova_cena = zakladni_cena;
-        
-        
+        var vybr = (jQuery(".select-fotka-<?php echo $kolotoc; ?> option:selected").val());
+        if(vybr == "deska-rayboard-5mm-1" || vybr == "deska-rayboard-10mm-2" || vybr == "zadna-deska-3"){
         jQuery('.select-fotka-<?php echo $kolotoc; ?> option:selected').each(function() {
+            
+            
             if( jQuery(this).data('price') == null ){
                 nova_cena = nova_cena;
             }
@@ -53,10 +62,12 @@ jQuery( document ).ready(function() {
                 cena_bez_mnozstvi = nova_cena;
                 nova_cena = cena_bez_mnozstvi * jQuery("#formular-<?php echo $kolotoc; ?> .items-num").val();
             }
+            
         });
         
         jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
         jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
+        }
     });
 
 
@@ -642,6 +653,63 @@ jQuery( document ).ready(function() {
         });
     
     
+    jQuery('.addon-wrap-3032-nalepit-na-desku .select-fotka-<?php echo $kolotoc; ?>').change(function() {   
+        var vybrany_fotopapir = jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val();          
+            
+        var rozmer = jQuery('.addon-wrap-3032-format .select-fotka-<?php echo $kolotoc; ?>').val();
+        var deska = jQuery('.addon-wrap-3032-nalepit-na-desku .select-fotka-<?php echo $kolotoc; ?>').val();
+        var pro_vymazani_id = rozmer.split("-");
+        
+        var rozmery = pro_vymazani_id[0].split("x");
+        var sirka = rozmery[0], vyska = rozmery[1], obsah = sirka*vyska;
+        
+        var desky_ceny = <?php echo json_encode($desky_ceny); ?>;
+        
+        if(pro_vymazani_id[0]=="a4")
+            obsah = 623.7;
+        if(pro_vymazani_id[0]=="a3")
+            obsah = 1247.4;
+        if(pro_vymazani_id[0]=="a2")
+            obsah = 2494.8;
+        
+        function d_zmena(d_deska,f_obsah,d_cena_bez_mn){
+
+            var i=0;
+            for(i=0;i<3;i++){
+                if(desky_ceny[i]["nazev"] == d_deska){
+                    var cena_za_desku = (parseFloat(desky_ceny[i]["cena"])*f_obsah)+parseFloat(desky_ceny[i]["prace"]);
+
+                    var cena_bez_mnozstvi_vl = d_cena_bez_mn + cena_za_desku;
+
+                    nova_cena = cena_bez_mnozstvi_vl * jQuery("#formular-<?php echo $kolotoc; ?> .items-num").val();
+
+                    jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
+
+
+                    jQuery('#formular-<?php echo $kolotoc; ?> input.cena_desky').val(nova_cena.toFixed(2));
+                
+                    jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2)); 
+                }
+            }
+            
+            
+        }
+        
+        
+        if(deska == "deska-rayboard-5mm-1"){
+            d_zmena("Deska Rayboard 5mm",obsah,cena_bez_mnozstvi);
+        }
+        if(deska == "deska-rayboard-10mm-2"){
+            d_zmena("Deska Rayboard 10mm",obsah,cena_bez_mnozstvi);
+        }
+        if(deska == "zadna-deska-3"){
+            d_zmena("Žádná deska",obsah,cena_bez_mnozstvi);
+        }
+        
+        console.log(obsah+", "+nova_cena+", "+cena_bez_mnozstvi+","+deska);
+    });
+    
+    
     
         
     //PŘI ZMĚNĚ POČTU NAPSÁNÍM
@@ -778,6 +846,7 @@ if ( ! $product->is_purchasable() ) {
     
     <form class="cart product-block" id="formular-<?php echo $kolotoc; ?>" method="post" enctype='multipart/form-data'>
         <input type="hidden" class="cena_fotopapir" name="cena_fotopapir" value="">
+        <input type="hidden" class="cena_deska" name="cena_deska" value="">
         <?php //foreach($fotky as $kolotoc => $fotka){ ?>
       
 	 	<?php 

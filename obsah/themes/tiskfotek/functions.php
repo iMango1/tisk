@@ -237,7 +237,6 @@ function page_ceny_desky() {
         <a class="button button-primary" href="admin.php?page=ceny_main">Zpět na stránku všech parametrů bez uložení</a>
         <?php
         if(isset($_POST["submit"])){
-            echo "<pre>",print_r($_POST),"</pre>";
             $wpdb->update( 
 	           'tskf_postmeta', 
 	           array('meta_value' => serialize($_POST["desky"])), 
@@ -247,7 +246,6 @@ function page_ceny_desky() {
         }
 
         $poc = 0; 
-    
         foreach($desky as $k => $deska){
             $kolo = 0;
             $poc++;
@@ -267,15 +265,19 @@ function page_ceny_desky() {
                     <li class="roz_<?php echo $k; ?>">
                         <label for="desky[<?php echo $k; ?>][prace]"><strong>Práce</strong></label>
                         <input maxlength="45" size="15" class="cena" name="desky[<?php echo $k; ?>][prace]" value="<?php echo $deska["prace"]; ?>" />
-                    </li>  
+                    </li>
+                     
                 </ul>
 
             </div>
 
 
         <?php } 
+    
+    
          submit_button();
          ?>
+
          </form>
      </div>
      
@@ -340,13 +342,12 @@ function page_ceny_fotografie() {
            // $upravene_ceny = postNaPluginPole($_POST["cena"]);
             //$upravene_ceny = $_POST["cena"];
             
-          //  echo "<pre>",print_r($upravene_ceny),"</pre>";
+            //echo "<pre>",print_r($upravene_ceny),"</pre>";
         }
-    
         ?>
             <?php foreach($c_par as $cislo_celeho_parametru => $cely_parametr){ ?>
             <?php if( ($cely_parametr["name"] != "Náhled") && ($cely_parametr["name"] != "Vlastní formát") &&
-                    ($cely_parametr["name"] != "Výběr fotopapíru") && ($cely_parametr["name"] != "Materiál pro velké formáty") &&
+                    ($cely_parametr["name"] != "Výběr fotopapíru") && ($cely_parametr["name"] != "Nalepit na desku?") && ($cely_parametr["name"] != "Materiál pro velké formáty") &&
                      ($cely_parametr["name"] != "id_objednavky")
                     ){ ?>
             <div class="notice blok_parametr <?php echo $cislo_celeho_parametru; ?>" style="padding: 10px">
@@ -467,7 +468,7 @@ function page_ceny_fotografie() {
         <?php
         submit_button();
         ?>
-         <pre><?php print_r($c_par); ?></pre>
+      
          </form>
      </div>
      <?php
