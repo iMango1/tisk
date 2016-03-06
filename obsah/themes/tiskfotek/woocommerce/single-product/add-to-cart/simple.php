@@ -26,11 +26,199 @@ if(!function_exists("dalsi_klic")) {
 }
 ?>
 
-
 <script>
-//ÚPRAVA CEN!!!
-    jQuery( document ).ready(function() {   
+jQuery( document ).ready(function() {
+    
+    var zakladni_cena = 0;
+    var nova_cena = 0;
+    var cena_bez_mnozstvi = 0;
+    var cena_s_mnozstvim = 0;
+    var celkem = 0.00;
+    
+    //PŘI ZMĚNĚ SELECTU
+    jQuery(".select-fotka-<?php echo $kolotoc; ?>").change(function() {
+
+        nova_cena = zakladni_cena;
         
+        
+        jQuery('.select-fotka-<?php echo $kolotoc; ?> option:selected').each(function() {
+            if( jQuery(this).data('price') == null ){
+                nova_cena = nova_cena;
+            }
+            else if (!(jQuery(this).data('price'))){
+                nova_cena = nova_cena;
+            }
+            else{
+                nova_cena += jQuery(this).data('price');
+                cena_bez_mnozstvi = nova_cena;
+                nova_cena = cena_bez_mnozstvi * jQuery("#formular-<?php echo $kolotoc; ?> .items-num").val();
+            }
+        });
+        
+        jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
+        jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
+    });
+
+
+    
+    
+    
+    jQuery(".nastavit-hromadne").click(function(){
+        var zakladni_cena = 0;
+        var nova_cena = 0
+        nova_cena = zakladni_cena;
+        
+        jQuery('.select-fotka-<?php echo $kolotoc; ?> option:selected').each(function() {
+            if( jQuery(this).data('price') == null ){
+                nova_cena = nova_cena;
+            }
+            else if (!(jQuery(this).data('price'))){
+                nova_cena = nova_cena;
+            }
+            else{
+                nova_cena += jQuery(this).data('price');
+            }
+        });
+        
+        jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
+        jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
+        jQuery('.cenovka_k_secteni-<?php echo $kolotoc; ?>').html(nova_cena.toFixed(2));
+        
+    });
+
+    
+
+
+    //VÝCHOZÍ HODNOTA VÝCHOZÍHO FORMÁTU
+    jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-format").show();
+    jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format").hide();
+    jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select').change(function() {
+        var selected = jQuery(this).val();
+        //PŘI VÝBĚRU VLASNTÍHO FORMÁTU
+        if(selected == "vlastni-rozmery-21"){
+            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select').val(jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select option:first").val());
+            jQuery('.addon-wrap-3032-format .select-fotka-<?php echo $kolotoc; ?>').trigger("chosen:updated");
+            //ZOBRAZENÍ INPUTU
+            jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-format").hide();
+            jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").attr("placeholder", "Napište zde váš rozměr");
+            jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format").show();
+            jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format").append('<i class="fa fa-times"></i>');
+            
+            //PO KLIKNUTÍ NA KŘÍŽEK
+            jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format .fa").click(function(){
+                //ZMĚNA NA VÝCHOZÍ HODNOTU
+                jQuery("#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format").find( "a.chosen-single" ).css( "background", "");
+                jQuery("#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format").find( "a.chosen-single" ).css( "color", "");
+                jQuery("#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format").find( "span" ).removeClass( "vyborna" ); 
+                //ODZELENĚNÍ INPUTU
+                jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").css( "background", "");
+                jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").css( "color", "");
+                jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").removeClass( "vyborna" ); 
+                //ZOBRAZENÍ FORMÁTU A SKRYTÍ VLASTNÍHO
+                jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-format").show();
+                jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format").hide();
+                jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select').val(jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select option:first").val());
+                jQuery('.addon-wrap-3032-format .select-fotka-<?php echo $kolotoc; ?>').trigger("chosen:updated");
+                //VYMAZÁNÍ INPUTU
+                jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").val("");
+                
+                
+                jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select').prop('selectedIndex',0);
+                jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru select').prop('selectedIndex',0);
+                //UPDATE RESETOVANÝCH INPUTŮ
+                jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select').trigger("chosen:updated");
+                jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru select').trigger("chosen:updated");
+                //jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material select').trigger("chosen:updated");
+                //NASTAVENÍ VIDITELNOSTI
+                jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru select').prop('selectedIndex',0);
+                jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru select').trigger("chosen:updated");
+                jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru .chosen-container").addClass("chosen-disabled");
+                jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material-pro-velke-formaty").hide();
+                jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu").hide();
+                jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material").show();
+                jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material .chosen-container").addClass("chosen-disabled");
+                jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku .chosen-container").addClass("chosen-disabled");
+
+            });
+            
+        }   
+    });
+    //ZOBRAZENÍ SELECTŮ PODLE ROZMĚRU
+    
+    jQuery('#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input').focusout(function() {
+        //ZELENÁ
+        jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").css( "background", "#8BC34A", "important" );
+        jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").css( "color", "#8BC34A", "important" );
+        jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").addClass( "vyborna" );
+        //PARSOVÁNÍ
+        var zadane_neosetrene = jQuery(this).val().replace(',', '.');
+        var zadane = zadane_neosetrene.toLowerCase();
+        var pole_zadane = zadane.split("x");
+        var sirka = parseFloat(pole_zadane[0]);
+        var vyska = parseFloat(pole_zadane[1]);
+        var typ;
+        console.log(sirka+"x"+vyska);
+      //  jQuery('#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input').val(sirka+"x"+vyska);
+        //ROZDĚLENÍ
+        if(sirka >= 20)
+            typ = "velke";
+        else
+            typ = "fotografie";
+        //ZOBRAZENÍ INPUTŮ
+        if(typ == "fotografie"){
+            //RESET ZADANÝCH HODNOT
+            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select').prop('selectedIndex',0);
+            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru select').prop('selectedIndex',0);
+            //UPDATE RESETOVANÝCH INPUTŮ
+            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select').trigger("chosen:updated");
+            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru select').trigger("chosen:updated");
+            //NASTAVENÍ VIDITELNOSTI
+            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru .chosen-container").addClass("chosen-disabled");
+            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu").hide();
+            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material-pro-velke-formaty").hide();
+            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material").show();
+            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material .chosen-container").removeClass("chosen-disabled");
+            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku").show();
+            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku .chosen-container").removeClass("chosen-disabled");
+            //NASTAVENÍ LESKLÉHO FOTOPAPÍRU
+            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material select").val("leskly-fotopapir-1");
+            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material select').trigger("chosen:updated");
+            jQuery("#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
+            jQuery("#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
+            jQuery("#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "span" ).addClass( "vyborna" ); 
+            //NASTAVENÍ POMLČEK PŘI NEVYPLNĚNÍ
+            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku select").val("zadna-deska-3");
+            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku select').trigger("chosen:updated");        
+        }
+        if(typ == "velke"){
+            //RESET ZADANÝCH HODNOT
+            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material select').prop('selectedIndex',0);
+            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select').prop('selectedIndex',0);
+            //UPDATE RESETOVANÝCH INPUTŮ
+            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select').trigger("chosen:updated");
+            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material select').trigger("chosen:updated");
+            //NASTAVENÍ VIDITELNOSTI
+            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru .chosen-container").removeClass("chosen-disabled");
+            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material-pro-velke-formaty").hide();
+            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material").show();
+            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material .chosen-container").addClass("chosen-disabled");
+            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu").hide();
+            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku .chosen-container").removeClass("chosen-disabled");
+            //RESET ZELENÉ PRO LESKLÝ FOTOPAPÍR
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "background", "transparent", "important" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "color", "#999", "important" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "span" ).removeClass( "vyborna" ); 
+            //NASTAVENÍ POMLČEK PŘI NEVYPLNĚNÍ
+            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku select").val("zadna-deska-3");
+            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku select').trigger("chosen:updated");
+        }
+
+        //KVALITA V ADDON-END
+    });
+    
+
+//ÚPRAVA CEN
+    
         //ÚPRAVA KDYŽ JE ZAKLIKNUTÝ FORMÁT A VYBÍRÁ SE FOTOPAPÍR
         
         jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').change(function() {
@@ -69,13 +257,17 @@ if(!function_exists("dalsi_klic")) {
                 
                 jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?> option:selected').attr("data-price",cena_<?php echo $kolotoc; ?>(nazev_papir,blok_obsah,fotka_obsah));
                 jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').trigger("chosen:updated");
-                cena_bez_mnozstvi_<?php echo $kolotoc; ?> = jQuery(".addon-wrap-3032-vyber-fotopapiru .select-fotka<?php echo $kolotoc; ?>").data('price');
-                nova_cena_<?php echo $kolotoc; ?> = cena_bez_mnozstvi_<?php echo $kolotoc; ?> * jQuery("#formular-<?php echo $kolotoc; ?> .items-num").val();
-                jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena_<?php echo $kolotoc; ?>.toFixed(2));
-            
-                jQuery('#formular-<?php echo $kolotoc; ?> input.cena_fotopapir').val(cena_<?php echo $kolotoc; ?>(nazev_papir,blok_obsah,obsah_<?php echo $kolotoc; ?>));
+                cena_bez_mnozstvi = cena_<?php echo $kolotoc; ?>(nazev_papir,blok_obsah,fotka_obsah);
+                var n_cena = cena_bez_mnozstvi * jQuery("#formular-<?php echo $kolotoc; ?> .items-num").val();
+                 nova_cena = n_cena;
+               jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(n_cena.toFixed(2));
+
+
+                jQuery('#formular-<?php echo $kolotoc; ?> input.cena_fotopapir').val(n_cena.toFixed(2));
                 
-                jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena_<?php echo $kolotoc; ?>.toFixed(2));    
+                jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",n_cena.toFixed(2));    
+
+
             }
             
             var text = jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?> :selected').text();
@@ -158,18 +350,21 @@ if(!function_exists("dalsi_klic")) {
             
         });
         
-        //ÚPRAVA KDYŽ JE ZAKLIKNUTÝ FOTOPAPÍR A ZMĚNÍ SE FORMÁT
+        
+        
+                //ÚPRAVA KDYŽ JE ZAKLIKNUTÝ FOTOPAPÍR A ZMĚNÍ SE FORMÁT
          jQuery('.addon-wrap-3032-format .select-fotka-<?php echo $kolotoc; ?>').change(function() {
-            
+             
             var vybrany_fotopapir_<?php echo $kolotoc; ?> = jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val();            
-
-            if(vybrany_fotopapir_<?php echo $kolotoc; ?> =! ""){
+             
+             
+            if(vybrany_fotopapir_<?php echo $kolotoc; ?> != ""){
             var vysledek_<?php echo $kolotoc; ?> = jQuery('.addon-wrap-3032-format .select-fotka-<?php echo $kolotoc; ?>').val();
             var pro_vymazani_id_<?php echo $kolotoc; ?> = vysledek_<?php echo $kolotoc; ?>.split("-");
             
             var rozmery_<?php echo $kolotoc; ?> = pro_vymazani_id_<?php echo $kolotoc; ?>[0].split("x");
             var sirka_<?php echo $kolotoc; ?> = rozmery_<?php echo $kolotoc; ?>[0], vyska_<?php echo $kolotoc; ?> = rozmery_<?php echo $kolotoc; ?>[1], obsah_<?php echo $kolotoc; ?> = sirka_<?php echo $kolotoc; ?>*vyska_<?php echo $kolotoc; ?>;
-            var cena_bez_mnozstvi_<?php echo $kolotoc; ?> = 0, nova_cena_<?php echo $kolotoc; ?> = 0.00;
+            var cena_bez_mnozstvi_<?php echo $kolotoc; ?> = 0, f_nova_cena_<?php echo $kolotoc; ?> = 0.00;
             
             var fotopapiry_ceny_<?php echo $kolotoc; ?> = <?php echo json_encode(unserialize($results[0]->meta_value)); ?>;
 
@@ -180,18 +375,29 @@ if(!function_exists("dalsi_klic")) {
                 obsah_<?php echo $kolotoc; ?> = 1247.4;
             if(pro_vymazani_id_<?php echo $kolotoc; ?>[0]=="a2")
                 obsah_<?php echo $kolotoc; ?> = 2494.8;
-
+            
+        
             function cena_<?php echo $kolotoc; ?>(nazev_papir,obsah_blok,obsah_fotky){
                 return (Math.round(fotopapiry_ceny_<?php echo $kolotoc; ?>[nazev_papir][obsah_blok]*obsah_fotky));
             }
             
-            function zmena_<?php echo $kolotoc; ?>(nazev_papir,blok_obsah,fotka_obsah){
-                    jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?> option:selected').attr("data-price",cena_<?php echo $kolotoc; ?>(nazev_papir,blok_obsah,fotka_obsah));
-                    jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').trigger("chosen:updated");
-                    cena_bez_mnozstvi_<?php echo $kolotoc; ?> = jQuery(".addon-wrap-3032-vyber-fotopapiru .select-fotka<?php echo $kolotoc; ?>").data('price');
-                    nova_cena_<?php echo $kolotoc; ?> = cena_bez_mnozstvi_<?php echo $kolotoc; ?> * jQuery("#formular-<?php echo $kolotoc; ?> .items-num").val();
-                    jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena_<?php echo $kolotoc; ?>.toFixed(2));
-                    jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena_<?php echo $kolotoc; ?>.toFixed(2));    
+            function f_zmena_<?php echo $kolotoc; ?>(nazev_papir,blok_obsah,fotka_obsah){
+                
+                console.log(cena_<?php echo $kolotoc; ?>(nazev_papir,blok_obsah,fotka_obsah)+", "+nazev_papir+", "+blok_obsah+", "+fotka_obsah+"-kokos");
+                
+                jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?> option:selected').attr("data-price",cena_<?php echo $kolotoc; ?>(nazev_papir,blok_obsah,fotka_obsah));
+                jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').trigger("chosen:updated");
+                cena_bez_mnozstvi = cena_<?php echo $kolotoc; ?>(nazev_papir,blok_obsah,fotka_obsah);
+                var n_cena = cena_bez_mnozstvi * jQuery("#formular-<?php echo $kolotoc; ?> .items-num").val();
+                nova_cena = n_cena;
+               jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(n_cena.toFixed(2));
+
+
+                jQuery('#formular-<?php echo $kolotoc; ?> input.cena_fotopapir').val(n_cena.toFixed(2));
+                
+                jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",n_cena.toFixed(2));    
+
+
             }
             
             var text_<?php echo $kolotoc; ?> = jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?> :selected').text();
@@ -227,37 +433,37 @@ if(!function_exists("dalsi_klic")) {
                 var blok_<?php echo $kolotoc; ?> = rozmer_<?php echo $kolotoc; ?>;
 
                 if(jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val() == "mat-enhanced-mate-1"){
-                    zmena_<?php echo $kolotoc; ?>("MAT - Enhanced MATTE",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);
+                    f_zmena_<?php echo $kolotoc; ?>("MAT - Enhanced MATTE",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);
                 }
                 if(jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val() == "mat-matte-real-2"){
-                    zmena_<?php echo $kolotoc; ?>("MAT - Matte REAL",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);
+                    f_zmena_<?php echo $kolotoc; ?>("MAT - Matte REAL",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);
                 }
                 if(jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val() == "mat-velvet-fine-art-3"){
-                    zmena_<?php echo $kolotoc; ?>("MAT - Velvet FINE ART",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);
+                    f_zmena_<?php echo $kolotoc; ?>("MAT - Velvet FINE ART",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);
                 }
                 if(jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val() == "lesk-glacier-4"){
-                    zmena_<?php echo $kolotoc; ?>("LESK - GLACIER",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);  
+                    f_zmena_<?php echo $kolotoc; ?>("LESK - GLACIER",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);  
                 }
                 if(jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val() == "lesk-omnijet-5"){
-                    zmena_<?php echo $kolotoc; ?>("LESK - OMNIJET",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);
+                    f_zmena_<?php echo $kolotoc; ?>("LESK - OMNIJET",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);
                 }
                 if(jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val() == "lesk-photo-baryt-6"){
-                    zmena_<?php echo $kolotoc; ?>("LESK - Photo BARYT",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);
+                    f_zmena_<?php echo $kolotoc; ?>("LESK - Photo BARYT",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);
                 }
                 if(jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val() == "lesk-premium-glossy-7"){
-                    zmena_<?php echo $kolotoc; ?>("LESK - Premium GLOSSY",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);
+                    f_zmena_<?php echo $kolotoc; ?>("LESK - Premium GLOSSY",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);
                 }
                 if(jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val() == "lesk-premium-luster-8"){
-                    zmena_<?php echo $kolotoc; ?>("LESK - Premium LUSTER",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);
+                    f_zmena_<?php echo $kolotoc; ?>("LESK - Premium LUSTER",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);
                 }
                 if(jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val() == "lesk-smooth-gloss-9"){
-                    zmena_<?php echo $kolotoc; ?>("LESK - Smooth GLOSS",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);
+                    f_zmena_<?php echo $kolotoc; ?>("LESK - Smooth GLOSS",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);
                 }
                 if(jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val() == "pouze-platno-lesk-satin-canvas-10"){
-                    zmena_<?php echo $kolotoc; ?>("POUZE PLÁTNO - LESK SATIN CANVAS",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);
+                    f_zmena_<?php echo $kolotoc; ?>("POUZE PLÁTNO - LESK SATIN CANVAS",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);
                 }
                 if(jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val() == "pouze-platno-mat-exclusive-bez-ramu-11"){
-                    zmena_<?php echo $kolotoc; ?>("POUZE PLÁTNO - MAT EXCLUSIVE - bez rámu",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);
+                    f_zmena_<?php echo $kolotoc; ?>("POUZE PLÁTNO - MAT EXCLUSIVE - bez rámu",blok_<?php echo $kolotoc; ?>,obsah_<?php echo $kolotoc; ?>);
                 }
                 
                 
@@ -275,6 +481,7 @@ if(!function_exists("dalsi_klic")) {
         ?>
            }
         });
+        
         
                 //ÚPRAVA PŘI HROMADNÉM NASTAVENÍ
         
@@ -433,44 +640,10 @@ if(!function_exists("dalsi_klic")) {
                 }
             }
         });
-        
-    });
     
-</script>
-
-<script>
-jQuery( document ).ready(function() {
     
-    var zakladni_cena = 0;
-    var nova_cena = 0;
-    var cena_bez_mnozstvi = 0;
-    var cena_s_mnozstvim = 0;
-    var celkem = 0.00;
     
-    //PŘI ZMĚNĚ SELECTU
-    jQuery(".select-fotka-<?php echo $kolotoc; ?>").change(function() {
-
-        nova_cena = zakladni_cena;
         
-        
-        jQuery('.select-fotka-<?php echo $kolotoc; ?> option:selected').each(function() {
-            if( jQuery(this).data('price') == null ){
-                nova_cena = nova_cena;
-            }
-            else if (!(jQuery(this).data('price'))){
-                nova_cena = nova_cena;
-            }
-            else{
-                nova_cena += jQuery(this).data('price');
-                cena_bez_mnozstvi = nova_cena;
-                nova_cena = cena_bez_mnozstvi * jQuery("#formular-<?php echo $kolotoc; ?> .items-num").val();
-            }
-        });
-        
-        jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
-        jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
-    });
-    
     //PŘI ZMĚNĚ POČTU NAPSÁNÍM
     jQuery("#formular-<?php echo $kolotoc; ?> .items-num").change(function() {
         nova_cena = cena_bez_mnozstvi * jQuery(this).val();
@@ -483,7 +656,7 @@ jQuery( document ).ready(function() {
        var stara_hodnota = jQuery("#formular-<?php  echo $kolotoc; ?> .items-num").val();
         var nova_hodnota = parseInt(stara_hodnota) + 1;
         jQuery("#formular-<?php  echo $kolotoc; ?> .items-num").val(nova_hodnota);
-        
+
         nova_cena = cena_bez_mnozstvi * jQuery("#formular-<?php  echo $kolotoc; ?> .items-num").val();
         jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
         jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
@@ -500,173 +673,11 @@ jQuery( document ).ready(function() {
         }
 
     }); 
-
     
     
-    
-    jQuery(".nastavit-hromadne").click(function(){
-        var zakladni_cena = 0;
-        var nova_cena = 0
-        nova_cena = zakladni_cena;
-        
-        jQuery('.select-fotka-<?php echo $kolotoc; ?> option:selected').each(function() {
-            if( jQuery(this).data('price') == null ){
-                nova_cena = nova_cena;
-            }
-            else if (!(jQuery(this).data('price'))){
-                nova_cena = nova_cena;
-            }
-            else{
-                nova_cena += jQuery(this).data('price');
-            }
-        });
-        
-        jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
-        jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
-        jQuery('.cenovka_k_secteni-<?php echo $kolotoc; ?>').html(nova_cena.toFixed(2));
-        
-    });
-
-    
-});
-    
-    
-        
-</script>
-
-<script>
-jQuery( document ).ready(function() {
-
-    //VÝCHOZÍ HODNOTA VÝCHOZÍHO FORMÁTU
-    jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-format").show();
-    jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format").hide();
-    jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select').change(function() {
-        var selected = jQuery(this).val();
-        //PŘI VÝBĚRU VLASNTÍHO FORMÁTU
-        if(selected == "vlastni-rozmery-21"){
-            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select').val(jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select option:first").val());
-            jQuery('.addon-wrap-3032-format .select-fotka-<?php echo $kolotoc; ?>').trigger("chosen:updated");
-            //ZOBRAZENÍ INPUTU
-            jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-format").hide();
-            jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").attr("placeholder", "Napište zde váš rozměr");
-            jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format").show();
-            jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format").append('<i class="fa fa-times"></i>');
-            
-            //PO KLIKNUTÍ NA KŘÍŽEK
-            jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format .fa").click(function(){
-                //ZMĚNA NA VÝCHOZÍ HODNOTU
-                jQuery("#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format").find( "a.chosen-single" ).css( "background", "");
-                jQuery("#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format").find( "a.chosen-single" ).css( "color", "");
-                jQuery("#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format").find( "span" ).removeClass( "vyborna" ); 
-                //ODZELENĚNÍ INPUTU
-                jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").css( "background", "");
-                jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").css( "color", "");
-                jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").removeClass( "vyborna" ); 
-                //ZOBRAZENÍ FORMÁTU A SKRYTÍ VLASTNÍHO
-                jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-format").show();
-                jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format").hide();
-                jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select').val(jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select option:first").val());
-                jQuery('.addon-wrap-3032-format .select-fotka-<?php echo $kolotoc; ?>').trigger("chosen:updated");
-                //VYMAZÁNÍ INPUTU
-                jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").val("");
-                
-                
-                jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select').prop('selectedIndex',0);
-                jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru select').prop('selectedIndex',0);
-                //UPDATE RESETOVANÝCH INPUTŮ
-                jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select').trigger("chosen:updated");
-                jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru select').trigger("chosen:updated");
-                //jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material select').trigger("chosen:updated");
-                //NASTAVENÍ VIDITELNOSTI
-                jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru select').prop('selectedIndex',0);
-                jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru select').trigger("chosen:updated");
-                jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru .chosen-container").addClass("chosen-disabled");
-                jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material-pro-velke-formaty").hide();
-                jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu").hide();
-                jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material").show();
-                jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material .chosen-container").addClass("chosen-disabled");
-                jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku .chosen-container").addClass("chosen-disabled");
-
-            });
-            
-        }   
-    });
-    //ZOBRAZENÍ SELECTŮ PODLE ROZMĚRU
-    
-    jQuery('#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input').focusout(function() {
-        //ZELENÁ
-        jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").css( "background", "#8BC34A", "important" );
-        jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").css( "color", "#8BC34A", "important" );
-        jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").addClass( "vyborna" );
-        //PARSOVÁNÍ
-        var zadane_neosetrene = jQuery(this).val().replace(',', '.');
-        var zadane = zadane_neosetrene.toLowerCase();
-        var pole_zadane = zadane.split("x");
-        var sirka = parseFloat(pole_zadane[0]);
-        var vyska = parseFloat(pole_zadane[1]);
-        var typ;
-        console.log(sirka+"x"+vyska);
-      //  jQuery('#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input').val(sirka+"x"+vyska);
-        //ROZDĚLENÍ
-        if(sirka >= 20)
-            typ = "velke";
-        else
-            typ = "fotografie";
-        //ZOBRAZENÍ INPUTŮ
-        if(typ == "fotografie"){
-            //RESET ZADANÝCH HODNOT
-            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select').prop('selectedIndex',0);
-            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru select').prop('selectedIndex',0);
-            //UPDATE RESETOVANÝCH INPUTŮ
-            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select').trigger("chosen:updated");
-            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru select').trigger("chosen:updated");
-            //NASTAVENÍ VIDITELNOSTI
-            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru .chosen-container").addClass("chosen-disabled");
-            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu").hide();
-            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material-pro-velke-formaty").hide();
-            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material").show();
-            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material .chosen-container").removeClass("chosen-disabled");
-            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku").show();
-            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku .chosen-container").removeClass("chosen-disabled");
-            //NASTAVENÍ LESKLÉHO FOTOPAPÍRU
-            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material select").val("leskly-fotopapir-1");
-            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material select').trigger("chosen:updated");
-            jQuery("#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
-            jQuery("#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
-            jQuery("#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "span" ).addClass( "vyborna" ); 
-            //NASTAVENÍ POMLČEK PŘI NEVYPLNĚNÍ
-            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku select").val("zadna-deska-3");
-            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku select').trigger("chosen:updated");        
-        }
-        if(typ == "velke"){
-            //RESET ZADANÝCH HODNOT
-            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material select').prop('selectedIndex',0);
-            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select').prop('selectedIndex',0);
-            //UPDATE RESETOVANÝCH INPUTŮ
-            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select').trigger("chosen:updated");
-            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material select').trigger("chosen:updated");
-            //NASTAVENÍ VIDITELNOSTI
-            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru .chosen-container").removeClass("chosen-disabled");
-            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material-pro-velke-formaty").hide();
-            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material").show();
-            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material .chosen-container").addClass("chosen-disabled");
-            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu").hide();
-            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku .chosen-container").removeClass("chosen-disabled");
-            //RESET ZELENÉ PRO LESKLÝ FOTOPAPÍR
-            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "background", "transparent", "important" );
-            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "color", "#999", "important" );
-            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "span" ).removeClass( "vyborna" ); 
-            //NASTAVENÍ POMLČEK PŘI NEVYPLNĚNÍ
-            jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku select").val("zadna-deska-3");
-            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku select').trigger("chosen:updated");
-        }
-
-        //KVALITA V ADDON-END
     });
     
-});  
-
-
+    
     
 jQuery(function(){
     
@@ -710,6 +721,12 @@ function duplikace(keZkopirovani){
     document.getElementById("tabulka-fotek").appendChild(cln);
 }    
 </script>
+
+
+
+
+
+
 
 
 <?php
