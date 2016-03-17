@@ -77,29 +77,6 @@ jQuery( document ).ready(function() {
 
     
     
-    
-    jQuery(".nastavit-hromadne").click(function(){
-        var zakladni_cena = 0;
-        var nova_cena = 0
-        nova_cena = zakladni_cena;
-        
-        jQuery('.select-fotka-<?php echo $kolotoc; ?> option:selected').each(function() {
-            if( jQuery(this).data('price') == null ){
-                nova_cena = nova_cena;
-            }
-            else if (!(jQuery(this).data('price'))){
-                nova_cena = nova_cena;
-            }
-            else{
-                nova_cena += jQuery(this).data('price');
-            }
-        });
-        
-        jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
-        jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
-        jQuery('.cenovka_k_secteni-<?php echo $kolotoc; ?>').html(nova_cena.toFixed(2));
-        
-    });
 
     
 
@@ -381,23 +358,28 @@ jQuery( document ).ready(function() {
                 jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?> option:selected').attr("data-price",cena_<?php echo $kolotoc; ?>(nazev_papir,blok_obsah,fotka_obsah));
                 jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').trigger("chosen:updated");
                 cena_bez_mnozstvi = cena_<?php echo $kolotoc; ?>(nazev_papir,blok_obsah,fotka_obsah);
-                var n_cena = cena_bez_mnozstvi * jQuery("#formular-<?php echo $kolotoc; ?> .items-num").val();
+                var n_cena = cena_bez_mnozstvi;
                 
                 //přepočítání ceny desky
+                
                 if(jQuery(".addon-wrap-3032-nalepit-na-desku select").val() != ""){
                     var deska = jQuery(".addon-wrap-3032-nalepit-na-desku .select-fotka-<?php echo $kolotoc; ?>").val();
                     var cena_deska;    
                     if(deska == "deska-rayboard-5mm-1"){
-                        cena_deska = d_zmena("Deska Rayboard 5mm",fotka_obsah,cena_bez_mnozstvi);
+                        cena_za_desku = d_zmena("Deska Rayboard 5mm",fotka_obsah,cena_bez_mnozstvi);
                     }
                     else if(deska == "deska-rayboard-10mm-2"){
-                        cena_deska = d_zmena("Deska Rayboard 10mm",fotka_obsah,cena_bez_mnozstvi);
+                        cena_za_desku = d_zmena("Deska Rayboard 10mm",fotka_obsah,cena_bez_mnozstvi);
                     }
                     else{
-                        cena_deska = d_zmena("Žádná deska",fotka_obsah,cena_bez_mnozstvi);
+                        cena_za_desku = 0;
                     }
+                    
                     n_cena += cena_za_desku;
+                    console.log("s deskou: "+n_cena);
                 }
+                
+                n_cena = n_cena * jQuery("#formular-<?php echo $kolotoc; ?> .items-num").val(); 
             
                 nova_cena = n_cena;
                jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(n_cena.toFixed(2));
@@ -971,6 +953,29 @@ jQuery( document ).ready(function() {
         });
     
     
+     
+    jQuery(".nastavit-hromadne").click(function(){
+        var zakladni_cena = 0;
+        var nova_cena = 0
+        nova_cena = zakladni_cena;
+        
+        jQuery('.select-fotka-<?php echo $kolotoc; ?> option:selected').each(function() {
+            if( jQuery(this).data('price') == null ){
+                nova_cena = nova_cena;
+            }
+            else if (!(jQuery(this).data('price'))){
+                nova_cena = nova_cena;
+            }
+            else{
+                nova_cena += jQuery(this).data('price');
+            }
+        });
+        
+        jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
+        jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
+        jQuery('.cenovka_k_secteni-<?php echo $kolotoc; ?>').html(nova_cena.toFixed(2));
+        
+    });
 
     
     
