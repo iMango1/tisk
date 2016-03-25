@@ -35,6 +35,7 @@ if(!function_exists("dalsi_klic")) {
 
 <script>
 jQuery( document ).ready(function() {
+
     jQuery(".product-addon-nalepit-na-desku .chosen-container .chosen-results li:first-child").remove();
     jQuery(".product-addon-nalepit-na-desku select option[value='']").remove();
 
@@ -45,14 +46,26 @@ jQuery( document ).ready(function() {
     var cena_s_mnozstvim = 0;
     var celkem = 0.00;
     var cena_za_desku;
+    
+
+    
+            
     //PŘI ZMĚNĚ SELECTU
     jQuery(".select-fotka-<?php echo $kolotoc; ?>").change(function() {
 
         nova_cena = zakladni_cena;
-        var vybr = jQuery(this).val();
-        if(vybr != "deska-rayboard-5mm-1" && vybr != "deska-rayboard-10mm-2" && vybr != "zadna-deska-3"){
+        
+        var vybr, deska;
+        
+        deska = jQuery('#fotka-<?php echo $kolotoc; ?> .product-addon-nalepit-na-desku select option:selected').val();
+            console.log("deskoid: " + deska);
+          
         jQuery('.select-fotka-<?php echo $kolotoc; ?> option:selected').each(function() {
             
+            vybr = jQuery(this).val();
+            //if(vybr != "deska-rayboard-5mm-1" && vybr != "deska-rayboard-10mm-2" && vybr != "zadna-deska-3"){
+            
+            console.log("mamlas: " + vybr);
             
             if( jQuery(this).data('price') == null ){
                 nova_cena = nova_cena;
@@ -65,21 +78,16 @@ jQuery( document ).ready(function() {
                 cena_bez_mnozstvi = nova_cena;
                 nova_cena = cena_bez_mnozstvi * jQuery("#formular-<?php echo $kolotoc; ?> .items-num").val();
             }
-            
+      //      }
         });
-        
+    //    if(vybr != "deska-rayboard-5mm-1" && vybr != "deska-rayboard-10mm-2" && vybr != "zadna-deska-3"){
         jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
         jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
-        console.log("select: "+nova_cena+", "+vybr);
-        }
+        console.log("select: "+nova_cena+", "+vybr + ", deska: " + deska);
+    //   }
+       
     });
-
-
     
-    
-
-    
-
 
     //VÝCHOZÍ HODNOTA VÝCHOZÍHO FORMÁTU
     jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-format").show();
@@ -97,7 +105,8 @@ jQuery( document ).ready(function() {
             jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format").append('<i class="fa fa-times"></i>');
             
             //PO KLIKNUTÍ NA KŘÍŽEK
-            jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format .fa").click(function(){
+            jQuery('#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format').on('click','.fa' ,function(){
+            //jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format .fa").click(function(){
                 //ZMĚNA NA VÝCHOZÍ HODNOTU
                 jQuery("#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format").find( "a.chosen-single" ).css( "background", "");
                 jQuery("#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format").find( "a.chosen-single" ).css( "color", "");
@@ -781,8 +790,8 @@ jQuery( document ).ready(function() {
         
         jQuery('.nastavit-hromadne').click(function() {
             
-            
-        
+            console.log("ahoj");
+
             if(jQuery(".nastavit-celkem .product-addon-vlastni-format input").val() != ""){
                 var vlastni = jQuery(".nastavit-celkem .product-addon-vlastni-format input").val();
                 
@@ -817,16 +826,19 @@ jQuery( document ).ready(function() {
                 obsah = 2494.8;
             
             function cena(nazev_papir,obsah_blok,obsah_fotky){
+                console.log("nazev_papir: " + nazev_papir + "obsah_blok: " + obsah_blok + "obsah_fotky" + obsah_fotky + " cena blok: " + fotopapiry_ceny[nazev_papir][obsah_blok]);
                 return (Math.round(fotopapiry_ceny[nazev_papir][obsah_blok]*obsah_fotky));
             }
             
             function zmena_h(nazev_papir,blok_obsah,fotka_obsah){
                     jQuery('.addon-wrap-3032-vyber-fotopapiru select option:selected').attr("data-price",cena(nazev_papir,blok_obsah,obsah));
                     jQuery('.addon-wrap-3032-vyber-fotopapiru select').trigger("chosen:updated");
-                    cena_bez_mnozstvi = jQuery(".addon-wrap-3032-vyber-fotopapiru select").data('price');
+                    //cena_bez_mnozstvi = jQuery(".addon-wrap-3032-vyber-fotopapiru select").data('price');
+                    cena_bez_mnozstvi = cena(nazev_papir,blok_obsah,obsah)
                     nova_cena = cena_bez_mnozstvi * jQuery(".product-block .items-num").val();
                     jQuery('.cena-fotky span').html(nova_cena.toFixed(2));
                     jQuery('.cena-fotky').attr("data-soucasna-cena",nova_cena.toFixed(2));    
+                    console.log("Pizza: " + cena_bez_mnozstvi);
             }
             
             var text = jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?> :selected').text();
@@ -953,7 +965,7 @@ jQuery( document ).ready(function() {
         });
     
     
-     
+     /*
     jQuery(".nastavit-hromadne").click(function(){
         var zakladni_cena = 0;
         var nova_cena = 0
@@ -979,7 +991,7 @@ jQuery( document ).ready(function() {
 
     
     
-    
+    */
         
     //PŘI ZMĚNĚ POČTU NAPSÁNÍM
     jQuery("#formular-<?php echo $kolotoc; ?> .items-num").change(function() {
@@ -1011,10 +1023,9 @@ jQuery( document ).ready(function() {
 
     }); 
     
-    
+
     });
-    
-    
+
     
 jQuery(function(){
     

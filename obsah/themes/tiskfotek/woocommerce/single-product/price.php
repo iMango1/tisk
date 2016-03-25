@@ -88,6 +88,7 @@ jQuery( document ).ready(function() {
             jQuery(".pokracovat").removeClass("disabled");
             
             if(jQuery('.nastavit-celkem .product-addon-vlastni-format input').val() != ""){
+
                 jQuery(".addon-wrap-3032-format").hide();
                 jQuery(".product-addon.product-addon-vlastni-format input").attr("placeholder", "Napište zde váš rozměr");
                 jQuery(".product-addon.product-addon-vlastni-format").show();
@@ -95,17 +96,19 @@ jQuery( document ).ready(function() {
                 
                 jQuery(".product-addon.product-addon-vlastni-format input").val(jQuery('.nastavit-celkem .product-addon-vlastni-format input').val());
                 
-jQuery(".product-addon-vlastni-format input").css( "background", "#8BC34A", "important" );
+                jQuery(".product-addon-vlastni-format input").css( "background", "#8BC34A", "important" );
         jQuery(".product-addon-vlastni-format input").css( "color", "#8BC34A", "important" );
         jQuery(".product-addon-vlastni-format input").addClass( "vyborna" );
         //PARSOVÁNÍ
         var zadane_neosetrene = jQuery(this).val().replace(',', '.');
+        if(jQuery(".nastavit-celkem .product-addon-vlastni-format input").val() != ""){
+            zadane_neosetrene = jQuery(".nastavit-celkem .product-addon-vlastni-format input").val();
+        }        
         var zadane = zadane_neosetrene.toLowerCase();
         var pole_zadane = zadane.split("x");
         var sirka = parseFloat(pole_zadane[0]);
         var vyska = parseFloat(pole_zadane[1]);
         var typ;
-        console.log(sirka+"x"+vyska);
         //ROZDĚLENÍ
         if(sirka >= 20)
             typ = "velke";
@@ -138,6 +141,7 @@ jQuery(".product-addon-vlastni-format input").css( "background", "#8BC34A", "imp
             jQuery('.addon-wrap-3032-nalepit-na-desku select').trigger("chosen:updated");        
         }
         if(typ == "velke"){
+
             //RESET ZADANÝCH HODNOT
             jQuery('.addon-wrap-3032-material select').prop('selectedIndex',0);
             jQuery('.addon-wrap-3032-velikost-fotoobrazu select').prop('selectedIndex',0);
@@ -158,25 +162,15 @@ jQuery(".product-addon-vlastni-format input").css( "background", "#8BC34A", "imp
             //NASTAVENÍ POMLČEK PŘI NEVYPLNĚNÍ
             jQuery(".addon-wrap-3032-nalepit-na-desku select").val("zadna-deska-3");
             jQuery('.addon-wrap-3032-nalepit-na-desku select').trigger("chosen:updated");
-        }
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
+        } 
                 
             }else{
                 jQuery('.addon-wrap-3032-format select.addon-select').val( jQuery('.nastavit-celkem .addon-3032-format').val() );  
             }
             jQuery('.addon-wrap-3032-format select.addon-select').trigger("chosen:updated");
             jQuery('.addon-wrap-3032-format select.addon-select').change();
+
+            
             
         });
 	});
@@ -185,7 +179,8 @@ jQuery(".product-addon-vlastni-format input").css( "background", "#8BC34A", "imp
     jQuery(function(){
         jQuery(".nastavit-hromadne").click(function(){
             jQuery('.addon-wrap-3032-vyber-fotopapiru select.addon-select').val( jQuery('.nastavit-celkem .addon-3032-vyber-fotopapiru').val() );  
-
+            jQuery('.addon-wrap-3032-vyber-fotopapiru select.addon-select').trigger("chosen:updated");
+            jQuery('.addon-wrap-3032-vyber-fotopapiru .chosen-container').trigger("chosen:updated");
         })
 	});
     

@@ -34,6 +34,7 @@ jQuery( document ).ready(function() {
     //zjištění formátu:
     
     jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select').change(function() {
+        if(jQuery(".nastavit-celkem .product-addon-vlastni-format input").val() == ""){
         var selected = jQuery(':selected', this);
         vysledek = selected.parent().attr('label');
         //Zobrazení a skrytí inputů
@@ -165,7 +166,7 @@ jQuery( document ).ready(function() {
         }
         
         
-
+        }
     });
     
 
