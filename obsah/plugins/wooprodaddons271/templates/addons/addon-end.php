@@ -100,6 +100,33 @@ jQuery('#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input').foc
 });
     
     document.getElementById("obal_kvalita-<?php echo $kolotoc; ?>").innerHTML = html; 
+//kvalita při vlastním v hromadném 
+jQuery('.nastavit-hromadne').click(function() {
+    if( jQuery(".nastavit-celkem .product-addon-vlastni-format input").val() != ""){
+    //PARSOVÁNÍ
+    
+    var zadane_neosetrene = jQuery(".nastavit-celkem .product-addon-vlastni-format input").val().replace(',', '.');
+    var zadane = zadane_neosetrene.toLowerCase();
+    var pole_zadane = zadane.split("x");
+    var vyska<?php echo $kolotoc; ?> = parseFloat(pole_zadane[0]);
+    var sirka<?php echo $kolotoc; ?> = parseFloat(pole_zadane[1]);
+    
+    var dpi<?php echo $kolotoc; ?> = 2.54 * fotkaS<?php echo $kolotoc; ?> / sirka<?php echo $kolotoc; ?>;
+
+    if (dpi<?php echo $kolotoc; ?> < 70 && dpi<?php echo $kolotoc; ?> >= 0)
+        html = '<div class="kvalita spatna"> Nedostačující kvalita<'+'/div>'
+    else if (dpi<?php echo $kolotoc; ?> >= 70 && dpi<?php echo $kolotoc; ?> < 150)
+        html = '<div class="kvalita prumerna">Průměrná kvalita<'+'/div>'
+    else if (dpi<?php echo $kolotoc; ?> >= 150) 
+        html = '<div class="kvalita vyborna"> Výborná kvalita<'+'/div>'     
+    else
+        html = '<div class="kvalita vyborna"> Soubor je <?php echo $typ_souboru ?><'+'/div>'
+     
+    document.getElementById("obal_kvalita-<?php echo $kolotoc; ?>").innerHTML = html; 
+    }
+});
+    
+    document.getElementById("obal_kvalita-<?php echo $kolotoc; ?>").innerHTML = html; 
   
     
 jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select').change(function() {
