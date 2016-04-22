@@ -181,6 +181,8 @@ jQuery( document ).ready(function() {
             jQuery('.addon-wrap-3032-vyber-fotopapiru select.addon-select').val( jQuery('.nastavit-celkem .addon-3032-vyber-fotopapiru').val() );  
             jQuery('.addon-wrap-3032-vyber-fotopapiru select.addon-select').trigger("chosen:updated");
             jQuery('.addon-wrap-3032-vyber-fotopapiru .chosen-container').trigger("chosen:updated");
+            
+            
         })
 	});
     

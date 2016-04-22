@@ -51,7 +51,8 @@ jQuery( document ).ready(function() {
     //jQuery(".select-fotka-<?php echo $kolotoc; ?>").change(function() {
     jQuery(document).on("change", ".select-fotka-<?php echo $kolotoc; ?>", function(){
         //pusa = 1;
-        if(pusa = 1){
+   
+        if(pusa == 1){
             
             
             var fotoobraz = jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select").val(); 
@@ -89,14 +90,13 @@ jQuery( document ).ready(function() {
             var format_vybr = jQuery(this);
             
             
-            
 
             format_label = format_vybr.parent().attr('label');
             
-            console.log("čapkoid: "+format+" asd: "+format_vybr); 
+            console.log("čapkoid: "+format+" asd: "+format_label); 
             
             if(format_label == "Fotografie" || format_label == "Obraz na plátně" || fotoobraz != ""){
-            
+
 //console.error(jQuery(this).data("price"));
             jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru select').prop('selectedIndex',0);
                 
@@ -113,6 +113,7 @@ jQuery( document ).ready(function() {
                 if(fotoobraz_cena != ""){
                     nova_cena = fotoobraz_cena;
                  //   alert("ty kokos"+nova_cena);
+                    alert(fotoobraz);
                     jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
                     jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
                     console.log("select: "+nova_cena+", "+format_label + ", deska: " + deska);  
@@ -1145,17 +1146,23 @@ jQuery( document ).ready(function() {
         }
 
     }); 
+    jQuery(document).on('change','addon-wrap-3032-velikost-fotoobrazu',function () {
     
-
+            jQuery(".addon-wrap-3032-nalepit-na-desku .chosen-container").addClass("chosen-disabled");
+            alert("as");
+        });
+        
+ 
     });
 
     
 jQuery(function(){
     
-    
+
     
     jQuery(".nastavit-hromadne").click(function(){
         jQuery(".pokracovat").removeClass("disabled");
+
     });
 });
 </script>
