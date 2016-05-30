@@ -368,7 +368,7 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
             
         }
         */
-      //  echo "<pre>",print_r(unserialize($results[0]->meta_value)),"</pre>";
+
             //SCRIPT PRO MAZÁNÍ SOUBORŮ VE SLOŽCE NAHRÁNÍ. ODKOMENTÁŘOVAT POUZE TEHDY KDYŽ SE NĚCO POSERE A FOTOGRAFIE SE NESMAŽOU!!!
             /*
             $normal = glob("/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/*.*"); 
@@ -387,8 +387,21 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
                 unlink($foto);
             }
             
-            */
         
+            function rmdir_recursive($dir) {
+                foreach(scandir($dir) as $file) {
+                    if ('.' === $file || '..' === $file) continue;
+                    if (is_dir("$dir/$file")) rmdir_recursive("$dir/$file");
+                    else unlink("$dir/$file");
+                }
+                rmdir($dir);
+                mkdir($dir,0777);
+            }
+        
+            $objednavky = "/home/web/$_NAZEV_WEBU.cz/objednavky";
+            rmdir_recursive($objednavky);
+            */
+            
 ?>
 	</div>
 </div>
