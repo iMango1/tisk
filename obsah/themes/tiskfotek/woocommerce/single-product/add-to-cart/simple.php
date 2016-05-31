@@ -286,7 +286,7 @@ jQuery( document ).ready(function() {
     
 
 //ÚPRAVA CEN
-    var desky_ceny = <?php echo json_encode($desky_ceny); ?>;
+    /* ceny!! -- var desky_ceny = <?php echo json_encode($desky_ceny); ?>; */
     jQuery('.addon-wrap-3032-nalepit-na-desku .select-fotka-<?php echo $kolotoc; ?>').change(function() {   
         var vybrany_fotopapir = jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val();          
             
