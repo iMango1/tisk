@@ -29,77 +29,85 @@ else{
 ?>     
 <script>
 jQuery( document ).ready(function() {
-    jQuery(".nastavit-hromadne").click(function(){
-        jQuery('.addon-wrap-3032-format select.addon-select').change();
-    });
-});
+        
     
-    
-jQuery( document ).ready(function() {
 //Deklarace promenny pro JS
     var vysledek<?php echo $kolotoc; ?> = '';
     var fotkaS<?php echo $kolotoc; ?> = "<?php echo $sizex; ?>";
     var formatS<?php echo $kolotoc; ?> = '';
-    var html = '<div class="kvalita neaktivni"> Kvalita fotografie<'+'/div>';
- 
+    var html = '<div class="kvalita neaktivni"> Kvalita fotografie</div>';
+    document.getElementById("obal_kvalita-<?php echo $kolotoc; ?>").innerHTML = html; 
+    
+    
 //zjištění formátu:   
 jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select').change(function() {
+    
     var selected<?php echo $kolotoc; ?> = jQuery(':selected', this);
     vysledek<?php echo $kolotoc; ?> = selected<?php echo $kolotoc; ?>.attr('value');
     formatS<?php echo $kolotoc; ?> = vysledek<?php echo $kolotoc; ?>.substr(0, 2);
 
-//Kontrola formaty zda není zadán A4,A3,A2 apod.
-    if (formatS<?php echo $kolotoc; ?> == "a4"){ formatS<?php echo $kolotoc; ?> = 21;}
-    else if (formatS<?php echo $kolotoc; ?> == "a3"){ formatS<?php echo $kolotoc; ?> = 29.7;}
-    else if (formatS<?php echo $kolotoc; ?> == "a2"){ formatS<?php echo $kolotoc; ?> = 42;}    
-     else if (formatS<?php echo $kolotoc; ?> == "fo"){     html = '<div class="kvalita neaktivni"> Vyberte materiál<'+'/div>' }
-//vypocet
-var dpi<?php echo $kolotoc; ?> = 2.54 * fotkaS<?php echo $kolotoc; ?> / formatS<?php echo $kolotoc; ?>;
-
-
-// kontrola kvality podle dpi
-if (isFinite(dpi<?php echo $kolotoc; ?>)) {
+    //Kontrola formaty zda není zadán A4,A3,A2 apod.
+    if(formatS<?php echo $kolotoc; ?> == "a4"){
+        formatS<?php echo $kolotoc; ?> = 21;
+    }
+    else if(formatS<?php echo $kolotoc; ?> == "a3"){
+        formatS<?php echo $kolotoc; ?> = 29.7;
+    }
+    else if(formatS<?php echo $kolotoc; ?> == "a2"){
+        formatS<?php echo $kolotoc; ?> = 42;
+    }
+    else if(formatS<?php echo $kolotoc; ?> == "fo"){
+        html = '<div class="kvalita neaktivni"> Vyberte materiál</div>';
+    }
     
-if (dpi<?php echo $kolotoc; ?> < 70 && dpi<?php echo $kolotoc; ?> >= 0)
-               html = '<div class="kvalita spatna"> Nedostačující kvalita<'+'/div>'
-else if (dpi<?php echo $kolotoc; ?> >= 70 && dpi<?php echo $kolotoc; ?> < 150)
-               html = '<div class="kvalita prumerna">Průměrná kvalita<'+'/div>'
-else if (dpi<?php echo $kolotoc; ?> >= 150) 
-               html = '<div class="kvalita vyborna"> Výborná kvalita<'+'/div>' 
-else
-    html = '<div class="kvalita vyborna"> Soubor je <?php echo $typ_souboru ?><'+'/div>'
-} 
-    
+    //Výpočet kvality v dpi
+    var dpi<?php echo $kolotoc; ?> = 2.54 * fotkaS<?php echo $kolotoc; ?> / formatS<?php echo $kolotoc; ?>;
 
+
+    //kontrola kvality podle dpi
+    if (isFinite(dpi<?php echo $kolotoc; ?>)) {
+
+    if (dpi<?php echo $kolotoc; ?> < 70 && dpi<?php echo $kolotoc; ?> >= 0)
+                   html = '<div class="kvalita spatna"> Nedostačující kvalita<'+'/div>'
+    else if (dpi<?php echo $kolotoc; ?> >= 70 && dpi<?php echo $kolotoc; ?> < 150)
+                   html = '<div class="kvalita prumerna">Průměrná kvalita<'+'/div>'
+    else if (dpi<?php echo $kolotoc; ?> >= 150) 
+                   html = '<div class="kvalita vyborna"> Výborná kvalita<'+'/div>' 
+    else
+        html = '<div class="kvalita vyborna"> Soubor je <?php echo $typ_souboru ?><'+'/div>'
+    } 
     
     //Odeslaní výstupu do HTML           
     document.getElementById("obal_kvalita-<?php echo $kolotoc; ?>").innerHTML = html; 
     
 });
-jQuery('#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input').focusout(function() {
-    //PARSOVÁNÍ
-    var zadane_neosetrene = jQuery(this).val().replace(',', '.');
-    var zadane = zadane_neosetrene.toLowerCase();
-    var pole_zadane = zadane.split("x");
-    var vyska<?php echo $kolotoc; ?> = parseFloat(pole_zadane[0]);
-    var sirka<?php echo $kolotoc; ?> = parseFloat(pole_zadane[1]);
-    
-    var dpi<?php echo $kolotoc; ?> = 2.54 * fotkaS<?php echo $kolotoc; ?> / sirka<?php echo $kolotoc; ?>;
 
-    if (dpi<?php echo $kolotoc; ?> < 70 && dpi<?php echo $kolotoc; ?> >= 0)
-        html = '<div class="kvalita spatna"> Nedostačující kvalita<'+'/div>'
-    else if (dpi<?php echo $kolotoc; ?> >= 70 && dpi<?php echo $kolotoc; ?> < 150)
-        html = '<div class="kvalita prumerna">Průměrná kvalita<'+'/div>'
-    else if (dpi<?php echo $kolotoc; ?> >= 150) 
-        html = '<div class="kvalita vyborna"> Výborná kvalita<'+'/div>'     
-    else
-        html = '<div class="kvalita vyborna"> Soubor je <?php echo $typ_souboru ?><'+'/div>'
-     
+//Kvalita pro vlastní formát
+jQuery('#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input').focusout(function() {
+        //PARSOVÁNÍ
+        var zadane_neosetrene = jQuery(this).val().replace(',', '.');
+        var zadane = zadane_neosetrene.toLowerCase();
+        var pole_zadane = zadane.split("x");
+        var vyska<?php echo $kolotoc; ?> = parseFloat(pole_zadane[0]);
+        var sirka<?php echo $kolotoc; ?> = parseFloat(pole_zadane[1]);
+
+        var dpi<?php echo $kolotoc; ?> = 2.54 * fotkaS<?php echo $kolotoc; ?> / sirka<?php echo $kolotoc; ?>;
+
+        if (dpi<?php echo $kolotoc; ?> < 70 && dpi<?php echo $kolotoc; ?> >= 0)
+            html = '<div class="kvalita spatna"> Nedostačující kvalita<'+'/div>'
+        else if (dpi<?php echo $kolotoc; ?> >= 70 && dpi<?php echo $kolotoc; ?> < 150)
+            html = '<div class="kvalita prumerna">Průměrná kvalita<'+'/div>'
+        else if (dpi<?php echo $kolotoc; ?> >= 150) 
+            html = '<div class="kvalita vyborna"> Výborná kvalita<'+'/div>'     
+        else
+            html = '<div class="kvalita vyborna"> Soubor je <?php echo $typ_souboru ?><'+'/div>'
+
+        document.getElementById("obal_kvalita-<?php echo $kolotoc; ?>").innerHTML = html; 
+
+    });
+    
     document.getElementById("obal_kvalita-<?php echo $kolotoc; ?>").innerHTML = html; 
     
-});
-    
-    document.getElementById("obal_kvalita-<?php echo $kolotoc; ?>").innerHTML = html; 
 //kvalita při vlastním v hromadném 
 jQuery('.nastavit-hromadne').click(function() {
     if( jQuery(".nastavit-celkem .product-addon-vlastni-format input").val() != ""){
@@ -125,9 +133,7 @@ jQuery('.nastavit-hromadne').click(function() {
     document.getElementById("obal_kvalita-<?php echo $kolotoc; ?>").innerHTML = html; 
     }
 });
-    
-    document.getElementById("obal_kvalita-<?php echo $kolotoc; ?>").innerHTML = html; 
-  
+      
     
 jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select').change(function() {
     var selected<?php echo $kolotoc; ?> = jQuery(':selected', this);
@@ -153,15 +159,15 @@ else if (dpi<?php echo $kolotoc; ?> >= 150)
     document.getElementById("obal_kvalita-<?php echo $kolotoc; ?>").innerHTML = html; 
 
     });
- 
 
 //KVALITA PŘI HROMADNÉM NASTAVENÍ
+/*
 jQuery( document ).ready(function() {
     jQuery(".nastavit-hromadne").click(function(){
         jQuery('.addon-wrap-3032-format select.addon-select').change();
     });
 });
-    
+   */ 
     
 // Pri vybrani se změni input na zeleny s fajfkou
 //Orez a leskly fotopapir je defaultne
