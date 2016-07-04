@@ -113,7 +113,7 @@ jQuery( document ).ready(function() {
                 if(fotoobraz_cena != ""){
                     nova_cena = fotoobraz_cena;
        
-                    alert(fotoobraz);
+               /*     alert(fotoobraz);*/
                     jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
                     jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
    /* zak                 console.log("select: "+nova_cena+", "+format_label + ", deska: " + deska);  */
@@ -592,19 +592,19 @@ jQuery( document ).ready(function() {
                 
             function d_zmena(d_deska,f_obsah,d_cena_bez_mn){
 
-            var i=0;
-            for(i=0;i<3;i++){
-                if(d_deska == "Žádná deska"){
-                    return 0; 
+                var i=0;
+                for(i=0;i<3;i++){
+                    if(d_deska == "Žádná deska"){
+                        return 0; 
+                    }
+                    else{ 
+                        if(desky_ceny[i]["nazev"] == d_deska){
+                            cena_za_desku = (parseFloat(desky_ceny[i]["cena"])*f_obsah)+parseFloat(desky_ceny[i]["prace"]);
+    
+                            return cena_za_desku;
+                        }  
+                    }   
                 }
-                else{ 
-                    if(desky_ceny[i]["nazev"] == d_deska){
-                        cena_za_desku = (parseFloat(desky_ceny[i]["cena"])*f_obsah)+parseFloat(desky_ceny[i]["prace"]);
-
-                        return cena_za_desku;
-                    }  
-                }   
-            }
             }
               
             function f_zmena_<?php echo $kolotoc; ?>(nazev_papir,blok_obsah,fotka_obsah){
@@ -892,9 +892,6 @@ jQuery( document ).ready(function() {
             var cena_bez_mnozstvi = 0, nova_cena = 0.00;
             
             var fotopapiry_ceny = <?php echo json_encode(unserialize($results[0]->meta_value)); ?>;
-            
-        
-        /* zak    console.log(sirka + " ! " + vyska); */
 
             
             if(pro_vymazani_id[0]=="a4")
@@ -905,7 +902,7 @@ jQuery( document ).ready(function() {
                 obsah = 2494.8;
             
             function cena(nazev_papir,obsah_blok,obsah_fotky){
-           /* zak     console.log("nazev_papir: " + nazev_papir + "obsah_blok: " + obsah_blok + "obsah_fotky" + obsah_fotky + " cena blok: " + fotopapiry_ceny[nazev_papir][obsah_blok]); */
+
                 return (Math.round(fotopapiry_ceny[nazev_papir][obsah_blok]*obsah_fotky));
             }
             function d_zmena(d_deska,f_obsah,d_cena_bez_mn){
