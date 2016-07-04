@@ -36,8 +36,6 @@ if(!function_exists("dalsi_klic")) {
 <script>
 jQuery( document ).ready(function() {
 
-    jQuery(".product-addon-nalepit-na-desku .chosen-container .chosen-results li:first-child").remove();
-    jQuery(".product-addon-nalepit-na-desku select option[value='']").remove();
 
     var zakladni_cena = 0;
     var nova_cena = 0;

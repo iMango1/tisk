@@ -583,7 +583,9 @@ jQuery( document ).ready(function() {
 
         jQuery(".format .chosen-container .chosen-single span").replaceWith( "<span>Výber formátu</span>" );
 
-       
+        jQuery(".product-addon-nalepit-na-desku .chosen-container .chosen-results li:first-child").remove();
+        jQuery(".product-addon-nalepit-na-desku select option[value='']").remove();
+
     //NASTAVIT HROMADNĚ - desky
 
         jQuery(".nastavit-hromadne").click(function(){
@@ -599,8 +601,6 @@ jQuery( document ).ready(function() {
     
 
         jQuery(".nastavit-hromadne").click(function(){
-            
-            
             
                 //Nastavit hromadně - Formát
 
@@ -689,13 +689,7 @@ jQuery( document ).ready(function() {
             jQuery('.addon-wrap-3032-format select.addon-select').trigger("chosen:updated");
             jQuery('.addon-wrap-3032-format select.addon-select').change();
 
-            
 
-            
-            
-            
-            
-            
             console.log("vše");
             //velké formáty
             jQuery('.addon-wrap-3032-vyber-fotopapiru select.addon-select').val( jQuery('.nastavit-celkem .addon-3032-vyber-fotopapiru').val() );  
@@ -765,6 +759,8 @@ jQuery( document ).ready(function() {
                 jQuery(".pole-blok .addon-wrap-3032-nalepit-na-desku .chosen-container").removeClass("chosen-disabled");
 
             }
+            
+            
         });    //KONEC CLICK ON HROMADNÉ NASTAVENÍ
     
     
