@@ -131,41 +131,7 @@ jQuery( document ).ready(function() {
         
 
         //Zobrazení a skrytí inputů hromadného nastavení
-        if( vysledek == "Velké formáty"){
-            jQuery(".nastavit-celkem .addon-wrap-3032-vyber-fotopapiru .chosen-container").removeClass("chosen-disabled");
-            jQuery(".nastavit-celkem .addon-wrap-3032-material-pro-velke-formaty").hide();
-            jQuery(".nastavit-celkem .addon-wrap-3032-material").show();
-            jQuery(".nastavit-celkem .addon-wrap-3032-material").addClass("chosen-disabled");
-            jQuery(".nastavit-celkem .addon-wrap-3032-velikost-fotoobrazu").hide();
-            jQuery(".nastavit-celkem .addon-wrap-3032-nalepit-na-desku .chosen-container").removeClass("chosen-disabled");
-        }
-        else if(vysledek == "Obraz na plátně"){
-            jQuery(".nastavit-celkem .addon-wrap-3032-vyber-fotopapiru .chosen-container").addClass("chosen-disabled");
-            jQuery(".nastavit-celkem .addon-wrap-3032-velikost-fotoobrazu").show();
-            jQuery(".nastavit-celkem .addon-wrap-3032-material-pro-velke-formaty").hide();
-            jQuery(".nastavit-celkem .addon-wrap-3032-material").hide();
-            jQuery(".nastavit-celkem .addon-wrap-3032-nalepit-na-desku .chosen-container").addClass("chosen-disabled");
-        }
-        else if(vysledek == "Fotografie"){
-            jQuery(".nastavit-celkem .addon-wrap-3032-vyber-fotopapiru .chosen-container").addClass("chosen-disabled");
-            jQuery(".nastavit-celkem .addon-wrap-3032-velikost-fotoobrazu").hide();
-            jQuery(".nastavit-celkem .addon-wrap-3032-material-pro-velke-formaty").hide();
-            jQuery(".nastavit-celkem .addon-wrap-3032-material").show();
-            jQuery(".nastavit-celkem .addon-wrap-3032-material .chosen-container").removeClass("chosen-disabled");
-            jQuery(".nastavit-celkem .addon-wrap-3032-nalepit-na-desku").show();
-            jQuery(".nastavit-celkem .addon-wrap-3032-nalepit-na-desku .chosen-container").removeClass("chosen-disabled");
-        }
-        //nic nenení zakliknuto
-        else{
-            jQuery(".nastavit-celkem .addon-wrap-3032-vyber-fotopapiru .chosen-container").addClass("chosen-disabled");
-            jQuery(".nastavit-celkem .addon-wrap-3032-material-pro-velke-formaty").hide();
-            jQuery(".nastavit-celkem .addon-wrap-3032-velikost-fotoobrazu").hide();
-            jQuery(".nastavit-celkem .addon-wrap-3032-material").show();
-            jQuery(".nastavit-celkem .addon-wrap-3032-material .chosen-container").addClass("chosen-disabled");
-            jQuery(".nastavit-celkem .addon-wrap-3032-nalepit-na-desku .chosen-container").addClass("chosen-disabled");
-        }
-        
-        
+            //nově v nastavení fotek
         }
     });
     
