@@ -134,7 +134,7 @@ jQuery('.nastavit-hromadne').click(function() {
     }
 });
       
-    
+    /*
 jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select').change(function() {
     var selected<?php echo $kolotoc; ?> = jQuery(':selected', this);
     vysledek<?php echo $kolotoc; ?> = selected<?php echo $kolotoc; ?>.attr('value');
@@ -159,7 +159,7 @@ else if (dpi<?php echo $kolotoc; ?> >= 150)
     document.getElementById("obal_kvalita-<?php echo $kolotoc; ?>").innerHTML = html; 
 
     });
-
+*/
 //KVALITA PŘI HROMADNÉM NASTAVENÍ
 /*
 jQuery( document ).ready(function() {
