@@ -49,7 +49,7 @@ jQuery( document ).ready(function() {
     //jQuery(".select-fotka-<?php echo $kolotoc; ?>").change(function() {
     jQuery(document).on("change", ".select-fotka-<?php echo $kolotoc; ?>", function(){
         //pusa = 1;
-   
+  // console.log("pizzerino");
         if(pusa == 1){
             
             
@@ -59,8 +59,9 @@ jQuery( document ).ready(function() {
             
             nova_cena = fotoobraz_cena;
             
-            jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
-            jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
+                jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
+                jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
+                jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-cena_bez_mn",(parseFloat(nova_cena)).toFixed(2));
             }
         }
         
@@ -82,7 +83,7 @@ jQuery( document ).ready(function() {
             
             format = jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select").val();
             
-            var fotoobraz = jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select").val(); 
+            var fotoobraz = jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select").val();
             var fotoobraz_cena = jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select option:selected").data("price");
             
             var format_vybr = jQuery(this);
@@ -91,13 +92,13 @@ jQuery( document ).ready(function() {
 
             format_label = format_vybr.parent().attr('label');
             
-  /* zak          console.log("čapkoid: "+format+" asd: "+format_label); */
+      //      console.log("čapkoid: "+format+" asd: "+format_label);
             
             if(format_label == "Fotografie" || format_label == "Obraz na plátně" || fotoobraz != ""){
 
 //console.error(jQuery(this).data("price"));
             jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru select').prop('selectedIndex',0);
-                
+
             
             if( jQuery(this).data('price') == null ){
                 nova_cena = nova_cena;
@@ -107,14 +108,16 @@ jQuery( document ).ready(function() {
                 }
             }
             else if (!(jQuery(this).data('price'))){
+           //     console.log("<?php echo $kolotoc; ?> - money on my mind: " + fotoobraz_cena + ", " + fotoobraz);
                 nova_cena = nova_cena;
                 if(fotoobraz_cena != ""){
                     nova_cena = fotoobraz_cena;
        
                /*     alert(fotoobraz);*/
-                    jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
-                    jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
-   /* zak                 console.log("select: "+nova_cena+", "+format_label + ", deska: " + deska);  */
+                    jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html((parseFloat(nova_cena)).toFixed(2));
+                    jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",(parseFloat(nova_cena)).toFixed(2));
+                    jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-cena_bez_mn",(parseFloat(nova_cena)).toFixed(2));
+                //   console.log("stoInt(elect): "+nova_cena+", "+" parseint: "+ parseInt(nova_cena));
                 }
                     
             }
@@ -128,13 +131,14 @@ jQuery( document ).ready(function() {
                     
                     jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
                     jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
+                    jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-cena_bez_mn",(parseFloat(nova_cena)).toFixed(2));
         /* zak            console.log("select: "+nova_cena+", "+format_label + ", deska: " + deska);   */
                 }
                
             }
         
                 
-   /* zak         console.log("excuse me: " + nova_cena); */
+        //    console.log("excuse me: " + nova_cena);
 
                 
             }
@@ -147,7 +151,7 @@ jQuery( document ).ready(function() {
     //   }
         }
     });
-    
+
     jQuery(document).on("click", ".form-row.fotka-<?php echo $kolotoc; ?>", function(){
         pusa = 0;
         //console.log("pusa: " + pusa);
@@ -167,8 +171,6 @@ jQuery( document ).ready(function() {
             jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-format").hide();
             jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").attr("placeholder", "Napište zde váš rozměr");
             jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format").show();
-            jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format").é;
-            
             //PO KLIKNUTÍ NA KŘÍŽEK
             jQuery('#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format').on('click','.fa' ,function(){
             //jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format .fa").click(function(){
@@ -325,7 +327,8 @@ jQuery( document ).ready(function() {
     
                     jQuery('#formular-<?php echo $kolotoc; ?> input.cena_deska').val(0);
                     
-                    jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2)); 
+                    jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
+                    jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-cena_bez_mn",(parseFloat(nova_cena)).toFixed(2));
                 }
                 else{ 
                     if(desky_ceny[i]["nazev"] == d_deska){
@@ -342,7 +345,8 @@ jQuery( document ).ready(function() {
     
                         jQuery('#formular-<?php echo $kolotoc; ?> input.cena_deska').val(cena_za_desku.toFixed(2));
                     
-                        jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2)); 
+                        jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
+                        jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-cena_bez_mn",(parseFloat(nova_cena)).toFixed(2));
                /* zak         console.log("puzza:"+cena_za_desku+", "+nova_cena+", "+cena_bez_mnozstvi_vl+", "+d_cena_bez_mn+",f_obsah: " +f_obsah); */
                     }  
                 }
@@ -470,7 +474,8 @@ jQuery( document ).ready(function() {
 
                 jQuery('#formular-<?php echo $kolotoc; ?> input.cena_fotopapir').val(n_cena.toFixed(2));
                 
-                jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",n_cena.toFixed(2));    
+                jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",n_cena.toFixed(2));
+                jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-cena_bez_mn",(parseFloat(n_cena)).toFixed(2));
                 
          /* zak       console.log(cena_bez_mnozstvi); */
 
@@ -638,8 +643,8 @@ jQuery( document ).ready(function() {
 
                 jQuery('#formular-<?php echo $kolotoc; ?> input.cena_fotopapir').val(n_cena.toFixed(2));
                 
-                jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",n_cena.toFixed(2));    
-
+                jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",n_cena.toFixed(2));
+                jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-cena_bez_mn",(parseFloat(n_cena)).toFixed(2));
 
             }
             
@@ -773,8 +778,8 @@ jQuery( document ).ready(function() {
 
                 jQuery('#formular-<?php echo $kolotoc; ?> input.cena_fotopapir').val(n_cena.toFixed(2));
                 
-                jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",n_cena.toFixed(2));    
-
+                jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",n_cena.toFixed(2));
+                jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-cena_bez_mn",(parseFloat(n_cena)).toFixed(2));
 
             }
             
@@ -952,8 +957,8 @@ jQuery( document ).ready(function() {
                 
                 // nova_cena = cena_bez_mnozstvi * jQuery(".product-block .items-num").val();
                 jQuery('.cena-fotky span').html(nova_cena.toFixed(2));
-                jQuery('.cena-fotky').attr("data-soucasna-cena",nova_cena.toFixed(2));    
-
+                jQuery('.cena-fotky').attr("data-soucasna-cena",nova_cena.toFixed(2));
+                jQuery('.cena-fotky').attr("data-cena_bez_mn",(parseFloat(nova_cena)).toFixed(2));
             
                 pusa = 1;
 
@@ -1084,7 +1089,7 @@ jQuery( document ).ready(function() {
     
 
     
-     /*
+/*
     jQuery(".nastavit-hromadne").click(function(){
         var zakladni_cena = 0;
         var nova_cena = 0
@@ -1101,19 +1106,23 @@ jQuery( document ).ready(function() {
                 nova_cena += jQuery(this).data('price');
             }
         });
-        
         jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
         jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
         jQuery('.cenovka_k_secteni-<?php echo $kolotoc; ?>').html(nova_cena.toFixed(2));
         
     });
+*/
+    
+    
 
-    
-    
-    */
-        
     //PŘI ZMĚNĚ POČTU NAPSÁNÍM
     jQuery("#formular-<?php echo $kolotoc; ?> .items-num").change(function() {
+
+        //if(jQuery("#formular-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select").val() != "")
+        cena_bez_mnozstvi = parseFloat(jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-cena_bez_mn"));
+
+
+
         nova_cena = cena_bez_mnozstvi * jQuery(this).val();
         jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
         jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
@@ -1122,18 +1131,25 @@ jQuery( document ).ready(function() {
     //PŘI ZMĚNĚ KLIKNUTÍM NA PLUSKO
     jQuery("#formular-<?php echo $kolotoc;?> .pocet-tlacitka .pridat").click(function(){
        var stara_hodnota = jQuery("#formular-<?php  echo $kolotoc; ?> .items-num").val();
-        var nova_hodnota = parseInt(stara_hodnota) + 1;
+        var nova_hodnota = parseFloat(stara_hodnota) + 1;
         jQuery("#formular-<?php  echo $kolotoc; ?> .items-num").val(nova_hodnota);
+
+        //if(jQuery("#formular-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select").val() != "")
+        cena_bez_mnozstvi = parseFloat(jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-cena_bez_mn"));
 
         nova_cena = cena_bez_mnozstvi * jQuery("#formular-<?php  echo $kolotoc; ?> .items-num").val();
         jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
         jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
-    });   
+    });
     //PŘI ZMĚNĚ KLIKNUTÍM NA MINUS
     jQuery("#formular-<?php echo $kolotoc;?> .pocet-tlacitka .odebrat").click(function(){
         var stara_hodnota = jQuery("#formular-<?php  echo $kolotoc; ?> .items-num").val();
         if(stara_hodnota>1){
-            var nova_hodnota = parseInt(stara_hodnota) - 1;
+            var nova_hodnota = parseFloat(stara_hodnota) - 1;
+
+         //   if(jQuery("#formular-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select").val() != "")
+            cena_bez_mnozstvi = parseFloat(jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-cena_bez_mn"));
+
             jQuery("#formular-<?php  echo $kolotoc; ?> .items-num").val(nova_hodnota);
             nova_cena = cena_bez_mnozstvi * jQuery("#formular-<?php  echo $kolotoc; ?> .items-num").val();
             jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
