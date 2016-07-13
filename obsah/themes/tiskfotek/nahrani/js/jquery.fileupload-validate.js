@@ -70,10 +70,10 @@
 
             // Error and info messages:
             messages: {
-                maxNumberOfFiles: 'Maximum number of files exceeded',
-                acceptFileTypes: 'File type not allowed',
-                maxFileSize: 'File is too large',
-                minFileSize: 'File is too small'
+                maxNumberOfFiles: 'Nemůžete nahrát více fotek než 100. Použijte zip nebo rar.',
+                acceptFileTypes: 'Nepodporovaný formát',
+                maxFileSize: 'Soubor je moc velký',
+                minFileSize: 'Soubor je moc malý'
             }
         },
 

@@ -21,7 +21,8 @@ $(function () {
         url: '../obsah/themes/tiskfotek/nahrani/server/php/',
 		disableImageResize: /Android(?!.*Chrome)|Opera/
 			.test(window.navigator.userAgent),
-		acceptFileTypes: /(\.|\/)(gif|jpe?g|png|tiff|rar|zip)$/i
+		acceptFileTypes: /(\.|\/)(gif|jpe?g|png|tiff|rar|zip)$/i,
+		maxNumberOfFiles: 101
     });
 
     // Enable iframe cross-domain access via redirect option:
