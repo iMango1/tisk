@@ -10,9 +10,22 @@ session_start();
 global $kolotoc;
 global $vsechny_nahrane_fotky;
 global $objednavka_id;
+global $wpdb;
+
 $url = $_SERVER["SERVER_NAME"];
 $url_roz = explode(".", $url);
 $_NAZEV_WEBU = $url_roz[1];
+
+
+$results = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_produktu"', OBJECT );
+
+$_SESSION["vlastni_ceny"] = unserialize($results[0]->meta_value);
+$parametry = unserialize($results[0]->meta_value);
+
+$v = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_desky"', OBJECT );
+
+$_SESSION["desky_ceny"] = unserialize($v[0]->meta_value);
+$desky_ceny = unserialize($v[0]->meta_value);
 
 
 
@@ -380,7 +393,7 @@ jQuery( document ).ready(function() {
 
     });
 });
-</script>  
+</script>
 <script>
 jQuery( document ).ready(function() {   
     var vysledek = "",predchozi = "";
@@ -524,19 +537,19 @@ jQuery( document ).ready(function() {
         ?>
   <script src="http://malsup.github.io/min/jquery.form.min.js"></script>
    <script>
-    
+
 
     jQuery('#potvrzeni').click(function(){
-        <?php 
+        <?php
             $pomoc_celkovy_pocet = $celkovy_pocet - 1;
             $pocet_odeslane  = 0;
         ?>
         var celkovy_pocet = <?php echo $celkovy_pocet; ?>;
         var poc = 0;
-        
-        <?php 
+
+        <?php
         for($i=0;$i<$celkovy_pocet;$i++) {
-            
+
         ?>
             var myform = document.getElementById("formular-<?php echo $i; ?>");
             var fd = new FormData(myform);
@@ -560,20 +573,20 @@ jQuery( document ).ready(function() {
                             <?php }else{ ?>
                                 location.href = 'http://www.<?php echo $_NAZEV_WEBU; ?>.cz/kosik'; 
                             <?php } ?>
-                        }   
+                        }
                 }
             });
 
         <?php } ?>
-   
- 
+
+
     });
-       
-    jQuery(function() {    
+
+    jQuery(function() {
         jQuery("#nahravani").hide();
         //jQuery("#nahravani_text").hide();
         jQuery("#potvrzeni").click(function() {
-            jQuery("#potvrzeni").hide();    
+            jQuery("#potvrzeni").hide();
             jQuery("#nahravani").fadeIn("slow");
           //  jQuery("#nahravani_text").fadeIn("slow");
         });
@@ -804,19 +817,110 @@ jQuery( document ).ready(function() {
 
 
             // počítání ceny pro hromadné pro fotoobraz
-          //  jQuery(document).on("change", ".addon-3032-velikost-fotoobrazu", function(){
 
                 if(jQuery(".addon-3032-velikost-fotoobrazu").val() != ""){
                     var cena = 0;
                     var fotoobraz_cena = jQuery(".addon-wrap-3032-velikost-fotoobrazu select option:selected").data("price");
                     cena = fotoobraz_cena;
                   //  console.error("fico postoupil: " + cena + ", vybrane: " + jQuery(".addon-3032-velikost-fotoobrazu").val());
-                    jQuery('.cena-fotky span').html((parseInt(cena)).toFixed(2));
-                    jQuery('.cena-fotky').attr("data-soucasna-cena",(parseInt(cena)).toFixed(2));
-                    jQuery('.cena-fotky').attr("data-cena_bez_mn",(parseInt(cena)).toFixed(2));
+                    jQuery('.cena-fotky span').html((parseFloat(cena)).toFixed(2));
+                    jQuery('.cena-fotky').attr("data-soucasna-cena",(parseFloat(cena)).toFixed(2));
+                    jQuery('.cena-fotky').attr("data-cena_bez_mn",(parseFloat(cena)).toFixed(2));
                 }
 
-         //   });
+            // ------------------------------------------------------------------------------
+            // počítání ceny desky pro hromadné nastavení
+
+            var desky_ceny = <?php echo json_encode($desky_ceny); ?>;
+
+            var vybrany_fotopapir = jQuery('.addon-wrap-3032-vyber-fotopapiru select').val();
+            cena_bez_mnozstvi =  jQuery('.cena-fotky').attr("data-cena_bez_mn");
+
+                if(jQuery(".product-addon-vlastni-format input").val() == ""){
+
+                    var rozmer = jQuery('.addon-wrap-3032-format select').val();
+                    var deska = jQuery('.addon-wrap-3032-nalepit-na-desku select').val();
+                    var pro_vymazani_id = rozmer.split("-");
+
+                    var rozmery = pro_vymazani_id[0].split("x");
+                    var sirka = rozmery[0], vyska = rozmery[1], obsah = sirka*vyska;
+
+                }
+                else{
+
+                }
+
+
+                if(pro_vymazani_id[0]=="a4")
+                    obsah = 623.7;
+                if(pro_vymazani_id[0]=="a3")
+                    obsah = 1247.4;
+                if(pro_vymazani_id[0]=="a2")
+                    obsah = 2494.8;
+
+
+
+                function d_zmena(d_deska,f_obsah,d_cena_bez_mn){
+                    var nova_cena;
+                    var i=0;
+                    for(i=0;i<3;i++){
+                        if(d_deska == "Žádná deska"){
+                            cena_za_desku = 0;
+                            var cena_bez_mnozstvi_vl = cena_bez_mnozstvi;
+                            nova_cena = cena_bez_mnozstvi_vl * jQuery(".items-num").val();
+                            jQuery('.cena-fotky span').html(nova_cena.toFixed(2));
+
+                            jQuery('input.cena_deska').val(0);
+
+                            jQuery('.cena-fotky').attr("data-soucasna-cena",nova_cena.toFixed(2));
+                            jQuery('.cena-fotky').attr("data-cena_bez_mn",(parseFloat(nova_cena)).toFixed(2));
+                        }
+                        else{
+                            if(desky_ceny[i]["nazev"] == d_deska){
+                                cena_za_desku = (parseFloat(desky_ceny[i]["cena"])) * f_obsah +parseFloat(desky_ceny[i]["prace"]);
+                                var cena_bez_mnozstvi_vl = cena_bez_mnozstvi;
+
+                                cena_bez_mnozstvi_vl += (parseFloat(cena_za_desku));
+
+
+                                //cena_bez_mnozstvi = cena_bez_mnozstvi_vl;
+                                nova_cena = 0.0;
+                                //nova_cena = cena_bez_mnozstvi_vl * parseInt(jQuery(".items-num").val());
+                                nova_cena = parseFloat(nova_cena) + (parseFloat(cena_bez_mnozstvi)) + (parseFloat(cena_za_desku));
+                                jQuery('.cena-fotky span').html((parseFloat(nova_cena)).toFixed(2));
+
+
+                                jQuery('input.cena_deska').val((parseFloat(cena_za_desku)).toFixed(2));
+
+                                jQuery('.cena-fotky').attr("data-soucasna-cena",(parseFloat(nova_cena)).toFixed(2));
+                                jQuery('.cena-fotky').attr("data-cena_bez_mn",(parseFloat(nova_cena)).toFixed(2));
+                                console.log("cena_za_desku: "+cena_za_desku+", nova cena: "+nova_cena+", cena_bez_mn: "+cena_bez_mnozstvi_vl+", deska_cena_b_m: "+d_cena_bez_mn+",f_obsah: " +f_obsah);
+                            }
+                        }
+
+                    }
+
+                }
+
+                /* zak  console.log(obsah+", "+nova_cena+", "+cena_bez_mnozstvi+","+deska); */
+                var cena_bez_mnozstvi = jQuery('.cena-fotky').attr("data-cena_bez_mn");
+
+                if(deska == "deska-rayboard-5mm-1"){
+                    d_zmena("Deska Rayboard 5mm",obsah,cena_bez_mnozstvi);
+                }
+                else if(deska == "deska-rayboard-10mm-2"){
+                    d_zmena("Deska Rayboard 10mm",obsah,cena_bez_mnozstvi);
+                }
+                /*
+                 else if(deska == "zadna-deska-3"){
+                 d_zmena("Žádná deska",obsah,cena_bez_mnozstvi);
+                 } */
+                else{
+                    d_zmena("Žádná deska",obsah,cena_bez_mnozstvi);
+                }
+
+
+
 
 
         });    //KONEC CLICK ON HROMADNÉ NASTAVENÍ
@@ -884,39 +988,39 @@ jQuery( document ).ready(function() {
 
 
     }); //KONEC DOCUMENT READY
-    
-       
-    jQuery(function() { 
-   
+
+
+    jQuery(function() {
+
         var celkem = 0.00;
-        var cena_zmenene;    
+        var cena_zmenene;
         var cena_jednotlive;
-        <?php 
+        <?php
         for($i=0;$i<$celkovy_pocet;$i++) {?>
 
-                jQuery('.cena-fotka-<?php echo $i; ?>').bind("DOMSubtreeModified",function(){    
+                jQuery('.cena-fotka-<?php echo $i; ?>').bind("DOMSubtreeModified",function(){
                     celkem = 0;
                     cena_zmenene = parseFloat(jQuery(".cena-fotka-<?php echo $i; ?> span").text());
                         celkem = cena_zmenene;
-                    <?php for($k=0;$k<$celkovy_pocet;$k++) { 
+                    <?php for($k=0;$k<$celkovy_pocet;$k++) {
                             if ($k != $i){
                     ?>
                         cena_jednotlive = parseFloat(jQuery(".cena-fotka-<?php echo $k; ?> span").text());
                         celkem = celkem + cena_jednotlive;
                     <?php }
-                        } 
-                    ?> 
+                        }
+                    ?>
                     jQuery(".celkova-cena span").html(celkem.toFixed(2));
                 });
-        
+
         <?php } ?>
     });
-       
+
        jQuery(function(){
         jQuery(".nastavit-hromadne").click(function(){
-            
+
             jQuery(".pokracovat").removeClass("disabled");
-            
+
         });
        });
     </script>

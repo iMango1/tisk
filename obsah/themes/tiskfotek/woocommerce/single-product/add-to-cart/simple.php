@@ -287,8 +287,8 @@ jQuery( document ).ready(function() {
 
 //ÚPRAVA CEN
     var desky_ceny = <?php echo json_encode($desky_ceny); ?>;
-    jQuery('.addon-wrap-3032-nalepit-na-desku .select-fotka-<?php echo $kolotoc; ?>').change(function() {   
-        var vybrany_fotopapir = jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val();          
+    jQuery(document).on("change", ".addon-wrap-3032-nalepit-na-desku .select-fotka-<?php echo $kolotoc; ?>", function(){
+        var vybrany_fotopapir = jQuery('.addon-wrap-3032-vyber-fotopapiru .select-fotka-<?php echo $kolotoc; ?>').val();
             
         
         if(jQuery("#formular-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").val() == ""){
@@ -347,7 +347,7 @@ jQuery( document ).ready(function() {
                     
                         jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
                         jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-cena_bez_mn",(parseFloat(nova_cena)).toFixed(2));
-               /* zak         console.log("puzza:"+cena_za_desku+", "+nova_cena+", "+cena_bez_mnozstvi_vl+", "+d_cena_bez_mn+",f_obsah: " +f_obsah); */
+                        console.log("puzza:"+cena_za_desku+", nova cena: "+nova_cena+", cena_bez_mn: "+cena_bez_mnozstvi_vl+", deska_cena_b_m: "+d_cena_bez_mn+",f_obsah: " +f_obsah);
                     }  
                 }
                 

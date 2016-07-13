@@ -18,7 +18,10 @@ $(function () {
     $('#fileupload').fileupload({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
-        url: '../obsah/themes/tiskfotek/nahrani/server/php/'
+        url: '../obsah/themes/tiskfotek/nahrani/server/php/',
+		disableImageResize: /Android(?!.*Chrome)|Opera/
+			.test(window.navigator.userAgent),
+		acceptFileTypes: /(\.|\/)(gif|jpe?g|png|tiff|rar|zip)$/i
     });
 
     // Enable iframe cross-domain access via redirect option:
