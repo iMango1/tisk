@@ -172,23 +172,23 @@ jQuery( document ).ready(function() {
 // Pri vybrani se změni input na zeleny s fajfkou
 //Orez a leskly fotopapir je defaultne
     
-       $(  "div.product-addon.product-addon-typ" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
-       $(  "div.product-addon.product-addon-typ" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
-       $(  "div.product-addon.product-addon-typ" ).find( "span" ).addClass( "vyborna" ); 
+       jQuery(  "div.product-addon.product-addon-typ" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
+       jQuery(  "div.product-addon.product-addon-typ" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
+       jQuery(  "div.product-addon.product-addon-typ" ).find( "span" ).addClass( "vyborna" );
   
     
     jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select').change(function() {
         hodnota = $(this).val();
         if (hodnota) {   
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format" ).find( "span" ).addClass( "vyborna" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format" ).find( "span" ).addClass( "vyborna" );
             hodnota = 0;
         }
         else {
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format" ).find( "a.chosen-single" ).css( "background", "");
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format" ).find( "a.chosen-single" ).css( "color", "");
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format" ).find( "span" ).removeClass( "vyborna" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format" ).find( "a.chosen-single" ).css( "background", "");
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format" ).find( "a.chosen-single" ).css( "color", "");
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-format" ).find( "span" ).removeClass( "vyborna" );
         }    
     });
     
@@ -197,15 +197,15 @@ jQuery( document ).ready(function() {
     jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru select').change(function() {
         hodnota = $(this).val();
         if (hodnota) { 
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-vyber-fotopapiru" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-vyber-fotopapiru" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-vyber-fotopapiru" ).find( "span" ).addClass( "vyborna" );   
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-vyber-fotopapiru" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-vyber-fotopapiru" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-vyber-fotopapiru" ).find( "span" ).addClass( "vyborna" );
              hodnota = 0;
         }
         else {
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-vyber-fotopapiru" ).find( "a.chosen-single" ).css( "background", "" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-vyber-fotopapiru" ).find( "a.chosen-single" ).css( "color", "" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-vyber-fotopapiru" ).find( "span" ).removeClass( "vyborna" ); 
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-vyber-fotopapiru" ).find( "a.chosen-single" ).css( "background", "" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-vyber-fotopapiru" ).find( "a.chosen-single" ).css( "color", "" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-vyber-fotopapiru" ).find( "span" ).removeClass( "vyborna" );
         }
     });
 
@@ -214,75 +214,75 @@ jQuery( document ).ready(function() {
     jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material select').change(function() {
         hodnota = $(this).val();
         if (hodnota) { 
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "span" ).addClass( "vyborna" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "span" ).addClass( "vyborna" );
             hodnota = 0;
         }
         else {
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "background", "" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "color", "" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "span" ).removeClass( "vyborna" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "background", "" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "a.chosen-single" ).css( "color", "" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material" ).find( "span" ).removeClass( "vyborna" );
         }
     });
     
      jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-material-pro-velke-formaty select').change(function() {
         hodnota = $(this).val();
         if (hodnota) { 
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material-pro-velke-formaty" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material-pro-velke-formaty" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material-pro-velke-formaty" ).find( "span" ).addClass( "vyborna" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material-pro-velke-formaty" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material-pro-velke-formaty" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material-pro-velke-formaty" ).find( "span" ).addClass( "vyborna" );
             hodnota = 0;
         }
         else {
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material-pro-velke-formaty" ).find( "a.chosen-single" ).css( "background", "" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material-pro-velke-formaty" ).find( "a.chosen-single" ).css( "color", "" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material-pro-velke-formaty" ).find( "span" ).removeClass( "vyborna" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material-pro-velke-formaty" ).find( "a.chosen-single" ).css( "background", "" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material-pro-velke-formaty" ).find( "a.chosen-single" ).css( "color", "" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-material-pro-velke-formaty" ).find( "span" ).removeClass( "vyborna" );
         }
     });
     
      jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select').change(function() {
         hodnota = $(this).val();
         if (hodnota) { 
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-velikost-fotoobrazu" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-velikost-fotoobrazu" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-velikost-fotoobrazu" ).find( "span" ).addClass( "vyborna" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-velikost-fotoobrazu" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-velikost-fotoobrazu" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-velikost-fotoobrazu" ).find( "span" ).addClass( "vyborna" );
             hodnota = 0;
         }
         else {   
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-velikost-fotoobrazu" ).find( "a.chosen-single" ).css( "background", "" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-velikost-fotoobrazu" ).find( "a.chosen-single" ).css( "color", "" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-velikost-fotoobrazu" ).find( "span" ).removeClass( "vyborna" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-velikost-fotoobrazu" ).find( "a.chosen-single" ).css( "background", "" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-velikost-fotoobrazu" ).find( "a.chosen-single" ).css( "color", "" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-velikost-fotoobrazu" ).find( "span" ).removeClass( "vyborna" );
         }
     });
     
     jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku select').change(function() {
         hodnota = $(this).val();
         if (hodnota) { 
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-nalepit-na-desku" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-nalepit-na-desku" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-nalepit-na-desku" ).find( "span" ).addClass( "vyborna" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-nalepit-na-desku" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-nalepit-na-desku" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-nalepit-na-desku" ).find( "span" ).addClass( "vyborna" );
             hodnota = 0;
         }
         else {  
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-nalepit-na-desku" ).find( "a.chosen-single" ).css( "background", "" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-nalepit-na-desku" ).find( "a.chosen-single" ).css( "color", "" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-nalepit-na-desku" ).find( "span" ).removeClass( "vyborna" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-nalepit-na-desku" ).find( "a.chosen-single" ).css( "background", "" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-nalepit-na-desku" ).find( "a.chosen-single" ).css( "color", "" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-nalepit-na-desku" ).find( "span" ).removeClass( "vyborna" );
         }
     });
     
     jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-typ select').change(function() {
         hodnota = $(this).val();
         if (hodnota) { 
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-typ" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-typ" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-typ" ).find( "span" ).addClass( "vyborna" ); 
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-typ" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-typ" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-typ" ).find( "span" ).addClass( "vyborna" );
             hodnota = 0;
         }
         else {
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-typ" ).find( "a.chosen-single" ).css( "background", "" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-typ" ).find( "a.chosen-single" ).css( "color", "" );
-            $(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-typ" ).find( "span" ).removeClass( "vyborna" ); 
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-typ" ).find( "a.chosen-single" ).css( "background", "" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-typ" ).find( "a.chosen-single" ).css( "color", "" );
+            jQuery(  "#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-typ" ).find( "span" ).removeClass( "vyborna" );
         }
     });
     
