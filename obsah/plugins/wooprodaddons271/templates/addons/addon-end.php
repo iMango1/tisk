@@ -19,7 +19,8 @@ if($typ_souboru == "zip" || $typ_souboru == "rar"){
     $sizey=-1; 
 
 }
-else{ 
+else{
+    ini_set('max_execution_time', 300);
     $image=new imagick($url_img);
     $geo=$image->getImageGeometry(); 
 
@@ -124,7 +125,7 @@ jQuery('.nastavit-hromadne').click(function() {
     if (dpi<?php echo $kolotoc; ?> < 70 && dpi<?php echo $kolotoc; ?> >= 0)
         html = '<div class="kvalita spatna"> Nedostačující kvalita<'+'/div>'
     else if (dpi<?php echo $kolotoc; ?> >= 70 && dpi<?php echo $kolotoc; ?> < 150)
-        html = '<div class="kvalita prumerna">Průměrná kvalita<'+'/div>'
+        html = '<div class="kvalita prumerna"> Průměrná kvalita<'+'/div>'
     else if (dpi<?php echo $kolotoc; ?> >= 150) 
         html = '<div class="kvalita vyborna"> Výborná kvalita<'+'/div>'     
     else

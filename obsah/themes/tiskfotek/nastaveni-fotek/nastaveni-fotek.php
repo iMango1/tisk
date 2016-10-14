@@ -102,8 +102,13 @@ $fotky = array();
     foreach($fotky_nazev_pred_kop as $kolotoc => $fotka_nazev_pred_kop){
         
         $s_dia = $fotka_nazev_pred_kop;
-        
-        $bez_diakritiky = strtr( $s_dia, $diakritika );
+
+
+
+        //$bez_diakritiky = strtr( $s_dia, $diakritika );
+
+        $bez_diakritiky = preg_replace('/[^A-Za-z0-9\-_.]/','', $s_dia);
+
         $fotka_nazev_pred_kop = $bez_diakritiky;
         
         $stare_jmeno = "/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/$s_dia";
