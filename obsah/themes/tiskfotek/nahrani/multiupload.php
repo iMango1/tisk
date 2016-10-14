@@ -128,9 +128,12 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
 	</div> <!-- cd-modal -->   
                 
             </div> <!-- col-md-6 -->
-        </div> <!-- Napoveda -->        
-    <div class="pokud_registrovany">Pokud jste registrovaný zákazník, přihlaste se prosím v horní části stránky nebo klikněte <i class="fa fa-arrow-right"></i><a class="btn tlacitko-reg pull-right" href="prihlaseni/">Přihlášení/Registrace</a></div>
-    <div id="sticky-anchor-tlacitka"></div>    		
+        </div> <!-- Napoveda -->
+        <?php if(!is_user_logged_in()){ ?>
+            <div class="pokud_registrovany">Pokud jste registrovaný zákazník, přihlaste se prosím v horní části stránky nebo klikněte <i class="fa fa-arrow-right"></i><a class="btn tlacitko-reg pull-right" href="prihlaseni/">Přihlášení/Registrace</a></div>
+        <?php } ?>
+
+        <div id="sticky-anchor-tlacitka"></div>
 	<!-- The file upload form used as target for the file upload widget -->
     <form id="fileupload" action="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/nastaveni-fotografii/" method="POST" enctype="multipart/form-data">
         <!-- Redirect browsers with JavaScript disabled to the origin page
