@@ -69,13 +69,13 @@ jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select').change(f
     if (isFinite(dpi<?php echo $kolotoc; ?>)) {
 
     if (dpi<?php echo $kolotoc; ?> < 70 && dpi<?php echo $kolotoc; ?> >= 0)
-                   html = '<div class="kvalita spatna"> Nedostačující kvalita<'+'/div>'
+                   html = '<div class="kvalita spatna"> Nedostačující kvalita<'+'/div>';
     else if (dpi<?php echo $kolotoc; ?> >= 70 && dpi<?php echo $kolotoc; ?> < 150)
-                   html = '<div class="kvalita prumerna">Průměrná kvalita<'+'/div>'
+                   html = '<div class="kvalita prumerna">Průměrná kvalita<'+'/div>';
     else if (dpi<?php echo $kolotoc; ?> >= 150) 
-                   html = '<div class="kvalita vyborna"> Výborná kvalita<'+'/div>' 
+                   html = '<div class="kvalita vyborna"> Výborná kvalita<'+'/div>';
     else
-        html = '<div class="kvalita vyborna"> Soubor je <?php echo $typ_souboru ?><'+'/div>'
+        html = '<div class="kvalita vyborna"> Soubor je <?php echo $typ_souboru ?><'+'/div>';
     } 
     
     //Odeslaní výstupu do HTML           
