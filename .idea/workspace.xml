@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eb2886ae-ccfd-400a-b30d-6e457fa8bf15" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/multiupload.php" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/multiupload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/addon-end.php" afterPath="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/addon-end.php" />
     </list>
     <ignored path="!obsah_git.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,20 +37,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addon-end.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="addon-end.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/addon-end.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1905">
-              <caret line="127" column="47" selection-start-line="127" selection-start-column="47" selection-end-line="127" selection-end-column="47" />
+            <state relative-caret-position="291">
+              <caret line="136" column="6" selection-start-line="136" selection-start-column="6" selection-end-line="136" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="multiupload.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="multiupload.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/multiupload.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="3975">
               <caret line="268" column="0" selection-start-line="268" selection-start-column="0" selection-end-line="268" selection-end-column="0" />
               <folding />
             </state>
@@ -66,8 +66,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/nastaveni-fotek/nastaveni-fotek.php" />
-        <option value="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/addon-end.php" />
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/multiupload.php" />
+        <option value="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/addon-end.php" />
       </list>
     </option>
   </component>
@@ -291,7 +291,7 @@
       <workItem from="1476447631431" duration="991000" />
       <workItem from="1476455379136" duration="4000" />
       <workItem from="1476466315005" duration="1432000" />
-      <workItem from="1476518835088" duration="429000" />
+      <workItem from="1476518835088" duration="530000" />
     </task>
     <task id="LOCAL-00001" summary="IDE settings">
       <created>1476388701506</created>
@@ -314,11 +314,18 @@
       <option name="project" value="LOCAL" />
       <updated>1476470378660</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Odstranění nepotřebných komentářů v multiupload.php">
+      <created>1476520795500</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1476520795500</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5981000" />
+    <option name="totallyTimeSpent" value="6082000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="-280" width="1920" height="1080" extended-state="0" />
@@ -359,7 +366,8 @@
     <MESSAGE value="IDE settings" />
     <MESSAGE value="Check if is user logged in." />
     <MESSAGE value="- přidán ini_set(&quot;max_execution_time&quot;, 300)&#10;- edit kódování" />
-    <option name="LAST_COMMIT_MESSAGE" value="- přidán ini_set(&quot;max_execution_time&quot;, 300)&#10;- edit kódování" />
+    <MESSAGE value="Odstranění nepotřebných komentářů v multiupload.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="Odstranění nepotřebných komentářů v multiupload.php" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -388,18 +396,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/addon-end.php">
+    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/multiupload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1905">
-          <caret line="127" column="47" selection-start-line="127" selection-start-column="47" selection-end-line="127" selection-end-column="47" />
+        <state relative-caret-position="3975">
+          <caret line="268" column="0" selection-start-line="268" selection-start-column="0" selection-end-line="268" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/multiupload.php">
+    <entry file="file://$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/addon-end.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="268" column="0" selection-start-line="268" selection-start-column="0" selection-end-line="268" selection-end-column="0" />
+        <state relative-caret-position="291">
+          <caret line="136" column="6" selection-start-line="136" selection-start-column="6" selection-end-line="136" selection-end-column="6" />
           <folding />
         </state>
       </provider>
