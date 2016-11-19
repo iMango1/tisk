@@ -10,7 +10,18 @@
 <?php if(($addon["field-name"] == "3032-typ")){ 
 //Deklarace fotky, ulozeni sirky a vysky do promennych
 global $kolotoc;
-$url_img = $_SESSION[$kolotoc]["url_fotky"];
+
+    $url = $_SERVER["SERVER_NAME"];
+    $url_roz = explode(".", $url);
+    $_NAZEV_WEBU = $url_roz[1];
+
+    $id_objednavky = $_COOKIE["id_objednavky"];
+
+    $absolutni_cesta_objednavky = "/home/web/$_NAZEV_WEBU.cz/objednavky/$id_objednavky";
+    $absolutni_cesta_objednavky_thumb = "/home/web/$_NAZEV_WEBU.cz/objednavky/$id_objednavky/thumbnail";
+
+$nazev_fotky = $_SESSION["fotky"][$kolotoc];
+$url_img = $absolutni_cesta_objednavky."/".$nazev_fotky;
 
 $typ_souboru = pathinfo($url_img, PATHINFO_EXTENSION);
 
@@ -27,7 +38,11 @@ else{
     $sizex=$geo['width']; 
     $sizey=$geo['height'];   
 }
-?>     
+
+
+    $sizex=100;
+    $sizey=100;
+    ?>
 <script>
 jQuery( document ).ready(function() {
         

@@ -40,12 +40,16 @@ class UploadHandler
 
     protected $image_objects = array();
 
+
+
     function __construct($options = null, $initialize = true, $error_messages = null) {
         $this->response = array();
         $this->options = array(
             'script_url' => $this->get_full_url().'/'.basename($this->get_server_var('SCRIPT_NAME')),
-            'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/files|/',
-            'upload_url' => $this->get_full_url().'/files|/',
+            // 'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/files|/',
+            // 'upload_url' => $this->get_full_url().'/files|/',
+            'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/tmp-objednavky/'.$_COOKIE["id_objednavky"].'/',
+            'upload_url' => $this->get_full_url().'/tmp-objednavky/'.$_COOKIE["id_objednavky"].'/',
             'user_dirs' => false,
             'mkdir_mode' => 0755,
             'param_name' => 'files',

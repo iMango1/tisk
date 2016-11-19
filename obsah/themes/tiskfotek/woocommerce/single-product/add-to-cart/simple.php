@@ -14,7 +14,7 @@ $_SESSION["desky_ceny"] = unserialize($v[0]->meta_value);
 $desky_ceny = unserialize($v[0]->meta_value);
 
 
-// echo "<pre>",print_r($_SESSION["vlastni_ceny"]),"</pre>";
+ //echo "<pre>",print_r($_POST),"</pre>";
 
 if(!function_exists("dalsi_klic")) {
     function dalsi_klic($pole,$searchkey) {
@@ -23,7 +23,7 @@ if(!function_exists("dalsi_klic")) {
         foreach($pole as $key => $value) { 
             if ($foundit) {
                 $nextkey = $key; break;
-            } 
+            }
             if ($key == $searchkey){
                 $foundit = true;
             }
@@ -1263,7 +1263,7 @@ if ( ! $product->is_purchasable() ) {
 
 	<?php do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 
-    <?php $fotky = $_POST["fotky"]; ?>
+    <?php // $fotky = $_POST["fotky"]; ?>
     
     <form class="cart product-block" id="formular-<?php echo $kolotoc; ?>" method="post" enctype='multipart/form-data'>
         <input type="hidden" class="cena_fotopapir" name="cena_fotopapir" value="">
@@ -1282,8 +1282,6 @@ if ( ! $product->is_purchasable() ) {
 	 			) );
 	 	?>
 
-
-	 	
 
 		<?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
 

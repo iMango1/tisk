@@ -99,9 +99,9 @@ else
                     $_NAZEV_WEBU = $url_roz[1];
                     
                     
-                    $cele_url_fotky = "http://objednavky.$_NAZEV_WEBU.cz/".$_POST["nazev_s"]."/$pojmenovani";
+                    $cele_url_fotky = "http://objednavky.$_NAZEV_WEBU.cz/".$_COOKIE["id_objednavky"]."/$pojmenovani";
                     
-                    rename("/home/web/$_NAZEV_WEBU.cz/objednavky/".$_POST["nazev_s"]."/".$_POST["nazev_f"], "/home/web/$_NAZEV_WEBU.cz/objednavky/".$_POST["nazev_s"]."/$pojmenovani");
+                    rename("/home/web/$_NAZEV_WEBU.cz/objednavky/".$_COOKIE["id_objednavky"]."/".$_POST["nazev_f"], "/home/web/$_NAZEV_WEBU.cz/objednavky/".$_COOKIE["id_objednavky"]."/".$pojmenovani);
                     
 					$cart_item_data[] = array( //přidané i
 						'name' 		=> "Fotky",
@@ -136,7 +136,7 @@ else
 
     $sablona = get_template_directory();
     $obsah_pole = wp_upload_dir();
-    $obsah = $obsah["basedir"];
+        //KOMENTÁŘ   $obsah = $obsah["basedir"];
          //nazev webu
                     $url = $_SERVER["SERVER_NAME"];
                     $url_roz = explode(".", $url);
@@ -144,25 +144,26 @@ else
                     
         
         $id_zak = get_current_user_id();
-        
-        mkdir("/home/web/$_NAZEV_WEBU.cz/objednavky/$id_objednavky", 0777);
-        
-        if (!file_exists('/home/web/$_NAZEV_WEBU.cz/www/obsah/uploads/product_addons_uploads/'.$id_zak))  
-            mkdir("/home/web/$_NAZEV_WEBU.cz/www/obsah/uploads/product_addons_uploads/$id_zak", 0777);
+
+        //KOMENTÁŘ     mkdir("/home/web/$_NAZEV_WEBU.cz/objednavky/$id_objednavky", 0777);
+
+        //KOMENTÁŘ     if (!file_exists('/home/web/$_NAZEV_WEBU.cz/www/obsah/uploads/product_addons_uploads/'.$id_zak))
+            //KOMENTÁŘ         mkdir("/home/web/$_NAZEV_WEBU.cz/www/obsah/uploads/product_addons_uploads/$id_zak", 0777);
         
         $co = "http://www.$_NAZEV_WEBU.cz/obsah/themes/tiskfotek/nahrani/server/php/files|$file";
     //    $co = "/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/$file";
-        $kam = "/home/web/$_NAZEV_WEBU.cz/www/obsah/uploads/product_addons_uploads/$id_zak/$file";
-        
-        
-        $upload = copy($co,$kam);
+        //KOMENTÁŘ    $kam = "/home/web/$_NAZEV_WEBU.cz/www/obsah/uploads/product_addons_uploads/$id_zak/$file";
+
+
+
+        //KOMENTÁŘ    $upload = copy($co,$kam);
 	
         //	remove_filter( 'upload_dir',  array( $this, 'upload_dir' ) );
         
-        unlink("/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/$file");
+        //KOMENTÁŘ unlink("/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/$file");
     //    unlink("/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/thumbnail/$file");        
         
-		return $upload;
+		return true;
 	}
     /*
     public function get_cart_item_data() {

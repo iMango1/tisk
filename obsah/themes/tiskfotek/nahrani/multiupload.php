@@ -134,11 +134,8 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
         <?php } ?>
 
         <div id="sticky-anchor-tlacitka"></div>
-	<!-- The file upload form used as target for the file upload widget -->
-    <form id="fileupload" action="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/nastaveni-fotografii/" method="POST" enctype="multipart/form-data">
-        <!-- Redirect browsers with JavaScript disabled to the origin page
-        <noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript> -->
-        <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+
+    <form id="fileupload" action="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/nastaveni-fotografii" method="POST" enctype="multipart/form-data">
         <div class="row fileupload-buttonbar">
             <div class="col-lg-12">
                 <!-- The fileinput-button span is used to style the file input field as button -->
@@ -170,7 +167,7 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
                     <div class="progress-bar progress-bar-success" style="width:0%;"></div>
                 </div>
                 <div class="progress-extended">&nbsp;</div>
-            </div>-->
+            </div> -->
         </div>
             
         
@@ -178,18 +175,18 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
         <table role="presentation" class="table table-striped">
            
            <tbody class="files">
-    
-    
-            
+
             <?php
              //VELIKOSTI SOUBORŮ
                 function velikost($bytes, $decimals = 2) {
                     $sz = 'BKMGTP';
                     $factor = floor((strlen($bytes) - 1) / 3);
                     return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) ." ". @$sz[$factor];
-                }   
-               
-            if(isset($_SESSION["nazev_slozky"])){
+                }
+
+            // POKUD EXISTUJE COOKIE
+            if(isset($_COOKIE["id_objednavky"])){
+
             //ZRUŠENÍ DISABLED U TLAČÍTKA - protože existují fotografie
             ?>
                 <script>
@@ -198,54 +195,59 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
                     });
                 </script>
             <?php
-            //echo "<pre>",print_r($_SESSION),"</pre>";       
-            $slozka = $_SESSION["nazev_slozky"];
-            $soubory_v_slozce = glob("/home/web/$_NAZEV_WEBU.cz/objednavky/$slozka/*.*"); 
-            
+
+            $slozka = $_COOKIE["id_objednavky"];
+            $soubory_v_slozce = glob(dirname(__FILE__)."/server/php/tmp-objednavky/$slozka/*.*");
+
+
             for ($i=0; $i<count($soubory_v_slozce); $i++) {
-                
                 $foto = $soubory_v_slozce[$i];
                 $foto_roz = explode("objednavky/", $foto);
                 $id_a_fotka = $foto_roz[1];
                 $jen_foto = explode("/",$id_a_fotka);
-                $url = "/home/web/$_NAZEV_WEBU.cz/objednavky/".$foto_roz[1];
-                
-                if($_SESSION["status"]==1){
+                $url = dirname(__FILE__)."/server/php/tmp-objednavky/".$foto_roz[1];
+
+                if($jen_foto[1] != ""){
+
             ?>
-                    <tr class="template-download">
-                          <td>
+                <tr class="template-download">
+                    <td>
                             <span class="preview">
                                
-                                <img src="http://objednavky.<?php echo $_NAZEV_WEBU; ?>.cz/<?php echo $foto_roz[1]; ?>" style="max-width:100px; max-heihgt:100px">
+                                <img
+                                    src="http://www.skakaciatrakce.cz/obsah/themes/tiskfotek/nahrani/server/php/tmp-objednavky/<?php echo $_COOKIE["id_objednavky"]; ?>/thumbnail/<?php echo $jen_foto[1]; ?>"
+                                    style="max-width:100px; max-heihgt:100px">
 
                             </span>
-                        </td>
-                        <td>
-                            <p class="name">
-                                <?php echo $jen_foto[1];?>
-                            </p>
-                            <input type="hidden" name="fotky[]" value="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/<?php echo $jen_foto[1];?>">
-                            <input type="hidden" name="fotky_miniatury[]" value="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/thumbnail/<?php echo $jen_foto[1];?>">
-                        </td>
-                        <td>
-                            <?php echo velikost(filesize($url))."B"; ?>
-                        </td>
-                        <td>
-                            <button class="btn btn-danger delete" data-type="DELETE" data-url="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/obsah/themes/tiskfotek/nahrani/server/php/index.php?file=<?php echo $jen_foto[1];?>">
-                                <i class="glyphicon glyphicon-trash"></i>
-                                <span>Vymazat</span>
-                            </button>
-                            <input type="checkbox" name="delete" value="1" class="toggle">
-            
-                        </td>
-                    </tr>
-                       
+                    </td>
+                    <td>
+                        <p class="name">
+                            <?php
+                            echo $jen_foto[1];
+                            ?>
+                        </p>
+                    </td>
+                    <td>
+                        <?php echo velikost(filesize($url)) . "B"; ?>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger delete" data-type="DELETE"
+                                data-url="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/obsah/themes/tiskfotek/nahrani/server/php/index.php?file=<?php echo $jen_foto[1]; ?>">
+                            <i class="glyphicon glyphicon-trash"></i>
+                            <span>Vymazat</span>
+                        </button>
+                        <input type="checkbox" name="delete" value="1" class="toggle">
 
-            <?php
+                    </td>
+                </tr>
+
+
+                <?php
+                    }
                 }
             }
             
-        }
+
          ?>   
            </tbody>
             </table>
@@ -318,13 +320,13 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>    
-   
+
     jQuery(function () {
         <?php if (!isset($_COOKIE["woocommerce_cart_hash"])){ ?>
             addToCart(3032);
             return false;
         <?php } ?>
-    });    
+    });
 
    function addToCart(p_id){
       $.get('/wp/?post_type=product&add-to-cart=' + p_id, function() {
@@ -332,7 +334,7 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
       });
    }
 </script>
-<?php 
+<?php
     if (!isset($_COOKIE["woocommerce_cart_hash"])){
         $_SESSION["pridano"] = 1;
     }
@@ -461,9 +463,7 @@ $(document).bind('dragover', function (e) {
                     <span>{%=file.name%}</span>
                 {% } %}
             </p>
-            <input type="hidden" name="fotky[]" value="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/{%=file.name%}">
-            <input type="hidden" name="fotky_miniatury[]" value="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/thumbnail/{%=file.name%}">
-            
+
             {% if (file.error) { %}
                 <div><span class="label label-danger">Chyba</span> {%=file.error%}</div>
             {% } %}
@@ -492,7 +492,15 @@ $(document).bind('dragover', function (e) {
 
 </script>
 
+<?php
 
+/*
+OLD TIMEZ
+<input type="hidden" name="fotky[]" value="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/{%=file.name%}">
+<input type="hidden" name="fotky_miniatury[]" value="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/thumbnail/{%=file.name%}">
+ */
+
+?>
 
 <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
 <script src="<?php echo get_template_directory_uri(); ?>/nahrani/js/vendor/jquery.ui.widget.js"></script>

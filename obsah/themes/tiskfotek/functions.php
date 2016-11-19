@@ -18,13 +18,44 @@ $array = array(
  *
  */	
 locate_template( 'it-framework/init.php', true );		
+
+/*
 add_action( 'init', 'my_setcookie' );
 function my_setcookie() {
     global $vsechny_nahrane_fotky;
 
     // setcookie( 'nahrane-fotky', serialize($vsechny_nahrane_fotky) , time() + 3600 * 8, COOKIEPATH, COOKIE_DOMAIN );
 }
+
+*/
 add_action( 'wp_login_failed', 'my_front_end_login_fail' );  // hook failed login
+
+
+/*---------------------------------------------------
+Nastavit cookie na jmeno objednavky
+----------------------------------------------------*/
+if(!isset($_COOKIE["id_objednavky"]))
+    add_action( 'init', 'nastavit_cookie_nove_objednavky' );
+
+function nastavit_cookie_nove_objednavky() {
+
+    if(get_current_user_id() == "0") {
+        $id_objednavky =  date("d_m_Y--H-i-s"). "__" . uniqid();
+    }
+    else{
+        $id_objednavky = date("d_m_Y--H-i-s"). "__" . uniqid() . "__" . get_current_user_id();
+    }
+
+    setcookie("id_objednavky", $id_objednavky, time()+60*60*24*7, '/');
+}
+
+/*---------------------------------------------------
+Odstranit cookie na jmeno objednavky
+----------------------------------------------------*/
+
+function odstranit_cookie_objednavky() {
+    setcookie("id_objednavky","", time()-300, '/');
+}
 
 
 /*---------------------------------------------------

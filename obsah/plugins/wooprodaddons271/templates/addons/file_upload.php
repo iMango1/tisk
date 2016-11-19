@@ -1,4 +1,4 @@
-<?php global $kolotoc; ?>
+<?php global $kolotoc; global $_NAZEV_WEBU; ?>
 <?php foreach ( $addon['options'] as $key => $option ) :
 
 	$price = ($option['price']>0) ? ' (' . woocommerce_price( get_product_addon_price_for_display( $option['price'] ) ) . ')' : '';
@@ -35,8 +35,12 @@
     $url_up =  $_SESSION[$kolotoc]["url_fotky_upload"];
     
     $typ_souboru = $_SESSION[$kolotoc]["typ_souboru"];
-    $nazev_slozky = $_SESSION[$kolotoc]["nazev_slozky"];
-    $nazev_fotky = $_SESSION[$kolotoc]["nazev_fotky"];
+
+
+    $nazev_slozky = $_COOKIE["id_objednavky"];
+    $nazev_fotky = $_SESSION["fotky"][$kolotoc];
+
+    $url_min = "http://objednavky.$_NAZEV_WEBU.cz/$nazev_slozky/thumbnail/$nazev_fotky";
 
 
     $fotka_kousek_url[$kolotoc] = explode("objednavky/", $url_img);
@@ -44,17 +48,11 @@
 
 
     //foreach ($fotky as $i => $fotka) {
-		echo "<img src='$url_min' style='margin-right: 10px' class='fotka_objednavka'>"; 
-		echo "<input type='hidden' value='http://objednavky.$_NAZEV_WEBU.cz/".$fotky_nazev[$kolotoc]."' data-price='".get_product_addon_price_for_display( $option['price'] )."' name='fotky[]'>"; 
-        echo "<input type='hidden' value='$url_up' data-price='".get_product_addon_price_for_display( $option['price'] )."' name='fotky_upload[]'>"; 
-
-        echo "<input type='hidden' value='$kolotoc' name='cislo_f'>";
-
+		 echo "<img src='$url_min' style='margin-right: 10px' class='fotka_objednavka'>";
+        echo "<input type='hidden' value='$url_min' data-price='".get_product_addon_price_for_display( $option['price'] )."' name='fotky[]'>";
+     //   echo "<input type='hidden' value='$url_up' data-price='".get_product_addon_price_for_display( $option['price'] )."' name='fotky_upload[]'>";
         echo "<input type='hidden' value='$nazev_fotky' name='nazev_f'>";
-
-        echo "<input type='hidden' value='$typ_souboru' name='typ_s'>";
-        
-        echo "<input type='hidden' value='$nazev_slozky' name='nazev_s'>";
+   //     echo "<input type='hidden' value='$typ_souboru' name='typ_s'>";
 
 
 // $_SESSION[$kolotoc]["url_fotky_upload"];

@@ -11,7 +11,7 @@ global $kolotoc;
 global $vsechny_nahrane_fotky;
 global $objednavka_id;
 global $wpdb;
-
+global $_NAZEV_WEBU;
 $url = $_SERVER["SERVER_NAME"];
 $url_roz = explode(".", $url);
 $_NAZEV_WEBU = $url_roz[1];
@@ -26,11 +26,6 @@ $v = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_
 
 $_SESSION["desky_ceny"] = unserialize($v[0]->meta_value);
 $desky_ceny = unserialize($v[0]->meta_value);
-
-
-
-$fotky_pred_kop = $_POST["fotky"]; 
-$fotky_miniatury = $_POST["fotky_miniatury"];
 
 $diakritika = array(
     'á' => 'a',
@@ -68,32 +63,81 @@ $diakritika = array(
 
 date_default_timezone_set('Europe/Prague');
 
-    
-if(get_current_user_id() == "0"){
-    $rand_id_uzivatele = rand(1000,99999);
+$id_objednavky = $_COOKIE["id_objednavky"];
 
-    
-    $slozky = scandir("/home/web/$_NAZEV_WEBU.cz/objednavky");
-    foreach($slozky as $slozka){
-        while (strpos($slozka,$rand_id_uzivatele."---") !== false) {
-            $rand_id_uzivatele = rand(1000,99999);
-            if(strpos($slozka,$rand_id_uzivatele."---") !== false)
-                $rand_id_uzivatele = $rand_id_uzivatele + rand(4200,999999);
-        }
+$absolutni_cesta_objednavky = "/home/web/$_NAZEV_WEBU.cz/objednavky/$id_objednavky";
+$absolutni_cesta_objednavky_thumb = "/home/web/$_NAZEV_WEBU.cz/objednavky/$id_objednavky/thumbnail";
+
+$absolutni_cesta_tmp = "/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/tmp-objednavky/$id_objednavky";
+$absolutni_cesta_tmp_thumb = "/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/tmp-objednavky/$id_objednavky/thumbnail";
+
+if (!is_dir($absolutni_cesta_objednavky)) {
+    mkdir($absolutni_cesta_objednavky, 0777);
+    mkdir($absolutni_cesta_objednavky_thumb, 0777);
+}
+else{
+    array_map('unlink', glob($absolutni_cesta_objednavky."/*"));
+    rmdir($absolutni_cesta_objednavky);
+
+    array_map('unlink', glob($absolutni_cesta_objednavky."/thumbnail/*"));
+    rmdir($absolutni_cesta_objednavky_thumb);
+
+    mkdir($absolutni_cesta_objednavky, 0777);
+    mkdir($absolutni_cesta_objednavky_thumb, 0777);
+
+}
+
+// KOPIROVANI FOTEK
+
+$fotky_v_tmp = glob($absolutni_cesta_tmp."/*");
+
+$pocet = 0;
+
+foreach($fotky_v_tmp as $fotka_v_tmp){
+    if(!is_dir($fotka_v_tmp)) {
+        $adresa_pole = explode($id_objednavky . "/", $fotka_v_tmp);
+        $nazev_fotky = $adresa_pole[1];
+
+        // ZRUSENI DIAKRITIKY
+        $nazev_fotky = preg_replace('/[^A-Za-z0-9\-_.]/','', $nazev_fotky);
+
+        copy($fotka_v_tmp, $absolutni_cesta_objednavky."/".$nazev_fotky);
+
+        // PREJMENOVANI TMP FOTEK
+
+        $stare_jmeno = $absolutni_cesta_tmp."/".$adresa_pole[1];
+        $nove_jmeno = $absolutni_cesta_tmp."/".$nazev_fotky;
+
+        rename($stare_jmeno,$nove_jmeno);
+
+        $stare_jmeno = $absolutni_cesta_tmp."/thumbnail/".$adresa_pole[1];
+        $nove_jmeno = $absolutni_cesta_tmp."/thumbnail/".$nazev_fotky;
+
+        rename($stare_jmeno,$nove_jmeno);
+
+
+        $_SESSION["fotky"][$pocet] = $nazev_fotky;
+        $pocet++;
     }
-    
-    $objednavka_id = $rand_id_uzivatele."---".date("d_m_Y--H-i-s");
-}
-else {
-    $objednavka_id = get_current_user_id()."---".date("d_m_Y--H-i-s");
+
 }
 
-$_SESSION["nazev_slozky"] = $objednavka_id;
-$_SESSION["status"] = 1;
+// KOPIROVANI FOTEK - THUMB
 
-mkdir("/home/web/$_NAZEV_WEBU.cz/objednavky/$objednavka_id", 0777);
+$fotky_v_tmp_thumb = glob($absolutni_cesta_tmp_thumb."/*");
 
-    foreach ($fotky_pred_kop as $i => $fotka_pred_kop) {
+foreach($fotky_v_tmp_thumb as $fotka_v_tmp_thumb){
+    $adresa_pole = explode($id_objednavky . "/", $fotka_v_tmp_thumb);
+    $nazev_fotky = $adresa_pole[1];
+    copy($fotka_v_tmp_thumb, $absolutni_cesta_objednavky."/".$nazev_fotky);
+}
+
+
+$_SESSION["pocet_fotek"] = $pocet;
+
+
+/*
+foreach ($fotky_pred_kop as $i => $fotka_pred_kop) {
         $fotka_kousek_url[$i] = explode("|/", $fotka_pred_kop);
         $fotky_nazev_pred_kop[$i] = $fotka_kousek_url[$i][1];
     }
@@ -146,7 +190,7 @@ $fotky = array();
 
         $vsechny_nahrane_fotky = $_SESSION;
 $_SESSION["pocet_fotek"] = count($fotky);
-
+*/
 $args = array(
 	'post_type' => 'product',
 	'posts_per_page' => 12
@@ -166,11 +210,6 @@ jQuery(document).ready(function(){
 
 <div class="section sm-padding" id="nastaveni-fotek">
 	<div class="container">
-
-       
-       
-       
-       
         <div id="sticky-anchor"></div>
         
         
@@ -467,23 +506,26 @@ jQuery( document ).ready(function() {
        <div id="tabulka-fotek">
         <?php
         $kolotoc = 0;
-        $pocet_fotek = count($fotky);
+        $pocet_fotek = $_SESSION["pocet_fotek"]-1;
         $celkovy_pocet = 0;
+
+        //echo "<pre>",print_r($_SESSION),"</pre>";
 
         if ( $loop->have_posts() ) {
 			for($i = 0; $i < $pocet_fotek; $i++) {
-            while ( $loop->have_posts() ) {
-
-                $loop->the_post();
-				wc_get_template_part( 'content', 'single-product' );
-                $kolotoc++;
-                $celkovy_pocet++;
-            }
+                while ( $loop->have_posts() ) {
+                    //echo "<pre>",print_r($loop),"</pre>";
+                    $loop->the_post();
+                    wc_get_template_part( 'content', 'single-product' );
+                    $kolotoc++;
+                    $celkovy_pocet++;
+                }
             }
 		} else {
 			echo __( 'No products found' );
-            
+
 		}
+
 		wp_reset_postdata();
 
 	?>
@@ -583,9 +625,6 @@ jQuery( document ).ready(function() {
 
                 jQuery(".product-addon-nalepit-na-desku .chosen-container .chosen-results li:first-child").remove();
                 jQuery(".product-addon-nalepit-na-desku select option[value='']").remove();
-
-
-
 
 
                 //NASTAVIT HROMADNE
@@ -1021,6 +1060,8 @@ COOKIES<br>
 -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/chosen.jquery.min.js"></script>
-
+<script>
+    $(".chosen-select").chosen({disable_search_threshold: 10});
+</script>
 
 <?php get_footer(); ?>
