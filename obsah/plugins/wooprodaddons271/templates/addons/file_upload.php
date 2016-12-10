@@ -72,13 +72,6 @@ $current_value = isset( $_POST['addon-' . sanitize_title( $addon['field-name'] )
 ?>
 
 
-
-
-
-
-
-
-
 	<?php endif; ?>
 
     

@@ -12,6 +12,20 @@ global $vsechny_nahrane_fotky;
 global $objednavka_id;
 global $wpdb;
 global $_NAZEV_WEBU;
+global $desky_ceny;
+global $parametry;
+
+
+$results = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_produktu"', OBJECT );
+
+$_SESSION["vlastni_ceny"] = unserialize($results[0]->meta_value);
+$parametry = unserialize($results[0]->meta_value);
+
+$v = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_desky"', OBJECT );
+
+$_SESSION["desky_ceny"] = unserialize($v[0]->meta_value);
+$desky_ceny = unserialize($v[0]->meta_value);
+
 $url = $_SERVER["SERVER_NAME"];
 $url_roz = explode(".", $url);
 $_NAZEV_WEBU = $url_roz[1];
