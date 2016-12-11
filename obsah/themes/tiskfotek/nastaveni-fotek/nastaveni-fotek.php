@@ -12,34 +12,14 @@ global $vsechny_nahrane_fotky;
 global $objednavka_id;
 global $wpdb;
 global $_NAZEV_WEBU;
-global $desky_ceny;
-global $parametry;
 
 
-$results = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_produktu"', OBJECT );
 
-$_SESSION["vlastni_ceny"] = unserialize($results[0]->meta_value);
-$parametry = unserialize($results[0]->meta_value);
-
-$v = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_desky"', OBJECT );
-
-$_SESSION["desky_ceny"] = unserialize($v[0]->meta_value);
-$desky_ceny = unserialize($v[0]->meta_value);
 
 $url = $_SERVER["SERVER_NAME"];
 $url_roz = explode(".", $url);
 $_NAZEV_WEBU = $url_roz[1];
 
-
-$results = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_produktu"', OBJECT );
-
-$_SESSION["vlastni_ceny"] = unserialize($results[0]->meta_value);
-$parametry = unserialize($results[0]->meta_value);
-
-$v = $wpdb->get_results( 'SELECT * FROM tskf_postmeta WHERE meta_key like "ceny_desky"', OBJECT );
-
-$_SESSION["desky_ceny"] = unserialize($v[0]->meta_value);
-$desky_ceny = unserialize($v[0]->meta_value);
 
 $diakritika = array(
     'á' => 'a',
@@ -146,65 +126,8 @@ foreach($fotky_v_tmp_thumb as $fotka_v_tmp_thumb){
     copy($fotka_v_tmp_thumb, $absolutni_cesta_objednavky."/".$nazev_fotky);
 }
 
-
 $_SESSION["pocet_fotek"] = $pocet;
 
-
-/*
-foreach ($fotky_pred_kop as $i => $fotka_pred_kop) {
-        $fotka_kousek_url[$i] = explode("|/", $fotka_pred_kop);
-        $fotky_nazev_pred_kop[$i] = $fotka_kousek_url[$i][1];
-    }
-$fotky = array();
-    $pocet = 0;
-    foreach($fotky_nazev_pred_kop as $kolotoc => $fotka_nazev_pred_kop){
-        
-        $s_dia = $fotka_nazev_pred_kop;
-
-
-
-        //$bez_diakritiky = strtr( $s_dia, $diakritika );
-
-        $bez_diakritiky = preg_replace('/[^A-Za-z0-9\-_.]/','', $s_dia);
-
-        $fotka_nazev_pred_kop = $bez_diakritiky;
-        
-        $stare_jmeno = "/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/$s_dia";
-        $nove_jmeno = "/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/$bez_diakritiky";
-
-        rename($stare_jmeno,$nove_jmeno);
-        
-        $co = "http://www.$_NAZEV_WEBU.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/$fotka_nazev_pred_kop";
-        $kam = "/home/web/$_NAZEV_WEBU.cz/objednavky/$objednavka_id/$fotka_nazev_pred_kop";
-
-        copy($co,$kam);
-      //  rename($nove_jmeno,$kam);
-      //  exec("cp $co $kam");
-
-        $fotky[$kolotoc] = $kam;
-        $_SESSION[$kolotoc]["id_fotky"] = $kolotoc;
-        $_SESSION[$kolotoc]["nazev_slozky"] = $objednavka_id;
-        $_SESSION[$kolotoc]["nazev_fotky"] = $fotka_nazev_pred_kop;
-        $_SESSION[$kolotoc]["nazev_bez_formatu"] = preg_replace('/\\.[^.\\s]{3,4}$/', '', $fotka_nazev_pred_kop);
-        $_SESSION[$kolotoc]["typ_souboru"] = pathinfo($fotka_nazev_pred_kop, PATHINFO_EXTENSION);
-        $_SESSION[$kolotoc]["url_fotky"] = $fotky[$kolotoc]; 
-        $_SESSION[$kolotoc]["url_fotky_upload"] = $co;
-        $_SESSION[$kolotoc]["status"] = 1;
-        $_SESSION["pocet_fotek"] = 0;
-
-        
-    }
-
-
-
-        
-        foreach($fotky_miniatury as $kolotoc => $fotka_miniatura){
-            $_SESSION[$kolotoc]["url_miniatura"] = $fotka_miniatura;
-        }
-
-        $vsechny_nahrane_fotky = $_SESSION;
-$_SESSION["pocet_fotek"] = count($fotky);
-*/
 $args = array(
 	'post_type' => 'product',
 	'posts_per_page' => 12
@@ -486,10 +409,12 @@ jQuery( document ).ready(function() {
         }
     });
     jQuery('.product-addon-velikost-fotoobrazu .fotka-<?php echo $i;?> select').change(function() {
-        mezipocet++;console.log(mezipocet);
+        mezipocet++;
+        //console.log(mezipocet);
     });
     jQuery('.product-addon-vyber-fotopapiru .fotka-<?php echo $i;?> select').change(function() {
-        mezipocet++;console.log(mezipocet);
+        mezipocet++;
+        //console.log(mezipocet);
      });
      jQuery("#fotka-<?php echo $i; ?> .product-addon-vlastni-format input").focusout(function(){
         var zadane_neosetrene = jQuery(this).val().replace(',', '.');
@@ -499,7 +424,7 @@ jQuery( document ).ready(function() {
         if(sirka < 20)
             mezipocet++;
      });
-    console.log(mezipocet);
+    // console.log(mezipocet);
 <?php } ?>
     
     jQuery('select').change(function() {
@@ -520,11 +445,10 @@ jQuery( document ).ready(function() {
        <div id="tabulka-fotek">
         <?php
         $kolotoc = 0;
-        $pocet_fotek = $_SESSION["pocet_fotek"]-1;
+        $pocet_fotek = $_SESSION["pocet_fotek"];
         $celkovy_pocet = 0;
 
         //echo "<pre>",print_r($_SESSION),"</pre>";
-
         if ( $loop->have_posts() ) {
 			for($i = 0; $i < $pocet_fotek; $i++) {
                 while ( $loop->have_posts() ) {
@@ -590,6 +514,7 @@ jQuery( document ).ready(function() {
                 var poc = 0;
 
                 <?php
+
                 for($i=0;$i<$celkovy_pocet;$i++) {
 
                 ?>
