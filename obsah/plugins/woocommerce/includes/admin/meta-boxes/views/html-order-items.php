@@ -43,7 +43,6 @@ if ( wc_tax_enabled() ) {
 	$show_tax_columns = ! $legacy_order || sizeof( $order_taxes ) === 1;
 }
 ?>
-
 <div class="woocommerce_order_items_wrapper wc-order-items-editable">
 	<table cellpadding="0" cellspacing="0" class="woocommerce_order_items">
 		<thead>
@@ -84,21 +83,26 @@ if ( wc_tax_enabled() ) {
 			</tr>
 		</thead>
 		<tbody id="order_line_items">
-        <p style="margin-left: 20px; font-weight:normal; font-size: 23px;">ID OBJEDNÁVKY NA FTP: <span style="color: rgb(153,114,181);">
-<?php 
-		   
+        <p style="padding-top: 20px; margin-left: 20px; font-weight:normal; font-size: 23px;">ID OBJEDNÁVKY NA FTP: <span style="color: rgb(153,114,181);">
+			<?php
+			$pom = 0;
+			foreach($line_items as $klicek => $polozka) {
+				foreach($polozka as $klicek2 => $polozka) {
+					if($klicek2 == "Fotky") {
+						$pole_polozka = explode("/", $polozka);
+						echo $pole_polozka[7];
+						$pom = 1;
+						break;
+					}
+				}
+				if($pom == 1)
+					break;
+			}
 
-          foreach($line_items as $klicek => $polozka){
-            
-		      foreach($polozka as $klicek2 => $polozka_id_objednavky)
-                  if($klicek2 == "id_objednavky - id")
-                    echo $polozka_id_objednavky;
-          }
-            
-?>
-</span>
-</p>
-        		
+			?>
+		</span>
+		</p>
+
 		<?php
   
         
