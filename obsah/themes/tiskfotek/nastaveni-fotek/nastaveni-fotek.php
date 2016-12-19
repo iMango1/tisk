@@ -13,9 +13,6 @@ global $objednavka_id;
 global $wpdb;
 global $_NAZEV_WEBU;
 
-
-
-
 $url = $_SERVER["SERVER_NAME"];
 $url_roz = explode(".", $url);
 $_NAZEV_WEBU = $url_roz[1];
@@ -448,11 +445,20 @@ jQuery( document ).ready(function() {
         $pocet_fotek = $_SESSION["pocet_fotek"];
         $celkovy_pocet = 0;
 
+/*
+        $nazev_slozky = $_COOKIE["id_objednavky"];
+
+        for($i = 0; $i < $pocet_fotek; $i++) {
+            $nazev_fotky = $_SESSION["fotky"][$i];
+            $url_min = "http://objednavky.skakaciatrakce.cz/$nazev_slozky/thumbnail/$nazev_fotky";
+            echo "<img src='$url_min' height='100px'><br>";
+        }
+*/
         //echo "<pre>",print_r($_SESSION),"</pre>";
+
         if ( $loop->have_posts() ) {
 			for($i = 0; $i < $pocet_fotek; $i++) {
                 while ( $loop->have_posts() ) {
-                    //echo "<pre>",print_r($loop),"</pre>";
                     $loop->the_post();
                     wc_get_template_part( 'content', 'single-product' );
                     $kolotoc++;
@@ -570,8 +576,6 @@ jQuery( document ).ready(function() {
 
 
                 jQuery(".nastavit-hromadne").click(function(){
-
-
 
                     //Nastavit hromadně - Formát
 
@@ -814,15 +818,12 @@ jQuery( document ).ready(function() {
 
                     }
 
-
                     if(pro_vymazani_id[0]=="a4")
                         obsah = 623.7;
                     if(pro_vymazani_id[0]=="a3")
                         obsah = 1247.4;
                     if(pro_vymazani_id[0]=="a2")
                         obsah = 2494.8;
-
-
 
                     function d_zmena(d_deska,f_obsah,d_cena_bez_mn){
                         var nova_cena;
@@ -846,13 +847,11 @@ jQuery( document ).ready(function() {
 
                                     cena_bez_mnozstvi_vl += (parseFloat(cena_za_desku));
 
-
                                     //cena_bez_mnozstvi = cena_bez_mnozstvi_vl;
                                     nova_cena = 0.0;
                                     //nova_cena = cena_bez_mnozstvi_vl * parseInt(jQuery(".items-num").val());
                                     nova_cena = parseFloat(nova_cena) + (parseFloat(cena_bez_mnozstvi)) + (parseFloat(cena_za_desku));
                                     jQuery('.cena-fotky span').html((parseFloat(nova_cena)).toFixed(2));
-
 
                                     jQuery('input.cena_deska').val((parseFloat(cena_za_desku)).toFixed(2));
 
@@ -875,17 +874,10 @@ jQuery( document ).ready(function() {
                     else if(deska == "deska-rayboard-10mm-2"){
                         d_zmena("Deska Rayboard 10mm",obsah,cena_bez_mnozstvi);
                     }
-                    /*
-                     else if(deska == "zadna-deska-3"){
-                     d_zmena("Žádná deska",obsah,cena_bez_mnozstvi);
-                     } */
+
                     else{
                         d_zmena("Žádná deska",obsah,cena_bez_mnozstvi);
                     }
-
-
-
-
 
                 });    //KONEC CLICK ON HROMADNÉ NASTAVENÍ
 

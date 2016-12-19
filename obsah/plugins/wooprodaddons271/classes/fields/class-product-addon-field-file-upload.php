@@ -42,21 +42,7 @@ class Product_Addon_Field_File_Upload extends Product_Addon_Field {
                 $fotky_nazev[$i] = substr($fotka_kousek_url[$i][1],20,strlen($fotka_kousek_url[$i][1]));
               
             }
-            
-           
-            /*
-            foreach($jmeno_rozbite as $key => $jmeno_rozbite_jeden){
-                
-                $field_name[$key]= "/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files/";
-                
-               
-                $field_name[$key] = $field_name[$key] + "/" + $jmeno_jeden[$key][1];
-            
-                $k++;
-                 
-            }
-            
-            */
+
                 
 			if (! empty( $fotky_nazev )) {
                 $upload = array();

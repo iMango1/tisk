@@ -253,7 +253,9 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
             </table>
        
         <button class="pokracovat btn btn-large main-bg pull-right disabled">Pokračovat k objednávce</button>
-        
+        <div id="nahravani" class="pull-right">Probíhá nahrávání dat na server, proces chvíli potrvá...</div>
+
+
         <div class="footer-uploader" style="position: relative; margin-top: 90px;">
             <div class="col-md-6">
                 <p>Digitální fotosběrna</p>
@@ -324,8 +326,11 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
     jQuery(function () {
         <?php if (!isset($_COOKIE["woocommerce_cart_hash"])){ ?>
             addToCart(3032);
-            return false;
-        <?php } ?>
+          //  return false;
+        <?php
+        global $woocommerce;
+        $woocommerce->cart->empty_cart();
+        } ?>
     });
 
    function addToCart(p_id){
@@ -344,9 +349,9 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
 ?>
 <!--
 SESSION<br>
-<?php echo "<pre>",print_r($_SESSION),"</pre>"; ?>
+<?php // echo "<pre>",print_r($_SESSION),"</pre>"; ?>
 COOKIES<br>
-<?php echo "<pre>",print_r($_COOKIE),"</pre>"; ?>
+<?php // echo "<pre>",print_r($_COOKIE),"</pre>"; ?>
 -->
 <script type="text/javascript">
 $('#fileupload').fileupload({
@@ -377,6 +382,15 @@ jQuery(function () {
     jQuery(window).scroll(sticky_relocate);
     sticky_relocate();
 });
+
+    jQuery(function () {
+        jQuery("#nahravani").hide();
+        jQuery("button.pokracovat").on("click",function() {
+            jQuery("button.pokracovat").hide();
+            jQuery("#nahravani").fadeIn("slow");
+        });
+    });
+
 
 </script>
 <script type="text/javascript">
