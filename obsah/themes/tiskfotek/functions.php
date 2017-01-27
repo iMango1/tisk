@@ -34,21 +34,29 @@ add_action( 'wp_login_failed', 'my_front_end_login_fail' );  // hook failed logi
 /*---------------------------------------------------
 Nastavit cookie na jmeno objednavky
 ----------------------------------------------------*/
-if(!isset($_COOKIE["id_objednavky"]))
-    add_action( 'init', 'nastavit_cookie_nove_objednavky' );
+add_action( 'init', 'nastavit_cookie_nove_objednavky' );
 
-function nastavit_cookie_nove_objednavky() {
+function nastavit_cookie_nove_objednavky()
+{
 
-    if(get_current_user_id() == "0") {
-        $id_objednavky =  date("d_m_Y--H-i-s"). "__" . uniqid();
+    if (!isset($_COOKIE["id_objednavky"])) {
+
+        if (get_current_user_id() == "0") {
+            $id_objednavky = date("d_m_Y--H-i-s") . "__" . uniqid();
+        } else {
+            $id_objednavky = date("d_m_Y--H-i-s") . "__" . uniqid() . "__" . get_current_user_id();
+        }
+
+        setcookie("id_objednavky", $id_objednavky, time() + 60 * 60 * 24 * 7, '/');
     }
-    else{
-        $id_objednavky = date("d_m_Y--H-i-s"). "__" . uniqid() . "__" . get_current_user_id();
-    }
 
-    setcookie("id_objednavky", $id_objednavky, time()+60*60*24*7, '/');
+    $currentURL = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+
+    if( $currentURL == 'www.skakaciatrakce.cz/potvrzeni/' ) {
+        setcookie("id_objednavky", $id_objednavky, time() - 300, '/');
+
+    }
 }
-
 /*---------------------------------------------------
 Odstranit cookie na jmeno objednavky
 ----------------------------------------------------*/
