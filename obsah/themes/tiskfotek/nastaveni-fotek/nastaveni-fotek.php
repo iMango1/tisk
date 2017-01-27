@@ -679,9 +679,10 @@ jQuery( document ).ready(function() {
                     jQuery(".addon-wrap-3032-vyber-fotopapiru .chosen-container").trigger("chosen:updated");
 
                     //material
-                    jQuery(".addon-wrap-3032-material select.addon-select").val( jQuery(".nastavit-celkem .addon-3032-material").val() );
-                    jQuery(".addon-wrap-3032-material select.addon-select").trigger("chosen:updated");
-
+                    if(jQuery(".nastavit-celkem .addon-3032-material").val() != "") {
+                        jQuery(".addon-wrap-3032-material select.addon-select").val(jQuery(".nastavit-celkem .addon-3032-material").val());
+                        jQuery(".addon-wrap-3032-material select.addon-select").trigger("chosen:updated");
+                    }
                     //velikost fotoobrazu
                     jQuery(".addon-wrap-3032-velikost-fotoobrazu select").val(jQuery(".nastavit-celkem .addon-3032-velikost-fotoobrazu").val() );
                     jQuery(".addon-wrap-3032-velikost-fotoobrazu select.addon-select").trigger("chosen:updated");
@@ -696,12 +697,17 @@ jQuery( document ).ready(function() {
                     jQuery(".addon-wrap-3032-material-pro-vyber-fotopapiru select.addon-select").trigger("chosen:updated");
 
                     //deska
-                    jQuery('.addon-wrap-3032-nalepit-na-desku select.addon-select').val( jQuery('.nastavit-celkem .nalepit-na-desku select').val() );
-                    jQuery('.addon-wrap-3032-nalepit-na-desku select.addon-select').trigger("chosen:updated");
-                    jQuery(  "div.product-addon.product-addon-nalepit-na-desku" ).find( "a.chosen-single" ).css( "background", "#8BC34A", "important" );
-                    jQuery(  "div.product-addon.product-addon-nalepit-na-desku" ).find( "a.chosen-single" ).css( "color", "#8BC34A", "important" );
-                    jQuery(  "div.product-addon.product-addon-nalepit-na-desku" ).find( "span" ).addClass( "vyborna" );
-                    console.log("DESKa");
+
+                    if(jQuery(".nastavit-celkem .nalepit-na-desku select").val() != "") {
+                        jQuery('.addon-wrap-3032-nalepit-na-desku select.addon-select').val(jQuery('.nastavit-celkem .nalepit-na-desku select').val());
+                        jQuery('.addon-wrap-3032-nalepit-na-desku select.addon-select').trigger("chosen:updated");
+                        console.log("DESKa");
+                    }
+                        jQuery("div.product-addon.product-addon-nalepit-na-desku").find("a.chosen-single").css("background", "#8BC34A", "important");
+                        jQuery("div.product-addon.product-addon-nalepit-na-desku").find("a.chosen-single").css("color", "#8BC34A", "important");
+                        jQuery("div.product-addon.product-addon-nalepit-na-desku").find("span").addClass("vyborna");
+
+
 
                     //typ
                     jQuery('.addon-wrap-3032-typ select.addon-select').val( jQuery('.nastavit-celkem .addon-3032-typ').val() );
