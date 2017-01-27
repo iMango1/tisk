@@ -67,6 +67,7 @@ if (!is_dir($absolutni_cesta_objednavky)) {
     mkdir($absolutni_cesta_objednavky_thumb, 0777);
 }
 else{
+  /*
     array_map('unlink', glob($absolutni_cesta_objednavky."/*"));
     rmdir($absolutni_cesta_objednavky);
 
@@ -75,7 +76,7 @@ else{
 
     mkdir($absolutni_cesta_objednavky, 0777);
     mkdir($absolutni_cesta_objednavky_thumb, 0777);
-
+*/
 }
 
 // KOPIROVANI FOTEK

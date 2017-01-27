@@ -246,7 +246,7 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
                     }
                 }
             }
-            
+
 
          ?>   
            </tbody>
@@ -316,6 +316,30 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
         $k_vymazani = explode("kosik/",$kosik->get_remove_url($prvni));
         $vymaz = $k_vymazani[1];
 
+$id_objednavky = $_COOKIE["id_objednavky"];
+
+$absolutni_cesta_objednavky = "/home/web/$_NAZEV_WEBU.cz/objednavky/$id_objednavky";
+$absolutni_cesta_objednavky_thumb = "/home/web/$_NAZEV_WEBU.cz/objednavky/$id_objednavky/thumbnail";
+
+$absolutni_cesta_tmp = "/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/tmp-objednavky/$id_objednavky";
+$absolutni_cesta_tmp_thumb = "/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/tmp-objednavky/$id_objednavky/thumbnail";
+
+if (!is_dir($absolutni_cesta_objednavky)) {
+    mkdir($absolutni_cesta_objednavky, 0777);
+    mkdir($absolutni_cesta_objednavky_thumb, 0777);
+}
+else{
+
+      array_map('unlink', glob($absolutni_cesta_objednavky."/*"));
+      rmdir($absolutni_cesta_objednavky);
+
+      array_map('unlink', glob($absolutni_cesta_objednavky."/thumbnail/*"));
+      rmdir($absolutni_cesta_objednavky_thumb);
+
+      mkdir($absolutni_cesta_objednavky, 0777);
+      mkdir($absolutni_cesta_objednavky_thumb, 0777);
+
+}
 ?>
 
 

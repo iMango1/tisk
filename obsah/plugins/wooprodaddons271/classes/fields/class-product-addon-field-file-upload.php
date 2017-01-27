@@ -136,7 +136,7 @@ else
         //KOMENTÁŘ     if (!file_exists('/home/web/$_NAZEV_WEBU.cz/www/obsah/uploads/product_addons_uploads/'.$id_zak))
             //KOMENTÁŘ         mkdir("/home/web/$_NAZEV_WEBU.cz/www/obsah/uploads/product_addons_uploads/$id_zak", 0777);
         
-        $co = "http://www.$_NAZEV_WEBU.cz/obsah/themes/tiskfotek/nahrani/server/php/files|$file";
+    //KOMENTÁŘ    $co = "http://www.$_NAZEV_WEBU.cz/obsah/themes/tiskfotek/nahrani/server/php/files|$file";
     //    $co = "/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/$file";
         //KOMENTÁŘ    $kam = "/home/web/$_NAZEV_WEBU.cz/www/obsah/uploads/product_addons_uploads/$id_zak/$file";
 
