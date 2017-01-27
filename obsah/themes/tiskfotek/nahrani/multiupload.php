@@ -328,9 +328,10 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
             addToCart(3032);
           //  return false;
         <?php
+        }
         global $woocommerce;
         $woocommerce->cart->empty_cart();
-        } ?>
+         ?>
     });
 
    function addToCart(p_id){
