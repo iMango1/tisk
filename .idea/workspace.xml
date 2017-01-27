@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eb2886ae-ccfd-400a-b30d-6e457fa8bf15" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/addon-end.php" afterPath="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/addon-end.php" />
     </list>
     <ignored path="!obsah_git.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -67,7 +67,7 @@
       <file leaf-file-name="file_upload.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/file_upload.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
+            <state relative-caret-position="54">
               <caret line="42" column="51" lean-forward="false" selection-start-line="42" selection-start-column="51" selection-end-line="42" selection-end-column="51" />
               <folding>
                 <marker date="1479575753000" expanded="true" signature="2083:2101" ph="..." />
@@ -76,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="addon-end.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="addon-end.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/addon-end.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1905">
-              <caret line="127" column="9" lean-forward="false" selection-start-line="127" selection-start-column="9" selection-end-line="127" selection-end-column="9" />
+            <state relative-caret-position="315">
+              <caret line="43" column="8" lean-forward="true" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -116,7 +116,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="431">
@@ -175,7 +175,6 @@
         <option value="$USER_HOME$/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/vystupnidata/09_detail_jmenovcu.html" />
         <option value="$USER_HOME$/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/vystupnidata/09_detail_jednoho_jezdce.html" />
         <option value="$USER_HOME$/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/vystupnidata/09_detail-podle_id.html" />
-        <option value="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/addon-end.php" />
         <option value="$PROJECT_DIR$/obsah/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-item.php" />
         <option value="$PROJECT_DIR$/obsah/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-shipping.php" />
         <option value="$PROJECT_DIR$/obsah/plugins/woocommerce/assets/css/admin.scss" />
@@ -187,6 +186,7 @@
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/nastaveni-fotek/nastaveni-fotek.php" />
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/multiupload.php" />
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php" />
+        <option value="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/addon-end.php" />
       </list>
     </option>
   </component>
@@ -591,7 +591,7 @@
       <workItem from="1482184740428" duration="72000" />
       <workItem from="1485504562359" duration="526000" />
       <workItem from="1485505107427" duration="5405000" />
-      <workItem from="1485534770143" duration="1486000" />
+      <workItem from="1485534770143" duration="1998000" />
     </task>
     <task id="LOCAL-00001" summary="IDE settings">
       <created>1476388701506</created>
@@ -698,11 +698,18 @@
       <option name="project" value="LOCAL" />
       <updated>1485512007282</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Odstranění cookie v potvrzení objednávky">
+      <created>1485541404542</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1485541404542</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99120000" />
+    <option name="totallyTimeSpent" value="99632000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -768,7 +775,8 @@
     <MESSAGE value="Deska při hromadném nastavení když není zvolena" />
     <MESSAGE value="Fix prázdného produktu" />
     <MESSAGE value="Fix náhledů v košíku" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix náhledů v košíku" />
+    <MESSAGE value="Odstranění cookie v potvrzení objednávky" />
+    <option name="LAST_COMMIT_MESSAGE" value="Odstranění cookie v potvrzení objednávky" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1074,24 +1082,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/file_upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="51" lean-forward="false" selection-start-line="42" selection-start-column="51" selection-end-line="42" selection-end-column="51" />
-          <folding>
-            <marker date="1479575753000" expanded="true" signature="2083:2101" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/addon-end.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1905">
-          <caret line="127" column="9" lean-forward="false" selection-start-line="127" selection-start-column="9" selection-end-line="127" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/obsah/plugins/wooprodaddons271/classes/fields/class-product-addon-field-file-upload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2070">
@@ -1150,6 +1140,24 @@
             <marker date="1485541323000" expanded="true" signature="54984:55200" ph="..." />
             <marker date="1485541323000" expanded="true" signature="55236:55407" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/file_upload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="42" column="51" lean-forward="false" selection-start-line="42" selection-start-column="51" selection-end-line="42" selection-end-column="51" />
+          <folding>
+            <marker date="1479575753000" expanded="true" signature="2083:2101" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/addon-end.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="43" column="8" lean-forward="true" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
