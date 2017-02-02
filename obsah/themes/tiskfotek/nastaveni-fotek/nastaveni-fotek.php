@@ -191,7 +191,7 @@ jQuery(document).ready(function(){
                     </select>
                     </div>
                     <div class="product-addon-vlastni-format">
-                    <input type="text" class="input-text addon addon-custom" data-price="" name="addon-3032-vlastni-format[rozmer]" value="" placeholder="Napište zde váš rozměr">
+                    <input type="text" class="input-text addon addon-custom" data-price="" name="addon-3032-vlastni-format[rozmer]" value="" placeholder="Napište zde rozměr v cm">
                     <i class="fa fa-times"></i>
                     </div>
                 </div>
@@ -283,7 +283,7 @@ jQuery( document ).ready(function() {
             jQuery('.nastavit-celkem .format .chosen-container').trigger("chosen:updated");
             //ZOBRAZENÍ INPUTU
             jQuery(".nastavit-celkem .format .format-select").hide();
-            jQuery(".nastavit-celkem .product-addon-vlastni-format input").attr("placeholder", "Napište zde váš rozměr");
+            jQuery(".nastavit-celkem .product-addon-vlastni-format input").attr("placeholder", "Napište zde rozměr v cm");
             jQuery(".nastavit-celkem .product-addon-vlastni-format").show();
             jQuery(".nastavit-celkem .product-addon-vlastni-format").append('<i class="fa fa-times"></i>');
             
@@ -585,7 +585,7 @@ jQuery( document ).ready(function() {
                     if(jQuery('.nastavit-celkem .product-addon-vlastni-format input').val() != ""){
 
                         jQuery(".addon-wrap-3032-format").hide();
-                        jQuery(".product-addon.product-addon-vlastni-format input").attr("placeholder", "Napište zde váš rozměr");
+                        jQuery(".product-addon.product-addon-vlastni-format input").attr("placeholder", "Napište zde rozměr v cm");
                         jQuery(".product-addon.product-addon-vlastni-format").show();
                         jQuery(".product-addon.product-addon-vlastni-format").append('<i class="fa fa-times"></i>');
 

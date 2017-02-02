@@ -159,7 +159,7 @@ if(!function_exists("dalsi_klic")) {
                     jQuery('.addon-wrap-3032-format .select-fotka-<?php echo $kolotoc; ?>').trigger("chosen:updated");
                     //ZOBRAZENÍ INPUTU
                     jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-format").hide();
-                    jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").attr("placeholder", "Napište zde váš rozměr");
+                    jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format input").attr("placeholder", "Napište zde rozměr v cm");
                     jQuery("#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format").show();
                     //PO KLIKNUTÍ NA KŘÍŽEK
                     jQuery('#fotka-<?php echo $kolotoc; ?> .product-addon-vlastni-format').on('click','.fa' ,function(){

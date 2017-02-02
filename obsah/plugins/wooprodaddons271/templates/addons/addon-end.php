@@ -77,7 +77,6 @@ jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select').change(f
     //Výpočet kvality v dpi
     var dpi<?php echo $kolotoc; ?> = 2.54 * fotkaS<?php echo $kolotoc; ?> / formatS<?php echo $kolotoc; ?>;
 
-    alert("2.54 * " + fotkaS<?php echo $kolotoc; ?> + " / " +formatS<?php echo $kolotoc; ?> + " = " + dpi<?php echo $kolotoc; ?>);
     //kontrola kvality podle dpi
     if (isFinite(dpi<?php echo $kolotoc; ?>)) {
 
