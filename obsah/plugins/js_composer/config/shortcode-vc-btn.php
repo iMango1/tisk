@@ -4,6 +4,7 @@
  * array_merge is needed due to merging other shortcode data into params.
  * @since 4.5
  */
+
 global $pixel_icons;
 $icons_params = vc_map_integrate_shortcode( 'vc_icon', 'i_', '',
 	array(
@@ -18,7 +19,7 @@ $icons_params = vc_map_integrate_shortcode( 'vc_icon', 'i_', '',
 if ( is_array( $icons_params ) && ! empty( $icons_params ) ) {
 	foreach ( $icons_params as $key => $param ) {
 		if ( is_array( $param ) && ! empty( $param ) ) {
-			if ( $param['param_name'] == 'i_type' ) {
+			if ( $param['param_name'] === 'i_type' ) {
 				// append pixelicons to dropdown
 				$icons_params[ $key ]['value'][ __( 'Pixel', 'js_composer' ) ] = 'pixelicons';
 			}
@@ -35,10 +36,9 @@ $params = array_merge(
 		array(
 			'type' => 'textfield',
 			'heading' => __( 'Text', 'js_composer' ),
-			'save_always' => true,
 			'param_name' => 'title',
 			// fully compatible to btn1 and btn2
-			'value' => __( 'Text on the button.', 'js_composer' ),
+			'value' => __( 'Text on the button', 'js_composer' ),
 		),
 		array(
 			'type' => 'vc_link',
@@ -58,9 +58,9 @@ $params = array_merge(
 				__( 'Classic', 'js_composer' ) => 'classic',
 				__( 'Flat', 'js_composer' ) => 'flat',
 				__( 'Outline', 'js_composer' ) => 'outline',
-				// need to be converted outlined -> outline
 				__( '3d', 'js_composer' ) => '3d',
 				__( 'Custom', 'js_composer' ) => 'custom',
+				__( 'Outline custom', 'js_composer' ) => 'outline-custom',
 			),
 		),
 		array(
@@ -73,6 +73,7 @@ $params = array_merge(
 				'value' => array( 'custom' )
 			),
 			'edit_field_class' => 'vc_col-sm-6 vc_column',
+			'std' => '#ededed',
 		),
 		array(
 			'type' => 'colorpicker',
@@ -84,6 +85,43 @@ $params = array_merge(
 				'value' => array( 'custom' )
 			),
 			'edit_field_class' => 'vc_col-sm-6 vc_column',
+			'std' => '#666',
+		),
+		array(
+			'type' => 'colorpicker',
+			'heading' => __( 'Outline and Text', 'js_composer' ),
+			'param_name' => 'outline_custom_color',
+			'description' => __( 'Select outline and text color for your element.', 'js_composer' ),
+			'dependency' => array(
+				'element' => 'style',
+				'value' => array( 'outline-custom' )
+			),
+			'edit_field_class' => 'vc_col-sm-4 vc_column',
+			'std' => '#666',
+		),
+		array(
+			'type' => 'colorpicker',
+			'heading' => __( 'Hover background', 'js_composer' ),
+			'param_name' => 'outline_custom_hover_background',
+			'description' => __( 'Select hover background color for your element.', 'js_composer' ),
+			'dependency' => array(
+				'element' => 'style',
+				'value' => array( 'outline-custom' )
+			),
+			'edit_field_class' => 'vc_col-sm-4 vc_column',
+			'std' => '#666',
+		),
+		array(
+			'type' => 'colorpicker',
+			'heading' => __( 'Hover text', 'js_composer' ),
+			'param_name' => 'outline_custom_hover_text',
+			'description' => __( 'Select hover text color for your element.', 'js_composer' ),
+			'dependency' => array(
+				'element' => 'style',
+				'value' => array( 'outline-custom' )
+			),
+			'edit_field_class' => 'vc_col-sm-4 vc_column',
+			'std' => '#fff',
 		),
 		array(
 			'type' => 'dropdown',
@@ -119,7 +157,7 @@ $params = array_merge(
 			// must have default color grey
 			'dependency' => array(
 				'element' => 'style',
-				'value_not_equal_to' => array( 'custom' )
+				'value_not_equal_to' => array( 'custom', 'outline-custom' )
 			),
 		),
 		array(
@@ -135,7 +173,7 @@ $params = array_merge(
 			'type' => 'dropdown',
 			'heading' => __( 'Alignment', 'js_composer' ),
 			'param_name' => 'align',
-			'description' => __( 'Select button alignment.', 'js_comopser' ),
+			'description' => __( 'Select button alignment.', 'js_composer' ),
 			// compatible with btn2, default left to be compatible with btn1
 			'value' => array(
 				__( 'Inline', 'js_composer' ) => 'inline',
@@ -182,6 +220,7 @@ $params = array_merge(
 			'type' => 'iconpicker',
 			'heading' => __( 'Icon', 'js_composer' ),
 			'param_name' => 'i_icon_pixelicons',
+			'value' => 'vc_pixel_icon vc_pixel_icon-alert',
 			'settings' => array(
 				'emptyIcon' => false,
 				// default true, display an "EMPTY" icon?
@@ -202,6 +241,12 @@ $params = array_merge(
 			'heading' => __( 'Extra class name', 'js_composer' ),
 			'param_name' => 'el_class',
 			'description' => __( 'Style particular content element differently - add a class name and refer to it in custom CSS.', 'js_composer' ),
+		),
+		array(
+			'type' => 'css_editor',
+			'heading' => __( 'CSS box', 'js_composer' ),
+			'param_name' => 'css',
+			'group' => __( 'Design Options', 'js_composer' )
 		),
 	)
 );

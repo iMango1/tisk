@@ -4,7 +4,7 @@ Plugin Name: IT-RAYS Shortcodes
 Plugin URI: http://www.it-rays.net/
 Description: This is a custom Visual Composer addon for making custom shortcodes.
 Author: IT-RAYS
-Version: 1.2.0
+Version: 2.0.0
 Author URI: http://www.it-rays.net/
 */
 
@@ -16,27 +16,30 @@ class VCExtendAddonCustomShortCodes {
   
     function __construct() {
         
-        //load_plugin_textdomain( 'vc-shortcodes', false, dirname( plugin_basename( __FILE__ ) ) . '/lang' );
-
         add_action( 'vc_before_init', array( $this, 'integrateWithVC' ) );
         add_action( 'vc_before_init', array( $this, 'it_vc_shortcodes' ) );
         add_action( 'vc_load_default_params', array( $this, 'inputs_js' ) );
         
-        //remove default shortcode
-        //remove_shortcode('gallery');  
         include_once plugin_dir_path( __FILE__ ) . "shortcodes/it_gallery.php";
         
     }
   	
     function it_vc_shortcodes() {
             vc_set_as_theme();
+            
             // remove params from elements.
-            vc_remove_param( "vc_message", "css_animation" );
+            vc_remove_param( "vc_message", "css_animation" );  
             vc_remove_param( "vc_column_text", "css_animation" );
             vc_remove_param( "vc_toggle", "css_animation" );
             vc_remove_param( "vc_single_image", "css_animation" );
             vc_remove_param( "vc_cta_button2", "css_animation" );
             vc_remove_param( "vc_row", "full_width" );
+            vc_remove_param( "vc_row", "parallax_image" );
+            vc_remove_param( "vc_row", "parallax" );
+            vc_remove_param( "vc_row", "video_bg" );    
+            vc_remove_param( "vc_row", "video_bg_url" );
+            vc_remove_param( "vc_row", "video_bg_parallax" );
+            vc_remove_param( "vc_row", "video_bg_url" );
             vc_remove_param( "vc_row", "css" ); 
             vc_remove_param( "vc_row", "el_id" ); 
             vc_remove_param( "vc_button2", "style" );
@@ -75,7 +78,7 @@ class VCExtendAddonCustomShortCodes {
                 'admin_label' => true,
                 "base" => "css_animation",
                 "as_parent" => array('except' => 'css_animation'),
-                'edit_field_class' => 'vc_col-md-12 vc_column anim-class',
+                'edit_field_class' => 'vc_col-xs-12 vc_column anim-class',
                 "content_element" => true,
                 "icon" => "css_animation",
                 'value' => array(
@@ -105,7 +108,7 @@ class VCExtendAddonCustomShortCodes {
                 "type" => "textfield",
                 "heading" => __( "Animation Duration", 'js_composer' ),
                 "param_name" => "duration",
-                'edit_field_class' => 'vc_col-md-6 vc_column anim-deldu',
+                'edit_field_class' => 'vc_col-xs-6 vc_column anim-deldu',
                 "value" => '',
                 "description" => __( "", 'js_composer' ),
             );
@@ -114,7 +117,7 @@ class VCExtendAddonCustomShortCodes {
                 "type" => "textfield",
                 "heading" => __( "Animation Delay", 'js_composer' ),
                 "param_name" => "delay",
-                'edit_field_class' => 'vc_col-md-6 vc_column anim-deldu',
+                'edit_field_class' => 'vc_col-xs-6 vc_column anim-deldu',
                 "value" => '',
                 "description" => __( "", 'js_composer' ),
             );
@@ -132,40 +135,12 @@ class VCExtendAddonCustomShortCodes {
                     'heading' => __( 'Text', 'js_composer' ),
                     'param_name' => 'text',
                     'admin_label' => true,
-                    'value'=> __( 'This is custom heading element', 'js_composer' ),
+                    'value' => __( 'This is custom heading element', 'js_composer' ),
                     'description' => __( 'Enter your content. If you are using non-latin characters be sure to activate them under Settings/Visual Composer/General Settings.', 'js_composer' ),
                 ),
                 array(
                     "type" => "dropdown",
-                    'edit_field_class'    => 'vc_col-md-6 vc_column',
-                    "class" => "",
-                    "heading" => __("Heading Tag",'itrays'),
-                    "param_name" => "head_tag",
-                    "value" => array(
-                        'h1' =>'h1',
-                        'h2' =>'h2',
-                        'h3' =>'h3',
-                        'h4' =>'h4',
-                        'h5' =>'h5',
-                        'h6' =>'h6',
-                    ) 
-                ),
-                array(
-                    "type" => "dropdown",
-                    "holder" => "div",
-                    'edit_field_class'    => 'vc_col-md-6 vc_column',
-                    "class" => "",
-                    "heading" => __("Heading Alignment",'itrays'),
-                    "param_name" => "head_align",
-                    "value" => array(
-                        'Left' =>'',
-                        'Center' =>'center',
-                        'Right' =>'right-head',
-                    ) 
-                ),
-                array(
-                    "type" => "dropdown",
-                    'edit_field_class'    => 'vc_col-md-6 vc_column',
+                    'edit_field_class'    => 'vc_col-xs-4 vc_column',
                     "class" => "",
                     "heading" => __("Heading Style",'itrays'),
                     "param_name" => "heading_style",
@@ -179,10 +154,40 @@ class VCExtendAddonCustomShortCodes {
                         'Style 7' =>'style7',
                         'Style 8' =>'style8',
                     ) 
+                ),
+                array(
+                    "type" => "dropdown",
+                    'edit_field_class'    => 'vc_col-xs-4 vc_column',
+                    "class" => "",
+                    "heading" => __("Heading Tag",'itrays'),
+                    "param_name" => "head_tag",
+                    'not_empty' => true,
+                    "value" => array(
+                        '-- Select Tag --' => '',
+                        'h1' =>'h1',
+                        'h2' =>'h2',
+                        'h3' =>'h3',
+                        'h4' =>'h4',
+                        'h5' =>'h5',
+                        'h6' =>'h6',
+                    ) 
+                ),
+                array(
+                    "type" => "dropdown",
+                    "holder" => "div",
+                    'edit_field_class'    => 'vc_col-xs-4 vc_column',
+                    "class" => "",
+                    "heading" => __("Heading Alignment",'itrays'),
+                    "param_name" => "head_align",
+                    "value" => array(
+                        'Left' =>'',
+                        'Center' =>'center',
+                        'Right' =>'right-head',
+                    ) 
                 ),array(
                     'type' => 'dropdown',
                     'heading' => __( 'Font Weight', 'js_composer' ),
-                    'edit_field_class'    => 'vc_col-md-6 vc_column',
+                    'edit_field_class'    => 'vc_col-xs-4 vc_column',
                     'param_name' => 'extrabold',
                     'value' => array(
                         'normal' => 'normal',
@@ -204,13 +209,13 @@ class VCExtendAddonCustomShortCodes {
                     'type' => 'colorpicker',
                     'heading' => __( 'Custom Color', 'js_composer' ),
                     'param_name' => 'head_color',
-                    'edit_field_class'    => 'vc_col-md-6 vc_column',
+                    'edit_field_class'    => 'vc_col-xs-4 vc_column',
                     'description' => __( '', 'js_composer' ),
                  ),
                 array(
                     'type' => 'checkbox',
                     'heading' => __( 'Uppercase ?', 'js_composer' ),
-                    'edit_field_class'    => 'vc_col-md-6 vc_column',
+                    'edit_field_class'    => 'vc_col-xs-4 vc_column',
                     'param_name' => 'upper',
                     'value' => array(
                         __( 'yes', 'js_composer' ) => '1',
@@ -222,6 +227,7 @@ class VCExtendAddonCustomShortCodes {
                     "class" => "",
                     "heading" => __("Icon",'itrays'),
                     "param_name" => "head_icon",
+                    'group'       => 'Icon',
                     "description" => __("select the Heading icon.",'itrays'),
                  ),
                 $it_animation,
@@ -252,7 +258,29 @@ class VCExtendAddonCustomShortCodes {
                     "heading" => __("Box Title",'itrays'),
                     "param_name" => "iconbox_title",
                     "value" => '',
+                    'edit_field_class'    => 'vc_col-xs-9 vc_column',
                     "description" => __("type the box title.",'itrays')
+                 ),
+                 array(
+                    "type" => "dropdown",
+                    "holder" => "div",
+                    "class" => "",
+                    "heading" => __("Box Style",'itrays'),
+                    "param_name" => "iconbox_style",
+                    "value" => array(
+                        'style 1' =>'1',
+                        'style 2' =>'2',
+                        'style 3' =>'3',
+                        'style 4' =>'4',
+                        'style 5' =>'5',
+                        'style 6' =>'6',
+                        'style 7' =>'7',
+                        'style 8' =>'8',
+                        'style 9' =>'9',
+                        'style 10' =>'10',
+                    ),
+                    'edit_field_class'    => 'vc_col-xs-3 vc_column',
+                    "description" => __("Select Box style.",'itrays'),
                  ),
                  array(
                     "type" => "textarea_html",
@@ -279,33 +307,23 @@ class VCExtendAddonCustomShortCodes {
                     "type" => "textfield",
                     "holder" => "div",
                     "class" => "",
-                    "heading" => __("Box Link",'itrays'),
+                    "heading" => __("Read More Text",'itrays'),
+                    "param_name" => "iconbox_more_text",
+                    "value" => '',
+                    "description" => __("type here the read more text.",'itrays'),
+                    'group'       => 'Read More'
+                 ),
+                 array(
+                    "type" => "textfield",
+                    "holder" => "div",
+                    "class" => "",
+                    "heading" => __("Read More Link",'itrays'),
                     "param_name" => "iconbox_more",
                     "value" => '',
                     "description" => __("type here the link for this box.",'itrays'),
-                    'group'       => 'Extras'
+                    'group'       => 'Read More'
                  ),
                  array(
-                    "type" => "dropdown",
-                    "holder" => "div",
-                    "class" => "",
-                    "heading" => __("Box Style",'itrays'),
-                    "param_name" => "iconbox_style",
-                    "value" => array(
-                        'style 1' =>'1',
-                        'style 2' =>'2',
-                        'style 3' =>'3',
-                        'style 4' =>'4',
-                        'style 5' =>'5',
-                        'style 6' =>'6',
-                        'style 7' =>'7',
-                        'style 8' =>'8',
-                        'style 9' =>'9',
-                        'style 10' =>'10',
-                    ),
-                    "description" => __("Select Box style.",'itrays'),
-                    'group'       => 'Extras'
-                 ),array(
                     "type" => "textfield",
                     "heading" => __("Extra class name", "js_composer"),
                     "param_name" => "el_class",
@@ -345,27 +363,27 @@ class VCExtendAddonCustomShortCodes {
                     "heading" => __("Slides to show", "js_composer"),
                     "param_name" => "testo_slides",
                     'value' => '2',
-                    'edit_field_class'    => 'vc_col-md-4 vc_column t_slides',
+                    'edit_field_class'    => 'vc_col-xs-4 vc_column t_slides',
                     "description" => __("number of visible slides.", "js_composer")
                 ),array(
                     "type" => "textfield",
                     "heading" => __("Slides to Scroll", "js_composer"),
                     "param_name" => "testo_scroll",
                     'value' => '2',
-                    'edit_field_class'    => 'vc_col-md-4 vc_column t_slides',
+                    'edit_field_class'    => 'vc_col-xs-4 vc_column t_slides',
                     "description" => __("number of slides that will scroll.", "js_composer")
                 ),array(
                     "type" => "textfield",
                     "heading" => __("Slide Speed", "js_composer"),
                     "param_name" => "testo_speed",
                     'value' => '300',
-                    'edit_field_class'    => 'vc_col-md-4 vc_column t_slides',
+                    'edit_field_class'    => 'vc_col-xs-4 vc_column t_slides',
                     "description" => __("select the speed that slide will be changed.", "js_composer")
                 ),array(
                     "type" => "checkbox",
                     "heading" => __("Fade ?", "js_composer"),
                     "param_name" => "testo_fade",
-                    'edit_field_class'    => 'vc_col-md-3 vc_column t_slides',
+                    'edit_field_class'    => 'vc_col-xs-3 vc_column t_slides',
                     'value' => array(
                         __( 'yes', 'js_composer' ) => '1',
                     )
@@ -373,7 +391,7 @@ class VCExtendAddonCustomShortCodes {
                     "type" => "checkbox",
                     "heading" => __("Auto Play ?", "js_composer"),
                     "param_name" => "testo_auto",
-                    'edit_field_class'    => 'vc_col-md-3 vc_column t_slides',
+                    'edit_field_class'    => 'vc_col-xs-3 vc_column t_slides',
                     'value' => array(
                         __( 'yes', 'js_composer' ) => '1',
                     )
@@ -381,7 +399,7 @@ class VCExtendAddonCustomShortCodes {
                     "type" => "checkbox",
                     "heading" => __("Hide Arrows ?", "js_composer"),
                     "param_name" => "testo_arrows",
-                    'edit_field_class'    => 'vc_col-md-3 vc_column t_slides',
+                    'edit_field_class'    => 'vc_col-xs-3 vc_column t_slides',
                     'value' => array(
                         __( 'yes', 'js_composer' ) => '1',
                     )
@@ -390,7 +408,7 @@ class VCExtendAddonCustomShortCodes {
                     "type" => "checkbox",
                     "heading" => __("Hide Bullets ?", "js_composer"),
                     "param_name" => "testo_dots",
-                    'edit_field_class'    => 'vc_col-md-3 vc_column t_slides',
+                    'edit_field_class'    => 'vc_col-xs-3 vc_column t_slides',
                     'value' => array(
                         __( 'yes', 'js_composer' ) => '1',
                     )
@@ -399,7 +417,7 @@ class VCExtendAddonCustomShortCodes {
                     "type" => "checkbox",
                     "heading" => __("Infinite ?", "js_composer"),
                     "param_name" => "testo_infinite",
-                    'edit_field_class'    => 'vc_col-md-3 vc_column t_slides',
+                    'edit_field_class'    => 'vc_col-xs-3 vc_column t_slides',
                     'value' => array(
                         __( 'yes', 'js_composer' ) => '1',
                     )
@@ -425,10 +443,23 @@ class VCExtendAddonCustomShortCodes {
               "as_child" => array('only' => 'vc_testimonials'),
               "params" => array(
                  array(
+                    "type" => "attach_image",
+                    "heading" => __("Image",'itrays'),
+                    "param_name" => "image",
+                    "value" => '',
+                 ),
+                 array(
                     "type" => "textfield",
                     "heading" => __("Author",'itrays'),
                     "param_name" => "author",
-                    'edit_field_class'    => 'vc_col-md-6 vc_column',
+                    'edit_field_class'    => 'vc_col-xs-6 vc_column',
+                 ),
+                 array(
+                    "type" => "textfield",
+                    "heading" => __("Slogan",'itrays'),
+                    "param_name" => "slogan",
+                    'edit_field_class'    => 'vc_col-xs-6 vc_column',
+                    "value" => '',
                  ),
                  array(
                     "type" => "textarea",
@@ -438,37 +469,10 @@ class VCExtendAddonCustomShortCodes {
                  ),
                  array(
                     "type" => "textfield",
-                    "heading" => __("Slogan",'itrays'),
-                    "param_name" => "slogan",
-                    "value" => '',
-                 ),
-                 array(
-                    "type" => "attach_image",
-                    "heading" => __("Image",'itrays'),
-                    "param_name" => "image",
-                    "value" => '',
-                 ),
-                 array(
-                    "type" => "textfield",
                     "heading" => __("Extra class name", "js_composer"),
                     "param_name" => "el_class",
                     "description" => __("If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "js_composer")
                 )
-                /*,array(
-                    "type" => "dropdown",
-                    "holder" => "div",
-                    "class" => "",
-                    "heading" => __("item Style",'itrays'),
-                    "param_name" => "block_style",
-                    "value" => array(
-                        'style 1' =>'1',
-                        'style 2' =>'2',
-                        'style 3' =>'3',
-                        'style 4' =>'4',
-                        'style 5' =>'5',
-                    ),
-                    "description" => __("Select Item style.",'itrays')
-                 )*/
               )
            ) );   
 
@@ -484,12 +488,6 @@ class VCExtendAddonCustomShortCodes {
             'description' => __( 'adds counter with predefined styles', 'js_composer' ),
             "show_settings_on_create" => false,
             "params" => array(
-                array(
-                    "type" => "textfield",
-                    "heading" => __("Extra class name", "js_composer"),
-                    "param_name" => "el_class",
-                    "description" => __("If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "js_composer")
-                ),
                 array(
                     "type" => "dropdown",
                     "holder" => "div",
@@ -531,6 +529,7 @@ class VCExtendAddonCustomShortCodes {
                     "class" => "",
                     "heading" => __("Item Title",'itrays'),
                     "param_name" => "item_title",
+                    'edit_field_class'    => 'vc_col-xs-6 vc_column',
                     "value" => '',
                     "description" => __("type the item title.",'itrays')
                  ),
@@ -540,6 +539,7 @@ class VCExtendAddonCustomShortCodes {
                     "class" => "",
                     "heading" => __("Item Value",'itrays'),
                     "param_name" => "item_value",
+                    'edit_field_class'    => 'vc_col-xs-6 vc_column',
                     "value" => '',
                     "description" => __("type here the item value.",'itrays'),
                  ),
@@ -763,27 +763,27 @@ class VCExtendAddonCustomShortCodes {
                     "heading" => __("Slides to show", "js_composer"),
                     "param_name" => "cl_slides",
                     'value' => '2',
-                    'edit_field_class'    => 'vc_col-md-4 vc_column c_slides',
+                    'edit_field_class'    => 'vc_col-xs-4 vc_column c_slides',
                     "description" => __("number of visible slides.", "js_composer")
                 ),array(
                     "type" => "textfield",
                     "heading" => __("Slides to Scroll", "js_composer"),
                     "param_name" => "cl_scroll",
                     'value' => '2',
-                    'edit_field_class'    => 'vc_col-md-4 vc_column c_slides',
+                    'edit_field_class'    => 'vc_col-xs-4 vc_column c_slides',
                     "description" => __("number of slides that will scroll.", "js_composer")
                 ),array(
                     "type" => "textfield",
                     "heading" => __("Slide Speed", "js_composer"),
                     "param_name" => "cl_speed",
                     'value' => '300',
-                    'edit_field_class'    => 'vc_col-md-4 vc_column c_slides',
+                    'edit_field_class'    => 'vc_col-xs-4 vc_column c_slides',
                     "description" => __("select the speed that slide will be changed.", "js_composer")
                 ),array(
                     "type" => "checkbox",
                     "heading" => __("Fade ?", "js_composer"),
                     "param_name" => "cl_fade",
-                    'edit_field_class'    => 'vc_col-md-3 vc_column c_slides',
+                    'edit_field_class'    => 'vc_col-xs-3 vc_column c_slides',
                     'value' => array(
                         __( 'yes', 'js_composer' ) => '1',
                     )
@@ -791,7 +791,7 @@ class VCExtendAddonCustomShortCodes {
                     "type" => "checkbox",
                     "heading" => __("Auto Play ?", "js_composer"),
                     "param_name" => "cl_auto",
-                    'edit_field_class'    => 'vc_col-md-3 vc_column c_slides',
+                    'edit_field_class'    => 'vc_col-xs-3 vc_column c_slides',
                     'value' => array(
                         __( 'yes', 'js_composer' ) => '1',
                     )
@@ -799,7 +799,7 @@ class VCExtendAddonCustomShortCodes {
                     "type" => "checkbox",
                     "heading" => __("Hide Arrows ?", "js_composer"),
                     "param_name" => "cl_arrows",
-                    'edit_field_class'    => 'vc_col-md-3 vc_column c_slides',
+                    'edit_field_class'    => 'vc_col-xs-3 vc_column c_slides',
                     'value' => array(
                         __( 'yes', 'js_composer' ) => '1',
                     )
@@ -808,7 +808,7 @@ class VCExtendAddonCustomShortCodes {
                     "type" => "checkbox",
                     "heading" => __("Hide Bullets ?", "js_composer"),
                     "param_name" => "cl_dots",
-                    'edit_field_class'    => 'vc_col-md-3 vc_column c_slides',
+                    'edit_field_class'    => 'vc_col-xs-3 vc_column c_slides',
                     'value' => array(
                         __( 'yes', 'js_composer' ) => '1',
                     )
@@ -817,7 +817,7 @@ class VCExtendAddonCustomShortCodes {
                     "type" => "checkbox",
                     "heading" => __("Infinite ?", "js_composer"),
                     "param_name" => "cl_infinite",
-                    'edit_field_class'    => 'vc_col-md-3 vc_column c_slides',
+                    'edit_field_class'    => 'vc_col-xs-3 vc_column c_slides',
                     'value' => array(
                         __( 'yes', 'js_composer' ) => '1',
                     )
@@ -858,20 +858,7 @@ class VCExtendAddonCustomShortCodes {
                     "heading" => __("Extra class name", "js_composer"),
                     "param_name" => "el_class",
                     "description" => __("If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "js_composer")
-                )/*,array(
-                    "type" => "dropdown",
-                    "holder" => "div",
-                    "class" => "",
-                    "heading" => __("Block Style",'itrays'),
-                    "param_name" => "cl_style",
-                    "value" => array(
-                        'Grid style 1' =>'1',
-                        'Grid style 2' =>'2',
-                        'Grid style 3' =>'3',
-                        'Carousel' =>'4',
-                    ),
-                    "description" => __("Select Item style.",'itrays')
-                    ) */
+                )
               )
            ) );      
 
@@ -890,7 +877,17 @@ class VCExtendAddonCustomShortCodes {
                     "type" => "attach_image",
                     "heading" => __("Image",'itrays'),
                     "param_name" => "image",
+                    'edit_field_class' => 'vc_col-xs-6 vc_column',
                     "value" => '',
+                 ),array(
+                    "type" => "dropdown",
+                    "heading" => __("Box Style",'itrays'),
+                    "param_name" => "member_style",
+                    'edit_field_class' => 'vc_col-xs-6 vc_column',
+                    "value" => array(
+                        'style 1' =>'1',
+                        'style 2' =>'2'
+                    )
                  ),array(
                     "type" => "textfield",
                     "heading" => __("Name",'itrays'),
@@ -903,14 +900,6 @@ class VCExtendAddonCustomShortCodes {
                     "type" => "textarea",
                     "heading" => __("Details",'itrays'),
                     "param_name" => "member_details"
-                 ),array(
-                    "type" => "dropdown",
-                    "heading" => __("Member Style",'itrays'),
-                    "param_name" => "member_style",
-                    "value" => array(
-                        'style 1' =>'1',
-                        'style 2' =>'2'
-                    )
                  ),array(
                     "type" => "textfield",
                     "heading" => __("Facebook",'itrays'),
@@ -959,7 +948,7 @@ class VCExtendAddonCustomShortCodes {
                     "holder" => "div",
                     "class" => "",
                     "heading" => __("Item Title",'itrays'),
-                    "param_name" => "item_title",  
+                    "param_name" => "item_title", 
                     "value" => '',
                     "description" => __("type the item title.",'itrays') ,
                     'group' => 'General'
@@ -970,6 +959,7 @@ class VCExtendAddonCustomShortCodes {
                     "class" => "",
                     "heading" => __("Title Color",'itrays'),
                     "param_name" => "title_color",
+                    'edit_field_class' => 'vc_col-xs-6 vc_column',
                     "description" => __("select title color.",'itrays'),
                     'group' => 'General'
                  ),
@@ -977,7 +967,8 @@ class VCExtendAddonCustomShortCodes {
                     "type" => "textfield",
                     "holder" => "div",
                     "class" => "",
-                    "heading" => __("Title Size",'itrays'),
+                    "heading" => __("Title Font Size",'itrays'),
+                    'edit_field_class' => 'vc_col-xs-6 vc_column',
                     "param_name" => "title_size",
                     "description" => __("type title size in px.",'itrays'),
                     'group' => 'General'
@@ -993,6 +984,7 @@ class VCExtendAddonCustomShortCodes {
                     "type" => "textfield",
                     "holder" => "div",
                     "class" => "",
+                    'edit_field_class' => 'vc_col-xs-6 vc_column',
                     "heading" => __("From",'itrays'),
                     "param_name" => "init_value",
                     "value" => '0',
@@ -1002,6 +994,7 @@ class VCExtendAddonCustomShortCodes {
                     "type" => "textfield",
                     "holder" => "div",
                     "class" => "",
+                    'edit_field_class' => 'vc_col-xs-6 vc_column',
                     "heading" => __("To",'itrays'),
                     "value" => '1000',
                     "param_name" => "item_value",
@@ -1013,7 +1006,7 @@ class VCExtendAddonCustomShortCodes {
                     "class" => "",
                     "heading" => __("Start After",'itrays'),
                     "param_name" => "item_timer",
-                    "value" => '1000',
+                    "value" => '100',
                     "description" => __("time in ms Ex:(1000).",'itrays'),
                     'group' => 'Counter Values'
                  ),
@@ -1023,6 +1016,7 @@ class VCExtendAddonCustomShortCodes {
                     "class" => "",
                     "heading" => __("Numbers Color",'itrays'),
                     "param_name" => "numbers_color",
+                    'edit_field_class' => 'vc_col-xs-6 vc_column',
                     "description" => __("select Number color.",'itrays'),
                     'group' => 'Counter Values'
                  ),
@@ -1030,8 +1024,9 @@ class VCExtendAddonCustomShortCodes {
                     "type" => "textfield",
                     "holder" => "div",
                     "class" => "",
-                    "heading" => __("Numbers Size",'itrays'),
+                    "heading" => __("Numbers Font Size",'itrays'),
                     "param_name" => "numbers_size",
+                    'edit_field_class' => 'vc_col-xs-6 vc_column',
                     "description" => __("type numbers size in px.",'itrays'),
                     'group' => 'Counter Values'
                  ), 
@@ -1050,6 +1045,7 @@ class VCExtendAddonCustomShortCodes {
                     "class" => "",
                     "heading" => __("Icon Size",'itrays'),
                     "param_name" => "icon_size",
+                    'edit_field_class' => 'vc_col-xs-6 vc_column',
                     "description" => __("type icon size in px.",'itrays'),
                     'group' => 'Icon'
                  ),
@@ -1059,6 +1055,7 @@ class VCExtendAddonCustomShortCodes {
                     "class" => "",
                     "heading" => __("Icon Color",'itrays'),
                     "param_name" => "icon_color",
+                    'edit_field_class' => 'vc_col-xs-6 vc_column',
                     "description" => __("select icon color.",'itrays'),
                     'group' => 'Icon'
                  ),
@@ -1113,6 +1110,7 @@ class VCExtendAddonCustomShortCodes {
                     "class" => "",
                     "heading" => __("Text Color",'itrays'),
                     "param_name" => "text_color",
+                    'edit_field_class' => 'vc_col-xs-6 vc_column',
                     "description" => __("select text color.",'itrays'),
                     'group' => 'General'
                  ),
@@ -1120,8 +1118,9 @@ class VCExtendAddonCustomShortCodes {
                     "type" => "textfield",
                     "holder" => "div",
                     "class" => "",
-                    "heading" => __("Text Size",'itrays'),
+                    "heading" => __("Text Font Size",'itrays'),
                     "param_name" => "text_size",
+                    'edit_field_class' => 'vc_col-xs-6 vc_column',
                     "description" => __("type text size in px.",'itrays'),
                     'group' => 'General'
                  ),
@@ -1132,6 +1131,7 @@ class VCExtendAddonCustomShortCodes {
                     "heading" => __("From",'itrays'),
                     "param_name" => "init_value",
                     "value" => '0',
+                    'edit_field_class' => 'vc_col-xs-6 vc_column',
                     'group' => 'Counter Values'
                  ),
                  array(
@@ -1139,7 +1139,8 @@ class VCExtendAddonCustomShortCodes {
                     "holder" => "div",
                     "class" => "",
                     "heading" => __("To",'itrays'),
-                    "value" => '1000',
+                    "value" => '100',
+                    'edit_field_class' => 'vc_col-xs-6 vc_column',
                     "param_name" => "item_value",
                     'group' => 'Counter Values'
                  ),
@@ -1159,6 +1160,7 @@ class VCExtendAddonCustomShortCodes {
                     "class" => "",
                     "heading" => __("Numbers Color",'itrays'),
                     "param_name" => "numbers_color",
+                    'edit_field_class' => 'vc_col-xs-6 vc_column',
                     "description" => __("select Number color.",'itrays'),
                     'group' => 'Counter Values'
                  ),
@@ -1166,8 +1168,9 @@ class VCExtendAddonCustomShortCodes {
                     "type" => "textfield",
                     "holder" => "div",
                     "class" => "",
-                    "heading" => __("Numbers Size",'itrays'),
+                    "heading" => __("Numbers Font Size",'itrays'),
                     "param_name" => "numbers_size",
+                    'edit_field_class' => 'vc_col-xs-6 vc_column',
                     "description" => __("type numbers size in px.",'itrays'),
                     'group' => 'Counter Values'
                  ),
@@ -1250,6 +1253,14 @@ class VCExtendAddonCustomShortCodes {
                     'class' => 'it_checkbox',
                     'edit_field_class' => 'vc_col-md-6 vc_column',
                 ),array(
+                    'type' => 'checkbox',
+                    'heading' => __( 'Parallax Background?', 'js_composer' ),
+                    'param_name' => 'parallax_check',
+                    'group' => 'Design options',
+                    'edit_field_class' => 'vc_col-md-6 vc_column',
+                    'value' => array( __( 'Yes', 'js_composer' ) => '1' ),
+                    'class' => 'it_checkbox'
+                ),array(
                     'type' => 'colorpicker',
                     'heading' => __( 'Background Color', 'js_composer' ),
                     'param_name' => 'section_bg_color',
@@ -1274,8 +1285,8 @@ class VCExtendAddonCustomShortCodes {
                               __('No Repeat', 'js_composer') => 'no-repeat'
                               ),
                     'description' => __( '', 'js_composer' ),
-                    'dependency' => array( 'element' => 'bg_image', 'not_empty' => true)
-              ),array(
+                    'dependency' => array( 'element' => 'it_bg_img', 'not_empty' => true)
+              )/*,array(
                     'type' => 'dropdown',
                     'heading' => __( 'Background Position', 'js_composer' ),
                     'param_name' => 'bg_image_position',
@@ -1293,8 +1304,8 @@ class VCExtendAddonCustomShortCodes {
                               __( 'Center Bottom', 'js_composer' ) => '50% 100%'
                               ),
                     'description' => __( '', 'js_composer' ),
-                    'dependency' => array( 'element' => 'bg_image', 'not_empty' => true)
-              ),array(
+                    'dependency' => array( 'element' => 'it_bg_img', 'not_empty' => true)
+              )*/,array(
                     'type' => 'dropdown',
                     'heading' => __( 'Background Attachment', 'js_composer' ),
                     'param_name' => 'bg_image_attachment',
@@ -1305,7 +1316,7 @@ class VCExtendAddonCustomShortCodes {
                               __( 'Fixed', 'js_composer' ) => 'fixed',
                               ),
                     'description' => __( '', 'js_composer' ),
-                    'dependency' => array( 'element' => 'bg_image', 'not_empty' => true)
+                    'dependency' => array( 'element' => 'it_bg_img', 'not_empty' => true)
               ),array(
                     'type' => 'checkbox',
                     'heading' => __( '100% Full Background image ?', 'js_composer' ),
@@ -1313,14 +1324,6 @@ class VCExtendAddonCustomShortCodes {
                     'group' => 'Design options',
                     'edit_field_class' => 'vc_col-md-6 vc_column',
                     'description' => __( 'If selected, the background image will be 100% full.', 'js_composer' ),
-                    'value' => array( __( 'Yes', 'js_composer' ) => '1' ),
-                    'class' => 'it_checkbox'
-                ),array(
-                    'type' => 'checkbox',
-                    'heading' => __( 'Parallax Background?', 'js_composer' ),
-                    'param_name' => 'parallax',
-                    'group' => 'Design options',
-                    'edit_field_class' => 'vc_col-md-6 vc_column',
                     'value' => array( __( 'Yes', 'js_composer' ) => '1' ),
                     'class' => 'it_checkbox'
                 ),array(
@@ -1392,6 +1395,26 @@ class VCExtendAddonCustomShortCodes {
                     "heading" => __("Extra class name", "js_composer"),
                     "param_name" => "el_class",
                     "description" => __("If you wish to style particular content element differently, then use this field to add a class name and then refer to it in your css file.", "js_composer")
+                ),
+                array(
+                    'type' => 'checkbox',
+                    'heading' => __( 'Use video background?', 'js_composer' ),
+                    'param_name' => 'video_bg',
+                    'group' => 'Video Background',
+                    'description' => __( 'If checked, video will be used as row background.', 'js_composer' ),
+                    'value' => array( __( 'Yes', 'js_composer' ) => 'yes' )
+                ),
+                array(
+                    'type' => 'textfield',
+                    'heading' => __( 'YouTube link', 'js_composer' ),
+                    'param_name' => 'video_bg_url',
+                    'group' => 'Video Background',
+                    'value' => 'https://www.youtube.com/watch?v=lMJXxhRFO1k', // default video url
+                    'description' => __( 'Add YouTube link.', 'js_composer' ),
+                    'dependency' => array(
+                        'element' => 'video_bg',
+                        'not_empty' => true,
+                    ),
                 )
             );
 
@@ -1606,25 +1629,22 @@ class VCExtendAddonCustomShortCodes {
         vc_add_params( "vc_cta_button2", $anim );
         vc_add_params( "vc_btn", $anim );
         vc_add_params( "vc_column_inner", $anim );
-
         vc_add_params( 'vc_row', $rowAtts );
-        vc_add_param( 'vc_tabs', $tabsAtts );
-        vc_add_param( 'vc_tab', $acctabAtts );
-        vc_add_param( 'vc_tour', $tourAtts );
         vc_add_params( 'vc_accordion', $accAtts );
-        vc_add_param( 'vc_accordion_tab', $acctabAtts );
         vc_add_params( 'vc_button2', $btnAtts );
         vc_add_params( 'vc_btn', $btnAtts );
         vc_add_params( 'vc_progress_bar', $progressAtts );
+        vc_add_param( 'vc_tabs', $tabsAtts );
+        vc_add_param( 'vc_tab', $acctabAtts );
+        vc_add_param( 'vc_tour', $tourAtts );
+        vc_add_param( 'vc_accordion_tab', $acctabAtts );
 
     }
+    
     function inputs_js(){    
-        
-        echo '<script type="text/javascript" src="'.plugins_url( 'assets/js/edit.js', __FILE__ ).'"></script>';
-        echo '<link rel="stylesheet" href="'.plugins_url( 'assets/css/edit.css', __FILE__ ).'" />';
-        
-           
+        echo '<script type="text/javascript" src="'.plugins_url( 'assets/js/edit.js', __FILE__ ).'"></script>';        
     }
+    
     public function integrateWithVC() {
         if ( ! defined( 'WPB_VC_VERSION' ) ) {
             add_action('admin_notices', array( $this, 'showVcVersionNotice' ));
@@ -1637,37 +1657,48 @@ class VCExtendAddonCustomShortCodes {
         global $vc_manager;
         $vc_manager->setIsAsTheme();
         $vc_manager->disableUpdater();
-        $vc_manager->frontendEditor()->disableInline();
+        //$vc_manager->frontendEditor()->disableInline();
         
         include_once( TI_PLUGIN_DIR . '/inc/extends.php' ); 
+        add_action('admin_print_styles', 'it_scripts_styles');
         
-        function it_vc_icon( $settings, $value ) {
+        if ( ! function_exists( 'it_scripts_styles' ) ) {
+            function it_scripts_styles(){
+            wp_enqueue_style( 'superfine-css', plugins_url( '/assets/css/edit.css', __FILE__ ) );
+        }
+        }
+        if ( ! function_exists( 'it_vc_icon' ) ) {
+            function it_vc_icon( $settings, $value ) {
           $output = '<div>';
-          $output  .= '<i class="cust-icon ico '.$value.'"></i><a class="button button-primary btn_icon" href="#">Add Icon</a><input type="hidden" name="'.$settings['param_name'].'" class="wpb_vc_param_value it_vc_icon icon-value icon_input '. $settings['param_name'] .' '. $settings['type'] .'" value="'. $value .'" /><a class="button icon-remove">Remove Icon</a>';
+          $output  .= '<i class="cust-icon ico '.$value.'"></i><a class="button button-primary btn_icon" href="#">Add Icon</a><input type="hidden" name="'.$settings['param_name'].'" class="wpb_vc_param_value it_vc_icon icon-value icon_cust '. $settings['param_name'] .' '. $settings['type'] .'" value="'. $value .'" /><a class="button icon-remove">Remove Icon</a>';
           $output   .= '</div>';
           return $output;
         }
-        
+        }
         add_shortcode_param('it_vc_icon', 'it_vc_icon');
         add_action( 'wp-head', 'inputs_js' );
         
         // upload image parameter
-        function it_upload_img( $settings, $value ) {
+        if ( ! function_exists( 'it_upload_img' ) ) {
+            function it_upload_img( $settings, $value ) {
           return '<input class="regular-text wpb_vc_param_value wpb-textinput ' .
                      esc_attr( $settings['param_name'] ) . ' ' .
                      esc_attr( $settings['type'] ) . '_field" name="' . esc_attr( $settings['param_name'] ) . '" type="text" value="' . esc_attr( $value ) . '" /><input class="upload_image_button" type="button" value="Upload Image" /><div class="no-margin clear-img"><img class="logo-im" alt="" src="'. esc_attr( $value ) .'" /> <a class="remove-img" href="#">remove</a></div>';
         }
+        }
         add_shortcode_param('it_up_img', 'it_upload_img');
 
         // section video background parameter
-        function it_upload_video_bg( $settings, $value ) {
+        if ( ! function_exists( 'it_upload_video_bg' ) ) {
+            function it_upload_video_bg( $settings, $value ) {
           return '<input class="regular-text wpb_vc_param_value wpb-textinput ' .
                      esc_attr( $settings['param_name'] ) . ' ' .
                      esc_attr( $settings['type'] ) . '_field" name="' . esc_attr( $settings['param_name'] ) . '" type="text" value="' . esc_attr( $value ) . '" /><input class="upload_video_button" type="button" value="Browse" />';
         }
+        }
         add_shortcode_param('it_video_bg', 'it_upload_video_bg');
-
-        function it_dropdown_cats( ) {
+        if ( ! function_exists( 'it_dropdown_cats' ) ) {
+            function it_dropdown_cats( ) {
           
             $categories_obj = get_categories('hide_empty=0');
             $categories = array();
@@ -1678,8 +1709,9 @@ class VCExtendAddonCustomShortCodes {
             return $categories;
             
         }
-
-        function colorCreator($colour, $per) {  
+        }
+        if ( ! function_exists( 'colorCreator' ) ) {
+            function colorCreator($colour, $per) {  
         $colour = substr( $colour, 1 ); // Removes first character of hex string (#) 
         $rgb = ''; // Empty variable 
         $per = $per/100*255; // Creates a percentage to work with. Change the middle figure to control colour temperature
@@ -1707,7 +1739,7 @@ class VCExtendAddonCustomShortCodes {
         } 
         return '#'.$rgb; 
     } 
-        
+        }
     }
     
 }

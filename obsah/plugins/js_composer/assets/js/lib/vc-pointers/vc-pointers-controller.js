@@ -18,7 +18,7 @@ var vcPointersController;
 	 */
 	vcPointersController = function ( Pointer, texts ) {
 		this.pointers = ( Pointer && Pointer.messages ) || [];
-		this._texts = texts; // @todo Remove from controller use simple localization
+		this._texts = texts; // @TODO: Remove from controller use simple localization
 		this.pointerId = Pointer && Pointer.pointer_id ? Pointer.pointer_id : '';
 		this.pointerData = {};
 		this._index = 0;
@@ -70,7 +70,7 @@ var vcPointersController;
 			} else {
 				data.buttons = this.buttonsEvent;
 			}
-			data.vcPointerController = this; // Just in case. @todo Remove it in the future.
+			data.vcPointerController = this; // Just in case. TODO: Remove it in the future.
 			return data;
 		},
 		/**
@@ -177,7 +177,7 @@ var vcPointersController;
 			$closeBtn.bind( 'click.vcPointer', this.clickEventClose );
 
 			$buttons = this.pointer.domButtonsWrapper().append( $closeBtn );
-			if ( 0 < this._index > 0 ) {
+			if ( 0 < this._index ) {
 				$prevBtn.bind( 'click.vcPointer', this.clickEventPrev );
 				$buttons.addClass( 'vc_wp-pointer-controls-prev' ).append( $prevBtn );
 			}

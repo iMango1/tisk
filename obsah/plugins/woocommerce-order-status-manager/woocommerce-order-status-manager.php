@@ -3,9 +3,9 @@
  * Plugin Name: WooCommerce Order Status Manager
  * Plugin URI: http://www.woothemes.com/products/woocommerce-order-status-manager/
  * Description: Easily create custom order statuses and trigger custom emails when order status changes
- * Author: SkyVerge
- * Author URI: http://www.skyverge.com
- * Version: 1.1.4
+ * Author: WooThemes / SkyVerge
+ * Author URI: http://www.woothemes.com
+ * Version: 1.2.2
  * Text Domain: woocommerce-order-status-manager
  * Domain Path: /i18n/languages/
  *
@@ -25,7 +25,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 // Required functions
 if ( ! function_exists( 'woothemes_queue_update' ) ) {
-	require_once( 'woo-includes/woo-functions.php' );
+	require_once( plugin_dir_path( __FILE__ ) . 'woo-includes/woo-functions.php' );
 }
 
 // Plugin updates
@@ -38,10 +38,10 @@ if ( ! is_woocommerce_active() ) {
 
 // Required library class
 if ( ! class_exists( 'SV_WC_Framework_Bootstrap' ) ) {
-	require_once( 'lib/skyverge/woocommerce/class-sv-wc-framework-bootstrap.php' );
+	require_once( plugin_dir_path( __FILE__ ) . 'lib/skyverge/woocommerce/class-sv-wc-framework-bootstrap.php' );
 }
 
-SV_WC_Framework_Bootstrap::instance()->register_plugin( '3.1.0', __( 'WooCommerce Order Status Manager', 'woocommerce-order-status-manager' ), __FILE__, 'init_woocommerce_order_status_manager', array( 'minimum_wc_version' => '2.1', 'backwards_compatible' => '3.1.0' ) );
+SV_WC_Framework_Bootstrap::instance()->register_plugin( '4.0.0', __( 'WooCommerce Order Status Manager', 'woocommerce-order-status-manager' ), __FILE__, 'init_woocommerce_order_status_manager', array( 'minimum_wc_version' => '2.2', 'backwards_compatible' => '4.0.0' ) );
 
 function init_woocommerce_order_status_manager() {
 
@@ -59,7 +59,7 @@ class WC_Order_Status_Manager extends SV_WC_Plugin {
 
 
 	/** plugin version number */
-	const VERSION = '1.1.4';
+	const VERSION = '1.2.2';
 
 	/** @var WC_Order_Status_Manager single instance of this plugin */
 	protected static $instance;
@@ -121,21 +121,21 @@ class WC_Order_Status_Manager extends SV_WC_Plugin {
 	 */
 	public function includes() {
 
-		require_once( 'includes/class-wc-order-status-manager-order-statuses.php' );
+		require_once( $this->get_plugin_path() . '/includes/class-wc-order-status-manager-order-statuses.php' );
 		$this->order_statuses = new WC_Order_Status_Manager_Order_Statuses();
 
-		require_once( 'includes/class-wc-order-status-manager-post-types.php' );
+		require_once( $this->get_plugin_path() . '/includes/class-wc-order-status-manager-post-types.php' );
 		WC_Order_Status_Manager_Post_Types::initialize();
 
-		require_once( 'includes/class-wc-order-status-manager-emails.php' );
-		require_once( 'includes/class-wc-order-status-manager-icons.php' );
+		require_once( $this->get_plugin_path() . '/includes/class-wc-order-status-manager-emails.php' );
+		require_once( $this->get_plugin_path() . '/includes/class-wc-order-status-manager-icons.php' );
 
-		$this->emails         = new WC_Order_Status_Manager_Emails();
-		$this->icons          = new WC_Order_Status_Manager_Icons();
+		$this->emails = new WC_Order_Status_Manager_Emails();
+		$this->icons  = new WC_Order_Status_Manager_Icons();
 
 		// Frontend includes
 		if ( ! is_admin() || defined( 'DOING_AJAX' ) ) {
-			require_once( 'includes/class-wc-order-status-manager-frontend.php' );
+			require_once( $this->get_plugin_path() . '/includes/class-wc-order-status-manager-frontend.php' );
 			$this->frontend = new WC_Order_Status_Manager_Frontend();
 		}
 
@@ -157,7 +157,7 @@ class WC_Order_Status_Manager extends SV_WC_Plugin {
 	 */
 	private function admin_includes() {
 
-		require_once( 'includes/admin/class-wc-order-status-manager-admin.php' );
+		require_once( $this->get_plugin_path() . '/includes/admin/class-wc-order-status-manager-admin.php' );
 		$this->admin = new WC_Order_Status_Manager_Admin();
 	}
 
@@ -169,7 +169,7 @@ class WC_Order_Status_Manager extends SV_WC_Plugin {
 	 */
 	private function ajax_includes() {
 
-		include_once( 'includes/class-wc-order-status-manager-ajax.php' );
+		include_once( $this->get_plugin_path() . '/includes/class-wc-order-status-manager-ajax.php' );
 		$this->ajax = new WC_Order_Status_Manager_AJAX();
 	}
 
@@ -195,8 +195,6 @@ class WC_Order_Status_Manager extends SV_WC_Plugin {
 
 		// Include required files
 		$this->includes();
-
-		$this->order_statuses->ensure_statuses_have_posts();
 	}
 
 
@@ -211,35 +209,19 @@ class WC_Order_Status_Manager extends SV_WC_Plugin {
 	 */
 	public function locate_template( $template, $template_name, $template_path ) {
 
-		// Tmp holder
-		$_template = $template;
+		// Only keep looking if no custom theme template was found or if
+ 		// a default WooCommerce template was found.
+ 		if ( ! $template || SV_WC_Helper::str_starts_with( $template, WC()->plugin_path() ) ) {
 
-		if ( ! $template_path ) {
-			$template_path = WC_TEMPLATE_PATH;
-		}
+ 			// Set the path to our templates directory
+ 			$plugin_path = $this->get_plugin_path() . '/templates/';
 
-		// Set our base path
-		$plugin_path = $this->get_plugin_path() . '/templates/';
+ 			// If a template is found, make it so
+ 			if ( is_readable( $plugin_path . $template_name ) ) {
+ 				$template = $plugin_path . $template_name;
+ 			}
+ 		}
 
-		// Look within passed path within the theme - this is priority
-		$template = locate_template(
-			array(
-				trailingslashit( $template_path ) . $template_name,
-				$template_name
-			)
-		);
-
-		// Get the template from this plugin, if it exists
-		if ( ! $template && file_exists( $plugin_path . $template_name ) ) {
-			$template = $plugin_path . $template_name;
-		}
-
-		// Use default template
-		if ( ! $template ) {
-			$template = $_template;
-		}
-
-		// Return what we found
 		return $template;
 	}
 
@@ -326,6 +308,32 @@ class WC_Order_Status_Manager extends SV_WC_Plugin {
 
 
 	/**
+	 * Gets the plugin documentation URL
+	 *
+	 * @since 1.2.0
+	 * @see SV_WC_Plugin::get_documentation_url()
+	 * @return string
+	 */
+	public function get_documentation_url() {
+
+		return 'http://docs.woothemes.com/document/woocommerce-order-status-manager/';
+	}
+
+
+	/**
+	 * Gets the plugin support URL
+	 *
+	 * @since 1.2.0
+	 * @see SV_WC_Plugin::get_support_url()
+	 * @return string
+	 */
+	public function get_support_url() {
+
+		return 'http://support.woothemes.com/';
+	}
+
+
+	/**
 	 * Returns true if on the Order Status Manager settings page
 	 *
 	 * @since 1.0.0
@@ -350,6 +358,9 @@ class WC_Order_Status_Manager extends SV_WC_Plugin {
 	protected function install() {
 
 		$this->icons->update_icon_options();
+
+		// create posts for all order statuses
+		$this->order_statuses->ensure_statuses_have_posts();
 	}
 
 
@@ -401,10 +412,10 @@ class WC_Order_Status_Manager extends SV_WC_Plugin {
 
 
 /**
- * Returns the One True Instance of <plugin>
+ * Returns the One True Instance of Order Status Manager
  *
  * @since 1.1.0
- * @return <class name>
+ * @return WC_Order_Status_Manager
  */
 function wc_order_status_manager() {
 	return WC_Order_Status_Manager::instance();

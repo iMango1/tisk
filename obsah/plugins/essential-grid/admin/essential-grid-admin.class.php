@@ -98,7 +98,10 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 			
 			$upgrade = new Essential_Grid_Update( Essential_Grid::VERSION );
 
-			$upgrade->_retrieve_version_info();
+			if(isset($_GET['checkforupdates']) && $_GET['checkforupdates'] == 'true')
+				$upgrade->_retrieve_version_info(true);
+			else
+				$upgrade->_retrieve_version_info();
 			
 			if($validated === 'true') {
 				$upgrade->add_update_checks();
@@ -1054,7 +1057,7 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 	public static function check_purchase_verification($data){
 		global $wp_version;
 		
-		$response = wp_remote_post('http://updates.themepunch.com/activate.php', array(
+		$response = wp_remote_post('http://updates.themepunch.tools/activate.php', array(
 			'user-agent' => 'WordPress/'.$wp_version.'; '.get_bloginfo('url'),
 			'body' => array(
 				'name' => urlencode($data['username']),
@@ -1097,7 +1100,7 @@ class Essential_Grid_Admin extends Essential_Grid_Base {
 		$name = get_option('tp_eg_username', '');
 		$code = get_option('tp_eg_code', '');
 		
-		$response = wp_remote_post('http://updates.themepunch.com/deactivate.php', array(
+		$response = wp_remote_post('http://updates.themepunch.tools/deactivate.php', array(
 			'user-agent' => 'WordPress/'.$wp_version.'; '.get_bloginfo('url'),
 			'body' => array(
 				'name' => urlencode($name),

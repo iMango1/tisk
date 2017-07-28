@@ -31,7 +31,7 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 					<div id="dashboard">
 						<div class="postbox">
 							<div class="handlediv" title="Click to toggle"><br></div>
-							<h3 class="hndle"><span><?php _e( 'Meta boxes' , $this->ltd ); ?></span></h3>
+							<h3 class="hndle"><span><?php _e( 'Meta boxes' , 'wp-admin-ui-customize' ); ?></span></h3>
 							<div class="inside">
 							
 								<?php if( !empty( $Metaboxes["metaboxes"]["dashboard"] ) ) : ?>
@@ -44,7 +44,7 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 														<input type="checkbox" name="" class="check_all" />
 														<strong><?php _e( 'Select All' ); ?></strong>
 													</td>
-													<td><strong><?php _e( 'Change metabox title to' , $this->ltd ); ?></strong></td>
+													<td><strong><?php _e( 'Update meta box title' , 'wp-admin-ui-customize' ); ?></strong></td>
 												</tr>
 											</thead>
 											<tbody>
@@ -93,7 +93,7 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 									<p>
 										<a href="<?php echo $load_link; ?>" class="button button-primary column_load">
 											<span class="dashicons dashicons-update"></span>
-											<?php echo sprintf( __( 'Metaboxes loading for %s', $this->ltd ) , __( 'Dashboard' ) ); ?>
+											<?php echo sprintf( __( 'Refresh meta boxes for %s', 'wp-admin-ui-customize' ) , __( 'Dashboard' ) ); ?>
 										</a>
 									</p>
 									<p class="loading">
@@ -106,19 +106,19 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 			
 						<div class="postbox">
 							<div class="handlediv" title="Click to toggle"><br></div>
-							<h3 class="hndle"><span><?php _e( 'Other' , $this->ltd ); ?></span></h3>
+							<h3 class="hndle"><span><?php _e( 'Other' , 'wp-admin-ui-customize' ); ?></span></h3>
 							<div class="inside">
 								<table class="form-table">
 									<tbody>
 										<?php $field = 'metabox_move'; ?>
 										<tr>
 											<th>
-												<label><?php _e( 'Meta box movement restriction' , $this->ltd ); ?></label>
+												<label><?php _e( 'Meta box movement' , 'wp-admin-ui-customize' ); ?></label>
 											</th>
 											<td>
 												<?php $Checked = ''; ?>
 												<?php if( !empty( $Data[$field] ) ) : $Checked = 'checked="checked"'; endif; ?>
-												<label><input type="checkbox" name="data[<?php echo $field; ?>]" value="1" <?php echo $Checked; ?> /> <?php _e( "Prevent selected roles from re-arranging metaboxes" , $this->ltd ); ?></label>
+												<label><input type="checkbox" name="data[<?php echo $field; ?>]" value="1" <?php echo $Checked; ?> /> <?php _e( "Prevent selected roles from re-arrange meta boxes" , 'wp-admin-ui-customize' ); ?></label>
 											</td>
 										</tr>
 									</tbody>
@@ -139,8 +139,8 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 		</p>
 
 		<p class="submit reset">
-			<span class="description"><?php printf( __( 'Reset the %s?' , $this->ltd ) , __( 'Dashboard' ) . __( 'Settings' ) ); ?></span>
-			<input type="submit" class="button-secondary" name="reset" value="<?php _e( 'Reset settings' , $this->ltd ); ?>" />
+			<span class="description"><?php printf( __( 'Reset the %s?' , 'wp-admin-ui-customize' ) , __( 'Dashboard' ) . __( 'Settings' ) ); ?></span>
+			<input type="submit" class="button-secondary" name="reset" value="<?php _e( 'Reset settings' , 'wp-admin-ui-customize' ); ?>" />
 		</p>
 
 	</form>

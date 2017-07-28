@@ -404,7 +404,7 @@ class WC_Order_Status_Manager_Admin_Orders {
 		}
 
 		$sendback = add_query_arg( array( 'post_type' => 'shop_order', $report_action => true, 'changed' => $changed, 'ids' => join( ',', $post_ids ) ), '' );
-		wp_redirect( $sendback );
+		wp_redirect( esc_url_raw( $sendback ) );
 		exit;
 	}
 

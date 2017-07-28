@@ -12,8 +12,8 @@ if( !defined( 'ABSPATH') ) exit();
 class Essential_Grid_Update {
 
 	private $plugin_url			= 'http://codecanyon.net/item/essential-grid-responsive-wordpress-plugin';
-	private $remote_url			= 'http://updates.themepunch.com/check_for_updates.php';
-	private $remote_url_info	= 'http://updates.themepunch.com/essential-grid/essential-grid.php';
+	private $remote_url			= 'http://updates.themepunch.tools/check_for_updates.php';
+	private $remote_url_info	= 'http://updates.themepunch.tools/essential-grid/essential-grid.php';
 	private $plugin_slug		= 'essential-grid';
 	private $plugin_path		= 'essential-grid/essential-grid.php';
 	private $version;
@@ -74,6 +74,10 @@ class Essential_Grid_Update {
 		//reset saved options
 		//update_option($this->option, false);
 		
+		$force = false;
+		
+		if(isset($_GET['checkforupdates']) && $_GET['checkforupdates'] == 'true') $force = true;
+		
 		// Get data
 		if(empty($this->data)) {
 			$data = get_option($this->option, false);
@@ -90,8 +94,7 @@ class Essential_Grid_Update {
 		}
 		
 		// Check for updates
-		if(time() - $last_check > 14400){
-			
+		if(time() - $last_check > 14400 || $force == true){
 			$data = $this->_retrieve_update_info();
 			
 			if(isset($data->basic)) {
@@ -127,7 +130,8 @@ class Essential_Grid_Update {
 				'api' => urlencode($api_key),
 				'username' => urlencode($username),
 				'code' => urlencode($code),
-				'product' => urlencode('essential-grid')
+				'product' => urlencode('essential-grid'),
+				'version' => urlencode(Essential_Grid::VERSION)
 			)
 		));
 		
@@ -147,7 +151,7 @@ class Essential_Grid_Update {
 	}
 	
 	
-	public function _retrieve_version_info() {
+	public function _retrieve_version_info($force = false) {
 		global $wp_version;
 		
 		$last_check = get_option('tp_eg_update-check-short');
@@ -157,14 +161,14 @@ class Essential_Grid_Update {
 		}
 		
 		// Check for updates
-		if(time() - $last_check > 14400){
-			
+		if(time() - $last_check > 14400 || $force == true){
 			update_option('tp_eg_update-check-short', time());
 			
 			$response = wp_remote_post($this->remote_url, array(
 				'user-agent' => 'WordPress/'.$wp_version.'; '.get_bloginfo('url'),
 				'body' => array(
-					'item' => urlencode('essential-grid')
+					'item' => urlencode('essential-grid'),
+					'version' => urlencode(Essential_Grid::VERSION)
 				)
 			));
 			

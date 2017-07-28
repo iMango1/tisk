@@ -1,4 +1,40 @@
-﻿.no-padding{
+﻿.no-bg{
+	background-image: none !important;
+	background-color: #00cdf2;
+	border-radius: 5px;
+	font-size: 18px !important;
+	color: #fff;
+	width: 31px !important;
+	height: 31px !important;
+	top: 15px !important;
+	line-height: 33px !important;
+	text-align: center;
+}
+.no-bg.fa-comment-o{
+	line-height:30px !important;
+	font-size: 15px !important
+}
+.mce-toolbar {
+	display: block !important;
+}
+.vc_shortcode-param{
+	border-bottom: 1px #EAEAEA solid;
+	padding-bottom: 10px;
+}
+.vc_description{
+	font-size:11px
+}
+.vc_properties-list input[type=checkbox],.vc_checkbox-label{
+	margin-left:0 !important;
+	padding-left:0 !important
+}
+.vc_edit_form_elements .vc_column {
+	padding-top:15px
+}
+.vc_edit_form_elements .vc_column+.vc_column, .vc_edit_form_elements .vc_column-with-padding{
+	padding-top:0px
+}
+.no-padding{
 	padding-top:0 !important
 }
 .custom-checkbox{
@@ -21,7 +57,6 @@
     height: 26px;
 	float:left;
 	background-color: #f3f3f3;
-    border-radius: 18px;
 	cursor: pointer;
     -webkit-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.4);
     -moz-box-shadow: inset 0px 0px 8px 0px rgba(0,0,0,0.4);
@@ -53,7 +88,6 @@
 	width: 18px;
 	height: 18px;
 	background: white;
-	border-radius: 10px;
 	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 	background-image: -webkit-linear-gradient(top, white 40%, #f0f0f0);
 	background-image: -moz-linear-gradient(top, white 40%, #f0f0f0);
@@ -75,7 +109,7 @@
 	text-shadow: 0 1px rgba(255, 255, 255, 0.5);
 }
 .custom-checkbox.selected{
-    background: #4CBBFF;
+    background: #26B99A;
 }
 .custom-checkbox .on,.custom-checkbox .off{
     margin: 0 !important;
@@ -115,4 +149,19 @@
 .vc_checkbox-label{
 	padding-left: 8px
 }
-
+li[data-element*="it_"],li[data-element="vc_testimonials"],li[data-element="staff_row"]{
+	background: #ECECEC !important;
+}
+li[data-element*="it_"]:after,li[data-element="vc_testimonials"]:after,li[data-element="staff_row"]:after {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    background: #00cdf2;
+    color: #fff;
+    font-size: 8px;
+    display: inline-block;
+    content: "EXCEPTION";
+    font-weight: bold;
+    padding: 3px;
+    line-height: 1;
+}

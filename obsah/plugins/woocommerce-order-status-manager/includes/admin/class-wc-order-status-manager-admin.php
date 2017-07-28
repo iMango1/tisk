@@ -223,17 +223,17 @@ class WC_Order_Status_Manager_Admin {
 		if ( 'post-new.php' == $pagenow || 'post.php' == $pagenow || 'edit.php' == $pagenow ) {
 
 			if ( 'wc_order_status' === $typenow || isset( $_GET['post'] ) && 'wc_order_status' === get_post_type( $_GET['post'] ) ) {
-				require_once( 'class-wc-order-status-manager-admin-order-statuses.php' );
+				require_once( wc_order_status_manager()->get_plugin_path() . '/includes/admin/class-wc-order-status-manager-admin-order-statuses.php' );
 				$this->admin_order_statuses = new WC_Order_Status_Manager_Admin_Order_Statuses();
 			}
 
 			if ( 'wc_order_email' === $typenow || isset( $_GET['post'] ) && 'wc_order_email' === get_post_type( $_GET['post'] ) ) {
-				require_once( 'class-wc-order-status-manager-admin-order-status-emails.php' );
+				require_once( wc_order_status_manager()->get_plugin_path() . '/includes/admin/class-wc-order-status-manager-admin-order-status-emails.php' );
 				$this->admin_order_statuses = new WC_Order_Status_Manager_Admin_Order_Status_Emails();
 			}
 
 			if ( 'shop_order' === $typenow || isset( $_GET['post'] ) && 'shop_order' === get_post_type( $_GET['post'] ) ) {
-				require_once( 'class-wc-order-status-manager-admin-orders.php' );
+				require_once( wc_order_status_manager()->get_plugin_path() . '/includes/admin/class-wc-order-status-manager-admin-orders.php' );
 				$this->admin_orders = new WC_Order_Status_Manager_Admin_Orders();
 			}
 		}
@@ -452,7 +452,7 @@ class WC_Order_Status_Manager_Admin {
 	 * @param int $post_id
 	 * @param WP_Post $post
 	 */
-	public function save_meta_boxes( $post_id, WP_Post $post ) {
+	public function save_meta_boxes( $post_id, $post ) {
 
 		// $post_id and $post are required
 		if ( empty( $post_id ) || empty( $post ) ) {
@@ -558,12 +558,7 @@ class WC_Order_Status_Manager_Admin {
 
 		$order_statuses = new WC_Order_Status_Manager_Order_Statuses();
 
-		$status_posts = get_posts( array(
-			'post_type'      => 'wc_order_status',
-			'post_status'    => 'publish',
-			'posts_per_page' => -1,
-			'fields'         => 'ids',
-		) );
+		$status_posts = $order_statuses->get_order_status_posts( array( 'fields' => 'ids' ) );
 
 		foreach ( $status_posts as $post_id ) {
 
@@ -581,6 +576,9 @@ class WC_Order_Status_Manager_Admin {
 			}
 		}
 
+		// ensure report statuses are unique
+		$report_statuses = array_unique( $report_statuses );
+
 		return $report_statuses;
 	}
 
@@ -594,33 +592,33 @@ class WC_Order_Status_Manager_Admin {
 	 */
 	public function order_report_data_args( $args ) {
 
-		if ( isset( $args['parent_order_status'] ) && is_array( $args['parent_order_status'] ) ) {
+		// don't alter the order statuses if it's not an array or if 'refunded' is the only status
+		if ( ! isset( $args['parent_order_status'] ) || ! is_array( $args['parent_order_status'] ) || ( 1 === count( $args['parent_order_status'] ) && 'refunded' === $args['parent_order_status'][0] ) ) {
+			return $args;
+		}
 
-			$order_statuses = new WC_Order_Status_Manager_Order_Statuses();
+		$order_statuses = new WC_Order_Status_Manager_Order_Statuses();
 
-			$status_posts = get_posts( array(
-				'post_type'      => 'wc_order_status',
-				'post_status'    => 'publish',
-				'posts_per_page' => -1,
-				'fields'         => 'ids',
-			) );
+		$status_posts = $order_statuses->get_order_status_posts( array( 'fields' => 'ids' ) );
 
-			foreach ( $status_posts as $post_id ) {
+		foreach ( $status_posts as $post_id ) {
 
-				$status = new WC_Order_Status_Manager_Order_Status( $post_id );
+			$status = new WC_Order_Status_Manager_Order_Status( $post_id );
 
-				if ( $status->include_in_reports() ) {
+			if ( $status->include_in_reports() ) {
 
-					$args['parent_order_status'][] = $status->get_slug();
+				$args['parent_order_status'][] = $status->get_slug();
 
-				} else {
+			} else {
 
-					if ( ( $key = array_search( $status->get_slug(), $args['parent_order_status'] ) ) !== false ) {
-						unset( $args['parent_order_status'][ $key ] );
-					}
+				if ( ( $key = array_search( $status->get_slug(), $args['parent_order_status'] ) ) !== false ) {
+					unset( $args['parent_order_status'][ $key ] );
 				}
 			}
 		}
+
+		// ensure parent order statuses are unique
+		$args['parent_order_status'] = array_unique( $args['parent_order_status'] );
 
 		return $args;
 	}

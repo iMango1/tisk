@@ -1,5 +1,20 @@
 *** WooCommerce Order Status Manager Changelog ***
 
+2015.09.25 - version 1.2.2
+ * Tweak - Improve template loading
+ * Fix - Only create order status posts on install to avoid duplicate order statuses as a result of plugin conflicts
+ * Fix - Fix error when auto-draft order statuses are deleted
+
+2015.08.27 - version 1.2.1
+ * Fix - Fix issue with inflated refund reports
+
+2015.07.28 - version 1.2.0
+ * Fix - Fix duplicate email settings when using WooCommerce 2.3.13
+ * Tweak - Gracefully handle other plugins adding custom order statuses incorrectly
+ * Tweak - Introduce the `wc_order_status_manager_order_status_email_find_variables` filter
+ * Tweak - Introduce the `wc_order_status_manager_order_status_email_replace_variables` filter
+ * Misc - WooCommerce 2.4 Compatibility
+
 2015.03.26 - version 1.1.4
  * Tweak - Attach Chosen.js to form fields only if Select2 is not available
 

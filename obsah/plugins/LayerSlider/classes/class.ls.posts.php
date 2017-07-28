@@ -61,9 +61,9 @@ class LS_Posts {
 			$ret[$key]['thumbnail'] = !empty($ret[$key]['thumbnail']) ? $ret[$key]['thumbnail'] : LS_ROOT_URL . '/static/img/blank.gif';
 			$ret[$key]['image'] = '<img src="'.$ret[$key]['thumbnail'].'" alt="">';
 			$ret[$key]['image-url'] = $ret[$key]['thumbnail'];
-			$ret[$key]['title'] = htmlentities(__($val->post_title));
+			$ret[$key]['title'] = htmlspecialchars(__($val->post_title), ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE);
 			$ret[$key]['content'] = wp_strip_all_tags(__($val->post_content));
-			$ret[$key]['excerpt'] = !empty($val->post_excerpt) ? $val->post_excerpt : '';
+			$ret[$key]['excerpt'] = $this->getExcerpt();
 			$ret[$key]['author'] = get_userdata($val->post_author)->user_nicename;
 			$ret[$key]['author-id'] = $val->post_author;
 			$ret[$key]['categories'] = $this->getCategoryList($val);
@@ -137,12 +137,7 @@ class LS_Posts {
 
 		// Excerpt
 		if(stripos($str, '[excerpt]') !== false) {
-			if(empty($this->post->post_excerpt)) { return ''; }
-			if(!empty($textlength)) {
-				$str = str_replace('[excerpt]', substr($this->post->post_excerpt, 0, $textlength), $str);
-			} else {
-				$str = str_replace('[excerpt]', $this->post->post_excerpt, $str);
-			}
+			$str = str_replace('[excerpt]', $this->getExcerpt($textlength), $str);
 		}
 
 		// Author
@@ -170,8 +165,8 @@ class LS_Posts {
 		// Meta
 		if(stripos($str, '[meta:') !== false) {
 			$matches = array();
-			preg_match_all('/\[meta:\w+\]/', $str, $matches);
-			
+			preg_match_all('/\[meta:\w(?:[-\w]*\w)?]/', $str, $matches);
+
 			foreach($matches[0] as $match) {
 				$meta = str_replace('[meta:', '', $match);
 				$meta = str_replace(']', '', $meta);
@@ -192,6 +187,28 @@ class LS_Posts {
 		if(is_object($this->post)) { return __($this->post->post_title); }
 			else { return false; }
 	}
+
+
+	/**
+	 * Returns the lastly selected post's excerpt
+	 * @return string The excerpt of the post
+	 */
+	public function getExcerpt($textlength = 0) {
+
+		global $post;
+		$post = $this->post;
+
+		setup_postdata($post);
+		$excerpt = get_the_excerpt();
+		wp_reset_postdata();
+
+		if(!empty($excerpt) && !empty($textlength)) {
+			$excerpt = substr($excerpt, 0, $textlength);
+		}
+
+		return $excerpt;
+	}
+
 
 	public function getAuthor() {
 		if(is_object($this->post)) { return get_userdata($this->post->post_author)->user_nicename; }
@@ -221,7 +238,7 @@ class LS_Posts {
 
 		if(has_tag(false, $this->post->ID)) {
 			$tags = wp_get_post_tags($this->post->ID);
-			foreach($tags as $val) { 
+			foreach($tags as $val) {
 				$list[] = '<a href="/tag/'.$val->slug.'/">'.$val->name.'</a>';
 			}
 			return '<div>'.implode(', ', $list).'</div>';

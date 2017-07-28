@@ -14,14 +14,14 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 <div class="wrap">
 
 	<?php echo $this->Msg; ?>
-	<h2><?php _e( 'Side Menu' , $this->ltd ); ?></h2>
-	<p><?php _e( 'Please change the menu by drag and drop.' , $this->ltd ); ?></p>
-	<p class="description"><?php echo sprintf( __( 'New plugin menus will be added to the <strong>%s</strong>.' , $this->ltd ) , __( 'Menu items that can be added' , $this->ltd ) ); ?>
-	<p><strong><?php _e( 'Notice: Please do not place the same multiple menu slug.' , $this->ltd ); ?></strong></p>
+	<h2><?php _e( 'Sidebar' , 'wp-admin-ui-customize' ); ?></h2>
+	<p><?php _e( 'Drag menu items to edit and reorder menus.' , 'wp-admin-ui-customize' ); ?></p>
+	<p class="description"><?php echo sprintf( __( 'New plugin menus will be added to the <strong>%s</strong>.' , 'wp-admin-ui-customize' ) , __( 'Available menu items' , 'wp-admin-ui-customize' ) ); ?>
+	<p><strong><?php _e( 'Note: Using the same menu item multiple times could cause unexpected behavior.' , 'wp-admin-ui-customize' ); ?></strong></p>
 
 	<h3 id="wauc-apply-user-roles"><?php echo $this->get_apply_roles(); ?></h3>
 
-	<p><a href="#TB_inline?height=300&width=600&inlineId=list_variables&modal=false" title="<?php _e( 'Shortcodes' , $this->ltd ); ?>" class="thickbox"><?php _e( 'Available Shortcodes' , $this->ltd ); ?></a></p>
+	<p><a href="#TB_inline?height=300&width=600&inlineId=list_variables&modal=false" title="<?php _e( 'Shortcodes' , 'wp-admin-ui-customize' ); ?>" class="thickbox"><?php _e( 'Available Shortcodes' , 'wp-admin-ui-customize' ); ?></a></p>
 
 	<form id="wauc_setting_sidemenu" class="wauc_form" method="post" action="<?php echo esc_url( remove_query_arg( 'wauc_msg' , add_query_arg( array( 'page' => $this->PageSlug ) ) ) ); ?>">
 		<input type="hidden" name="<?php echo $this->UPFN; ?>" value="Y" />
@@ -37,10 +37,10 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 					<div id="can_menus">
 
 						<div class="postbox">
-							<h3 class="hndle"><span><?php _e( 'Menu items that can be added' , $this->ltd ); ?></span></h3>
+							<h3 class="hndle"><span><?php _e( 'Available menu items' , 'wp-admin-ui-customize' ); ?></span></h3>
 							<div class="inside">
 		
-								<p class="description"><?php _e( 'Sepalator' , $this->ltd ); ?></p>
+								<p class="description"><?php _e( 'Sepalator' , 'wp-admin-ui-customize' ); ?></p>
 								<?php $menu_widget = array( 'title' => '-' , 'slug' => 'separator' , 'parent_slug' => '' , 'new' => true , 'cap' => 'read' ); ?>
 								<?php $this->sidebar_menu_widget( $menu_widget ); ?>
 								<div class="clear"></div>
@@ -111,7 +111,7 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 
 						<div class="postbox">
 							<h3 class="hndle">
-								<span><?php _e( 'Current menu' , $this->ltd ); ?></span>
+								<span><?php _e( 'Current menu' , 'wp-admin-ui-customize' ); ?></span>
 							</h3>
 							<div class="inside widgets-holder-wrap">
 		
@@ -218,7 +218,7 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 
 						</div>
 		
-						<p class="sidebar_setting_delete"><a href="#"><?php _e( 'Delete all the Current menu' , $this->ltd ); ?></a></p>
+						<p class="sidebar_setting_delete"><a href="#"><?php _e( 'Remove all items from the current menu' , 'wp-admin-ui-customize' ); ?></a></p>
 
 					</div>
 				</div>
@@ -234,8 +234,8 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 		</p>
 
 		<p class="submit reset">
-			<span class="description"><?php printf( __( 'Reset the %s?' , $this->ltd ) , __( 'Side Menu' , $this->ltd ) . __( 'Settings' ) ); ?></span>
-			<input type="submit" class="button-secondary" name="reset" value="<?php _e( 'Reset settings' , $this->ltd ); ?>" />
+			<span class="description"><?php printf( __( 'Reset the %s?' , 'wp-admin-ui-customize' ) , __( 'Sidebar' , 'wp-admin-ui-customize' ) . __( 'Settings' ) ); ?></span>
+			<input type="submit" class="button-secondary" name="reset" value="<?php _e( 'Reset settings' , 'wp-admin-ui-customize' ); ?>" />
 		</p>
 
 	</form>
@@ -250,9 +250,6 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 }
 .widget-top a.widget-action {
     cursor: pointer;
-}
-.widget-top a.widget-action:after {
-    padding: 7px 12px;
 }
 </style>
 <script type="text/javascript">
@@ -302,7 +299,7 @@ jQuery(document).ready(function($) {
 		
 	});
 
-	$(document).on('click', '.widget .widget-inside .widget-control-actions .alignleft a[href=#remove]', function() {
+	$(document).on('click', '.widget .widget-inside .widget-control-actions .alignleft a[href="#remove"]', function() {
 		
 		$(this).parent().parent().parent().parent().slideUp('normal', function() { $(this).remove(); } );
 		return false;

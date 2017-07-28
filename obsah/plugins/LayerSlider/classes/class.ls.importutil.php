@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 /**
- * Class for working with ZIP archives to import 
+ * Class for working with ZIP archives to import
  * sliders with images and other attachments.
  *
  * @package LS_ImportUtil
@@ -56,7 +56,10 @@ class LS_ImportUtil {
 						foreach(glob($this->tmpDir.'/*', GLOB_ONLYDIR) as $key => $dir) {
 
 							$this->imported = array();
-							$this->uploadMedia($dir);
+
+							if(!isset($_POST['skip_images'])) {
+								$this->uploadMedia($dir);
+							}
 
 							if(file_exists($dir.'/settings.json')) {
 								$this->addSlider($dir.'/settings.json');
@@ -86,7 +89,7 @@ class LS_ImportUtil {
 				if(!$parsed = json_decode($decoded, true)) {
 					$parsed = unserialize($decoded);
 				}
-			
+
 			// Since v5.1.1
 			} else {
 				$parsed = array(json_decode($data, true));
@@ -119,7 +122,7 @@ class LS_ImportUtil {
 
 		// Check if /uploads dir is writable
 		if(is_writable($uploads['basedir'])) {
-		
+
 			// Get target folders
 			$this->targetDir = $targetDir = $uploads['basedir'].'/layerslider';
 			$this->targetURL = $uploads['baseurl'].'/layerslider';
@@ -164,13 +167,13 @@ class LS_ImportUtil {
 			// Validate media
 			$filetype = wp_check_filetype($fileName, null);
 			if(!empty($filetype['ext']) && $filetype['ext'] != 'php') {
-				
+
 				// Move item to place
 				rename($filePath, $targetFile);
 
 				// Upload to media library
 				$attachment = array(
-					'guid' => $targetFile, 
+					'guid' => $targetFile,
 					'post_mime_type' => $filetype['type'],
 					'post_title' => preg_replace( '/\.[^.]+$/', '', $fileName),
 					'post_content' => '',
@@ -213,7 +216,7 @@ class LS_ImportUtil {
 		$data = json_decode(file_get_contents($file), true);
 		$title = $data['properties']['title'];
 		$slug = !empty($data['properties']['slug']) ? $data['properties']['slug'] : '';
-		
+
 		// Slider settings
 		if(!empty($data['properties']['backgroundimage'])) {
 			$data['properties']['backgroundimage'] = $this->attachURLForImage(
@@ -244,7 +247,7 @@ class LS_ImportUtil {
 			// Layers
 			if(!empty($slide['sublayers']) && is_array($slide['sublayers'])) {
 			foreach($slide['sublayers'] as &$layer) {
-					
+
 				if(!empty($layer['image'])) {
 					$layer['imageId'] = $this->attachIDForImage($layer['image']);
 					$layer['image'] = $this->attachURLForImage($layer['image']);

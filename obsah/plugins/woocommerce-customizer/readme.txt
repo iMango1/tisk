@@ -1,10 +1,12 @@
 === WooCommerce Customizer ===
-Contributors: maxrice, tamarazuk, skyverge
+Contributors: SkyVerge, maxrice, tamarazuk, chasewiseman, nekojira
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal@skyverge.com&item_name=Donation+for+WooCommerce+Customizer
 Tags: woocommerce, woocommerce shop, woocommerce filters
-Requires at least: 3.8
-Tested up to: 4.1
-Stable tag: 2.1.0
+Requires at least: 4.1
+Tested up to: 4.5.2
+Requires WooCommerce at least: 2.4.13
+Tested WooCommerce up to: 2.6.0
+Stable tag: 2.3.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -16,9 +18,9 @@ WooCommerce includes tons of filters to let you customize button text, labels, a
 code to use them. This plugin provides a settings page where you can add your customizations and save them without
 needing to write any code or modify any templates, which is helpful for quick change testing.
 
-> Requires WooCommerce 2.1+
+> Requires WooCommerce 2.4.13+
 
-Here's the list of customizations you can make:
+Here are some customizations you can make:
 
 *   Add to Cart button text for all product types (within the shop loop and on a single product page)
 *   The number of products displayed per page
@@ -30,6 +32,8 @@ Here's the list of customizations you can make:
 *   Placeholder image source
 
 To make these changes, go to **WooCommerce &gt; Settings** and view the "Customizer" tab.
+
+> **Note**: This plugin does not support multisite and cannot be network activated. To use this on a multisite network, you must install the plugin individually on each site.
 
 = Support Details =
 We do support our free plugins and extensions, but please understand that support for premium products takes priority. We typically check the forums every few days (with a maximum delay of one week).
@@ -52,6 +56,10 @@ We do support our free plugins and extensions, but please understand that suppor
 
 Most likely because a filter does not yet exist within WooCommerce, or a filter does exist but is too complicated to be of use with this plugin.
 
+= Why don't the settings show up under the WooCommerce Settings? =
+
+Do you have this network activated for a multisite installation? If so, you'll need to remove the plugin, then install it on each child site as needed, as the plugin does not support being network activated.
+
 = I found a bug! What do I do? =
 
 Please submit an issue on [GitHub](https://github.com/skyverge/woocommerce-customizer/) along with a description of the problem so we can fix it :)
@@ -66,10 +74,24 @@ Yes! Fork the plugin on [GitHub](https://github.com/skyverge/woocommerce-customi
 
 == Changelog ==
 
+= 2.3.1 =
+* Fix - Fixes "headers already sent" error if WooCommerce is out of date
+
+= 2.3.0 =
+* Misc - Added support for WooCommerce 2.6
+* Misc - Removed support for WooCommerce 2.3
+
+= 2.2.0 =
+* Misc - Added support for WooCommerce 2.5
+* Misc - Removed support for WooCommerce 2.2
+
+= 2.1.1 =
+* Misc - Standardize the translation string
+
 = 2.1.0 =
 * Misc - WooCommerce 2.3 Compatibility
 
-= 2.1.0 =
+= 2.0.1 =
 * Fix error when upgrading to WooCommerce 2.2
 
 = 2.0.0 =

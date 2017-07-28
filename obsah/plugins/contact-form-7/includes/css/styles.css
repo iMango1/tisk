@@ -35,7 +35,7 @@ div.wpcf7-validation-errors {
 	border: 2px solid #f7e700;
 }
 
-span.wpcf7-form-control-wrap {
+.wpcf7-form-control-wrap {
 	position: relative;
 }
 
@@ -45,7 +45,7 @@ span.wpcf7-not-valid-tip {
 	display: block;
 }
 
-.use-floating-validation-tip span.wpcf7-not-valid-tip { 
+.use-floating-validation-tip span.wpcf7-not-valid-tip {
 	position: absolute;
 	top: 20%;
 	left: 20%;
@@ -75,4 +75,8 @@ div.wpcf7 div.ajax-error {
 
 div.wpcf7 .placeheld {
 	color: #888;
+}
+
+.wpcf7-recaptcha iframe {
+	margin-bottom: 0;
 }

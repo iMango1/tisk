@@ -41,7 +41,14 @@ class WC_Order_Status_Manager_Emails {
 
 		add_filter( 'woocommerce_email_classes',      array( $this, 'order_status_emails' ) );
 		add_filter( 'woocommerce_get_sections_email', array( $this, 'add_order_status_email_sections' ) );
-		add_filter( 'woocommerce_sections_email',     array( $this, 'output_order_status_email_options' ), 11 );
+
+		// WC 2.3.13+ better supports custom email classes and thus this action is not needed
+		// in lower versions we need it, but we can't add it for later versions as it duplicates the settings
+		// see change in https://github.com/woothemes/woocommerce/pull/8394
+		// this version check can be removed once we can safely require WC 2.3+ latest
+		if ( version_compare( WC_VERSION, '2.3.13', '<' ) ) {
+			add_action( 'woocommerce_sections_email',     array( $this, 'output_order_status_email_options' ), 11 );
+		}
 
 		add_filter( 'woocommerce_resend_order_emails_available', array( $this, 'available_emails_for_resend' ) );
 
@@ -75,7 +82,7 @@ class WC_Order_Status_Manager_Emails {
 	 */
 	public function order_status_emails( $emails ) {
 
-		include( 'class-wc-order-status-manager-order-status-email.php' );
+		include( wc_order_status_manager()->get_plugin_path() . '/includes/class-wc-order-status-manager-order-status-email.php' );
 
 		foreach ( $this->get_emails() as $email ) {
 

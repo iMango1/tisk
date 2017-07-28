@@ -1,15 +1,9 @@
  <?php
 
-if(!defined('LS_ROOT_FILE')) { 
+if(!defined('LS_ROOT_FILE')) {
 	header('HTTP/1.0 403 Forbidden');
 	exit;
 }
-
-// Enqueue scripts
-wp_enqueue_script('greensock');
-wp_enqueue_script('layerslider');
-wp_enqueue_script('layerslider-transitions');
-wp_enqueue_script('ls-user-transitions');
 
 $slider = array();
 
@@ -48,6 +42,13 @@ if(isset($slides['layers']) && is_array($slides['layers'])) {
 		$slider['slides'][$slidekey] = apply_filters('ls_parse_defaults', $lsDefaults['slides'], $slide['properties']);
 		if(isset($slide['sublayers']) && is_array($slide['sublayers'])) {
 			foreach($slide['sublayers'] as $layerkey => $layer) {
+
+				// Ensure that magic quotes will not mess with JSON data
+				if(function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
+					$layer['styles'] = stripslashes($layer['styles']);
+					$layer['transition'] = stripslashes($layer['transition']);
+				}
+
 				if(!empty($layer['transition'])) {
 					$layer = array_merge($layer, json_decode(stripslashes($layer['transition']), true));
 				}
@@ -79,23 +80,23 @@ foreach($slides['properties']['attrs'] as $key => $val) {
 $init = implode(', ', $init);
 
 // Fix multiple jQuery issue
-$data[] = '<script data-cfasync="false" type="text/javascript">';
-$data[] = 'var lsjQuery = jQuery;';
-$data[] = '</script>';
+$lsInit[] = '<script data-cfasync="false" type="text/javascript">';
+$lsInit[] = 'var lsjQuery = jQuery;';
+$lsInit[] = '</script>';
 
 // Include JS files to body option
 if(get_option('ls_put_js_to_body', false)) {
-    $data[] = '<script data-cfasync="false" type="text/javascript" src="'.LS_ROOT_URL.'/static/js/layerslider.kreaturamedia.jquery.js?ver='.LS_PLUGIN_VERSION.'"></script>' . NL;
-    $data[] = '<script data-cfasync="false" type="text/javascript" src="'.LS_ROOT_URL.'/static/js/greensock.js?ver=1.11.8"></script>' . NL;
+    $lsInit[] = '<script data-cfasync="false" type="text/javascript" src="'.LS_ROOT_URL.'/static/js/layerslider.kreaturamedia.jquery.js?ver='.LS_PLUGIN_VERSION.'"></script>' . NL;
+    $lsInit[] = '<script data-cfasync="false" type="text/javascript" src="'.LS_ROOT_URL.'/static/js/greensock.js?ver=1.11.8"></script>' . NL;
 }
 
-$data[] = '<script data-cfasync="false" type="text/javascript">' . NL;
-	$data[] = 'lsjQuery(document).ready(function() {' . NL;
-		$data[] = 'if(typeof lsjQuery.fn.layerSlider == "undefined") { lsShowNotice(\'layerslider_'.$id.'\',\'jquery\'); }' . NL;
-		$data[] = 'else {' . NL;
-			$data[] = 'lsjQuery("#layerslider_'.$id.'").layerSlider({'.$init.'})' . NL;
-		$data[] = '}' . NL;
-	$data[] = '});' . NL;
-$data[] = '</script>';
+$lsInit[] = '<script data-cfasync="false" type="text/javascript">' . NL;
+	$lsInit[] = 'lsjQuery(document).ready(function() {' . NL;
+		$lsInit[] = 'if(typeof lsjQuery.fn.layerSlider == "undefined") { lsShowNotice(\''.$sliderID.'\',\'jquery\'); }' . NL;
+		$lsInit[] = 'else {' . NL;
+			$lsInit[] = 'lsjQuery("#'.$sliderID.'").layerSlider({'.$init.'})' . NL;
+		$lsInit[] = '}' . NL;
+	$lsInit[] = '});' . NL;
+$lsInit[] = '</script>';
 
 

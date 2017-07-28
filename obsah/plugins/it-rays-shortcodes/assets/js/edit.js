@@ -56,24 +56,5 @@
 	        $(".c_slides").show();
 	    }
 	}
-	
-	/* ================ Checkbox Styling. ================ */
-    /*var checkBox = $('.checkbox');
-    $(checkBox).each(function(){
-        $(this).wrap( "<span class='custom-checkbox'></span>" );
-        if($(this).is(':checked')){
-            $(this).parent().addClass("selected");
-            //$(this).attr('value','1');
-        }
-    });
-    $(checkBox).click(function(){
-        $(this).parent().toggleClass("selected");
-        if ( $(this).is(':checked')){
-        	$(this).attr('value','1');
-        }else{
-        	$(this).attr('value','0');
-        }
-    });
-	$('.custom-checkbox').append('<div class="switcher"/>');*/
 
 })(jQuery);

@@ -1,6 +1,6 @@
 <?php
 
-	if(!defined('LS_ROOT_FILE')) { 
+	if(!defined('LS_ROOT_FILE')) {
 		header('HTTP/1.0 403 Forbidden');
 		exit;
 	}
@@ -33,7 +33,7 @@
 		</form>
 	</div>
 	<div id="screen-options-link-wrap" class="hide-if-no-js screen-meta-toggle">
-		<a href="#screen-options-wrap" id="show-settings-link" class="show-settings"><?php _e('Screen Options', 'LayerSlider') ?></a>
+		<button type="button" id="show-settings-link" class="button show-settings" aria-controls="screen-options-wrap" aria-expanded="false"><?php _e('Screen Options', 'LayerSlider') ?></button>
 	</div>
 </div>
 <div class="wrap">

@@ -1,10 +1,10 @@
 === WooCommerce Order Status Manager ===
-Author: skyverge
+Author: woothemes, skyverge
 Tags: woocommerce
 Requires at least: 3.8
-Tested up to: 4.1
+Tested up to: 4.3
 Requires WooCommerce at least: 2.2
-Tested WooCommerce up to: 2.3
+Tested WooCommerce up to: 2.4
 
 Easily create custom order statuses and trigger custom emails when order status changes
 

@@ -190,15 +190,34 @@ if ( ! class_exists( 'YIT_Upgrade' ) ) {
          * @author   Andrea Grillo <andrea.grillo@yithemes.com>
          */
         protected function _upgrader_pre_download( $reply, $package, $upgrader ) {
+            $plugin = false;
+            $is_bulk = $upgrader->skin instanceof Bulk_Plugin_Upgrader_Skin;
+
+            if( ! $is_bulk ){
+                $plugin = isset( $upgrader->skin->plugin ) ? $upgrader->skin->plugin : false;
+            }
+
+            else {
+                //Bulk action upgrade
+                $action_url = parse_url( $upgrader->skin->options['url'] );
+                parse_str( rawurldecode( htmlspecialchars_decode( $action_url['query'] ) ) );
+                $plugins = explode( ',', $plugins );
+                foreach( $plugins as $plugin_init ){
+                    $to_upgrade = get_plugin_data( WP_PLUGIN_DIR . DIRECTORY_SEPARATOR .  $plugin_init );
+                    if( $to_upgrade['Name'] == $upgrader->skin->plugin_info['Name'] ){
+                        $plugin = $plugin_init;
+                    }
+                }
+            }
 
             /**
              * It isn't YITH Premium plugins, please wordpress update it for me!
              */
-            if( ! isset( $upgrader->skin->plugin ) ) {
+            if( ! $plugin ) {
                 return $reply;
             }
                 
-             $plugin_info = YIT_Plugin_Licence()->get_product( $upgrader->skin->plugin );
+            $plugin_info = YIT_Plugin_Licence()->get_product( $plugin );
 
             /**
              * False ? It isn't YITH Premium plugins, please wordpress update it for me!
@@ -262,7 +281,7 @@ if ( ! class_exists( 'YIT_Upgrade' ) ) {
 
             //WARNING: The file is not automatically deleted, The script must unlink() the file.
             if ( ! $url ) {
-                return new WP_Error( 'http_no_url', __( 'Invalid URL Provided.' ) );
+                return new WP_Error( 'http_no_url', __( 'Invalid URL Provided.', 'yit' ) );
             }
 
             $tmpfname = wp_tempnam( $url );
@@ -275,7 +294,7 @@ if ( ! class_exists( 'YIT_Upgrade' ) ) {
             );
 
             if ( ! $tmpfname ) {
-                return new WP_Error( 'http_no_file', __( 'Could not create Temporary file.' ) );
+                return new WP_Error( 'http_no_file', __( 'Could not create Temporary file.', 'yit' ) );
             }
 
             $response = wp_safe_remote_post( $url, $args );
@@ -421,7 +440,7 @@ if ( ! class_exists( 'YIT_Upgrade' ) ) {
                 }elseif( is_plugin_active_for_network( $init ) ){
                     printf( __( 'There is a new version of %1$s available. <a href="%2$s" class="thickbox yit-changelog-button" title="%3$s">View version %4$s details</a>. <em>You have to activate the plugin on a single site of the network to benefit from automatic updates.</em>', 'yith-plugin-fw' ), $this->_plugins[ $init ]['info']['Name'], esc_url( $details_url ), esc_attr( $this->_plugins[ $init ]['info']['Name'] ), $r->new_version );
                 }elseif ( empty( $r->package ) ) {
-                    printf( __( 'There is a new version of %1$s available. <a href="%2$s" class="thickbox yit-changelog-button" title="%3$s">View version %4$s details</a>. <em>Automatic update is unavailable for this plugin, please <a href="%5$s" title="Licence activation">activate</a> your copy of %6s.</em>', 'yith-plugin-fw' ), $this->_plugins[ $init ]['info']['Name'], esc_url( $details_url ), esc_attr( $this->_plugins[ $init ]['info']['Name'] ), $r->new_version, YIT_Plugin_Licence()->get_licence_activation_page_url(), $this->_plugins[ $init ]['info']['Name'] );
+                    printf( __( 'There is a new version of %1$s available. <a href="%2$s" class="thickbox yit-changelog-button" title="%3$s">View version %4$s details</a>. <em>Automatic update is unavailable for this plugin, please <a href="%5$s" title="License activation">activate</a> your copy of %6s.</em>', 'yith-plugin-fw' ), $this->_plugins[ $init ]['info']['Name'], esc_url( $details_url ), esc_attr( $this->_plugins[ $init ]['info']['Name'] ), $r->new_version, YIT_Plugin_Licence()->get_licence_activation_page_url(), $this->_plugins[ $init ]['info']['Name'] );
                 } else {
                     printf( __('There is a new version of %1$s available. <a href="%2$s" class="thickbox yit-changelog-button" title="%3$s">View version %4$s details</a> or <a href="%5$s">update now</a>.', 'yith-plugin-fw'), $this->_plugins[ $init ]['info']['Name'], esc_url($details_url), esc_attr( $this->_plugins[ $init ]['info']['Name'] ), $r->new_version, wp_nonce_url( self_admin_url('update.php?action=upgrade-plugin&plugin=') . $init, 'upgrade-plugin_' . $init ) );
                 }
@@ -507,7 +526,7 @@ if ( ! class_exists( 'YIT_Upgrade' ) ) {
 
             check_admin_referer( 'upgrade-plugin-multisite_' . $plugin );
 
-            $title        = __( 'Update Plugin' );
+            $title        = __( 'Update Plugin', 'yith-plugin-fw' );
             $parent_file  = 'plugins.php';
             $submenu_file = 'plugins.php';
 

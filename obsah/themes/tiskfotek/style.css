@@ -887,3 +887,6 @@ a.post-thumbnail:hover {
     display: none;
 }
 
+header.top-head .logo a{
+    margin-top: 5px !important;
+}

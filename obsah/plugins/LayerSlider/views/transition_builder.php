@@ -1,6 +1,6 @@
 <?php
 
-	if(!defined('LS_ROOT_FILE')) { 
+	if(!defined('LS_ROOT_FILE')) {
 		header('HTTP/1.0 403 Forbidden');
 		exit;
 	}
@@ -55,7 +55,7 @@
 		</form>
 	</div>
 	<div id="screen-options-link-wrap" class="hide-if-no-js screen-meta-toggle">
-		<a href="#screen-options-wrap" id="show-settings-link" class="show-settings"><?php _e('Screen Options', 'LayerSlider') ?></a>
+		<button type="button" id="show-settings-link" class="button show-settings" aria-controls="screen-options-wrap" aria-expanded="false"><?php _e('Screen Options', 'LayerSlider') ?></button>
 	</div>
 </div>
 
@@ -1091,7 +1091,7 @@ add_user_meta($current_user->ID, 'layerslider_builder_help_wp_pointer', '1'); ?>
 		jQuery('#contextual-help-link-wrap').pointer({
 			pointerClass : 'ls-help-pointer',
 			pointerWidth : 320,
-			content: '<h3><?php _e('Transition Builder documentation', 'LayerSlider') ?></h3><div class="inner"><?php _e('To get started with the LayerSlider WP Transition Builder, please read our documentation by clicking on this "Help" menu item.', 'LayerSlider') ?></div>',
+			content: '<h3><?php _e('Transition Builder documentation', 'LayerSlider') ?></h3><div class="inner"><?php _e('To get started with the LayerSlider WP Transition Builder, please read our online documentation by clicking on this help menu.', 'LayerSlider') ?></div>',
 			position: {
 				edge : 'top',
 				align : 'right'

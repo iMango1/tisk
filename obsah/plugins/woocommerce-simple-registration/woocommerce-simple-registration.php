@@ -1,12 +1,13 @@
 <?php
 /**
- * Plugin Name: 	WooCommerce Simple Registration
- * Plugin URI:		https://astoundify.com/
- * Description:		A simple plugin to add a [woocommerce_simple_registration] shortcode to display the registration form on a separate page.
- * Version: 		1.0.1
- * Author: 		Astoundify
- * Author URI: 		https://astoundify.com/
- * Text Domain: 	woocommerce-simple-registration
+ * Plugin Name: WooCommerce Simple Registration
+ * Plugin URI: https://astoundify.com/
+ * Description: A simple plugin to add a [woocommerce_simple_registration] shortcode to display the registration form on a separate page.
+ * Version: 1.3.0
+ * Author: Astoundify
+ * Author URI: https://astoundify.com/
+ * Text Domain: woocommerce-simple-registration
+ * Domain Path: /languages
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
@@ -29,7 +30,7 @@ class WooCommerce_Simple_Registration {
 	 * @since 1.0.0
 	 * @var string $version Plugin version number.
 	 */
-	public $version = '1.0.0';
+	public $version = '1.3.0';
 
 
 	/**
@@ -59,16 +60,8 @@ class WooCommerce_Simple_Registration {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
-
-		// Check if WooCommerce is active
-		if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
-			require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
-		}
-
-		if ( ! in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-			if ( ! is_plugin_active_for_network( 'woocommerce/woocommerce.php' ) ) {
-				return;
-			}
+		if ( ! class_exists( 'WooCommerce' ) ) {
+			return;
 		}
 
 		// Initialize plugin parts
@@ -77,8 +70,22 @@ class WooCommerce_Simple_Registration {
 		// woocommerce_simple_registration shortcode
 		add_shortcode( 'woocommerce_simple_registration', array( $this, 'registration_template' ) );
 
-	}
+		// add a body class on this page
+		add_filter( 'body_class', array( $this, 'body_class' ) );
 
+		// add first name and last name to register form
+		add_action( 'woocommerce_register_form_start', array( $this, 'add_name_input' ) );
+		add_action( 'woocommerce_created_customer', array( $this, 'save_name_input' ) );
+
+		/**
+		 * WooCommerce Social Login Support
+		 * @link http://www.woothemes.com/products/woocommerce-social-login/
+		 * @since 1.3.0
+		 */
+		if( function_exists( 'init_woocommerce_social_login' ) ){
+			require_once( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'includes/wc-social-login.php' );
+		}
+	}
 
 	/**
 	 * Instance.
@@ -90,15 +97,12 @@ class WooCommerce_Simple_Registration {
 	 * @return object Instance of the class.
 	 */
 	public static function instance() {
-
-		if ( is_null( self::$instance ) ) :
+		if ( is_null( self::$instance ) )  {
 			self::$instance = new self();
-		endif;
+		}
 
 		return self::$instance;
-
 	}
-
 
 	/**
 	 * init.
@@ -108,12 +112,8 @@ class WooCommerce_Simple_Registration {
 	 * @since 1.0.0
 	 */
 	public function init() {
-
-		// Load textdomain
 		$this->load_textdomain();
-
 	}
-
 
 	/**
 	 * Textdomain.
@@ -123,10 +123,7 @@ class WooCommerce_Simple_Registration {
 	 * @since 1.0.0
 	 */
 	public function load_textdomain() {
-
-		// Load textdomain
 		load_plugin_textdomain( 'woocommerce-simple-registration', false, basename( dirname( __FILE__ ) ) . '/languages' );
-
 	}
 
 
@@ -162,6 +159,71 @@ class WooCommerce_Simple_Registration {
 
 	}
 
+	/**
+	* Add body classes for WC Simple Register page.
+	*
+	* @since 1.2.0
+	* @param  array $classes
+	* @return array
+	*/
+	public function body_class( $classes ) {
+		if( is_singular() && $post_data = get_post( get_queried_object_id() ) ){
+			if ( isset( $post_data->post_content ) && has_shortcode( $post_data->post_content, 'woocommerce_simple_registration' ) ) {
+				$classes[] = 'woocommerce-register';
+				$classes[] = 'woocommerce-account';
+				$classes[] = 'woocommerce-page';
+			}
+		}
+		return $classes;
+	}
+
+	/**
+	 * Add First Name & Last Name
+	 * To disable this simply use this code:
+	 * `add_filter( 'woocommerce_simple_registration_name_fields', '__return_false' );`
+	 * @since 1.3.0
+	 */
+	public function add_name_input(){
+		/* Filter to disable this feature. */
+		if( ! apply_filters( 'woocommerce_simple_registration_name_fields', true ) ){
+			return;
+		}
+		?>
+		<p class="woocommerce-FormRow woocommerce-FormRow--first form-row form-row-first">
+			<label for="reg_sr_firstname"><?php _e( 'First Name', 'woocommerce-simple-registration' ); ?></label>
+			<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="sr_firstname" id="reg_sr_firstname" value="<?php if ( ! empty( $_POST['sr_firstname'] ) ) echo esc_attr( $_POST['sr_firstname'] ); ?>" />
+		</p>
+
+		<p class="woocommerce-FormRow woocommerce-FormRow--last form-row form-row-last">
+			<label for="reg_sr_lastname"><?php _e( 'Last Name', 'woocommerce-simple-registration' ); ?></label>
+			<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="sr_lastname" id="reg_sr_lastname" value="<?php if ( ! empty( $_POST['sr_lastname'] ) ) echo esc_attr( $_POST['sr_lastname'] ); ?>" />
+		</p>
+		<?php
+	}
+
+	/**
+	 * Save First Name and Last Name
+	 * @since 1.3.0
+	 * @see WC/includes/wc-user-functions.php line 114
+	 */
+	public function save_name_input( $customer_id ){
+		/* Filter to disable this feature. */
+		if( ! apply_filters( 'woocommerce_simple_registration_name_fields', true ) ){
+			return;
+		}
+
+		/* Strip slash everything */
+		$request = stripslashes_deep( $_POST );
+
+		/* Save First Name */
+		if ( isset( $request['sr_firstname'] ) && !empty( $request['sr_firstname'] ) ) {
+			update_user_meta( $customer_id, 'first_name', sanitize_text_field( $request['sr_firstname'] ) );
+		}
+		/* Save Last Name */
+		if ( isset( $request['sr_lastname'] ) && !empty( $request['sr_lastname'] ) ) {
+			update_user_meta( $customer_id, 'last_name', sanitize_text_field( $request['sr_lastname'] ) );
+		}
+	}
 
 }
 
@@ -185,4 +247,4 @@ if ( ! function_exists( 'WooCommerce_Simple_Registration' ) ) :
 
 endif;
 
-WooCommerce_Simple_Registration();
+add_action( 'plugins_loaded', 'WooCommerce_Simple_Registration' );

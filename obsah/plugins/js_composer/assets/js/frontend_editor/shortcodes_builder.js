@@ -38,7 +38,8 @@
 		build: function ( shortcodes, callback ) {
 			this.ajax( {
 					action: 'vc_load_shortcode',
-					shortcodes: shortcodes
+					shortcodes: shortcodes,
+					_vcnonce: window.vcAdminNonce
 				},
 				vc.frame_window.location.href ).done( function ( html ) {
 					_.each( $( html ), function ( block ) {
@@ -51,7 +52,6 @@
 					vc.activity = false;
 					this.checkNoContent();
 					vc.frame_window.vc_iframe.loadScripts();
-					//vc.frame_window.vc_js(); // causes bug #1499 with tour
 					this.last() && vc.frame.scrollTo( this.first() );
 					this.models = [];
 					this.showResultMessage();
@@ -71,17 +71,13 @@
 			return this.models.length ? _.first( this.models ) : false;
 		},
 		buildFromContent: function () {
-			/*var content = JSON.parse(vc.frame_window.jQuery('#vc_template-post-content').html())
-			 .replace(/\<style([^\>]*)\>\/\*\* vc_js\-placeholder \*\*\//g, '<script$1>')
-			 .replace(/\<\/style([^\>]*)\>\<\!\-\- vc_js\-placeholder \-\-\>/g, '</script$1>');
-			 */
 			var content = decodeURIComponent( vc.frame_window.jQuery( '#vc_template-post-content' ).html() + '' )
 				.replace( /\<style([^\>]*)\>\/\*\* vc_js\-placeholder \*\*\//g, '<script$1>' )
 				.replace( /\<\/style([^\>]*)\>\<\!\-\- vc_js\-placeholder \-\-\>/g, '</script$1>' );
 			try {
 				vc.$page.html( content ).prepend( $( '<div class="vc_empty-placeholder"></div>' ) );
 			} catch ( e ) {
-				window.console && window.console.log && console.log( e );
+				window.console && window.console.error && console.error( e );
 			}
 			_.each( vc.post_shortcodes, function ( data ) {
 				var shortcode = JSON.parse( decodeURIComponent( data + '' ) );
@@ -104,13 +100,12 @@
 			try {
 				vc.frame_window.vc_iframe.reload();
 			} catch ( e ) {
-				window.console && window.console.log && console.log( e );
+				window.console && window.console.error && console.error( e );
 			}
-			//vc.frame_window.vc_js(); // causes bug #1499 with tour element, added in https://github.com/mmihey/js_composer/commit/1b0efa1460c7336da60530cfa330b9d62e71fa7b
 		},
 		buildFromTemplate: function ( html, data ) {
-			var template_shortcodes_has_id;
-			template_shortcodes_has_id = false;
+			var templateShortcodesHasId;
+			templateShortcodesHasId = false;
 			_.each( $( html ), function ( block ) {
 				var $block = $( block );
 				if ( $block.is( '[data-type=files]' ) ) {
@@ -125,15 +120,11 @@
 				$block = vc.$page.find( '[data-model-id=' + shortcode.id + ']' );
 				params = _.isObject( shortcode.attrs ) ? shortcode.attrs : {};
 
-				if ( ! template_shortcodes_has_id ) {
+				if ( ! templateShortcodesHasId ) {
 					id_param = vc.shortcodeHasIdParam( shortcode.tag );
-					if ( id_param && ! _.isUndefined( params ) && ! _.isUndefined( params[ id_param.param_name ] ) && params[ id_param.param_name ].length > 0 ) {
-						template_shortcodes_has_id = true;
+					if ( id_param && ! _.isUndefined( params ) && ! _.isUndefined( params[ id_param.param_name ] ) && 0 < params[ id_param.param_name ].length ) {
+						templateShortcodesHasId = true;
 					}
-				}
-
-				if ( params.content ) {
-					params.content = $( '<div/>' ).html( params.content ).text();
 				}
 
 				model = vc.shortcodes.create( {
@@ -155,14 +146,13 @@
 			this.models = [];
 			this.showResultMessage();
 			vc.frame.render();
-			vc.frame_window.vc_iframe.reload();
 			this.is_build_complete = true;
 
-			return template_shortcodes_has_id;
+			return templateShortcodesHasId;
 		},
 		_renderBlockCallback: function ( block ) {
 			var $this = $( block ), $html, model;
-			if ( $this.data( 'type' ) === 'files' ) {
+			if ( 'files' === $this.data( 'type' ) ) {
 				vc.frame_window.vc_iframe.addScripts( $this.find( 'script,link' ) ); // src remove to fix loading inernal scripts.
 				vc.frame_window.vc_iframe.addStyles( $this.find( 'style' ) ); // add internal css styles.
 			} else {
@@ -188,7 +178,6 @@
 					update_inner = true;
 				} else {
 					var key_inline = vc.frame.addInlineScriptBody( $( this ) );
-					//$(this).html('<span class="js_placeholder_inline_' + key_inline + '"></span>');
 					$( '<span class="js_placeholder_inline_' + key_inline + '"></span>' ).insertAfter( $( this ) );
 					update_inner = true;
 				}
@@ -226,7 +215,8 @@
 						string: shortcode,
 						tag: tag
 					}
-				]
+				],
+				_vcnonce: window.vcAdminNonce
 			}, vc.frame_window.location.href ).done( function ( html ) {
 				var old_view;
 				old_view = model.view;
@@ -240,7 +230,6 @@
 					}
 					old_view.remove();
 					vc.frame_window.vc_iframe.loadScripts();
-					//vc.frame_window.vc_js(); // causes bug #1499 with tour! ,added in https://github.com/mmihey/js_composer/commit/1b0efa1460c7336da60530cfa330b9d62e71fa7b
 					model.view.changed();
 					vc.frame.setSortable();
 					model.view.updated();
@@ -265,12 +254,11 @@
 		_getContainer: function ( model ) {
 			var container, parent_model,
 				parent_id = model.get( 'parent_id' );
-			if ( parent_id !== false ) {
+			if ( false !== parent_id ) {
 				parent_model = vc.shortcodes.get( parent_id );
 				if ( _.isUndefined( parent_model ) ) {
 					return vc.app;
 				}
-				// parent_model.view === false && this.addShortcode(parent_model);
 				container = parent_model.view;
 			} else {
 				container = vc.app;
@@ -283,33 +271,42 @@
 			return container;
 		},
 		toString: function ( model, type ) {
-			var paramsForString = {},
-				params = model.get( 'params' ),
-				content = _.isString( params.content ) ? params.content : '';
-			_.each( params, function ( value, key ) {
-				if ( key !== 'content' ) {
+			var paramsForString, params, content, mergedParams, tag;
+
+			paramsForString = {};
+			tag = model.get( 'shortcode' );
+			params = _.extend( {}, model.get( 'params' ) );
+			mergedParams = vc.getMergedParams( tag, params );
+
+			content = _.isString( params.content ) ? params.content : '';
+			_.each( mergedParams, function ( value, key ) {
+				if ( 'content' !== key ) {
 					paramsForString[ key ] = this.escapeParam( value );
 				}
 			}, this );
+
 			return wp.shortcode.string( {
-				tag: model.get( 'shortcode' ),
+				tag: tag,
 				attrs: paramsForString,
 				content: content,
 				type: _.isString( type ) ? type : ''
 			} );
 		},
 		modelsToString: function ( models ) {
-			var paramsForString = {},
-				string = '';
+			var string;
+			string = '';
 			_.each( models, function ( model ) {
-				var tag = model.get( 'shortcode' ),
-					params = model.get( 'params' ),
-					content = _.isString( params.content ) ? params.content : '',
-					paramsForString = {};
+				var tag, params, content, paramsForString, mergedParams, isContainer;
+
+				tag = model.get( 'shortcode' );
+				params = _.extend( {}, model.get( 'params' ) );
+				content = _.isString( params.content ) ? params.content : '';
+				paramsForString = {};
+				mergedParams = vc.getMergedParams( tag, params );
 				content += this.modelsToString( vc.shortcodes.where( { parent_id: model.get( 'id' ) } ) );
-				var is_container = _.isObject( vc.getMapped( tag ) ) && ( ( _.isBoolean( vc.getMapped( tag ).is_container ) && vc.getMapped( tag ).is_container === true ) || ! _.isEmpty( vc.getMapped( tag ).as_parent ) );
-				_.each( params, function ( value, key ) {
-					if ( key !== 'content' ) {
+				isContainer = _.isObject( vc.getMapped( tag ) ) && ( ( _.isBoolean( vc.getMapped( tag ).is_container ) && true === vc.getMapped( tag ).is_container ) || ! _.isEmpty( vc.getMapped( tag ).as_parent ) );
+				_.each( mergedParams, function ( value, key ) {
+					if ( 'content' !== key ) {
 						paramsForString[ key ] = this.escapeParam( value );
 					}
 				}, this );
@@ -317,9 +314,10 @@
 					tag: tag,
 					attrs: paramsForString,
 					content: content,
-					type: _.isUndefined( vc.getParamSettings( tag, 'content' ) ) && ! is_container ? 'single' : ''
+					type: _.isUndefined( vc.getParamSettings( tag, 'content' ) ) && ! isContainer ? 'single' : ''
 				} );
 			}, this );
+
 			return string;
 		},
 		getContent: function () {
@@ -406,20 +404,20 @@
 				}
 				if ( _.isString( sub_content ) && sub_content.match( sub_regexp ) &&
 					(
-					(map_settings.is_container && _.isBoolean( map_settings.is_container ) && map_settings.is_container === true) ||
-					(! _.isEmpty( map_settings.as_parent ) && map_settings.as_parent !== false)
+					(map_settings.is_container && _.isBoolean( map_settings.is_container ) && true === map_settings.is_container) ||
+					(! _.isEmpty( map_settings.as_parent ) && false !== map_settings.as_parent)
 					) ) {
 					data = this.parseContent( data, sub_content, data[ id ] );
-				} else if ( _.isString( sub_content ) && sub_content.length && sub_matches[ 2 ] === 'vc_row' ) {
+				} else if ( _.isString( sub_content ) && sub_content.length && 'vc_row' === sub_matches[ 2 ] ) {
 					data = this.parseContent( data,
 						'[vc_column width="1/1"][vc_column_text]' + sub_content + '[/vc_column_text][/vc_column]',
 						data[ id ] );
-				} else if ( _.isString( sub_content ) && sub_content.length && sub_matches[ 2 ] === 'vc_column' ) {
+				} else if ( _.isString( sub_content ) && sub_content.length && 'vc_column' === sub_matches[ 2 ] ) {
 					data = this.parseContent( data,
 						'[vc_column_text]' + sub_content + '[/vc_column_text]',
 						data[ id ] );
 				} else if ( _.isString( sub_content ) ) {
-					data[ id ].params.content = sub_content; // sub_content.match(/\n/) && !_.isUndefined(window.switchEditors) ? window.switchEditors.wpautop(sub_content) : sub_content;
+					data[ id ].params.content = sub_content;
 				}
 			}, this );
 			return data;
@@ -470,7 +468,7 @@
 			this.message = string;
 		},
 		showResultMessage: function () {
-			if ( this.message !== false ) {
+			if ( false !== this.message ) {
 				vc.showMessage( this.message );
 			}
 			this.message = false;

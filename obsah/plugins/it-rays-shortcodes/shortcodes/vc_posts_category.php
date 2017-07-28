@@ -8,7 +8,7 @@ function it_posts_category_shortcode($atts, $content=null){
     global $post; 
     $it_category;
     $cat_n = '';
-    $cat_n = 'Aktuality';
+    $cat_n = '';
     $args = array(
         'category_name' => $it_category,
         'showposts'     => 3,
@@ -23,7 +23,7 @@ function it_posts_category_shortcode($atts, $content=null){
       
     
     $q = new WP_Query( $args ); 
-    $cont .= '<h3 class="block-head-News"><span class="icon fa fa-angle-right"></span>'.$cat_n./*'<a href="'.get_category_link($cat_id).'">'.__('View All','itrays').' <span class="fa fa-plus"></span></a>*/'</h3>';
+    $cont .= '<h3 class="block-head-News"><span class="icon fa fa-angle-right"></span>'.$cat_n.'<a href="'.get_category_link($cat_id).'">'.__('View All','itrays').' <span class="fa fa-plus"></span></a></h3>';
     if($q->have_posts()):
         $cont .= '<div class="news-masnory">';
         while($q->have_posts()): $q->the_post();

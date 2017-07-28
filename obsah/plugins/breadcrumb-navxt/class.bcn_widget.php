@@ -1,6 +1,6 @@
 <?php
 /*  
-	Copyright 2009-2015  John Havlik  (email : john.havlik@mtekk.us)
+	Copyright 2009-2016  John Havlik  (email : john.havlik@mtekk.us)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -19,8 +19,8 @@
 require_once(dirname(__FILE__) . '/includes/block_direct_access.php');
 class bcn_widget extends WP_Widget
 {
-	const version = '5.2.2';
-	protected $defaults = array('title' => '', 'pretext' => '', 'type' => 'microdata', 'linked' => true, 'reverse' => false, 'front' => false);
+	const version = '5.6.0';
+	protected $defaults = array('title' => '', 'pretext' => '', 'type' => 'microdata', 'linked' => true, 'reverse' => false, 'front' => false, 'force' => false);
 	//Default constructor
 	function __construct()
 	{
@@ -56,22 +56,27 @@ class bcn_widget extends WP_Widget
 		{
 			//Display the list output breadcrumb
 			echo $instance['pretext'] . '<ol class="breadcrumb_trail breadcrumbs">';
-			bcn_display_list(false, $instance['linked'], $instance['reverse']);
+			bcn_display_list(false, $instance['linked'], $instance['reverse'], $instance['force']);
 			echo '</ol>';
 		}
 		else if($instance['type'] == 'microdata')
 		{
-			echo '<div class="breadcrumbs" xmlns:v="http://rdf.data-vocabulary.org/#">' . $instance['pretext'];
+			echo '<div class="breadcrumbs" vocab="https://schema.org/" typeof="BreadcrumbList">' . $instance['pretext'];
 			//Display the regular output breadcrumb
-			bcn_display(false, $instance['linked'], $instance['reverse']);
+			bcn_display(false, $instance['linked'], $instance['reverse'], $instance['force']);
 			echo '</div>';
 		}
-		else
+		else if($instance['type'] == 'plain')
 		{
 			//Display the pretext
 			echo $instance['pretext'];
 			//Display the regular output breadcrumb
-			bcn_display(false, $instance['linked'], $instance['reverse']);
+			bcn_display(false, $instance['linked'], $instance['reverse'], $instance['force']);
+		}
+		else
+		{
+			//If we recieved a type that is not of the built in displays, it must be relegated to an extension plugin
+			do_action('bcn_widget_display_trail', $instance);
 		}
 		//Manditory after widget junk
 		echo $args['after_widget'];
@@ -85,6 +90,7 @@ class bcn_widget extends WP_Widget
 		$old_instance['linked'] = isset($new_instance['linked']);
 		$old_instance['reverse'] = isset($new_instance['reverse']);
 		$old_instance['front'] = isset($new_instance['front']);
+		$old_instance['force'] = isset($new_instance['force']);
 		return $old_instance;
 	}
 	function form($instance)
@@ -104,6 +110,7 @@ class bcn_widget extends WP_Widget
 				<option value="list" <?php selected('list', $instance['type']);?>><?php _e('List', 'breadcrumb-navxt'); ?></option>
 				<option value="microdata" <?php selected('microdata', $instance['type']);?>><?php _e('Google (RDFa) Breadcrumbs', 'breadcrumb-navxt'); ?></option>
 				<option value="plain" <?php selected('plain', $instance['type']);?>><?php _e('Plain', 'breadcrumb-navxt'); ?></option>
+				<?php do_action('bcn_widget_display_types', $instance);?>
 			</select>
 		</p>
 		<p>
@@ -113,6 +120,8 @@ class bcn_widget extends WP_Widget
 			<label for="<?php echo $this->get_field_id('reverse'); ?>"> <?php _e('Reverse the order of the trail', 'breadcrumb-navxt'); ?></label><br />
 			<input class="checkbox" type="checkbox" name="<?php echo $this->get_field_name('front'); ?>" id="<?php echo $this->get_field_id('front'); ?>" value="true" <?php checked(true, $instance['front']);?> />
 			<label for="<?php echo $this->get_field_id('front'); ?>"> <?php _e('Hide the trail on the front page', 'breadcrumb-navxt'); ?></label><br />
+			<input class="checkbox" type="checkbox" name="<?php echo $this->get_field_name('force'); ?>" id="<?php echo $this->get_field_id('force'); ?>" value="true" <?php checked(true, $instance['force']);?> />
+			<label for="<?php echo $this->get_field_id('force'); ?>"> <?php _e('Ignore breadcrumb cache', 'breadcrumb-navxt'); ?></label><br />
 		</p>
 		<?php
 	}

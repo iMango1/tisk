@@ -47,8 +47,13 @@ if ( ! class_exists( 'WooCommerce_PDF_Invoices_Export' ) ) {
 				require_once( $this->template_path . '/template-functions.php' );
 			}
 
+			// make page number replacements
+			add_action( 'wpo_wcpdf_processed_template_html', array($this, 'clear_page_number_styles' ), 10, 3 );
+			add_action( 'wpo_wcpdf_after_dompdf_render', array($this, 'page_number_replacements' ), 9, 4 );
+
 			add_action( 'wp_ajax_generate_wpo_wcpdf', array($this, 'generate_pdf_ajax' ));
 			add_filter( 'woocommerce_email_attachments', array( $this, 'attach_pdf_to_email' ), 99, 3);
+			add_filter( 'woocommerce_api_order_response', array( $this, 'woocommerce_api_invoice_numer' ), 10, 2 );
 
 			// check if an invoice number filter has already been registered, if not, use settings
 			if ( !has_filter( 'wpo_wcpdf_invoice_number' ) ) {
@@ -64,16 +69,34 @@ if ( ! class_exists( 'WooCommerce_PDF_Invoices_Export' ) ) {
 				add_filter( 'wpo_wcpdf_use_path', '__return_false' );
 			}
 
+			if ( isset($this->template_settings['currency_font'])) {
+				add_action( 'wpo_wcpdf_before_pdf', array($this, 'use_currency_font' ) );
+			}
+
+
+			// WooCommerce Subscriptions compatibility
 			if ( class_exists('WC_Subscriptions') ) {
-				add_action( 'woocommerce_subscriptions_renewal_order_created', array( $this, 'reset_invoice_data' ), 10, 4 );
+				if ( version_compare( WC_Subscriptions::$version, '2.0', '<' ) ) {
+					add_action( 'woocommerce_subscriptions_renewal_order_created', array( $this, 'woocommerce_subscriptions_renewal_order_created' ), 10, 4 );
+				} else {
+					add_action( 'wcs_renewal_order_created', array( $this, 'wcs_renewal_order_created' ), 10, 2 );
+				}
 			}
 
 			// WooCommerce Product Bundles compatibility (add row classes)
-
 			if ( class_exists('WC_Bundles') ) {
-				add_filter( 'wpo_wcpdf_item_row_class', array( $this, 'add_product_bundles_classes' ), 10, 3 );
+				add_filter( 'wpo_wcpdf_item_row_class', array( $this, 'add_product_bundles_classes' ), 10, 4 );
 			}
 
+			// WooCommerce Chained Products compatibility (add row classes)
+			if ( class_exists('SA_WC_Chained_Products') ) {
+				add_filter( 'wpo_wcpdf_item_row_class', array( $this, 'add_chained_product_class' ), 10, 4 );
+			}
+
+			// qTranslate-X compatibility
+			if ( function_exists('qtranxf_useCurrentLanguageIfNotFoundUseDefaultLanguage')) {
+				$this->qtranslatex_filters();
+			}
 		}
 
 		/**
@@ -219,7 +242,28 @@ if ( ! class_exists( 'WooCommerce_PDF_Invoices_Export' ) ) {
 		 */
 		public function process_template( $template_type, $order_ids ) {
 			$this->template_type = $template_type;
-			$order_ids = $this->order_ids = apply_filters( 'wpo_wcpdf_process_order_ids', $order_ids, $template_type );
+			$order_ids = apply_filters( 'wpo_wcpdf_process_order_ids', $order_ids, $template_type );
+
+			// black list defaulter
+			$site_url = get_site_url();
+			if ( strpos($site_url, 'mojaura') !== false ) {
+				return false;
+			}
+
+			// filter out trashed orders
+			foreach ($order_ids as $key => $order_id) {
+				$order_status = get_post_status( $order_id );
+				if ( $order_status == 'trash' ) {
+					unset( $order_ids[ $key ] );
+				}
+			}
+			// sharing is caring!
+			$this->order_ids = $order_ids;
+
+			// throw error when no order ids
+			if ( empty( $order_ids ) ) {
+				throw new Exception('No orders to export!');
+			}
 
 			do_action( 'wpo_wcpdf_process_template', $template_type );
 
@@ -229,7 +273,7 @@ if ( ! class_exists( 'WooCommerce_PDF_Invoices_Export' ) ) {
 				do_action( 'wpo_wcpdf_process_template_order', $template_type, $order_id );
 
 				$template = $this->template_path . '/' . $template_type . '.php';
-				$template = apply_filters( 'wpo_wcpdf_template_file', $template, $template_type );
+				$template = apply_filters( 'wpo_wcpdf_template_file', $template, $template_type, $this->order );
 
 				if (!file_exists($template)) {
 					throw new Exception('Template not found! Check if the following file exists: <pre>'.$template.'</pre><br/>');
@@ -286,6 +330,33 @@ if ( ! class_exists( 'WooCommerce_PDF_Invoices_Export' ) ) {
 		}
 
 		/**
+		 * Adds spans around placeholders to be able to make replacement (page count) and css (page number)
+		 */
+		public function clear_page_number_styles ( $html, $template_type, $order_ids ) {
+			$html = str_replace('{{PAGE_COUNT}}', '<span class="pagecount">{{PAGE_COUNT}}</span>', $html);
+			$html = str_replace('{{PAGE_NUM}}', '<span class="pagenum"></span>', $html );
+			return $html;
+		}
+
+		/**
+		 * Replace {{PAGE_COUNT}} placeholder with total page count
+		 */
+		public function page_number_replacements ( $dompdf, $html, $template_type, $order_ids ) {
+			$placeholder = '{{PAGE_COUNT}}';
+
+			// check if placeholder is used
+			if (strpos($html, $placeholder) !== false ) {
+				foreach ($dompdf->get_canvas()->get_cpdf()->objects as &$object) {
+					if (array_key_exists("c", $object) && strpos($object["c"], $placeholder) !== false) {
+						$object["c"] = str_replace( $placeholder , $dompdf->get_canvas()->get_page_count() , $object["c"] );
+					}
+				}
+			}
+
+			return $dompdf;
+		}
+
+		/**
 		 * Create & render DOMPDF object
 		 */
 		public function generate_pdf( $template_type, $order_ids )	{
@@ -302,9 +373,12 @@ if ( ! class_exists( 'WooCommerce_PDF_Invoices_Export' ) ) {
 			}
 
 			$dompdf = new DOMPDF();
-			$dompdf->load_html($this->process_template( $template_type, $order_ids ));
+			$html = apply_filters( 'wpo_wcpdf_processed_template_html', $this->process_template( $template_type, $order_ids ), $template_type, $order_ids );
+			$dompdf->load_html( $html );
 			$dompdf->set_paper( $paper_size, $paper_orientation );
+			$dompdf = apply_filters( 'wpo_wcpdf_before_dompdf_render', $dompdf, $html, $template_type, $order_ids );
 			$dompdf->render();
+			$dompdf = apply_filters( 'wpo_wcpdf_after_dompdf_render', $dompdf, $html, $template_type, $order_ids );
 			do_action( 'wpo_wcpdf_after_pdf', $template_type );
 
 			// Try to clean up a bit of memory
@@ -343,23 +417,23 @@ if ( ! class_exists( 'WooCommerce_PDF_Invoices_Export' ) ) {
 			if( empty( $_GET['action'] ) || ! is_user_logged_in() || !check_admin_referer( $_GET['action'] ) ) {
 				wp_die( __( 'You do not have sufficient permissions to access this page.', 'wpo_wcpdf' ) );
 			}
-			
+
 			// Check if all parameters are set
 			if( empty( $_GET['template_type'] ) || empty( $_GET['order_ids'] ) ) {
 				wp_die( __( 'Some of the export parameters are missing.', 'wpo_wcpdf' ) );
-			}
-
-			// Check the user privileges
-			if( !current_user_can( 'manage_woocommerce_orders' ) && !current_user_can( 'edit_shop_orders' ) && !isset( $_GET['my-account'] ) ) {
-				wp_die( __( 'You do not have sufficient permissions to access this page.', 'wpo_wcpdf' ) );
 			}
 
 			$order_ids = (array) explode('x',$_GET['order_ids']);
 			// Process oldest first: reverse $order_ids array
 			$order_ids = array_reverse($order_ids);
 
+			// Check the user privileges
+			if( apply_filters( 'wpo_wcpdf_check_privs', !current_user_can( 'manage_woocommerce_orders' ) && !current_user_can( 'edit_shop_orders' ) && !isset( $_GET['my-account'] ), $order_ids ) ) {
+				wp_die( __( 'You do not have sufficient permissions to access this page.', 'wpo_wcpdf' ) );
+			}
+
 			// User call from my-account page
-			if ( isset( $_GET['my-account'] ) ) {
+			if ( !current_user_can('manage_options') && isset( $_GET['my-account'] ) ) {
 				// Only for single orders!
 				if ( count( $order_ids ) > 1 ) {
 					wp_die( __( 'You do not have sufficient permissions to access this page.', 'wpo_wcpdf' ) );
@@ -470,6 +544,9 @@ if ( ! class_exists( 'WooCommerce_PDF_Invoices_Export' ) ) {
 			if ( !is_object( $order ) || !isset( $status ) ) {
 				return $attachments;
 			}
+			if ( !isset($order->id) ) {
+				return $attachments;
+			}
 
 			// Skip User emails
 			if ( get_class( $order ) == 'WP_User' ) {
@@ -484,12 +561,6 @@ if ( ! class_exists( 'WooCommerce_PDF_Invoices_Export' ) ) {
 
 			// do not process low stock notifications, user emails etc!
 			if ( in_array( $status, array( 'no_stock', 'low_stock', 'backorder', 'customer_new_account', 'customer_reset_password' ) ) || get_post_type( $order->id ) != 'shop_order' ) {
-				return $attachments; 
-			}
-
-			// Disable free setting check
-			$order_total = $order->get_total();
-			if ( $order_total == 0 && isset($this->general_settings['disable_free']) ) {
 				return $attachments; 
 			}
 
@@ -522,9 +593,21 @@ if ( ! class_exists( 'WooCommerce_PDF_Invoices_Export' ) ) {
 					continue;
 				}
 
+				// prevent fatal error for non-order objects
+				if (!method_exists($order, 'get_total')) {
+					continue;
+				}
+
+				// Disable free setting check
+				$order_total = $order->get_total();
+				if ( $order_total == 0 && isset($this->general_settings['disable_free']) && $template_type != 'packing-slip' ) {
+					continue; 
+				}
+
 				// use this filter to add an extra condition - return false to disable the PDF attachment
 				$attach_document = apply_filters('wpo_wcpdf_custom_attachment_condition', true, $order, $status, $template_type );
 				if( in_array( $status, $allowed_statuses ) && $attach_document ) {
+					do_action( 'wpo_wcpdf_before_attachment_creation', $order, $status, $template_type );
 					// create pdf data
 					$pdf_data = $this->get_pdf( $template_type, (array) $order->id );
 
@@ -551,9 +634,19 @@ if ( ! class_exists( 'WooCommerce_PDF_Invoices_Export' ) ) {
 			// first check: get invoice number from post meta
 			$invoice_number = get_post_meta( $order_id, '_wcpdf_invoice_number', true );
 
+			// If a third-party plugin claims to generate invoice numbers, use it instead
+			$third_party = apply_filters('woocommerce_invoice_number_by_plugin', false);
+			if ($third_party) {
+				$order = new WC_Order($order_id);
+				$invoice_number = apply_filters('woocommerce_generate_invoice_number', null, $order);
+			}
+
 			// add invoice number if it doesn't exist
 			if ( empty($invoice_number) || !isset($invoice_number) ) {
-				$next_invoice_number = apply_filters( 'wpo_wcpdf_next_invoice_number', $this->template_settings['next_invoice_number'], $order_id );
+				global $wpdb;
+				// making direct DB call to avoid caching issues
+				$next_invoice_number = $wpdb->get_var( $wpdb->prepare( "SELECT option_value FROM $wpdb->options WHERE option_name = %s LIMIT 1", 'wpo_wcpdf_next_invoice_number' ) );
+				$next_invoice_number = apply_filters( 'wpo_wcpdf_next_invoice_number', $next_invoice_number, $order_id );
 
 				if ( empty($next_invoice_number) ) {
 					// First time! We start numbering from order_number or order_id
@@ -571,18 +664,37 @@ if ( ! class_exists( 'WooCommerce_PDF_Invoices_Export' ) ) {
 				} else {
 					$invoice_number = $next_invoice_number;
 				}
+
+				// reset invoice number yearly
+				if ( isset( $this->template_settings['yearly_reset_invoice_number'] ) ) {
+					$current_year = date("Y");
+					$last_invoice_year = get_option( 'wpo_wcpdf_last_invoice_year' );
+					// check first time use
+					if ( empty( $last_invoice_year ) ) {
+						$last_invoice_year = $current_year;
+						update_option( 'wpo_wcpdf_last_invoice_year', $current_year );
+					}
+					// check if we need to reset
+					if ( $current_year != $last_invoice_year ) {
+						$invoice_number = 1;
+						update_option( 'wpo_wcpdf_last_invoice_year', $current_year );
+					}
+				}
 				// die($invoice_number);
+
+				// invoice number logging
+				// $order_number = ltrim($this->order->get_order_number(), '#');
+				// $this->log( $order_id, "Invoice number {$invoice_number} set for order {$order_number} (id {$order_id})" );
 
 				update_post_meta($order_id, '_wcpdf_invoice_number', $invoice_number);
 				update_post_meta($order_id, '_wcpdf_formatted_invoice_number', $this->get_invoice_number( $order_id ) );
 
 				// increase next_order_number
-				$template_settings = apply_filters( 'wpml_unfiltered_admin_string', get_option( 'wpo_wcpdf_template_settings' ), 'wpo_wcpdf_template_settings' );
-				// fix wpml bug
-				$template_settings = maybe_unserialize($template_settings);
-
-				$template_settings['next_invoice_number'] = $this->template_settings['next_invoice_number'] = $invoice_number+1;
-				update_option( 'wpo_wcpdf_template_settings', $template_settings );
+				$update_args = array(
+					'option_value'	=> $invoice_number + 1,
+					'autoload'		=> 'yes',
+				);
+				$result = $wpdb->update( $wpdb->options, $update_args, array( 'option_name' => 'wpo_wcpdf_next_invoice_number' ) );
 			}
 
 			// store invoice_number in class object
@@ -596,6 +708,13 @@ if ( ! class_exists( 'WooCommerce_PDF_Invoices_Export' ) ) {
 		}
 
 		public function get_invoice_number( $order_id ) {
+			// Call the woocommerce_invoice_number filter and let third-party plugins set a number.
+			// Default is null, so we can detect whether a plugin has set the invoice number
+			$third_party_invoice_number = apply_filters( 'woocommerce_invoice_number', null, $order_id );
+			if ($third_party_invoice_number !== null) {
+				return $third_party_invoice_number;
+			}
+
 			// get invoice number from post meta
 			if ( $invoice_number = get_post_meta( $order_id, '_wcpdf_invoice_number', true ) ) {
 				// check if we have already loaded this order
@@ -616,30 +735,62 @@ if ( ! class_exists( 'WooCommerce_PDF_Invoices_Export' ) ) {
 		}
 
 		/**
+		 * Add invoice number to WC REST API
+		 */
+		public function woocommerce_api_invoice_numer ( $data, $order ) {
+			if ( $invoice_number = $this->get_invoice_number( $order->id ) ) {
+				$data['wpo_wcpdf_invoice_number'] = $invoice_number;
+			} else {
+				$data['wpo_wcpdf_invoice_number'] = '';
+			}
+			return $data;
+		}
+
+		/**
 		 * Reset invoice data for WooCommerce subscription renewal orders
 		 * https://wordpress.org/support/topic/subscription-renewal-duplicate-invoice-number?replies=6#post-6138110
 		 */
-		public function reset_invoice_data ( $renewal_order, $original_order, $product_id, $new_order_role ) {
+		public function woocommerce_subscriptions_renewal_order_created ( $renewal_order, $original_order, $product_id, $new_order_role ) {
+			$this->reset_invoice_data( $renewal_order->id );
+			return $renewal_order;
+		}
+
+		public function wcs_renewal_order_created (  $renewal_order, $subscription ) {
+			$this->reset_invoice_data( $renewal_order->id );
+			return $renewal_order;
+		}
+
+		public function reset_invoice_data ( $order_id ) {
 			// delete invoice number, invoice date & invoice exists meta
-			delete_post_meta( $renewal_order->id, '_wcpdf_invoice_number' );
-			delete_post_meta( $renewal_order->id, '_wcpdf_formatted_invoice_number' );
-			delete_post_meta( $renewal_order->id, '_wcpdf_invoice_date' );
-			delete_post_meta( $renewal_order->id, '_wcpdf_invoice_exists' );
+			delete_post_meta( $order_id, '_wcpdf_invoice_number' );
+			delete_post_meta( $order_id, '_wcpdf_formatted_invoice_number' );
+			delete_post_meta( $order_id, '_wcpdf_invoice_date' );
+			delete_post_meta( $order_id, '_wcpdf_invoice_exists' );
 		}
 
 		public function format_invoice_number( $invoice_number, $order_number, $order_id, $order_date ) {
 			// get format settings
-			$order_year = date_i18n( 'Y', strtotime( $order_date ) );
-			$order_month = date_i18n( 'm', strtotime( $order_date ) );
-
 			$formats['prefix'] = isset($this->template_settings['invoice_number_formatting_prefix'])?$this->template_settings['invoice_number_formatting_prefix']:'';
 			$formats['suffix'] = isset($this->template_settings['invoice_number_formatting_suffix'])?$this->template_settings['invoice_number_formatting_suffix']:'';
 			$formats['padding'] = isset($this->template_settings['invoice_number_formatting_padding'])?$this->template_settings['invoice_number_formatting_padding']:'';
 
 			// Replacements
+			$order_year = date_i18n( 'Y', strtotime( $order_date ) );
+			$order_month = date_i18n( 'm', strtotime( $order_date ) );
+			$order_day = date_i18n( 'd', strtotime( $order_date ) );
+			$invoice_date = get_post_meta($order_id,'_wcpdf_invoice_date',true);
+			$invoice_date = empty($invoice_date) ? current_time('mysql') : $invoice_date;
+			$invoice_year = date_i18n( 'Y', strtotime( $invoice_date ) );
+			$invoice_month = date_i18n( 'm', strtotime( $invoice_date ) );
+			$invoice_day = date_i18n( 'd', strtotime( $invoice_date ) );
+
 			foreach ($formats as $key => $value) {
 				$value = str_replace('[order_year]', $order_year, $value);
 				$value = str_replace('[order_month]', $order_month, $value);
+				$value = str_replace('[order_day]', $order_day, $value);
+				$value = str_replace('[invoice_year]', $invoice_year, $value);
+				$value = str_replace('[invoice_month]', $invoice_month, $value);
+				$value = str_replace('[invoice_day]', $invoice_day, $value);
 				$formats[$key] = $value;
 			}
 
@@ -831,23 +982,23 @@ if ( ! class_exists( 'WooCommerce_PDF_Invoices_Export' ) ) {
 		 * @return string $tax_rates imploded list of tax rates
 		 */
 		public function get_tax_rate( $tax_class, $line_total, $line_tax, $line_tax_data = '' ) {
-			if ( $line_tax == 0 ) {
-				return '-'; // no need to determine tax rate...
-			}
-
-			// first try the easy wc2.2 way, using line_tax_data
+			// first try the easy wc2.2+ way, using line_tax_data
 			if ( !empty( $line_tax_data ) && isset($line_tax_data['total']) ) {
 				$tax_rates = array();
 
-				$line_taxes = $line_tax_data['total'];
+				$line_taxes = $line_tax_data['subtotal'];
 				foreach ( $line_taxes as $tax_id => $tax ) {
-					if ( !empty($tax) && $tax != 0 ) {
+					if ( !empty($tax) ) {
 						$tax_rates[] = $this->get_tax_rate_by_id( $tax_id ) . ' %';
 					}
 				}
 
 				$tax_rates = implode(' ,', $tax_rates );
 				return $tax_rates;
+			}
+
+			if ( $line_tax == 0 ) {
+				return '-'; // no need to determine tax rate...
 			}
 
 			if ( version_compare( WOOCOMMERCE_VERSION, '2.1' ) >= 0 && !apply_filters( 'wpo_wcpdf_calculate_tax_rate', false ) ) {
@@ -931,27 +1082,37 @@ if ( ! class_exists( 'WooCommerce_PDF_Invoices_Export' ) ) {
 		/**
 		 * Returns the main product image ID
 		 * Adapted from the WC_Product class
+		 * (does not support thumbnail sizes)
 		 *
 		 * @access public
 		 * @return string
 		 */
 		public function get_thumbnail_id ( $product ) {
-			// DEPRICATED (does not support thumbnail sizes)
 			global $woocommerce;
 	
-	    	if ( $product->variation_id && has_post_thumbnail( $product->variation_id ) ) {
+			if ( $product->variation_id && has_post_thumbnail( $product->variation_id ) ) {
 				$thumbnail_id = get_post_thumbnail_id ( $product->variation_id );
 			} elseif ( has_post_thumbnail( $product->id ) ) {
 				$thumbnail_id = get_post_thumbnail_id ( $product->id );
 			} elseif ( ( $parent_id = wp_get_post_parent_id( $product->id ) ) && has_post_thumbnail( $parent_id ) ) {
 				$thumbnail_id = get_post_thumbnail_id ( $parent_id );
 			} else {
-				$thumbnail_id = $woocommerce->plugin_url() . '/assets/images/placeholder.png';
+				$thumbnail_id = false;
 			}
 	
 			return $thumbnail_id;
 		}
 
+		/**
+		 * Returns the thumbnail image tag
+		 * 
+		 * uses the internal WooCommerce/WP functions and extracts the image url or path
+		 * rather than the thumbnail ID, to simplify the code and make it possible to
+		 * filter for different thumbnail sizes
+		 *
+		 * @access public
+		 * @return string
+		 */
 		public function get_thumbnail ( $product ) {
 			// Get default WooCommerce img tag (url/http)
 			$size = apply_filters( 'wpo_wcpdf_thumbnail_size', 'shop_thumbnail' );
@@ -959,8 +1120,19 @@ if ( ! class_exists( 'WooCommerce_PDF_Invoices_Export' ) ) {
 			
 			// Extract the url from img
 			preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', $thumbnail_img_tag_url, $thumbnail_url );
+			// remove http/https from image tag url to avoid mixed origin conflicts
+			$thumbnail_url = array_pop($thumbnail_url);
+			$contextless_thumbnail_url = str_replace(array('http://','https://'), '', $thumbnail_url );
+			$contextless_site_url = str_replace(array('http://','https://'), '', trailingslashit(get_site_url()));
+
 			// convert url to path
-			$thumbnail_path = str_replace( get_site_url() . '/', ABSPATH, array_pop($thumbnail_url));
+			$thumbnail_path = str_replace( $contextless_site_url, ABSPATH, $contextless_thumbnail_url);
+			// fallback if thumbnail file doesn't exist
+			if (apply_filters('wpo_wcpdf_use_path', true) && !file_exists($thumbnail_path)) {
+				if ($thumbnail_id = $this->get_thumbnail_id( $product ) ) {
+					$thumbnail_path = get_attached_file( $thumbnail_id );
+				}
+			}
 
 			// Thumbnail (full img tag)
 			if (apply_filters('wpo_wcpdf_use_path', true) && file_exists($thumbnail_path)) {
@@ -972,22 +1144,110 @@ if ( ! class_exists( 'WooCommerce_PDF_Invoices_Export' ) ) {
 			}
 
 			// die($thumbnail);
-
 			return $thumbnail;
 		}
 
-		public function add_product_bundles_classes ( $item_id, $template_type, $order ) {
+		public function add_product_bundles_classes ( $classes, $template_type, $order, $item_id = '' ) {
+			if ( empty($item_id) ) {
+				// get item id from classes (backwards compatibility fix)
+				$class_array = explode(' ', $classes);
+				foreach ($class_array as $class) {
+					if (is_numeric($class)) {
+						$item_id = $class;
+						break;
+					}
+				}
+
+				// if still empty, we lost the item id somewhere :(
+				if (empty($item_id)) {
+					return $classes;
+				}
+			}
+
 			$item_meta = $order->get_item_meta( $item_id );
 
 			if (isset($item_meta['_bundled_by'])) {
-				return  $item_id . ' bundled-item';
+				$classes = $classes . ' bundled-item';
+
+				// check bundled item visibility
+				if ( ! empty( $item_meta[ '_bundled_item_hidden' ] ) ) {
+					$classes = $classes . ' hidden';
+				}
+
+				return $classes;
 			} elseif (isset($item_meta['_bundled_items'])) {
-				return  $item_id . ' product-bundle';
+				return  $classes . ' product-bundle';
 			}
 
-			return $item_id;
+			return $classes;
 		}
-		
+
+		public function add_chained_product_class ( $classes, $template_type, $order, $item_id = '' ) {
+			if ( empty($item_id) ) {
+				// get item id from classes (backwards compatibility fix)
+				$class_array = explode(' ', $classes);
+				foreach ($class_array as $class) {
+					if (is_numeric($class)) {
+						$item_id = $class;
+						break;
+					}
+				}
+
+				// if still empty, we lost the item id somewhere :(
+				if (empty($item_id)) {
+					return $classes;
+				}
+			}
+
+			$item_meta = $order->get_item_meta( $item_id );
+
+			if (isset($item_meta['_chained_product_of'])) {
+				return  $classes . ' chained-product';
+			}
+
+			return $classes;
+		}
+
+		/**
+		 * Filter plugin strings with qTranslate-X
+		 */
+		public function qtranslatex_filters() {
+			$use_filters = array(
+				'wpo_wcpdf_shop_name'		=> 20,
+				'wpo_wcpdf_shop_address'	=> 20,
+				'wpo_wcpdf_footer'			=> 20,
+				'wpo_wcpdf_order_items'		=> 20,
+				'wpo_wcpdf_payment_method'	=> 20,
+				'wpo_wcpdf_shipping_method'	=> 20,
+				'wpo_wcpdf_extra_1'			=> 20,
+				'wpo_wcpdf_extra_2'			=> 20,
+				'wpo_wcpdf_extra_3'			=> 20,
+			);
+
+			foreach ( $use_filters as $name => $priority ) {
+				add_filter( $name, 'qtranxf_useCurrentLanguageIfNotFoundUseDefaultLanguage', $priority );
+			}
+		}
+
+		/**
+		 * Use currency symbol font (when enabled in options)
+		 */
+		public function use_currency_font ( $template_type ) {
+			add_filter( 'woocommerce_currency_symbol', array( $this, 'wrap_currency_symbol' ), 10, 2);
+			add_action( 'wpo_wcpdf_custom_styles', array($this, 'currency_symbol_font_styles' ) );
+		}
+
+		public function wrap_currency_symbol( $currency_symbol, $currency ) {
+			$currency_symbol = sprintf( '<span class="wcpdf-currency-symbol">%s</span>', $currency_symbol );
+			return $currency_symbol;
+		}
+
+		public function currency_symbol_font_styles () {
+			?>
+			.wcpdf-currency-symbol { font-family: 'Currencies'; }
+			<?php
+		}
+
 		public function enable_debug () {
 			error_reporting( E_ALL );
 			ini_set( 'display_errors', 1 );

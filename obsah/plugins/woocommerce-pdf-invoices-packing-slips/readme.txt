@@ -2,8 +2,8 @@
 Contributors: pomegranate
 Tags: woocommerce, pdf, invoices, packing slips, print, delivery notes, invoice, packing slip, export, email, bulk, automatic
 Requires at least: 3.5
-Tested up to: 4.2
-Stable tag: 1.5.22
+Tested up to: 4.6
+Stable tag: 1.5.38
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -234,6 +234,85 @@ This usually only happens on batch actions. PDF creation is a memory intensive j
 4. Simple packing slip PDF
 
 == Changelog ==
+
+= 1.5.38 =
+* Fix: Thumbnail path fallback
+* Fix: Edge/IE hour & minute pattern
+* Fix: Skip over non-order objects
+* Tweak: Let shop manager view My Account links
+* Dev: added `wpo_wcpdf_before_attachment_creation` action
+* Translations: Updated POT, Swedish, Dutch & Norwegian
+
+= 1.5.37 =
+* Feature: Added support for third party invoice numbers
+* Feature: Enable pre-invoice number click-to-edit
+* Fix: Review link for custom admins
+* Fix: PHP7 compatibility
+* Fix: Invoice date hour/minute pattern
+* Tweak: Multisite WooCommerce check optimization
+
+= 1.5.36 =
+* Translations: Fixed Romanian (incorrect "Factură Proforma" translation for "Invoice")
+
+= 1.5.35 =
+* Translations: Fixed "Includes %s" string for WC2.6+
+
+= 1.5.34 = 
+* Fix: Document check that was introduced in 1.5.33 for disable free setting
+
+= 1.5.33 =
+* Tweak: Don't apply 'disable free' setting to packing slip attachment
+* Translations: Updated Romanian
+
+= 1.5.32 =
+* Fix: Updated currency font with Indian Rupee symbol
+* Translations: added Formal German (currently a copy of informal German)
+
+= 1.5.31 =
+* Feature: [invoice_day] or [order_day] in invoice number format
+* Fix: Link to hide all ads when premium extensions active
+
+= 1.5.30 =
+* Feature: Enable currency font for extended currency support
+* Fix: Font sync on plugin update
+
+= 1.5.29 =
+* Translations: Added Croation (Thanks Neven/Spine ICT!), updated French (Thanks Sabra!)
+* Tweak: filter shop address before checking if it's empty
+* Dev: added $order to `wpo_wcpdf_template_file` filter
+
+= 1.5.28 =
+* Tweak: the 'Next invoice number' is now stored separately in the database for faster and more reliable retrieval. Circumventing any caching, this should prevent duplicate invoice numbers.
+* Fix: Bulk actions plugin conflicts
+* Experimental: page numbers (use {{PAGE_NUM}} / {{PAGE_COUNT}} in your template)
+
+= 1.5.27 =
+* Feature: Use [invoice_year] and [invoice_month] placeholders in invoice number prefix/suffix
+* Feature: WooCommerce Order Status & Actions Manager emails compatibility
+* Feature: Add invoice number to WC REST API
+* Fix: Allow positive 'discounts' (price corrections)
+* Fix: Discounts rounding
+* Translations: Updated Finnish & Portugese & POT
+
+= 1.5.26 =
+* Feature: Automatically list all emails registered in WooCommerce
+* Feature: Reset invoice number yearly
+* Feature: WooCommerce Chained Products compatibility
+* Feature: WooCommerce Product Bundles visibility settings taken into account in invoice
+* Fix: Disable PDF creation from trashed order_ids
+* Tweak: Alert when no orders selected for bulk export (Props to Dartui!)
+* Tweak: PDF invoice settings always under WooCommerce menu (also for premium users)
+* Tweak: extra $item_id passed in row class filter
+* Translations: Updated Slovenian, Spanish, Dutch & POT file
+
+= 1.5.24 =
+* Hotfix: Subscriptions renewal filter arguments
+
+= 1.5.23 =
+* Fix: WooCommerce Subscriptons 2.0 deprecation notice.
+* Tweak: better qTranslate-X support
+* Tweak: filter for user privileges check (wpo_wcpdf_check_privs)
+* Translations: French translations fix
 
 = 1.5.22 =
 * Fix: Workaround for bug in WPML (which cleared all settings)

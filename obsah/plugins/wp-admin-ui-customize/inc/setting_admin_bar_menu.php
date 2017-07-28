@@ -15,14 +15,14 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 <div class="wrap">
 
 	<?php echo $this->Msg; ?>
-	<h2><?php _e( 'Admin Bar Menu' , $this->ltd ); ?></h2>
-	<p><?php _e( 'Please change the menu by drag and drop.' , $this->ltd ); ?></p>
-	<p><strong><?php _e( 'Notice: Please do not place the same multiple menu slug.' , $this->ltd ); ?></strong></p>
-	<p class="description"><?php _e( 'Can be more than one custom menu.' , $this->ltd ); ?></p>
+	<h2><?php _e( 'Admin bar' , 'wp-admin-ui-customize' ); ?></h2>
+	<p><?php _e( 'Drag menu items to edit and reorder menus.' , 'wp-admin-ui-customize' ); ?></p>
+	<p><strong><?php _e( 'Note: Using the same menu item multiple times could cause unexpected behavior.' , 'wp-admin-ui-customize' ); ?></strong></p>
+	<p class="description"><?php _e( 'You can use multiple custom menus.' , 'wp-admin-ui-customize' ); ?></p>
 
 	<h3 id="wauc-apply-user-roles"><?php echo $this->get_apply_roles(); ?></h3>
 
-	<p><a href="#TB_inline?height=300&width=600&inlineId=list_variables&modal=false" title="<?php _e( 'Shortcodes' , $this->ltd ); ?>" class="thickbox"><?php _e( 'Available Shortcodes' , $this->ltd ); ?></a></p>
+	<p><a href="#TB_inline?height=300&width=600&inlineId=list_variables&modal=false" title="<?php _e( 'Shortcodes' , 'wp-admin-ui-customize' ); ?>" class="thickbox"><?php _e( 'Available Shortcodes' , 'wp-admin-ui-customize' ); ?></a></p>
 
 	<form id="wauc_setting_admin_bar_menu" class="wauc_form" method="post" action="<?php echo esc_url( remove_query_arg( 'wauc_msg' , add_query_arg( array( 'page' => $this->PageSlug ) ) ) ); ?>">
 		<input type="hidden" name="<?php echo $this->UPFN; ?>" value="Y" />
@@ -30,8 +30,8 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 		<input type="hidden" name="record_field" value="admin_bar_menu" />
 
 		<p></p>
-		<p><?php _e( 'Sub-menu settings apply to maximum of four levels deep.' , $this->ltd ); ?></p>
-		<p><a href="<?php $this->get_document_link( 'admin_bar' ); ?>" target="_blank" class="button-secondary"><?php _e( 'Admin bar settings documentation page' , $this->ltd ); ?></a></p>
+		<p><?php _e( 'Sub menus can be a maximum of four levels deep.' , 'wp-admin-ui-customize' ); ?></p>
+		<p><a href="<?php $this->get_document_link( 'admin_bar' ); ?>" target="_blank" class="button-secondary"><?php _e( 'Additional documentation' , 'wp-admin-ui-customize' ); ?></a></p>
 
 		<div id="poststuff">
 
@@ -84,13 +84,13 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 		</p>
 
 		<p class="submit reset">
-			<span class="description"><?php printf( __( 'Reset the %s?' , $this->ltd ) , __( 'Admin Bar Menu' , $this->ltd ) . __( 'Settings' ) ); ?></span>
-			<input type="submit" class="button-secondary" name="reset" value="<?php _e( 'Reset settings' , $this->ltd ); ?>" />
+			<span class="description"><?php printf( __( 'Reset the %s?' , 'wp-admin-ui-customize' ) , __( 'Admin bar' , 'wp-admin-ui-customize' ) . __( 'Settings' ) ); ?></span>
+			<input type="submit" class="button-secondary" name="reset" value="<?php _e( 'Reset settings' , 'wp-admin-ui-customize' ); ?>" />
 		</p>
 
 	</form>
 
-	<h3><?php _e ( 'Menu items that can be added' , $this->ltd ); ?></h3>
+	<h3><?php _e ( 'Available menu items' , 'wp-admin-ui-customize' ); ?></h3>
 
 	<div id="can_menus" class="metabox-holder columns-1">
 
@@ -99,7 +99,7 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 
 				<div class="postbox">
 					<div class="handlediv" title="Click to toggle"><br></div>
-					<h3 class="hndle"><span><?php _e( 'Custom' ); ?> <?php _e( 'Menus' ); ?></span></h3>
+					<h3 class="hndle"><span><?php _e( 'Custom' , 'wp-admin-ui-customize' ); ?> <?php _e( 'Menus' ); ?></span></h3>
 					<div class="inside">
 
 						<?php $menu_widget = array( 'id' => "custom_node" , 'title' => "" , 'parent' => '' , 'href' => "" , 'group' => "" , 'meta' => array() , 'new' => true ); ?>
@@ -197,9 +197,6 @@ body.wp-admin-ui-customize_page_wp_admin_ui_customize_admin_bar .postbox .inside
 .widget-top a.widget-action {
     cursor: pointer;
 }
-.widget-top a.widget-action:after {
-    padding: 9px 12px;
-}
 .widget.ui-draggable-dragging {
     min-width: 170px;
 }
@@ -252,7 +249,7 @@ jQuery(document).ready(function($) {
 
 	});
 
-	$(document).on('click', '.widget .widget-inside .widget-control-actions .alignleft a[href=#remove]', function() {
+	$(document).on('click', '.widget .widget-inside .widget-control-actions .alignleft a[href="#remove"]', function() {
 		
 		$(this).parent().parent().parent().parent().slideUp('normal', function() { $(this).remove(); } );
 		return false;

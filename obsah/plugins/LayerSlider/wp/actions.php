@@ -118,6 +118,15 @@ function ls_register_form_actions() {
 			}
 		}
 
+		if(isset($_GET['page']) && $_GET['page'] == 'layerslider' && isset($_GET['action']) && $_GET['action'] == 'hide-update-notice') {
+			if(check_admin_referer('hide-update-notice')) {
+				$latest = get_option('ls-latest-version', LS_PLUGIN_VERSION);
+				update_option('ls-last-update-notification', $latest);
+				header('Location: admin.php?page=layerslider');
+				die();
+			}
+		}
+
 		if(isset($_GET['page']) && $_GET['page'] == 'layerslider' && isset($_GET['action']) && $_GET['action'] == 'hide-revalidation-notice') {
 			if(check_admin_referer('hide-revalidation-notice')) {
 				update_option('ls-show-revalidation-notice', 0);
@@ -130,7 +139,6 @@ function ls_register_form_actions() {
 		add_action('wp_ajax_ls_save_slider', 'ls_save_slider');
 		add_action('wp_ajax_ls_save_screen_options', 'ls_save_screen_options');
 		add_action('wp_ajax_ls_get_mce_sliders', 'ls_get_mce_sliders');
-		add_action('wp_ajax_ls_update_box_toggles', 'ls_update_box_toggles');
 		add_action('wp_ajax_ls_get_post_details', 'ls_get_post_details');
 		add_action('wp_ajax_ls_get_taxonomies', 'ls_get_taxonomies');
 	}
@@ -148,7 +156,10 @@ function ls_sliders_bulk_action() {
 	// Remove
 	if($_POST['action'] === 'remove') {
 		if(!empty($_POST['sliders']) && is_array($_POST['sliders'])) {
-			foreach($_POST['sliders'] as $item) { LS_Sliders::remove( intval($item) ); }
+			foreach($_POST['sliders'] as $item) {
+				LS_Sliders::remove( intval($item) );
+				delete_transient('ls-slider-data-'.intval($item));
+			}
 			header('Location: admin.php?page=layerslider&message=removeSuccess'); die();
 		} else {
 			header('Location: admin.php?page=layerslider&message=removeSelectError&error=1'); die();
@@ -158,7 +169,10 @@ function ls_sliders_bulk_action() {
 	// Delete
 	if($_POST['action'] === 'delete') {
 		if(!empty($_POST['sliders']) && is_array($_POST['sliders'])) {
-			foreach($_POST['sliders'] as $item) { LS_Sliders::delete( intval($item)); }
+			foreach($_POST['sliders'] as $item) {
+				LS_Sliders::delete( intval($item));
+				delete_transient('ls-slider-data-'.intval($item));
+			}
 			header('Location: admin.php?page=layerslider&message=deleteSuccess'); die();
 		} else {
 			header('Location: admin.php?page=layerslider&message=deleteSelectError&error=1'); die();
@@ -189,7 +203,7 @@ function ls_sliders_bulk_action() {
 
 		if($sliders = LS_Sliders::find($_POST['sliders'])) {
 			foreach($sliders as $key => $item) {
-				
+
 				// Get IDs
 				$ids[] = '#' . $item['id'];
 
@@ -237,7 +251,7 @@ function ls_save_google_fonts() {
 
 function ls_save_advanced_settings() {
 
-	$options = array('use_custom_jquery', 'include_at_footer', 'conditional_script_loading', 'concatenate_output', 'put_js_to_body');
+	$options = array('use_cache', 'include_at_footer', 'conditional_script_loading', 'concatenate_output', 'use_custom_jquery',  'put_js_to_body');
 	foreach($options as $item) {
 		update_option('ls_'.$item, array_key_exists($item, $_POST));
 	}
@@ -263,42 +277,25 @@ function ls_get_mce_sliders() {
 	die(json_encode($sliders));
 }
 
-function ls_update_box_toggles() {
-
-	// Get toggle settings
-	$toggles = get_option('ls-collapsed-boxes', false);
-	$toggles = !is_array($toggles) ? array() : $toggles;
-
-	// Get new setting
-	$key = $_POST['key'];
-	$collapsed = $_POST['collapsed'];
-
-	// Update & Save
-	$toggles[$key] = ($collapsed == 'true') ? true : false;
-	update_option('ls-collapsed-boxes', $toggles);
-}
-
 function ls_save_slider() {
 
 	// Vars
 	$id = (int) $_POST['id'];
-	$settings = $slides = $callbacks = $data = array();
+	$data = $_POST['sliderData'];
 
-	// Decode data
-	parse_str($_POST['settings'], $settings);
-	parse_str($_POST['callbacks'], $callbacks);
-	if(!empty($_POST['slides']) && is_array($_POST['slides'])) {
-		foreach($_POST['slides'] as $key => $val) {
-			$tmp = array();
-			parse_str($val, $tmp);
-			$slides['ls_data']['layers'][$key] = $tmp['ls_data']['layers'][$key];
+	// Parse slider settings
+	$data['properties'] = json_decode(stripslashes(html_entity_decode($data['properties'])), true);
+
+	// Parse slide data
+	if(!empty($data['layers']) && is_array($data['layers'])) {
+		foreach($data['layers'] as $slideKey => $slideData) {
+			$data['layers'][$slideKey] = json_decode(stripslashes(html_entity_decode($slideData)), true);
 		}
 	}
 
-	$data = array_merge_recursive($settings, $slides, $callbacks);
-	$data = $data['ls_data'];
 	$title = esc_sql($data['properties']['title']);
 	$slug = !empty($data['properties']['slug']) ? esc_sql($data['properties']['slug']) : '';
+
 
 	// Relative URL
 	if(isset($data['properties']['relativeurls'])) {
@@ -309,6 +306,10 @@ function ls_save_slider() {
 	if(function_exists('icl_register_string')) {
 		layerslider_register_wpml_strings($id, $data);
 	}
+
+	// Delete transient (if any) to
+	// invalidate outdated data
+	delete_transient('ls-slider-data-'.$id);
 
 	// Update the slider
 	if(empty($id)) {
@@ -362,6 +363,9 @@ function layerslider_removeslider() {
 	// Remove the slider
 	LS_Sliders::remove( intval($_GET['id']) );
 
+	// Delete transient cache
+	delete_transient('ls-slider-data-'.intval($_GET['id']));
+
 	// Reload page
 	header('Location: admin.php?page=layerslider');
 	die();
@@ -383,14 +387,14 @@ function layerslider_import_sample_slider() {
 				$import = new LS_ImportUtil($item['file']);
 			}
 		}
-	} elseif(!empty($_GET['slider']) && is_string($_GET['slider'])) { 
+	} elseif(!empty($_GET['slider']) && is_string($_GET['slider'])) {
 		if($item = LS_Sources::getDemoSlider($_GET['slider'])) {
 			if(file_exists($item['file'])) {
 				$import = new LS_ImportUtil($item['file']);
 			}
 		}
 	}
-	
+
 	header('Location: '.menu_page_url('layerslider', 0));
 	die();
 }
@@ -431,7 +435,7 @@ function ls_import_sliders() {
 
 	include LS_ROOT_PATH.'/classes/class.ls.importutil.php';
 	$import = new LS_ImportUtil($_FILES['import_file']['tmp_name'], $_FILES['import_file']['name']);
-	
+
 	header('Location: '.menu_page_url('layerslider', 0));
 	die();
 }
@@ -479,7 +483,7 @@ function ls_export_sliders() {
 			$zip->addSettings(json_encode($item['data']), $name);
 
 			// Add images?
-			if(isset($_POST['exportWithImages'])) {
+			if(!isset($_POST['skip_images'])) {
 				$images = $zip->getImagesForSlider($item['data']);
 				$images = $zip->getFSPaths($images);
 				$zip->addImage($images, $name);

@@ -7,13 +7,12 @@
  * 
  * This file is part of the WP-Members plugin by Chad Butler
  * You can find out more about this plugin at http://rocketgeek.com
- * Copyright (c) 2006-2015  Chad Butler
+ * Copyright (c) 2006-2016  Chad Butler
  * WP-Members(tm) is a trademark of butlerblog.com
  *
- * @package WordPress
- * @subpackage WP-Members
+ * @package WP-Members
  * @author Chad Butler 
- * @copyright 2006-2015
+ * @copyright 2006-2016
  */
 
 
@@ -39,50 +38,118 @@ function wpmem_user_profile() {
 	<table class="form-table">
 		<?php
 		// Get fields.
-		$wpmem_fields = $wpmem->fields; //get_option( 'wpmembers_fields' );
+		$wpmem_fields = wpmem_fields();
 		// Get excluded meta.
 		$exclude = wpmem_get_excluded_meta( 'user-profile' );
 
-		foreach ( $wpmem_fields as $meta ) {
+		$rows = array();
+		foreach ( $wpmem_fields as $meta => $field ) {
 
-			$val = get_user_meta( $user_id, $meta[2], true );
-			$valtochk = '';
-
-			$chk_tos = true;
-			if ( $meta[2] == 'tos' && $val == 'agree' ) {
-				$chk_tos = false; 
-				echo wpmem_create_formfield( $meta[2], 'hidden', $val );
-			}
-
+			$valtochk = ''; $values = '';
+			
 			// Do we exclude the row?
-			$chk_pass = ( in_array( $meta[2], $exclude ) ) ? false : true;
+			$chk_pass = ( in_array( $meta, $exclude ) ) ? false : true;
 
-			if ( $meta[4] == "y" && $meta[6] == "n" && $chk_tos && $chk_pass ) {
-				// If there are any required fields.
-				$req = ( $meta[5] == 'y' ) ? ' <span class="description">' . __( '(required)' ) . '</span>' : '';
-				$show_field = '
-					<tr>
-						<th><label>' . __( $meta[1], 'wp-members' ) . $req . '</label></th>
-						<td>';
+			if ( $field['register'] && ! $field['native'] && $chk_pass ) {
+				
+				$val = get_user_meta( $user_id, $meta, true );
 
-					$val = get_user_meta( $user_id, $meta[2], true );
-					if ( $meta[3] == 'checkbox' || $meta[3] == 'select' ) {
-						$valtochk = $val; 
-						$val = $meta[7];
+				if ( $field['type'] == 'checkbox' ) {
+					$valtochk = $val; 
+					$val = $field['checked_value'];
+				}
+				
+				if ( 'multicheckbox' == $field['type'] || 'select' == $field['type'] || 'multiselect' == $field['type'] || 'radio' == $field['type'] ) {
+					$values = $field['values'];
+					$valtochk = $val;
+				}
+
+				// Is this an image or a file?
+				if ( 'file' == $field['type'] || 'image' == $field['type'] ) {
+					$attachment_url = wp_get_attachment_url( $val );
+					$empty_file = '<span class="description">' . __( 'None' ) . '</span>';
+					if ( 'file' == $field['type'] ) {
+						$input = ( 0 < $attachment_url ) ? '<a href="' . $attachment_url . '">' . $attachment_url . '</a>' : $empty_file;
+					} else {
+						$input = ( 0 < $attachment_url ) ? '<img src="' . $attachment_url . '">' : $empty_file;
 					}
-				$show_field.= wpmem_create_formfield( $meta[2], $meta[3], $val, $valtochk ) . '
-						</td>
-					</tr>';
+					// @todo - come up with a way to handle file updates - user profile form does not support multitype
+					//$show_field.= '<br /><span class="description">' . __( 'Update this file:' ) . '</span><br />';
+					//$show_field.= wpmem_create_formfield( $meta . '_update_file', $field['type'], $val, $valtochk );
+				} else {
+					if ( $meta == 'tos' && $val == 'agree' ) {
+						$input = wpmem_create_formfield( $meta, 'hidden', $val );
+					} elseif ( 'multicheckbox' == $field['type'] || 'select' == $field['type'] || 'multiselect' == $field['type'] || 'radio' == $field['type'] ) {
+						$input = wpmem_create_formfield( $meta, $field['type'], $values, $valtochk );
+					} else {
+						$input = wpmem_create_formfield( $meta, $field['type'], $val, $valtochk );
+					}
+				}
 
-				/**
-				 * Filter the field for user profile additional fields.
-				 *
-				 * @since 2.9.1
-				 *
-				 * @parma string $show_field The HTML string of the additional field.
-				 */
-				echo apply_filters( 'wpmem_user_profile_field', $show_field );
+				// If there are any required fields.
+				$req = ( $field['required'] ) ? ' <span class="description">' . __( '(required)' ) . '</span>' : '';
+				$label = '<label>' . __( $field['label'], 'wp-members' ) . $req . '</label>';
+				
+				// Build the form rows for filtering.
+				$rows[ $meta ] = array(
+					'type'         => $field['type'],
+					'value'        => $val,
+					'values'       => $values,
+					'label_text'   => __( $field['label'], 'wp-members' ),
+					'row_before'   => '',
+					'label'        => $label,
+					'field_before' => '',
+					'field'        => $input,
+					'field_after'  => '',
+					'row_after'    => '',
+				);
 			}
+		}
+				
+		/**
+		 * Filter for rows
+		 *
+		 * @since 3.1.0
+		 * @since 3.1.6 Deprecated $order and $meta.
+		 *
+		 * @param array  $rows {
+		 *     An array of the profile rows.
+		 *
+		 *     @type string $type         The field type.
+		 *     @type string $value        Value if set.
+		 *     @type string $values       Possible values (select, multiselect, multicheckbox, radio).
+		 *     @type string $label_text   Raw label text (no HTML).
+		 *     @type string $row_before   HTML before the row.
+		 *     @type string $label        HTML label.
+		 *     @type string $field_before HTML before the field input tag.
+		 *     @type string $field        HTML for field input.
+		 *     @type string $field_after  HTML after the field.
+		 *     @type string $row_after    HTML after the row.
+		 * }
+		 * @param string $toggle
+		 */
+		$rows = apply_filters( 'wpmem_register_form_rows_profile', $rows, 'userprofile' );
+		
+		foreach ( $rows as $row ) {
+				
+			$show_field = '
+				<tr>
+					<th>' . $row['label'] . '</th>
+					<td>' . $row['field'] . '</td>
+				</tr>';
+
+			/**
+			 * Filter the field for user profile additional fields.
+			 *
+			 * @since 2.9.1
+			 * @since 3.1.1 Added $user_id and $row.
+			 *
+			 * @param string $show_field The HTML string of the additional field.
+			 * @param int    $user_id
+			 * @param array  $rows
+			 */
+			echo apply_filters( 'wpmem_user_profile_field', $show_field, $user_id, $row );
+			
 		} ?>
 	</table><?php
 }
@@ -100,33 +167,41 @@ function wpmem_profile_update() {
 
 	global $wpmem, $user_id;
 	// Get the fields.
-	$wpmem_fields = $wpmem->fields; //get_option( 'wpmembers_fields' );
+	$wpmem_fields = wpmem_fields();
 	// Get any excluded meta fields.
 	$exclude = wpmem_get_excluded_meta( 'user-profile' );
-	foreach ( $wpmem_fields as $meta ) {
+	foreach ( $wpmem_fields as $meta => $field ) {
 		// If this is not an excluded meta field.
-		if ( ! in_array( $meta[2], $exclude ) ) {
+		if ( ! in_array( $meta, $exclude ) ) {
 			// If the field is user editable.
-			if ( $meta[4] == "y" && $meta[6] == "n" && $meta[3] != 'password' ) {
+			if ( $field['register'] 
+			  && $field['type'] != 'password' 
+			  && $field['type'] != 'file' 
+			  && $field['type'] != 'image' 
+			  && ! $field['native'] ) {
 
 				// Check for required fields.
 				$chk = '';
-				if ( $meta[5] == "n" || ( ! $meta[5] ) ) {
+				if ( ! $field['required'] ) {
 					$chk = 'ok';
 				}
-				if ( $meta[5] == "y" && $_POST[$meta[2]] != '' ) {
+				if ( $field['required'] && $_POST[ $meta ] != '' ) {
 					$chk = 'ok';
 				}
 
 				// Check for field value.
-				$field_val = ( isset( $_POST[$meta[2]] ) ) ? $_POST[$meta[2]] : '';
+				if ( $field['type'] == 'multiselect' || $field['type'] == 'multicheckbox' ) {
+					$field_val = ( isset( $_POST[ $meta ] ) ) ? implode( '|', $_POST[ $meta ] ) : '';
+				} else {
+					$field_val = ( isset( $_POST[ $meta ] ) ) ? $_POST[ $meta ] : '';
+				}
 
 				if ( $chk == 'ok' ) {
-					update_user_meta( $user_id, $meta[2], $field_val );
+					update_user_meta( $user_id, $meta, $field_val );
 				}
 			}
 		}
 	}
 }
 
-/** End of File **/
+// End of file.

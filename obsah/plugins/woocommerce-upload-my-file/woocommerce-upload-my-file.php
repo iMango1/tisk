@@ -3,11 +3,11 @@
 Plugin Name: WooCommerce Upload My File
 Plugin URI: http://wordpress.geev.nl/product/woocommerce-upload-my-file/
 Description: This plugin provides the possibility to upload files in WooCommerce after ordering. - Free Version
-Version: 0.3.5
-Author: Geev vormgeeving
-Author URI: http://wordpress.geev.nl/
+Version: 0.4.0
+Author: bpluijms,WP Fortune
+Author URI: http://wpfortune.com
 */
-/*  Copyright 2012  Geev  (email : wordpress@geev.nl)
+/*  Copyright 2012  WP Fortune (email : wordpress@wpfortune.com)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as
@@ -17,7 +17,7 @@ Author URI: http://wordpress.geev.nl/
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-	
+
 	You should have received a copy of the GNU General Public License
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
@@ -33,7 +33,11 @@ if (is_woocommerce_active()) {
 	add_action( 'save_post', 'save_meta_settings' );
 	add_action( 'woocommerce_view_order','upload_files_field' );
 	add_action('woocommerce_email_after_order_table', 'umf_mail');
-	
+
+    add_filter('woocommerce_account_orders_columns', 'umf_my_orders_columns');
+    add_action('woocommerce_my_account_my_orders_column_order-uploads', 'umf_my_orders_uploads_column');
+    add_filter('woocommerce_my_account_my_orders_actions', 'umf_order_actions', 10, 2);
+
 	// If frontend styling is on, load styles in footer
 	if(get_option( 'woocommerce_umf_use_style')=='on') {
 		add_action('wp_footer','woo_umf_styles');
@@ -59,12 +63,14 @@ if (is_woocommerce_active()) {
 add_action('admin_notices', 'showAdminMessages');   
 }
 
+
+
 /**
 * Settings link on plugin page 
 */
 function umf_plugin_links($links) { 
   $settings_link = '<a href="admin.php?page=woocommerce_umf">Settings</a>'; 
-  $premium_link = '<a href="http://wordpress.geev.nl/product/woocommerce-upload-my-file/" title="Buy Pro" target=_blank>Buy Pro</a>'; 
+  $premium_link = '<a href="https://wpfortune.com/shop/plugins/woocommerce-uploads/" title="Buy Pro" target=_blank>Buy Pro</a>'; 
   array_unshift($links, $settings_link,$premium_link); 
   return $links; 
 }
@@ -80,7 +86,6 @@ add_action( $hook, 'geev_umf_update_message', 10, 2 );
 function geev_umf_update_message( $plugin_data, $r )
 {
 	$readme=file_get_contents('http://plugins.svn.wordpress.org/woocommerce-upload-my-file/tags/'.$r->new_version.'/readme.txt');
-	
 	$upgrade_notice=explode('== Upgrade Notice ==',$readme);
 	$upgrade_notice=explode('== Usage ==',$upgrade_notice[1]);
 	$upgrade_notice=explode('|',$upgrade_notice[0]);

@@ -2,12 +2,12 @@
 function it_counter2_shortcode($atts, $content=null){
 
     extract(shortcode_atts( array(
-    'title_before'      => '',
-    'item_value'      => '',
-    'title_after'       => '',
-    'text_color'       => '',
+    'title_before'    => '',
+    'item_value'      => '100',
+    'title_after'     => '',
+    'text_color'      => '',
     'text_size'       => '',
-    'init_value'      => '1000',
+    'init_value'      => '0',
     'item_timer'      => '',
     'numbers_color'   => '',
     'numbers_size'    => '',

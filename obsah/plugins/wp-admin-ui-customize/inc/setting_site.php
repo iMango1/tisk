@@ -13,7 +13,7 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 <div class="wrap">
 
 	<?php echo $this->Msg; ?>
-	<h2><?php _e( 'Site Settings' , $this->ltd ); ?></h2>
+	<h2><?php _e( 'Site Settings' , 'wp-admin-ui-customize' ); ?></h2>
 	<p>&nbsp;</p>
 
 	<h3 id="wauc-apply-user-roles"><?php echo $this->get_apply_roles(); ?></h3>
@@ -32,7 +32,7 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 
 						<div class="postbox">
 							<div class="handlediv" title="Click to toggle"><br></div>
-							<h3 class="hndle"><span><?php _e( 'Header Meta' , $this->ltd ); ?></span></h3>
+							<h3 class="hndle"><span><?php _e( 'Header Meta' , 'wp-admin-ui-customize' ); ?></span></h3>
 							<div class="inside">
 								<table class="form-table">
 									<tbody>
@@ -45,7 +45,7 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 												<?php $Checked = ''; ?>
 												<?php if( !empty( $SiteSetting[$field] ) ) : $Checked = 'checked="checked"'; endif; ?>
 												<label><input type="checkbox" name="data[<?php echo $field; ?>]" value="1" <?php echo $Checked; ?> /> <?php _e ( 'Hide' ); ?></label>
-												<p class="description"><?php _e( 'Tag to be output' , $this->ltd ); ?> : <code><?php echo esc_html( get_the_generator( 'xhtml' ) ); ?></code></p>
+												<p class="description"><?php _e( 'Tag' , 'wp-admin-ui-customize' ); ?> : <code><?php echo esc_html( get_the_generator( 'xhtml' ) ); ?></code></p>
 											</td>
 										</tr>
 										<?php $field = 'wlwmanifest_link'; ?>
@@ -57,8 +57,8 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 												<?php $Checked = ''; ?>
 												<?php if( !empty( $SiteSetting[$field] ) ) : $Checked = 'checked="checked"'; endif; ?>
 												<label><input type="checkbox" name="data[<?php echo $field; ?>]" value="1" <?php echo $Checked; ?> /> <?php _e ( 'Hide' ); ?></label>
-												<p class="description"><?php _e( 'Please display when using the Windows Live Writer.' , $this->ltd ); ?></p>
-												<p class="description"><?php _e( 'Tag to be output' , $this->ltd ); ?> : <code><?php echo esc_html( '<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="' . get_bloginfo('wpurl') . '/wp-includes/wlwmanifest.xml" />' ); ?></code></p>
+												<p class="description"><?php _e( 'Required if you are using Windows Live Writer.' , 'wp-admin-ui-customize' ); ?></p>
+												<p class="description"><?php _e( 'Tag' , 'wp-admin-ui-customize' ); ?> : <code><?php echo esc_html( '<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="' . get_bloginfo('wpurl') . '/wp-includes/wlwmanifest.xml" />' ); ?></code></p>
 											</td>
 										</tr>
 										<?php $field = 'rsd_link'; ?>
@@ -70,8 +70,8 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 												<?php $Checked = ''; ?>
 												<?php if( !empty( $SiteSetting[$field] ) ) : $Checked = 'checked="checked"'; endif; ?>
 												<label><input type="checkbox" name="data[<?php echo $field; ?>]" value="1" <?php echo $Checked; ?> /> <?php _e ( 'Hide' ); ?></label>
-												<p class="description"><?php _e( 'Information of XML-rpc' , $this->ltd ); ?></p>
-												<p class="description"><?php _e( 'Tag to be output' , $this->ltd ); ?> : <code><?php echo esc_html( '<link rel="EditURI" type="application/rsd+xml" title="RSD" href="' . get_bloginfo('wpurl') . '"/xmlrpc.php?rsd" />' ); ?></code></p>
+												<p class="description"><?php _e( 'Required if you are using pingbacks.' , 'wp-admin-ui-customize' ); ?></p>
+												<p class="description"><?php _e( 'Tag' , 'wp-admin-ui-customize' ); ?> : <code><?php echo esc_html( '<link rel="EditURI" type="application/rsd+xml" title="RSD" href="' . get_bloginfo('wpurl') . '"/xmlrpc.php?rsd" />' ); ?></code></p>
 											</td>
 										</tr>
 										<?php $field = 'feed_links'; ?>
@@ -83,8 +83,8 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 												<?php $Checked = ''; ?>
 												<?php if( !empty( $SiteSetting[$field] ) ) : $Checked = 'checked="checked"'; endif; ?>
 												<label><input type="checkbox" name="data[<?php echo $field; ?>]" value="1" <?php echo $Checked; ?> /> <?php _e ( 'Hide' ); ?></label>
-												<p class="description"><?php _e( 'Sitewide feed' , $this->ltd ); ?></p>
-												<p class="description"><?php _e( 'Tag to be output' , $this->ltd ); ?> : <code><?php echo esc_html( '<link rel="alternate" type="' . feed_content_type() . '" title="' . esc_attr( sprintf( __('%1$s %2$s Feed') , get_bloginfo('name') , '&amp;raquo&#059;' ) ) . '" href="' . get_feed_link( get_default_feed() ) . ' />' ); ?></code></p>
+												<p class="description"><?php _e( 'Adds RSS feed links to the HTML &lt;head&gt;' , 'wp-admin-ui-customize' ); ?></p>
+												<p class="description"><?php _e( 'Tag' , 'wp-admin-ui-customize' ); ?> : <code><?php echo esc_html( '<link rel="alternate" type="' . feed_content_type() . '" title="' . esc_attr( sprintf( __('%1$s %2$s Feed') , get_bloginfo('name') , '&amp;raquo&#059;' ) ) . '" href="' . get_feed_link( get_default_feed() ) . ' />' ); ?></code></p>
 											</td>
 										</tr>
 										<?php $field = 'feed_links_extra'; ?>
@@ -96,8 +96,8 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 												<?php $Checked = ''; ?>
 												<?php if( !empty( $SiteSetting[$field] ) ) : $Checked = 'checked="checked"'; endif; ?>
 												<label><input type="checkbox" name="data[<?php echo $field; ?>]" value="1" <?php echo $Checked; ?> /> <?php _e ( 'Hide' ); ?></label>
-												<p class="description"><?php _e( 'Extra feed' , $this->ltd ); ?></p>
-												<p class="description"><?php _e( 'Tag to be output' , $this->ltd ); ?> : <code><?php echo esc_html( '<link rel="alternate" type="' . feed_content_type() . '" title="' . esc_attr( sprintf( __('%1$s %2$s Comments Feed') , get_bloginfo('name') , '&amp;raquo&#059;' ) ) . '" href="' . get_feed_link( get_default_feed() . '&#038;p=***' ) . ' />' ); ?></code></p>
+												<p class="description"><?php _e( 'Adds RSS feed links for other feeds such as category feeds' , 'wp-admin-ui-customize' ); ?></p>
+												<p class="description"><?php _e( 'Tag' , 'wp-admin-ui-customize' ); ?> : <code><?php echo esc_html( '<link rel="alternate" type="' . feed_content_type() . '" title="' . esc_attr( sprintf( __('%1$s %2$s Comments Feed') , get_bloginfo('name') , '&amp;raquo&#059;' ) ) . '" href="' . get_feed_link( get_default_feed() . '&#038;p=***' ) . ' />' ); ?></code></p>
 											</td>
 										</tr>
 									</tbody>
@@ -121,10 +121,10 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 										<?php $field = 'admin_bar'; ?>
 										<tr>
 											<th>
-												<?php _e( 'Admin Bar' , $this->ltd ); ?>
+												<?php _e( 'Admin bar' , 'wp-admin-ui-customize' ); ?>
 											</th>
 											<td>
-												<?php $arr = array( "hide" => __( 'Hide the Admin bar on the front end' , $this->ltd ) , "front" => __( 'Apply WP Admin UI Customize settings on the front end admin bar also' , $this->ltd ) ); ?>
+												<?php $arr = array( "hide" => __( 'Hide admin bar on the front end' , 'wp-admin-ui-customize' ) , "front" => __( 'Apply WP Admin UI Customize settings to the front end admin bar' , 'wp-admin-ui-customize' ) ); ?>
 												<select name="data[<?php echo $field; ?>]">
 													<option value="">-</option>
 													<?php foreach( $arr as $key => $label ) : ?>
@@ -157,8 +157,8 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 		</p>
 
 		<p class="submit reset">
-			<span class="description"><?php printf( __( 'Reset the %s?' , $this->ltd ) , __( 'Site Settings' , $this->ltd ) ); ?></span>
-			<input type="submit" class="button-secondary" name="reset" value="<?php _e( 'Reset settings' , $this->ltd ); ?>" />
+			<span class="description"><?php printf( __( 'Reset the %s?' , 'wp-admin-ui-customize' ) , __( 'Site Settings' , 'wp-admin-ui-customize' ) ); ?></span>
+			<input type="submit" class="button-secondary" name="reset" value="<?php _e( 'Reset settings' , 'wp-admin-ui-customize' ); ?>" />
 		</p>
 
 	</form>

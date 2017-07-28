@@ -54,7 +54,9 @@ function woocommerce_umf_box_order_detail($post) {
 		$max_upload_count=0;
 		$max_upload_count=get_max_upload_count($order,$order_item['product_id']);
 		if($max_upload_count!=0){
-		$item_meta = new WC_Order_Item_Meta( $order_item['item_meta'] );
+			$product=new WC_Product($order_item['product_id']);
+		//$item_meta = new WC_Order_Item_Meta( $order_item['item_meta'],$order_item['product_id'] );
+		$item_meta = new WC_Order_Item_Meta( $order_item, $product );
 		$forproduct=$order_item['name'].' ('.$item_meta->display($flat=true,$return=true).')';
 		echo '<strong>';
 		printf( __('File for product: %s:', 'woocommerce-umf'), $forproduct);
@@ -74,7 +76,7 @@ function woocommerce_umf_box_order_detail($post) {
 
             } else {
 
-                $url = home_url( str_replace( ABSPATH, '', get_post_meta( $post->ID, '_woo_umf_uploaded_file_path_' . $j, true ) ) );
+                $url = site_url( str_replace( ABSPATH, '', get_post_meta( $post->ID, '_woo_umf_uploaded_file_path_' . $j, true ) ) );
 
             }
 			$forproduct = get_post_meta( $post->ID, '_woo_umf_uploaded_product_name_' . $j, true );
@@ -99,6 +101,50 @@ function woocommerce_umf_box_order_detail($post) {
 		echo '</p>';
 		}
 	}
+}
+
+function umf_my_orders_columns($columns) {
+
+    if (is_array($columns)) {
+
+            $new_columns = array();
+
+            foreach ($columns AS $column_key => $column_title) {
+
+                $new_columns[$column_key] = $column_title;
+
+                if ($column_key == 'order-total') {
+                    $new_columns['order-uploads'] = __( 'Files', 'woocommerce-umf');
+                }
+            }
+
+        }
+
+
+        return $new_columns;
+}
+
+function umf_my_orders_uploads_column($order)
+{
+
+    if(check_for_files($order->id)=='upload') {
+	    echo '<a href="'.$order->get_view_order_url().'">'.__( 'Upload', 'woocommerce-umf' ).'</a>';
+	} elseif(check_for_files($order->id)=='blank') { echo '-'; }
+
+}
+
+function umf_order_actions($actions, $order) {
+
+    if(check_for_files($order->id)=='upload') {
+
+	    $actions['upload'] = array(
+		    'url'  => $order->get_view_order_url(),
+			'name' => __( 'Upload files', 'woocommerce-umf' )
+		);
+	}
+
+    return $actions;
+
 }
 
 /* Inhoud van de box op de product bewerk pagina*/
@@ -225,7 +271,7 @@ function upload_files_field( $order_id ) {
 			wp_mkdir_p( $path );
 			$umf_filepath = $path . $order_id.'_'.$key.'_'.$umf_file['name'];
 			$ext = strtolower( pathinfo( $umf_filepath, PATHINFO_EXTENSION ) );
-			$doctypes = explode( ',', get_option( 'woocommerce_umf_allowed_file_types' ) );
+			$doctypes = explode( ',', str_replace('.','',get_option( 'woocommerce_umf_allowed_file_types' ) ));
 			foreach($doctypes as $k => $v) { $doctypes[$k] = strtolower( trim( $v ) ); }
 				if( in_array( $ext, $doctypes ) ) $typeallow = true;
 					else $typeallow = false;
@@ -277,7 +323,8 @@ function upload_files_field( $order_id ) {
 		foreach ( $order->get_items() as $order_item ) {
 			$max_upload_count=0;
 			$max_upload_count=get_max_upload_count($order,$order_item['product_id']);
-			$item_meta = new WC_Order_Item_Meta( $order_item['item_meta'] );
+			$product=new WC_Product($order_item['product_id']);
+            $item_meta = new WC_Order_Item_Meta( $order_item, $product );
 			if($max_upload_count!=0){
 			    // start fieldset per product item
 		        echo '<fieldset class="woo-umf-product">';

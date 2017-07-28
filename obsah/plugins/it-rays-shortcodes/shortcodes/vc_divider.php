@@ -2,7 +2,7 @@
 function it_divider_shortcode($atts, $content=null){
 
     extract(shortcode_atts( array(
-    'divider_class'  => '',
+    'divider_class'  => '1',
     'el_class'   => '',
     'it_animation'        => '',
     'delay'               => '',
@@ -40,7 +40,7 @@ function it_divider_shortcode($atts, $content=null){
          $output = '<div class="divider divider-8 '.$el_class.''.$fx.'" '.$data_anim.$data_del.$data_dur.'><span class="main-bg"></span></div>';
     }else if($divider_class == '9'){
          $output = '<div class="divider divider-9 '.$el_class.''.$fx.'" '.$data_anim.$data_del.$data_dur.'><span></span></div>';
-    }else if($divider_class == 'custom'){
+    }else if($divider_class == '10'){
          $output = '<div class="divider divider-10 '.$el_class.''.$fx.'" '.$data_anim.$data_del.$data_dur.'><a href="#" class="to-tp"><i class="divid_center fa fa-chevron-up"></i></a></div>';
     }
     

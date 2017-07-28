@@ -85,4 +85,11 @@
     'italic' => DOMPDF_FONT_DIR . 'e1ed1c78d201fe6255daee12e8820a6d',
     'bold_italic' => DOMPDF_FONT_DIR . 'c1583238aa915ad7e56d544a3a5f8f4e',
   ),
+  'currencies' => 
+  array (
+    'normal' => DOMPDF_FONT_DIR . 'cd6cad1255d2179b7fe44d496b229dae',
+    'bold' => DOMPDF_FONT_DIR . 'cd6cad1255d2179b7fe44d496b229dae',
+    'italic' => DOMPDF_FONT_DIR . 'cd6cad1255d2179b7fe44d496b229dae',
+    'bold_italic' => DOMPDF_FONT_DIR . 'cd6cad1255d2179b7fe44d496b229dae',
+  ),
 ) ?>

@@ -15,9 +15,9 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 <div class="wrap">
 
 	<?php echo $this->Msg; ?>
-	<h2><?php _e( 'Manage meta box' , $this->ltd ); ?></h2>
-	<p><?php _e( 'Please update or add a "post" and a "page" to load the available meta boxes.' , $this->ltd ); ?></p>
-	<p><?php _e( 'Please enter if you want to change of Metabox label name.' , $this->ltd ); ?></p>
+	<h2><?php _e( 'Management of meta boxes' , 'wp-admin-ui-customize' ); ?></h2>
+	<p><?php _e( 'Ensure at least one post and page is present and then refresh to display the available meta boxes.' , 'wp-admin-ui-customize' ); ?></p>
+	<p><?php _e( 'It is also possible to change the meta box display name.' , 'wp-admin-ui-customize' ); ?></p>
 
 	<h3 id="wauc-apply-user-roles"><?php echo $this->get_apply_roles(); ?></h3>
 
@@ -51,9 +51,9 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 													</label>
 												</td>
 												<td style="width: 15%;">
-													<strong><?php _e( 'Default Open' , $this->ltd ); ?></strong>
+													<strong><?php _e( 'Default Open' , 'wp-admin-ui-customize' ); ?></strong>
 												</td>
-												<td><strong><?php _e( 'Change metabox title to' , $this->ltd ); ?></strong></td>
+												<td><strong><?php _e( 'Update meta box title' , 'wp-admin-ui-customize' ); ?></strong></td>
 											</tr>
 										</thead>
 										<tbody>
@@ -79,8 +79,8 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 																	<?php $Selected = 0; ?>
 																	<?php if( !empty( $Data["post"][$metabox_id]["toggle"] ) ) : $Selected = true; endif; ?>
 																	<select name="data[post][<?php echo $metabox_id; ?>][toggle]" class="select_toggle">
-																		<option value="0" <?php Selected( $Selected , 0 ); ?>><?php _e( 'Expanded' , $this->ltd ); ?></option>
-																		<option value="1" <?php Selected( $Selected , 1 ); ?>><?php _e( 'Collapsed' , $this->ltd ); ?></option>
+																		<option value="0" <?php Selected( $Selected , 0 ); ?>><?php _e( 'Expanded' , 'wp-admin-ui-customize' ); ?></option>
+																		<option value="1" <?php Selected( $Selected , 1 ); ?>><?php _e( 'Collapsed' , 'wp-admin-ui-customize' ); ?></option>
 																	</select>
 																<?php else : ?>
 																	<?php _e( 'Show' ); ?>
@@ -91,9 +91,9 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 																<?php if( !empty( $Data["post"][$metabox_id]["name"] ) ) : $Val = esc_html( stripslashes( $Data["post"][$metabox_id]["name"] ) ); endif; ?>
 																<input type="text" name="data[post][<?php echo $metabox_id; ?>][name]" class="regular-text metabox_rename" value="<?php echo $Val; ?>" placeholder="<?php _e( $metabox_title ); ?>" />
 																<?php if( $metabox_id == 'commentstatusdiv' ) : ?>
-																	<p class="description"><?php _e( 'Notice: If hide the Discussion on metabox, comments does not display of Add New Post on apply user role.' , $this->ltd ); ?></p>
+																	<p class="description"><?php _e( 'If the discussion meta box is hidden comments will not be displayed on new posts for the selected role.' , 'wp-admin-ui-customize' ); ?></p>
 																	<p><img src="<?php echo $this->Url; ?>images/discussion_allow_comments.png" /></p>
-																	<p><a href="<?php echo admin_url( 'admin.php?page=' . $this->PageSlug . '_post_add_edit_screen' ); ?>"><?php _e( 'Please set from here if you want to view the comments on screen.' , $this->ltd ); ?></a></p>
+																	<p><a href="<?php echo admin_url( 'admin.php?page=' . $this->PageSlug . '_post_add_edit_screen' ); ?>"><?php _e( 'Change this setting to allow comments on new posts' , 'wp-admin-ui-customize' ); ?></a></p>
 																<?php endif; ?>
 															</td>
 														</tr>
@@ -120,7 +120,7 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 									<p>
 										<a href="<?php echo $load_link; ?>" class="button button-primary column_load">
 											<span class="dashicons dashicons-update"></span>
-											<?php echo sprintf( __( 'Metaboxes loading for %s', $this->ltd ) , __( 'Posts' ) ); ?>
+											<?php echo sprintf( __( 'Refresh meta boxes for %s', 'wp-admin-ui-customize' ) , __( 'Posts' ) ); ?>
 										</a>
 									</p>
 									<p class="loading">
@@ -148,9 +148,9 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 													</label>
 												</td>
 												<td style="width: 15%;">
-													<strong><?php _e( 'Default Open' , $this->ltd ); ?></strong>
+													<strong><?php _e( 'Default Open' , 'wp-admin-ui-customize' ); ?></strong>
 												</td>
-												<td><strong><?php _e( 'Change metabox title to' , $this->ltd ); ?></strong></td>
+												<td><strong><?php _e( 'Update meta box title' , 'wp-admin-ui-customize' ); ?></strong></td>
 											</tr>
 										</thead>
 										<tbody>
@@ -175,8 +175,8 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 																	<?php $Selected = 0; ?>
 																	<?php if( !empty( $Data["page"][$metabox_id]["toggle"] ) ) : $Selected = true; endif; ?>
 																	<select name="data[page][<?php echo $metabox_id; ?>][toggle]" class="select_toggle">
-																		<option value="0" <?php Selected( $Selected , 0 ); ?>><?php _e( 'Expanded' , $this->ltd ); ?></option>
-																		<option value="1" <?php Selected( $Selected , 1 ); ?>><?php _e( 'Collapsed' , $this->ltd ); ?></option>
+																		<option value="0" <?php Selected( $Selected , 0 ); ?>><?php _e( 'Expanded' , 'wp-admin-ui-customize' ); ?></option>
+																		<option value="1" <?php Selected( $Selected , 1 ); ?>><?php _e( 'Collapsed' , 'wp-admin-ui-customize' ); ?></option>
 																	</select>
 																<?php else : ?>
 																	<?php _e( 'Show' ); ?>
@@ -187,9 +187,9 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 																<?php if( !empty( $Data["page"][$metabox_id]["name"] ) ) : $Val = esc_html( stripslashes( $Data["page"][$metabox_id]["name"] ) ); endif; ?>
 																<input type="text" name="data[page][<?php echo $metabox_id; ?>][name]" class="regular-text metabox_rename" value="<?php echo $Val; ?>" placeholder="<?php _e( $metabox_title ); ?>" />
 																<?php if( $metabox_id == 'commentstatusdiv' ) : ?>
-																	<p class="description"><?php _e( 'Notice: If hide the Discussion on metabox, comments does not display of Add New Post on apply user role.' , $this->ltd ); ?></p>
+																	<p class="description"><?php _e( 'If the discussion meta box is hidden comments will not be displayed on new posts for the selected role.' , 'wp-admin-ui-customize' ); ?></p>
 																	<p><img src="<?php echo $this->Url; ?>images/discussion_allow_comments.png" /></p>
-																	<p><a href="<?php echo admin_url( 'admin.php?page=' . $this->PageSlug . '_post_add_edit_screen' ); ?>"><?php _e( 'Please set from here if you want to view the comments on screen.' , $this->ltd ); ?></a></p>
+																	<p><a href="<?php echo admin_url( 'admin.php?page=' . $this->PageSlug . '_post_add_edit_screen' ); ?>"><?php _e( 'Change this setting to allow comments on new posts' , 'wp-admin-ui-customize' ); ?></a></p>
 																<?php endif; ?>
 															</td>
 														</tr>
@@ -216,7 +216,7 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 									<p>
 										<a href="<?php echo $load_link; ?>" class="button button-primary column_load">
 											<span class="dashicons dashicons-update"></span>
-											<?php echo sprintf( __( 'Metaboxes loading for %s', $this->ltd ) , __( 'Pages' ) ); ?>
+											<?php echo sprintf( __( 'Refresh meta boxes for %s', 'wp-admin-ui-customize' ) , __( 'Pages' ) ); ?>
 										</a>
 									</p>
 									<p class="loading">
@@ -253,9 +253,9 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 													</label>
 												</td>
 												<td style="width: 15%;">
-													<strong><?php _e( 'Default Open' , $this->ltd ); ?></strong>
+													<strong><?php _e( 'Default Open' , 'wp-admin-ui-customize' ); ?></strong>
 												</td>
-												<td><strong><?php _e( 'Change metabox title to' , $this->ltd ); ?></strong></td>
+												<td><strong><?php _e( 'Update meta box title' , 'wp-admin-ui-customize' ); ?></strong></td>
 											</tr>
 										</thead>
 										<tbody>
@@ -279,8 +279,8 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 																		<?php $Selected = 0; ?>
 																		<?php if( !empty( $Data[$post_name][$metabox_id]["toggle"] ) ) : $Selected = true; endif; ?>
 																		<select name="data[<?php echo $post_name; ?>][<?php echo $metabox_id; ?>][toggle]" class="select_toggle">
-																			<option value="0" <?php Selected( $Selected , 0 ); ?>><?php _e( 'Expanded' , $this->ltd ); ?></option>
-																			<option value="1" <?php Selected( $Selected , 1 ); ?>><?php _e( 'Collapsed' , $this->ltd ); ?></option>
+																			<option value="0" <?php Selected( $Selected , 0 ); ?>><?php _e( 'Expanded' , 'wp-admin-ui-customize' ); ?></option>
+																			<option value="1" <?php Selected( $Selected , 1 ); ?>><?php _e( 'Collapsed' , 'wp-admin-ui-customize' ); ?></option>
 																		</select>
 																	<?php else : ?>
 																		<?php _e( 'Show' ); ?>
@@ -324,7 +324,7 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 									<p>
 										<a href="<?php echo $load_link; ?>" class="button button-primary column_load">
 											<span class="dashicons dashicons-update"></span>
-											<?php echo sprintf( __( 'Metaboxes loading for %s', $this->ltd ) , $cpt->label ); ?>
+											<?php echo sprintf( __( 'Refresh meta boxes for %s', 'wp-admin-ui-customize' ) , $cpt->label ); ?>
 										</a>
 									</p>
 									<p class="loading">
@@ -351,8 +351,8 @@ wp_enqueue_style( $this->PageSlug , $this->Url . $this->PluginSlug . '.css', arr
 		</p>
 
 		<p class="submit reset">
-			<span class="description"><?php printf( __( 'Reset the %s?' , $this->ltd ) , __( 'Manage meta box' , $this->ltd ) . __( 'Settings' ) ); ?></span>
-			<input type="submit" class="button-secondary" name="reset" value="<?php _e( 'Reset settings' , $this->ltd ); ?>" />
+			<span class="description"><?php printf( __( 'Reset the %s?' , 'wp-admin-ui-customize' ) , __( 'Management of meta boxes' , 'wp-admin-ui-customize' ) . __( 'Settings' ) ); ?></span>
+			<input type="submit" class="button-secondary" name="reset" value="<?php _e( 'Reset settings' , 'wp-admin-ui-customize' ); ?>" />
 		</p>
 
 	</form>

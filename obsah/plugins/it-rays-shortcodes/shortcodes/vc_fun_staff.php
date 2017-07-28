@@ -28,6 +28,7 @@ function it_fun_staff_shortcode($atts, $content=null){
         $output .= '</div>';
     }else if($staff_row_style == "4"){
        $output .='<div class="fun-cell gry-bg">';
+           $output .= '<div class="fun-icon"><i class="fa '.$item_icon.' main-color"></i></div>';
            $output .= '<div class="fun-number">'.esc_js($item_value).'</div>';
            $output .= '<div class="fun-text">'.esc_html($item_title).'</div>';
        $output .= '</div>';

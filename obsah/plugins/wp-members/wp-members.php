@@ -3,15 +3,17 @@
 Plugin Name: WP-Members
 Plugin URI:  http://rocketgeek.com
 Description: WP access restriction and user registration.  For more information on plugin features, refer to <a href="http://rocketgeek.com/plugins/wp-members/users-guide/">the online Users Guide</a>. A <a href="http://rocketgeek.com/plugins/wp-members/quick-start-guide/">Quick Start Guide</a> is also available. WP-Members(tm) is a trademark of butlerblog.com.
-Version:     3.0.4
+Version:     3.1.6.3
 Author:      Chad Butler
 Author URI:  http://butlerblog.com/
+Text Domain: wp-members
+Domain Path: /lang
 License:     GPLv2
 */
 
 
 /*  
-	Copyright (c) 2006-2015  Chad Butler
+	Copyright (c) 2006-2016  Chad Butler
 
 	The name WP-Members(tm) is a trademark of butlerblog.com
 
@@ -60,7 +62,7 @@ License:     GPLv2
 
 
 // Initialize constants.
-define( 'WPMEM_VERSION', '3.0.4' );
+define( 'WPMEM_VERSION', '3.1.6.3' );
 define( 'WPMEM_DEBUG', false );
 define( 'WPMEM_DIR',  plugin_dir_url ( __FILE__ ) );
 define( 'WPMEM_PATH', plugin_dir_path( __FILE__ ) );
@@ -74,6 +76,9 @@ add_action( 'after_setup_theme', 'wpmem_init', 10 );
 // Install the plugin.
 register_activation_hook( __FILE__, 'wpmem_install' );
 
+// Downgrade settings on deactivation.
+//register_deactivation_hook( __FILE__, 'wpmem_downgrade' );
+
 
 /**
  * Initialize WP-Members.
@@ -84,6 +89,9 @@ register_activation_hook( __FILE__, 'wpmem_install' );
  * its features and options.
  *
  * @since 2.9.0
+ * @since 3.1.6 Dependencies now loaded by object.
+ *
+ * @global object $wpmem The WP-Members object class.
  */
 function wpmem_init() {
 
@@ -97,49 +105,13 @@ function wpmem_init() {
 	 */
 	do_action( 'wpmem_pre_init' );
 
-	// Load WP_Members class.
-	include_once( WPMEM_PATH . 'inc/class-wp-members.php' );
-	$wpmem = new WP_Members();
-
 	/**
-	 * Fires after main settings are loaded.
-	 *
-	 * @since 3.0
+	 * Load the WP_Members class.
 	 */
-	do_action( 'wpmem_settings_loaded' );
-
-	/**
-	 * Filter the location and name of the pluggable file.
-	 *
-	 * @since 2.9.0
-	 *
-	 * @param string The path to wp-members-pluggable.php.
-	 */
-	$wpmem_pluggable = apply_filters( 'wpmem_plugins_file', WP_PLUGIN_DIR . '/wp-members-pluggable.php' );
-
-	// Preload any custom functions, if available.
-	if ( file_exists( $wpmem_pluggable ) ) {
-		include( $wpmem_pluggable );
-	}
-
-	// Preload the expiration module, if available.
-	$exp_module = ( in_array( 'wp-members-expiration/module.php', get_option( 'active_plugins' ) ) ) ? true : false;
-	define( 'WPMEM_EXP_MODULE', $exp_module ); 
-
-	// Load core file.
-	include_once( WPMEM_PATH . 'inc/core.php' );
-
-	// Load actions and filters.
-	$wpmem->load_hooks();
-
-	// Load shortcodes.
-	$wpmem->load_shortcodes();
-
-	// Load fields.
-	$wpmem->load_fields();
+	require_once( WPMEM_PATH . 'inc/class-wp-members.php' );
 	
-	// Load contants.
-	$wpmem->load_constants();
+	// Invoke the WP_Members class.
+	$wpmem = new WP_Members();
 
 	/**
 	 * Fires after initialization of plugin options.
@@ -157,8 +129,13 @@ function wpmem_init() {
  * current users capabilities.
  *
  * @since 2.5.2
+ * @since 3.1.0 Added admin api object.
+ *
+ * @global object $wpmem WP_Members object class.
  */
 function wpmem_chk_admin() {
+
+	global $wpmem;
 
 	/**
 	 * Fires before initialization of admin options.
@@ -167,38 +144,15 @@ function wpmem_chk_admin() {
 	 */
 	do_action( 'wpmem_pre_admin_init' );
 
-	if ( is_multisite() && current_user_can( 'edit_theme_options' ) ) {
-		require_once(  WPMEM_PATH . 'admin/admin.php' );
-	}
-
 	/**
-	 * If user has a role that can edit users, load the admin functions,
-	 * otherwise, load profile actions for non-admins.
-	 */
-	if ( current_user_can( 'edit_users' ) ) { 
-		require_once( WPMEM_PATH . 'admin/admin.php' );
-		require_once( WPMEM_PATH . 'admin/users.php' );
-		include_once( WPMEM_PATH . 'admin/user-profile.php' );
-	} else {
-		require_once( WPMEM_PATH . 'inc/users.php' );
-		add_action( 'show_user_profile', 'wpmem_user_profile'   );
-		add_action( 'edit_user_profile', 'wpmem_user_profile'   );
-		add_action( 'profile_update',    'wpmem_profile_update' );
-	}
-
-	/**
-	 * If user has a role that can edit posts, add the block/unblock
-	 * meta boxes and custom post/page columns.
-	 */
-	if ( current_user_can( 'edit_posts' ) ) {
-		include_once( WPMEM_PATH . 'admin/post.php' );
-		add_action( 'add_meta_boxes',             'wpmem_block_meta_add' );
-		add_action( 'save_post',                  'wpmem_block_meta_save' );
-		add_filter( 'manage_posts_columns',       'wpmem_post_columns' );
-		add_action( 'manage_posts_custom_column', 'wpmem_post_columns_content', 10, 2 );
-		add_filter( 'manage_pages_columns',       'wpmem_post_columns' );
-		add_action( 'manage_pages_custom_column', 'wpmem_post_columns_content', 10, 2 );
-	}
+	 * Load the admin api class.
+	 *
+	 * @since 3.1
+	 */	
+	include_once( WPMEM_PATH . 'admin/includes/class-wp-members-admin-api.php' );
+	
+	// Initilize the admin api.
+	$wpmem->load_admin_api();
 
 	/**
 	 * Fires after initialization of admin options.
@@ -217,7 +171,6 @@ function wpmem_chk_admin() {
 function wpmem_admin_options() {
 	if ( ! is_multisite() || ( is_multisite() && current_user_can( 'edit_theme_options' ) ) ) {
 		$plugin_page = add_options_page ( 'WP-Members', 'WP-Members', 'manage_options', 'wpmem-settings', 'wpmem_admin' );
-		add_action( 'load-'.$plugin_page, 'wpmem_load_admin_js' ); // enqueues javascript for admin
 	}
 }
 
@@ -226,11 +179,22 @@ function wpmem_admin_options() {
  * Install the plugin options.
  *
  * @since 2.5.2
+ * @since 3.1.1 Added rollback.
+ * @since 3.1.6 Removed rollback.
+ *
+ * @param 
  */
 function wpmem_install() {
+
+	/**
+	 * Load the install file.
+	 */
 	require_once( WPMEM_PATH . 'wp-members-install.php' );
+
+	// Multisite requires different install process.
 	if ( is_multisite() ) {
-		// if it is multisite, install options for each blog
+
+		// If it is multisite, install options for each blog.
 		global $wpdb;
 		$blogs = $wpdb->get_results(
 			"SELECT blog_id
@@ -246,10 +210,22 @@ function wpmem_install() {
 			wpmem_do_install();
 		}
 		switch_to_blog( $original_blog_id );
+
 	} else {
-		// normal single install
+
+		// Single site install.
 		wpmem_do_install();
 	}
+}
+
+
+/**
+ * Runs downgrade steps in install function.
+ *
+ * @since 3.1.1
+ */
+function wpmem_downgrade() {
+	//wpmem_install( 'downgrade' );
 }
 
 
@@ -267,9 +243,19 @@ add_action( 'wpmu_new_blog', 'wpmem_mu_new_site', 10, 6 );
  * @param $meta
  */
 function wpmem_mu_new_site( $blog_id, $user_id, $domain, $path, $site_id, $meta ) {
+
+	/**
+	 * Load the install file.
+	 */
 	require_once( WPMEM_PATH . 'wp-members-install.php' );
+
+	// Switch to the new blog.
 	switch_to_blog( $blog_id );
+
+	// Run the WP-Members install.
 	wpmem_do_install();
+
+	// Switch back to the current blog.
 	restore_current_blog();
 }
 
@@ -281,21 +267,31 @@ function wpmem_mu_new_site( $blog_id, $user_id, $domain, $path, $site_id, $meta 
  */
 function wpmem_load_textdomain() {
 	
-	// @todo See: https://ulrich.pogson.ch/load-theme-plugin-translations for notes on changes.
+	// @see: https://ulrich.pogson.ch/load-theme-plugin-translations for notes on changes.
 	
+	// Plugin textdomain.
 	$domain = 'wp-members';
-	$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 	
+	// Wordpress locale.
+	/** This filter is documented in wp-includes/l10n.php */
+	$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+
 	/**
 	 * Filter translation file.
+	 *
+	 * If the translate.wordpress.org language pack is available, it will
+	 * be /wp-content/languages/plugins/wp-members-{locale}.mo by default.
+	 * You can filter this if you want to load a language pack from a
+	 * different location (or different file name).
 	 *
 	 * @since 3.0.0
 	 *
 	 * @param string $file The translation file to load.
 	 */
-	$file = apply_filters( 'wpmem_localization_file', trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
-	
-	if ( $loaded = load_textdomain( $domain, $file ) ) {
+	$file = apply_filters( 'wpmem_localization_file', trailingslashit( WP_LANG_DIR ) . 'plugins/' . $domain . '-' . $locale . '.mo' );
+
+	$loaded = load_textdomain( $domain, $file );
+	if ( $loaded ) {
 		return $loaded;
 	} else {
 		
@@ -312,4 +308,4 @@ function wpmem_load_textdomain() {
 	return;
 }
 
-// End of File.
+// End of file.

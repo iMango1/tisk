@@ -9,7 +9,7 @@
  * Plugin Name:       Essential Grid
  * Plugin URI:        http://www.themepunch.com/essential/
  * Description:       Essential Grid - Premium grid plugin
- * Version:           2.0.9
+ * Version:           2.0.9.1
  * Author:            ThemePunch
  * Author URI:        http://themepunch.com
  * Text Domain:       essential-grid

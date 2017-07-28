@@ -1,8 +1,8 @@
-# Copyright (C) 2015 SkyVerge
+# Copyright (C) 2015 WooThemes / SkyVerge
 # This file is distributed under the GNU General Public License v3.0.
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Order Status Manager 1.1.4\n"
+"Project-Id-Version: WooCommerce Order Status Manager 1.2.2\n"
 "Report-Msgid-Bugs-To: https://support.woothemes.com/hc/\n"
 "POT-Creation-Date: 2014-11-13 10:32:46+00:00\n"
 "MIME-Version: 1.0\n"
@@ -400,11 +400,11 @@ msgstr ""
 msgid "Third Party"
 msgstr ""
 
-#: includes/class-wc-order-status-manager-order-statuses.php:439
+#: includes/class-wc-order-status-manager-order-statuses.php:443
 msgid "Order status updated because the previous status was deleted."
 msgstr ""
 
-#: includes/class-wc-order-status-manager-order-statuses.php:476
+#: includes/class-wc-order-status-manager-order-statuses.php:480
 msgid "%d order that was previously %s is now %s."
 msgid_plural "%d orders that were previously %s are now %s."
 msgstr[0] ""
@@ -597,7 +597,7 @@ msgstr ""
 msgid "You cannot unserialize instances of %s."
 msgstr ""
 
-#: lib/skyverge/woocommerce/class-sv-wc-plugin.php:319
+#: lib/skyverge/woocommerce/class-sv-wc-plugin.php:321
 msgid ""
 "%s requires the %s PHP extension to function.  Contact your host or server "
 "administrator to configure and install the missing extension."
@@ -608,7 +608,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/skyverge/woocommerce/class-sv-wc-plugin.php:339
+#: lib/skyverge/woocommerce/class-sv-wc-plugin.php:341
 msgid ""
 "%s requires the %s PHP function to exist.  Contact your host or server "
 "administrator to configure and install the missing function."
@@ -618,19 +618,15 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: lib/skyverge/woocommerce/class-sv-wc-plugin.php:374
+#: lib/skyverge/woocommerce/class-sv-wc-plugin.php:376
 msgid "Docs"
 msgstr ""
 
-#: lib/skyverge/woocommerce/class-sv-wc-plugin.php:378
+#: lib/skyverge/woocommerce/class-sv-wc-plugin.php:381
 msgid "Support"
 msgstr ""
 
-#: lib/skyverge/woocommerce/class-sv-wc-plugin.php:382
-msgid "Write a Review"
-msgstr ""
-
-#: lib/skyverge/woocommerce/class-sv-wc-plugin.php:632
+#: lib/skyverge/woocommerce/class-sv-wc-plugin.php:631
 msgid "Configure"
 msgstr ""
 
@@ -703,7 +699,7 @@ msgstr ""
 msgid "WooCommerce Order Status Manager"
 msgstr ""
 
-#: woocommerce-order-status-manager.php:262
+#: woocommerce-order-status-manager.php:244
 msgid ""
 "Thanks for installing Order Status Manager! Before you get started, please "
 "take a moment to %sread through the documentation%s."
@@ -720,11 +716,11 @@ msgid ""
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "SkyVerge"
+msgid "WooThemes / SkyVerge"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://www.skyverge.com"
+msgid "http://www.woothemes.com"
 msgstr ""
 
 #: includes/class-wc-order-status-manager-post-types.php:85

@@ -233,7 +233,7 @@ class WC_Order_Status_Manager_Order_Status_Email extends WC_Email {
 			 * @param string $id E-mail ID
 			 * @param string $type E-mail type
 			 */
-			$this->find = apply_filters( 'wc_order_status_manager_order_status_email_form_fields', $this->find, $this->id, $this->type );
+			$this->find = apply_filters( 'wc_order_status_manager_order_status_email_find_variables', $this->find, $this->id, $this->type );
 
 			$this->replace['order-date']         = date_i18n( wc_date_format(), strtotime( $this->object->order_date ) );
 			$this->replace['order-number']       = $this->object->get_order_number();
@@ -251,7 +251,7 @@ class WC_Order_Status_Manager_Order_Status_Email extends WC_Email {
 			 * @param string $id E-mail ID
 			 * @param string $type E-mail type
 			 */
-			$this->replace = apply_filters( 'wc_order_status_manager_order_status_email_form_fields', $this->replace, $this->id, $this->type );
+			$this->replace = apply_filters( 'wc_order_status_manager_order_status_email_replace_variables', $this->replace, $this->id, $this->type );
 		}
 
 		if ( ! $this->is_enabled() || ! $this->get_recipient() ) {

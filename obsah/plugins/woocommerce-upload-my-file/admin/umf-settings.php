@@ -7,15 +7,20 @@ function woocommerce_umf_page() {
 		wp_die( __( 'You do not have sufficient permissions to access this page.', 'woocommerce-umf' ) );
 	}
 // Save the field values
-	if ( isset( $_POST['umf_fields_submitted'] ) && $_POST['umf_fields_submitted'] == 'submitted' ) {
-		delete_option('woocommerce_umf_use_style');
-		foreach ( $_POST as $key => $value ) {
-			if ( get_option( $key ) != $value ) {
-				update_option( $key, $value );
-			} else {
-				add_option( $key, $value, '', 'no' );
-			}
-		}
+	if ( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['umf_fields_submitted'] ) && $_POST['umf_fields_submitted'] == 'submitted' ) {
+
+        if ( check_admin_referer( 'woo_umf_settings', 'woo_umf_nonce' ) ) {
+
+    		delete_option('woocommerce_umf_use_style');
+    		foreach ( $_POST as $key => $value ) {
+    			if ( get_option( $key ) != $value ) {
+    				update_option( $key, $value );
+    			} else {
+    				add_option( $key, $value, '', 'no' );
+    			}
+    		}
+
+        }
 	}
 ?>
 <div class="wrap">
@@ -30,15 +35,15 @@ function woocommerce_umf_page() {
 			<div id="poststuff">
 				<div style="float:left; width:72%; padding-right:3%;">
 					<div class="postbox">
-						<h3><?php _e( 'General Settings', 'woocommerce-umf' ); ?></h3>
 						<div class="inside umf-settings">
+						<h3><?php _e( 'General Settings', 'woocommerce-umf' ); ?></h3>
 							<table class="form-table">
 								<tr>
     								<th>
     									<label for="woocommerce_umf_allowed_file_types"><b><?php _e( 'Allowed file types:', 'woocommerce-umf' ); ?></b></label>
     								</th>
     								<td>
-    									<input type=text name="woocommerce_umf_allowed_file_types" class="regular-text" value="<?php if(!get_option( 'woocommerce_umf_allowed_file_types' )) { echo 'jpg,png'; } else { echo stripslashes(get_option( 'woocommerce_umf_allowed_file_types' )); }?>"/><br />
+    									<input type=text name="woocommerce_umf_allowed_file_types" class="regular-text" value="<?php if(!get_option( 'woocommerce_umf_allowed_file_types' )) { echo 'jpg,png'; } else { echo str_replace('.','',stripslashes(get_option( 'woocommerce_umf_allowed_file_types' ))); }?>"/><br />
     									<span class="description"><?php
     										echo __( 'Specify which file types are allowed for uploading, seperate by commas.', 'woocommerce-umf' );
     									?></span>
@@ -117,6 +122,7 @@ function woocommerce_umf_page() {
     							</tr>
 								<tr>
 									<td colspan=2>
+                                        <?php wp_nonce_field( 'woo_umf_settings', 'woo_umf_nonce' ); ?>
 										<p class="submit"><input type="submit" name="Submit" class="button-primary" value="<?php _e( 'Save Changes', 'woocommerce-umf' ); ?>" /></p>
 									</td>
 								</tr>
@@ -126,35 +132,23 @@ function woocommerce_umf_page() {
 				</div>
 				<div style="float:right; width:25%;">
 					<div class="postbox">
-						<h3><?php _e( 'Buy Pro!', 'woocommerce-umf' ); ?></h3>
 						<div class="inside umf-preview">
+						<h3><?php _e( 'Buy Pro!', 'woocommerce-umf' ); ?></h3>
 							<p><?php echo __( 'Check out our ', 'woocommerce-umf' ); ?> <a href="http://wpfortune.com/shop/plugins/woocommerce-uploads/">website</a> <?php _e('to find out more about WooCommerce Uploads.', 'woocommerce-umf' );?></p>
 							<p><?php _e('For only &euro; 35,00 you will get a lot of features and access to our support section.', 'woocommerce-umf' );?></p>
 							<p><?php _e('A couple of features:', 'woocommerce-umf' );?></p>
 							<ul style="list-style:square;padding-left:20px;margin-top:-10px;">
-							
-							<li><strong><?php _e('New', 'woocommerce-umf' );?></strong>: <?php _e('Fully customizable upload set on product level', 'woocommerce-umf' );?></li>
-							<li><strong><?php _e('New', 'woocommerce-umf' );?></strong>: <?php _e('Upload files before checkout with our special add-on', 'woocommerce-umf' );?></li>
-							<li><strong><?php _e('New', 'woocommerce-umf' );?></strong>: <?php _e('Choose in which order uploads will appear', 'woocommerce-umf' );?></li>
-							<li><strong><?php _e('New', 'woocommerce-umf' );?></strong>: <?php _e('Use an AJAX Uploader with progress bar', 'woocommerce-umf' );?></li>
-							<li><strong><?php _e('New', 'woocommerce-umf' );?></strong>: <?php _e('Upload LARGE ( > 1GB) files', 'woocommerce-umf' );?></li>
+							<li><strong><?php _e('New', 'woocommerce-umf' );?></strong>: <?php _e('Define upload path and filename', 'woocommerce-umf' );?></li>
+							<li><strong><?php _e('New', 'woocommerce-umf' );?></strong>: <?php _e('Hook into upload process after upload', 'woocommerce-umf' );?></li>
+							<li><?php _e('Fully customizable upload set on product level', 'woocommerce-umf' );?></li>
+							<li><?php _e('Upload files before checkout with our special add-on', 'woocommerce-umf' );?></li>
+							<li><?php _e('Choose in which order uploads will appear', 'woocommerce-umf' );?></li>
+							<li><?php _e('Use an AJAX Uploader with progress bar', 'woocommerce-umf' );?></li>
+							<li><?php _e('Upload LARGE ( > 1GB) files', 'woocommerce-umf' );?></li>
 							<li><?php _e('Product variation support', 'woocommerce-umf' );?></li>
 							<li><?php _e('Send admin notifications after upload', 'woocommerce-umf' );?></li>
 							<li><?php _e('Specify upload titles per product.', 'woocommerce-umf' );?></li><li><?php _e('File preview', 'woocommerce-umf' );?></li>
-							<li><?php _e('Preview thumbnails of uploaded files', 'woocommerce-umf' );?></li><li><?php _e('White or blacklist file types', 'woocommerce-umf' );?></li><li><?php _e('Let users delete files', 'woocommerce-umf' );?></li><li><?php _e('Define your own upload path', 'woocommerce-umf' );?></li></ul>
-						</div>
-					</div>
-					<div class="postbox">
-						<h3><?php _e( 'Show Your Love', 'woocommerce-umf' ); ?></h3>
-						<div class="inside umf-preview">
-							<p><?php echo sprintf(__( 'This plugin is developed by %s, a Dutch graphic design and webdevelopment company.', 'woocommerce-umf' ),'Geev vormgeeving'); ?></p>
-							<p><?php _e( 'If you are happy with this plugin please show your love by liking us on Facebook', 'woocommerce-umf' ); ?></p>
-							<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fgeevvormgeeving&amp;width=220&amp;height=62&amp;show_faces=false&amp;colorscheme=light&amp;stream=false&amp;border_color&amp;header=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100%; height:62px;" allowTransparency="true"></iframe>
-							<p><?php _e( 'Or', 'woocommerce-umf' ); ?></p>
-							<ul style="list-style:square;padding-left:20px;margin-top:-10px;">
-								<li><a href="http://wordpress.org/extend/plugins/woocommerce-upload-my-file/" target=_blank title="Woocommerce Upload My File"><?php _e( 'Rate the plugin 5&#9733; on WordPress.org', 'woocommerce-umf' ); ?></a></li>
-								<li><a href="http://wordpress.geev.nl/product/woocommerce-upload-my-file/" target=_blank title="Woocommerce Upload My File"><?php _e( 'Blog about it & link to the plugin page', 'woocommerce-umf' ); ?></a></li>
-							</ul>
+							<li><?php _e('Preview thumbnails of uploaded files', 'woocommerce-umf' );?></li><li><?php _e('White or blacklist file types', 'woocommerce-umf' );?></li><li><?php _e('Let users delete files', 'woocommerce-umf' );?></li></ul>
 						</div>
 					</div>
 				</div>

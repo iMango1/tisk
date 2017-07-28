@@ -418,7 +418,7 @@ if ( !class_exists( 'YITH_WCCOS_Admin' ) ) {
          */
         public function plugin_row_meta( $plugin_meta, $plugin_file, $plugin_data, $status ) {
 
-            if ( defined( 'YITH_WCCOS_FREE_INIT' ) && YITH_WCCOS_FREE_INIT == $plugin_file ) {
+            if ( ( defined( 'YITH_WCCOS_FREE_INIT' ) && YITH_WCCOS_FREE_INIT == $plugin_file ) || ( defined( 'YITH_WCCOS_INIT' ) && YITH_WCCOS_INIT == $plugin_file ) ) {
                 $plugin_meta[] = '<a href="' . $this->doc_url . '" target="_blank">' . __( 'Plugin Documentation', 'yith-wccos' ) . '</a>';
             }
 

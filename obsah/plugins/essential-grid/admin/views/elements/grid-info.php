@@ -43,7 +43,7 @@ if(!$EssentialAsTheme){
 		<div class="revgray" style="left:0px;top:0px;position:absolute;height:100%;padding:27px 10px;"><i style="color:#fff;font-size:25px" class="eg-icon-info-circled"></i></div>
 		<p style="margin-top:5px; margin-bottom:5px;">
 			<?php _e("Installed Version", EG_TEXTDOMAIN)?>: <span  class="slidercurrentversion"><?php echo Essential_Grid::VERSION; ?></span><br>
-			<?php _e("Available Version", EG_TEXTDOMAIN)?>: <span class="slideravailableversion"><?php echo $latest_version; ?></span>
+			<?php _e("Available Version", EG_TEXTDOMAIN)?>: <span class="slideravailableversion"><?php echo $latest_version; ?></span> <a class="button-primary revblue" href="?page=essential-grid&checkforupdates=true"><?php _e('Check Version', EG_TEXTDOMAIN); ?></a>
 		</p>
 	</div>
 
@@ -122,7 +122,7 @@ if(!$EssentialAsTheme){
 			<?php
 			if($validated === 'true'){
 				?>
-				<a href="update-core.php" id="eg-check-updates" class="button-primary revpurple"><?php _e('Search for Updates', EG_TEXTDOMAIN); ?></a>
+				<a href="update-core.php?checkforupdates=true" id="eg-check-updates" class="button-primary revpurple"><?php _e('Search for Updates', EG_TEXTDOMAIN); ?></a>
 				<?php
 			}
 			?>

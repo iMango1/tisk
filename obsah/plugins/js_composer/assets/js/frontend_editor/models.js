@@ -33,7 +33,7 @@
 			return false;
 		},
 		setting: function ( name ) {
-			if ( this.settings === false ) {
+			if ( false === this.settings ) {
 				this.settings = vc.getMapped( this.get( 'shortcode' ) ) || {};
 			}
 			return this.settings[ name ];
@@ -79,21 +79,36 @@
 			}, this );
 		},
 		stringify: function ( state ) {
-			return this.modelsToString( vc.shortcodes.where( { parent_id: false } ), state );
+			return this.modelsToString( _.sortBy( vc.shortcodes.where( { parent_id: false } ), function ( model ) {
+				return model.get( 'order' );
+			} ), state );
 		},
 		modelsToString: function ( models, state ) {
 			var string = '';
 			_.each( models, function ( model ) {
-				var tag = model.get( 'shortcode' ),
-					params = model.get( 'params' ),
-					content = _.isString( params.content ) ? params.content : '';
-				content += this.modelsToString( vc.shortcodes.where( { parent_id: model.get( 'id' ) } ), state );
-				var data = {
+				var data, tag, params, content, paramsForString, mergedParams;
+
+				tag = model.get( 'shortcode' );
+				params = _.extend( {}, model.get( 'params' ) );
+				paramsForString = {};
+				mergedParams = vc.getMergedParams( tag, params );
+				_.each( mergedParams, function ( value, key ) {
+					if ( 'content' !== key ) {
+						paramsForString[ key ] = vc.storage.escapeParam( value );
+					}
+				}, this );
+				content = _.isString( params.content ) ? params.content : '';
+				content += this.modelsToString( _.sortBy( vc.shortcodes.where( { parent_id: model.get( 'id' ) } ),
+					function ( model ) {
+						return model.get( 'order' );
+					} ), state );
+				var mapped = vc.getMapped( tag );
+				data = {
 					tag: tag,
-					attrs: _.omit( params, 'content' ),
+					attrs: paramsForString,
 					content: content,
 					type: _.isUndefined( vc.getParamSettings( tag,
-						'content' ) ) && ! vc.getMapped( tag ).is_container ? 'single' : ''
+						'content' ) ) && ! mapped.is_container && _.isEmpty( mapped.as_parent ) ? 'single' : ''
 				};
 				if ( _.isUndefined( state ) ) {
 					model.trigger( 'stringify', model, data );

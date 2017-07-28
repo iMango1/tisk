@@ -115,7 +115,7 @@ vc_map( array(
 		),
 		array(
 			'type' => 'colorpicker',
-			'heading' => __( 'Custom Icon Color', 'js_composer' ),
+			'heading' => __( 'Custom color', 'js_composer' ),
 			'param_name' => 'custom_color',
 			'description' => __( 'Select custom icon color.', 'js_composer' ),
 			'dependency' => array(
@@ -140,15 +140,25 @@ vc_map( array(
 		),
 		array(
 			'type' => 'dropdown',
-			'heading' => __( 'Background Color', 'js_composer' ),
+			'heading' => __( 'Background color', 'js_composer' ),
 			'param_name' => 'background_color',
-			'value' => getVcShared( 'colors' ),
+			'value' => array_merge( getVcShared( 'colors' ), array( __( 'Custom color', 'js_composer' ) => 'custom' ) ),
 			'std' => 'grey',
-			'description' => __( 'Background Color.', 'js_composer' ),
+			'description' => __( 'Select background color for icon.', 'js_composer' ),
 			'param_holder_class' => 'vc_colored-dropdown',
 			'dependency' => array(
 				'element' => 'background_style',
 				'not_empty' => true,
+			),
+		),
+		array(
+			'type' => 'colorpicker',
+			'heading' => __( 'Custom background color', 'js_composer' ),
+			'param_name' => 'custom_background_color',
+			'description' => __( 'Select custom icon background color.', 'js_composer' ),
+			'dependency' => array(
+				'element' => 'background_color',
+				'value' => 'custom',
 			),
 		),
 		array(
@@ -183,7 +193,12 @@ vc_map( array(
 			'param_name' => 'el_class',
 			'description' => __( 'Style particular content element differently - add a class name and refer to it in custom CSS.', 'js_composer' )
 		),
-
+		array(
+			'type' => 'css_editor',
+			'heading' => __( 'CSS box', 'js_composer' ),
+			'param_name' => 'css',
+			'group' => __( 'Design Options', 'js_composer' )
+		),
 	),
 	'js_view' => 'VcIconElementView_Backend',
 ) );

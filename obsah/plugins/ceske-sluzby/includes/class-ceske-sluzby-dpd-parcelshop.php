@@ -17,7 +17,7 @@ class WC_Shipping_Ceske_Sluzby_DPD_ParcelShop extends WC_Shipping_Method {
     add_action( 'woocommerce_update_options_shipping_' . $this->id, array( $this, 'process_admin_options' ) );
   }
  
-  public function calculate_shipping( $package ) {
+  public function calculate_shipping( $package = array() ) {
     $zeme = WC()->customer->get_shipping_country();
     if ( $zeme == "CZ" ) { $cena = $this->get_option( 'dpd_parcelshop_zakladni-cena' ); }
     if ( $zeme == "SK" ) { $cena = $this->get_option( 'dpd_parcelshop_zakladni-cena-slovensko' ); }
@@ -25,8 +25,7 @@ class WC_Shipping_Ceske_Sluzby_DPD_ParcelShop extends WC_Shipping_Method {
     $rate = array(
       'id' => $this->id,
       'label' => $this->title,
-      'cost' => $cena,
-      'calc_tax' => 'per_item'
+      'cost' => $cena
     );
     $this->add_rate( $rate );
   }

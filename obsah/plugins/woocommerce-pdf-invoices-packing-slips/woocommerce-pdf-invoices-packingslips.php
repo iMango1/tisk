@@ -3,7 +3,7 @@
  * Plugin Name: WooCommerce PDF Invoices & Packing Slips
  * Plugin URI: http://www.wpovernight.com
  * Description: Create, print & email PDF invoices & packing slips for WooCommerce orders.
- * Version: 1.5.22
+ * Version: 1.5.38
  * Author: Ewout Fernhout
  * Author URI: http://www.wpovernight.com
  * License: GPLv2 or later
@@ -33,7 +33,7 @@ if ( !class_exists( 'WooCommerce_PDF_Invoices' ) ) {
 			self::$plugin_basename = plugin_basename(__FILE__);
 			self::$plugin_url = plugin_dir_url(self::$plugin_basename);
 			self::$plugin_path = trailingslashit(dirname(__FILE__));
-			self::$version = '1.5.22';
+			self::$version = '1.5.38';
 			
 			// load the localisation & classes
 			add_action( 'plugins_loaded', array( $this, 'translations' ) ); // or use init?
@@ -104,7 +104,7 @@ if ( !class_exists( 'WooCommerce_PDF_Invoices' ) ) {
 		 */
 		public function is_woocommerce_activated() {
 			$blog_plugins = get_option( 'active_plugins', array() );
-			$site_plugins = get_site_option( 'active_sitewide_plugins', array() );
+			$site_plugins = is_multisite() ? (array) maybe_unserialize( get_site_option('active_sitewide_plugins' ) ) : array();
 
 			if ( in_array( 'woocommerce/woocommerce.php', $blog_plugins ) || isset( $site_plugins['woocommerce/woocommerce.php'] ) ) {
 				return true;
@@ -193,7 +193,7 @@ if ( !class_exists( 'WooCommerce_PDF_Invoices' ) ) {
 			$debug_settings = get_option( 'wpo_wcpdf_debug_settings' ); // get temp setting
 
 			// do not copy if old_tmp function active! (double check for slow databases)
-			if ( !( isset($this->debug_settings['old_tmp']) || $installed_version == 'versionless' ) ) {
+			if ( !( isset($debug_settings['old_tmp']) || $installed_version == 'versionless' ) ) {
 				$tmp_base = $this->export->get_tmp_base();
 
 				// check if tmp folder exists => if not, initialize 
@@ -205,6 +205,12 @@ if ( !class_exists( 'WooCommerce_PDF_Invoices' ) ) {
 				$this->export->copy_fonts( $font_path );
 			}
 			
+			// 1.5.28 update: copy next invoice number to separate setting
+			if ( $installed_version == 'versionless' || version_compare( $installed_version, '1.5.28', '<' ) ) {
+				$template_settings = get_option( 'wpo_wcpdf_template_settings' );
+				$next_invoice_number = isset($template_settings['next_invoice_number'])?$template_settings['next_invoice_number']:'';
+				update_option( 'wpo_wcpdf_next_invoice_number', $next_invoice_number );
+			}
 		}		
 
 		/***********************************************************************/
@@ -302,8 +308,12 @@ if ( !class_exists( 'WooCommerce_PDF_Invoices' ) ) {
 		 * Return/Show shop/company address if provided
 		 */
 		public function get_shop_address() {
-			if (isset($this->settings->template_settings['shop_address']))
-				return apply_filters( 'wpo_wcpdf_shop_address', wpautop( wptexturize( $this->settings->template_settings['shop_address'] ) ) );
+			$shop_address = apply_filters( 'wpo_wcpdf_shop_address', wpautop( wptexturize( $this->settings->template_settings['shop_address'] ) ) );
+			if (!empty($shop_address)) {
+				return $shop_address;
+			} else {
+				return false;
+			}
 		}
 		public function shop_address() {
 			echo $this->get_shop_address();
@@ -343,7 +353,7 @@ if ( !class_exists( 'WooCommerce_PDF_Invoices' ) ) {
 			}
 
 			//if we got here, it means the addresses are equal -> doesn't ship to different address!
-			return false;
+			return apply_filters( 'wpo_wcpdf_ships_to_different_address', false, $order_meta );
 		}
 		
 		/**
@@ -520,8 +530,16 @@ if ( !class_exists( 'WooCommerce_PDF_Invoices' ) ) {
 		 * Return/Show payment method  
 		 */
 		public function get_payment_method() {
-			$Payment_method_label = __( 'Payment method', 'wpo_wcpdf' );
-			return apply_filters( 'wpo_wcpdf_payment_method', __( $this->export->order->payment_method_title, 'woocommerce' ) );
+			$payment_method_label = __( 'Payment method', 'wpo_wcpdf' );
+
+			$payment_method = __( $this->export->order->payment_method_title, 'woocommerce' );
+			if ( !$payment_method && $parent_order_id = wp_get_post_parent_id( $this->export->order->id ) ) {
+				// try parent
+				$payment_method = get_post_meta( $parent_order_id, '_payment_method_title', true );
+				$payment_method = __( $payment_method, 'woocommerce' );
+			}
+
+			return apply_filters( 'wpo_wcpdf_payment_method', $payment_method );
 		}
 		public function payment_method() {
 			echo $this->get_payment_method();
@@ -690,12 +708,24 @@ if ( !class_exists( 'WooCommerce_PDF_Invoices' ) ) {
 						$tax_string_array[] = sprintf( '%s %s', wc_price( $this->export->order->get_total_tax() - $this->export->order->get_total_tax_refunded(), array( 'currency' => $this->export->order->get_order_currency() ) ), WC()->countries->tax_or_vat() );
 					}
 					if ( ! empty( $tax_string_array ) ) {
-						$tax_string = ' ' . sprintf( __( '(Includes %s)', 'woocommerce' ), implode( ', ', $tax_string_array ) );
+						if ( version_compare( WOOCOMMERCE_VERSION, '2.6', '>=' ) ) {
+							$tax_string = ' ' . sprintf( __( '(includes %s)', 'woocommerce' ), implode( ', ', $tax_string_array ) );
+						} else {
+							// use old capitalized string
+							$tax_string = ' ' . sprintf( __( '(Includes %s)', 'woocommerce' ), implode( ', ', $tax_string_array ) );
+						}
 					}
 				}
 
 				$totals['order_total']['value'] .= $tax_string;			
-			}	
+			}
+
+			// remove refund lines (shouldn't be in invoice)
+			foreach ( $totals as $key => $total ) {
+				if ( strpos($key, 'refund_') !== false ) {
+					unset( $totals[$key] );
+				}
+			}
 	
 			return apply_filters( 'wpo_wcpdf_woocommerce_totals', $totals, $this->export->order );
 		}
@@ -708,7 +738,7 @@ if ( !class_exists( 'WooCommerce_PDF_Invoices' ) ) {
 			
 			$subtotal = $this->export->order->get_subtotal_to_display( false, $tax );
 			
-			$subtotal = ($pos = strpos($subtotal, ' <small>')) ? substr($subtotal, 0, $pos) : $subtotal; //removing the 'excluding tax' text			
+			$subtotal = ($pos = strpos($subtotal, ' <small')) ? substr($subtotal, 0, $pos) : $subtotal; //removing the 'excluding tax' text			
 			
 			$subtotal = array (
 				'label'	=> __('Subtotal', 'wpo_wcpdf'),
@@ -796,11 +826,12 @@ if ( !class_exists( 'WooCommerce_PDF_Invoices' ) ) {
 			}
 
 			$discount = array (
-				'label'	=> __('Discount', 'wpo_wcpdf'),
-				'value'	=> $this->export->wc_price($discount_value),
+				'label'		=> __('Discount', 'wpo_wcpdf'),
+				'value'		=> $this->export->wc_price($discount_value),
+				'raw_value'	=> $discount_value,
 			);
 
-			if ( $discount_value > 0 ) {
+			if ( round( $discount_value, 3 ) != 0 ) {
 				return apply_filters( 'wpo_wcpdf_order_discount', $discount, $type, $tax );
 			}
 		}

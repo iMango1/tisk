@@ -547,6 +547,13 @@ pocitadlo = 0;
                 data.errorThrown = 'abort';
                 this._trigger('fail', e, data);
             }
+          /*  pocitadlo = pocitadlo - 1;
+            if (pocitadlo >= 1) {
+            jQuery( ".pokracovat" ).removeClass( "disabled" );
+            }
+            else {
+            jQuery( ".pokracovat" ).addClass( "disabled" );
+            } */
         },
 
         _deleteHandler: function (e) {

@@ -5,11 +5,11 @@ add_action( 'widgets_init', create_function( '', 'register_widget("LayerSlider_W
 
 class LayerSlider_Widget extends WP_Widget {
 
-	function LayerSlider_Widget() {
+	function __construct() {
 
 		$widget_ops = array( 'classname' => 'layerslider_widget', 'description' => __('Insert a slider with LayerSlider WP Widget', 'LayerSlider') );
 		$control_ops = array( 'id_base' => 'layerslider_widget' );
-		$this->WP_Widget( 'layerslider_widget', __('LayerSlider WP Widget', 'LayerSlider'), $widget_ops, $control_ops );
+		parent::__construct( 'layerslider_widget', __('LayerSlider WP Widget', 'LayerSlider'), $widget_ops, $control_ops );
 	}
 
 	function widget( $args, $instance ) {
@@ -18,7 +18,7 @@ class LayerSlider_Widget extends WP_Widget {
 		$title = apply_filters('widget_title', $instance['title']);
 		$title = !empty($title) ? $before_title . $title . $after_title : $title;
 
-		echo $before_widget, $title, layerslider_init($instance), $after_widget;
+		echo $before_widget, $title, LS_Shortcode::handleShortcode($instance), $after_widget;
 	}
 
 	function update( $new_instance, $old_instance ) {

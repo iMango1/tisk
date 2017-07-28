@@ -1,8 +1,10 @@
-<?php
+<?php 
 function it_heading_shortcode($atts, $content=null){
 
+    $text = $head_align = $it_animation = $ex_class = $delay = $head_tag = $duration = $upper = $head_color = $head_icon = $heading_style = '';
+    
     extract(shortcode_atts( array(
-    'text'              => '',
+    'text'              => __( 'This is custom heading element', 'js_composer' ),
     'head_align'        => '',
     'it_animation'      => '',
     'ex_class'          => '',

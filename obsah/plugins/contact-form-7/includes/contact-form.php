@@ -316,14 +316,17 @@ class WPCF7_ContactForm {
 		$class = apply_filters( 'wpcf7_form_class_attr', $class );
 
 		$enctype = apply_filters( 'wpcf7_form_enctype', '' );
+		$autocomplete = apply_filters( 'wpcf7_form_autocomplete', '' );
 
-		$novalidate = apply_filters( 'wpcf7_form_novalidate', wpcf7_support_html5() );
+		$novalidate = apply_filters( 'wpcf7_form_novalidate',
+			wpcf7_support_html5() );
 
 		$atts = array(
 			'action' => esc_url( $url ),
 			'method' => 'post',
 			'class' => $class,
 			'enctype' => wpcf7_enctype_value( $enctype ),
+			'autocomplete' => $autocomplete,
 			'novalidate' => $novalidate ? 'novalidate' : '' );
 
 		if ( '' !== $id_attr ) {
@@ -654,6 +657,7 @@ class WPCF7_ContactForm {
 		$message = isset( $messages[$status] ) ? $messages[$status] : '';
 
 		if ( $filter ) {
+			$message = wp_strip_all_tags( $message );
 			$message = wpcf7_mail_replace_tags( $message, array( 'html' => true ) );
 			$message = apply_filters( 'wpcf7_display_message', $message, $status );
 		}

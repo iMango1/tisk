@@ -1,6 +1,6 @@
 /************************************************************************************
  * jquery.themepunch.essential.js - jQuery Plugin for esg Portfolio Slider
- * @version: 2.0.7 (26.02.2015)
+ * @version: 2.1.0 (19.08.2015)
  * @requires jQuery v1.7 or later (tested on 1.9)
  * @author ThemePunch
 ************************************************************************************/
@@ -370,10 +370,11 @@
 							if (opt.fullScreenOffsetContainer!=undefined) {
 								try{
 									var offcontainers = opt.fullScreenOffsetContainer.split(",");
-									jQuery.each(offcontainers,function(index,searchedcont) {
-										coh = coh - jQuery(searchedcont).outerHeight(true);
-										if (coh<opt.minFullScreenHeight) coh=opt.minFullScreenHeight;
-									});
+									if (offcontainers)
+										jQuery.each(offcontainers,function(index,searchedcont) {
+											coh = coh - jQuery(searchedcont).outerHeight(true);
+											if (coh<opt.minFullScreenHeight) coh=opt.minFullScreenHeight;
+										});
 								} catch(e) {}
 							}
 
@@ -1596,11 +1597,11 @@ function mainPreparing(container,opt) {
 									jQuery(opt.filterGroupClass+'.eg-search-wrapper .eg-search-input').trigger("searchended");
 								},1000);
 							   	var rarray = new Array();
-
-						 		jQuery.each(result,function(index,id){
-							 		if (id!=undefined && jQuery.isNumeric(id))
-							 			rarray.push(id);
-						 		});
+							   	if (result)
+							 		jQuery.each(result,function(index,id){
+								 		if (id!=undefined && jQuery.isNumeric(id))
+								 			rarray.push(id);
+							 		});
 
 						 		//CALL AJAX TO GET ID'S FOR RESULTS
 								container.find('.cat-searchresult').removeClass("cat-searchresult");
@@ -3125,7 +3126,7 @@ function videoClickEvent(item,container,opt,simpleframe) {
 		  						  				animto.x = xy.x;
 		  						  				animto.y = xy.y;
 												var tw = punchgs.TweenLite.to(animobject,0.5,{y:animto.y, x:animto.x,overwrite:"all",onCompleteParams:[animobject],onComplete:function(obj) {
-													tw.set(obj,{autoAlpha:0});
+													punchgs.TweenLite.set(obj,{autoAlpha:0});
 												}});
 		  						  		break;
 		  						  		case ".esg-slideout":

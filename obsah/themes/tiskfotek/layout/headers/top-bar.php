@@ -106,7 +106,7 @@ if ( class_exists( 'SitePress' ) ) {
                         <?php else : ?>
                             
                             <?php if (get_option('users_can_register')) : ?>
-                                <li><a href="<?php echo esc_url(get_option('siteurl')); ?>/muj-ucet/"><i class="fa fa-user"></i><?php _e('Register','itrays') ?></a></li>
+                                <li><a href="<?php echo esc_url(get_option('siteurl')); ?>/prihlaseni/"><i class="fa fa-user"></i><?php _e('Register','itrays') ?></a></li>
                             <?php endif; ?>
                             <li><a href="#" class="login-btn"><i class="fa fa-unlock-alt"></i> <?php echo __('Login','itrays') ?></a></li>
                         <?php endif; ?>

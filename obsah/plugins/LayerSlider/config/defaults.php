@@ -766,7 +766,7 @@ $lsDefaults = array(
 			'keys' => 'id',
 			'tooltip' => __('You can apply an ID attribute on the HTML element of this slide to work with it in your custom CSS or Javascript code.', 'LayerSlider'),
 			'props' => array(
-				'meta' => true	
+				'meta' => true
 			)
 		),
 
@@ -1397,7 +1397,7 @@ $lsDefaults = array(
 			'value' => '',
 			'name' => __('Custom styles', 'LayerSlider'),
 			'keys' => 'style',
-			'tooltip' => __('If you want to set style settings other then above, you can use here any CSS codes. Please make sure to write valid markup.', 'LayerSlider'),
+			'tooltip' => __('If you want to set style settings other than above, you can use here any CSS codes. Please make sure to write valid markup.', 'LayerSlider'),
 			'props' => array(
 				'meta' => true
 			)

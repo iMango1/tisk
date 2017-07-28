@@ -100,12 +100,15 @@ class KM_UpdatesV3 {
 			$transient->response = array();
 		}
 
+
 		if(!empty($this->data->basic) && is_object($this->data->basic)) {
 			if(version_compare($this->config['version'], $this->data->basic->version, '<')) {
 
 				$this->data->basic->new_version = $this->data->basic->version;
 				$transient->response[$this->config['base']] = $this->data->basic;
 			}
+		} else {
+			unset($transient->response[$this->config['base']]);
 		}
 
 		return $transient;
@@ -164,19 +167,20 @@ class KM_UpdatesV3 {
 		// Check for updates
 		if($this->data->checked < time() - self::TIMEOUT) {
 
-			$data = new stdClass;
 			$response = $this->sendApiRequest($this->config['repoUrl'].'updates/');
 
 			if(!empty($response) && $newData = maybe_unserialize($response)) {
 				if(is_object($newData)) {
-					$data = $newData;
+					$this->data = $newData;
+					$this->data->checked = time();
 				}
 			}
 
-			if(isset($data->basic)) {
-				$this->data->checked = time();
-				$this->data->basic = $data->basic;
-				$this->data->full = $data->full;
+
+			// Store version number of the latest release
+			// to notify unauthorized sites owners
+			if(!empty($this->data->_latest_version)) {
+				update_option('ls-latest-version', $data->_latest_version);
 			}
 		}
 
@@ -233,9 +237,9 @@ class KM_UpdatesV3 {
 		$json = !empty($response) ? json_decode($response) : false;
 
 		// ERR: Unexpected error
-		if(empty($json)) { 
+		if(empty($json)) {
 			die(json_encode(array(
-				'message' => 'An unexpected error occurred. Please try again later.', 
+				'message' => 'An unexpected error occurred. Please try again later.',
 				'errCode' => 'ERR_UNEXPECTED_ERROR')
 			));
 		}
@@ -257,7 +261,7 @@ class KM_UpdatesV3 {
 		// Required informations
 		if(empty($_POST['purchase_code']) || empty($_POST['channel'])) {
 			die(json_encode(array(
-				'status' => 'Please enter your purchase code.', 
+				'status' => 'Please enter your purchase code.',
 				'errCode' => 'ERR_INVALID_DATA_RECEIVED')
 			));
 		}
@@ -314,7 +318,7 @@ class KM_UpdatesV3 {
 		// Deauthorize
 		delete_option($this->config['codeKey']);
 		delete_option($this->config['authKey']);
-		
+
 		die($response);
 	}
 }

@@ -12,12 +12,32 @@ jQuery(document).ready(function($) {
 				}
 			);
 			
+			if (!checked.length) {
+				alert('You have to select order(s) first!');
+				return;
+			}
+			
 			var order_ids=checked.join('x');
-			url = wpo_wcpdf_ajax.ajaxurl+'?action=generate_wpo_wcpdf&template_type='+template+'&order_ids='+order_ids+'&_wpnonce='+wpo_wcpdf_ajax.nonce;
+
+			if (wpo_wcpdf_ajax.ajaxurl.indexOf("?") != -1) {
+				url = wpo_wcpdf_ajax.ajaxurl+'&action=generate_wpo_wcpdf&template_type='+template+'&order_ids='+order_ids+'&_wpnonce='+wpo_wcpdf_ajax.nonce;
+			} else {
+				url = wpo_wcpdf_ajax.ajaxurl+'?action=generate_wpo_wcpdf&template_type='+template+'&order_ids='+order_ids+'&_wpnonce='+wpo_wcpdf_ajax.nonce;
+			}
+
 			window.open(url,'_blank');
 		}
 	});
 
 	$('#wpo_wcpdf-data-input-box').insertAfter('#woocommerce-order-data');
+
+	// enable invoice number edit if user initiated
+	$('#wpo_wcpdf-data-input-box label').click(function (event) {
+		input = $(this).attr('for');
+		$('#'+input).prop('disabled', false);
+	});
+	$( "#_wcpdf_invoice_number" ).on( "click", function() {
+		console.log( this );
+	});
 });
 

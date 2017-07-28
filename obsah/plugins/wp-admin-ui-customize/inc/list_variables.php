@@ -16,7 +16,7 @@ if( is_multisite() ) {
 		<table class="widefat fixed">
 			<thead>
 				<tr>
-					<th><?php _e( 'Shortcodes' , $this->ltd ); ?></th>
+					<th><?php _e( 'Shortcodes' , 'wp-admin-ui-customize' ); ?></th>
 					<th><?php _e( 'Value' ); ?></th>
 				</tr>
 			</thead>
@@ -41,7 +41,7 @@ if( is_multisite() ) {
 					<td>
 						<code><?php echo get_bloginfo( 'name' ); ?></code>
 						<?php if( is_multisite() ) : ?>
-							<span class="description"><?php _e( 'Blog name of logged in.' , $this->ltd ); ?></span>
+							<span class="description"><?php _e( 'Blog name of logged in.' , 'wp-admin-ui-customize' ); ?></span>
 						<?php endif; ?>
 					</td>
 				</tr>
@@ -50,7 +50,7 @@ if( is_multisite() ) {
 					<td>
 						<code><?php echo get_bloginfo( 'url' ); ?></code>
 						<?php if( is_multisite() ) : ?>
-							<span class="description"><?php _e( 'Blog URL of logged in.' , $this->ltd ); ?></span>
+							<span class="description"><?php _e( 'Blog URL of logged in.' , 'wp-admin-ui-customize' ); ?></span>
 						<?php endif; ?>
 					</td>
 				</tr>
@@ -100,35 +100,35 @@ if( is_multisite() ) {
 					<th><strong>[user_name]</strong></th>
 					<td>
 						<code><?php echo $current_user->display_name; ?></code>
-						<span class="description"><?php _e( 'In your case.' , $this->ltd ); ?></span>
+						<span class="description"><?php _e( 'In your case.' , 'wp-admin-ui-customize' ); ?></span>
 					</td>
 				</tr>
 				<tr>
 					<th><strong>[user_login_name]</strong></th>
 					<td>
 						<code><?php echo $current_user->user_login; ?></code>
-						<span class="description"><?php _e( 'In your case.' , $this->ltd ); ?></span>
+						<span class="description"><?php _e( 'In your case.' , 'wp-admin-ui-customize' ); ?></span>
 					</td>
 				</tr>
 				<tr>
 					<th><strong>[user_avatar]</strong></th>
 					<td>
 						<code><?php echo get_avatar( $current_user->ID , 16 ); ?></code>
-						<span class="description"><?php _e( 'In your case.' , $this->ltd ); ?></span>
+						<span class="description"><?php _e( 'In your case.' , 'wp-admin-ui-customize' ); ?></span>
 					</td>
 				</tr>
 				<tr>
 					<th><strong>[user_avatar_64]</strong></th>
 					<td>
 						<code><?php echo get_avatar( $current_user->ID , 64 ); ?></code>
-						<span class="description"><?php _e( 'In your case.' , $this->ltd ); ?></span>
+						<span class="description"><?php _e( 'In your case.' , 'wp-admin-ui-customize' ); ?></span>
 					</td>
 				</tr>
 				<tr>
 					<th><strong>[post_type]</strong></th>
 					<td>
 						<code><?php _e( 'Posts' ); ?></code>
-						<span class="description"><?php _e( 'Current Post Type Name' , $this->ltd ); ?> ( <?php _e( 'Pages' ); ?>/<?php _e( 'Categories' ); ?>/<?php _e( 'Tags' ); ?>/<?php _e( 'Custom' ); ?>)</span>
+						<span class="description"><?php _e( 'Current Post Type Name' , 'wp-admin-ui-customize' ); ?> ( <?php _e( 'Pages' ); ?>/<?php _e( 'Categories' ); ?>/<?php _e( 'Tags' ); ?>/<?php _e( 'Custom Post Type' , 'wp-admin-ui-customize' ); ?>)</span>
 					</td>
 				</tr>
 				<?php if( !empty( $this->ActivatedPlugin ) ) : ?>

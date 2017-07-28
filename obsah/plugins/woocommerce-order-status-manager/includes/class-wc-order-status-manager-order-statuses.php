@@ -50,7 +50,7 @@ class WC_Order_Status_Manager_Order_Statuses {
 	public function __construct() {
 
 		// Include the Order Status class
-		require_once( 'class-wc-order-status-manager-order-status.php' );
+		require_once( wc_order_status_manager()->get_plugin_path() . '/includes/class-wc-order-status-manager-order-status.php' );
 
 		// Store core order statuses before introducing custom order statuses
 		$this->core_order_statuses = wc_get_order_statuses();
@@ -100,16 +100,19 @@ class WC_Order_Status_Manager_Order_Statuses {
 	 * Get order status posts
 	 *
 	 * @since 1.0.0
+	 * @param array $args Optional. List of get_post args
 	 * @return array of WP_Post objects
 	 */
-	public function get_order_status_posts() {
+	public function get_order_status_posts( $args = array() ) {
 
-		return get_posts( array(
+		$defaults = array(
 			'post_type'        => 'wc_order_status',
 			'post_status'      => 'publish',
 			'posts_per_page'   => -1,
-			'suppress_filters' => 1
-		) );
+			'suppress_filters' => 1,
+		);
+
+		return get_posts( wp_parse_args( $args, $defaults ) );
 	}
 
 
@@ -126,7 +129,8 @@ class WC_Order_Status_Manager_Order_Statuses {
 
 		foreach ( wc_get_order_statuses() as $slug => $name ) {
 
-			$slug_without_prefix = str_replace( 'wc-', '', $slug );
+			// truncate slugs to 17 chars to handle plugins doing_it_wrong() by using register_post_status() with a slug >20 chars ಠ_ಠ
+			$slug_without_prefix = substr( str_replace( 'wc-', '', $slug ), 0, 17 );
 			$has_post = false;
 
 			foreach ( $status_posts as $status_post ) {
@@ -396,8 +400,8 @@ class WC_Order_Status_Manager_Order_Statuses {
 
 		global $wpdb;
 
-		// Bail out if not an order status
-		if ( 'wc_order_status' !== get_post_type( $post_id ) ) {
+		// Bail out if not an order status or not published
+		if ( 'wc_order_status' !== get_post_type( $post_id ) || 'publish' !== get_post_status( $post_id ) ) {
 			return;
 		}
 
@@ -434,7 +438,7 @@ class WC_Order_Status_Manager_Order_Statuses {
 
 			foreach ( $order_rows as $order_row ) {
 
-				$order = SV_WC_Plugin_Compatibility::wc_get_order( $order_row['ID'] );
+				$order = wc_get_order( $order_row['ID'] );
 
 				$order->update_status( $replacement_status, __( "Order status updated because the previous status was deleted.", WC_Order_Status_Manager::TEXT_DOMAIN ) );
 

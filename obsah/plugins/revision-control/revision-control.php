@@ -1,17 +1,18 @@
 <?php
 /**
  * Plugin Name: Revision Control
- * Plugin URI: http://dd32.id.au/wordpress-plugins/revision-control/
+ * Plugin URI: https://dd32.id.au/wordpress-plugins/revision-control/
  * Description: Allows finer control over the number of Revisions stored on a global & per-type/page basis.
+ * Text Domain: revision-control
  * Author: Dion Hulse
- * Version: 2.3.1
+ * Version: 2.3.2
  */
 
 $GLOBALS['revision_control'] = new Plugin_Revision_Control( plugin_basename( __FILE__ ) );
 class Plugin_Revision_Control {
 	var $basename = '';
 	var $folder = '';
-	var $version = '2.3.1';
+	var $version = '2.3.2';
 
 	var $define_failure = false;
 	var $options = array( 'per-type' => array('post' => 'unlimited', 'page' => 'unlimited', 'all' => 'unlimited'), 'revision-range' => '2..5,10,20,50,100' );
@@ -37,7 +38,7 @@ class Plugin_Revision_Control {
 
 	function load_translations() {
 		//Load any translations.
-		load_plugin_textdomain(	'revision-control', false, $this->folder . '/langs/');
+		load_plugin_textdomain(	'revision-control' );
 	}
 	
 	function admin_init() {
@@ -185,8 +186,8 @@ class Plugin_Revision_Control {
 					break;
 			}
 		} else {
-			$keep = $new;
-		}
+			$keep = max( $new, 0 );
+		}	
 
 		while ( count($items) > $keep ) {
 			$item = array_shift($items);
@@ -399,12 +400,12 @@ class Plugin_Revision_Control_UI {
 		$right = isset($_GET['right']) ? absint($_GET['right']) : false;
 
 		if ( !$left_revision  = get_post( $left ) )
-			break;
+			return;
 		if ( !$right_revision = get_post( $right ) )
-			break;
+			return;
 
 		if ( !current_user_can( 'read_post', $left_revision->ID ) || !current_user_can( 'read_post', $right_revision->ID ) )
-			break;
+			return;
 
 		// Don't allow reverse diffs?
 		if ( strtotime($right_revision->post_modified_gmt) < strtotime($left_revision->post_modified_gmt) ) {
@@ -568,7 +569,6 @@ class Plugin_Revision_Control_UI {
 		$can_edit_post = true;
 	else
 		$can_edit_post = current_user_can( 'edit_post', $post->ID );
-	//$locked_revision = false;
 
 	if ( empty($revisions) ) {
 		echo "<tr class='no-revisions'>\n";
@@ -585,7 +585,6 @@ class Plugin_Revision_Control_UI {
 		$name = get_the_author_meta( 'display_name', $revision->post_author );
 		
 		$revision_is_current = $post->ID == $revision->ID;
-		/*$revision_is_locked = $revision->ID == $locked_revision;*/
 
 		$class = strpos($class, 'alternate') !== false ? '' : "alternate";
 		
@@ -594,20 +593,12 @@ class Plugin_Revision_Control_UI {
 		if ( $revision_is_current )
 			$class .= ' current-revision';
 		
-		/*if ( $revision_is_locked )
-			$class .= ' locked-revision';*/
-
 		$actions = array();
-		/*if ( !$revision_is_locked )
-			$actions[] = '<a href="#" class="lock" title="' . esc_attr__('Locks the selected revision to be the published copy. This allows you to work on modifications without making them public.', 'revision-control') . '">' . __('Lock', 'revision-control') . '</a>';
-		else
-			$actions[] = '<a href="#" class="unlock">' . __('Unlock', 'revision-control') . '</a>';*/
 		if ( ! $revision_is_current && !wp_is_post_autosave($revision) && $can_edit_post ) {
 			$actions[] = '<a href="' . wp_nonce_url( add_query_arg( array( 'revision' => $revision->ID, 'diff' => false, 'action' => 'restore' ), 'revision.php' ), "restore-post_{$revision->ID}" ) . '">' . __( 'Restore', 'revision-control' ) . '</a>';
-			//$actions[] = '<a href="#" class="hide-if-no-js delete">' . __( 'Delete', 'revision-control' ) . '</a>';
 		}
 
-		$deletedisabled = ( $revision_is_current || wp_is_post_autosave($revision) || ! $can_edit_post ) ? 'disabled="disabled"' : ''; //$revision_is_locked || ($revision_is_current && false === $locked_revision)
+		$deletedisabled = ( $revision_is_current || wp_is_post_autosave($revision) || ! $can_edit_post ) ? 'disabled="disabled"' : '';
 		$lefthidden = $revision == end($revisions) ? ' style="visibility: hidden" ' : '';
 		$righthidden = $revision == $revisions[0] ? ' style="visibility: hidden" ' : '';
 
@@ -685,8 +676,10 @@ class Plugin_Revision_Control_UI {
 		global $revision_control;
 
 		echo "<div class='wrap'>";
-		screen_icon('options-general');
 		echo '<h2>' . __('Revision Control Options', 'revision-control') . '</h2>';
+
+		self::language_notice();
+
 		echo '<h3>' . __('Default revision status for <em>Post Types</em>', 'revision-control') . '</h3>';
 		
 		if ( function_exists('post_type_supports') ) {
@@ -747,5 +740,26 @@ class Plugin_Revision_Control_UI {
 		echo '
 		</form>';
 		echo '</div>';
+	}
+
+	static function language_notice( $force = false ) {
+		$message_english = 'Hi there!
+I notice you use WordPress in a Language other than English (US), Did you know you can translate WordPress Plugins into your native language as well?
+If you\'d like to help out with translating this plugin into %1$s you can head over to <a href="%2$s">translate.WordPress.org</a> and suggest translations for any languages which you know.
+Thanks! Dion.';
+		/* translators: %1$s = The Locale (de_DE, en_US, fr_FR, he_IL, etc). %2$s = The translate.wordpress.org link to the plugin overview */
+		$message = __( 'Hi there!
+I notice you use WordPress in a Language other than English (US), Did you know you can translate WordPress Plugins into your native language as well?
+If you\'d like to help out with translating this plugin into %1$s you can head over to <a href="%2$s">translate.WordPress.org</a> and suggest translations for any languages which you know.
+Thanks! Dion.', 'revision-control' );
+
+		// Don't display the message for English (US) or what we'll assume to be fully translated localised builds.
+		if ( 'en_US' === get_locale() || ( $message == $message_english && ! $force  ) ) {
+			return false;
+		}
+
+		$translate_url = 'https://translate.wordpress.org/projects/wp-plugins/revision-control/stable';
+
+		echo '<div class="notice notice-info"><p>' . sprintf( nl2br( $message ), get_locale(), $translate_url ) . '</p></div>';
 	}
 }

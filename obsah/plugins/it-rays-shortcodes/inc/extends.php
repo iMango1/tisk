@@ -6,15 +6,15 @@ if ( class_exists( 'WPBakeryShortCodesContainer' ) ) {
             global $block_style;
             extract(shortcode_atts(array(
                 'el_class' => '',
-                'block_style'   => '',
-                'testo_slides' => '',
-                'testo_scroll' => '',
+                'block_style'   => '1',
+                'testo_slides' => '2',
+                'testo_scroll' => '2',
                 'testo_fade' => '',
                 'testo_speed' => '',
                 'testo_arrows' => '',
                 'testo_dots' => '',
-                'testo_infinite' => '',
-                'testo_auto' => '',
+                'testo_infinite' => '1',
+                'testo_auto' => '1',
                 
             ), $atts));
             
@@ -69,7 +69,7 @@ if ( class_exists( 'WPBakeryShortCodesContainer' ) ) {
             global $staff_row_style;
             extract(shortcode_atts(array(
                 'el_class'          => '',
-                'staff_row_style'   => ''
+                'staff_row_style'   => '1'
             ), $atts));
             $output = '';
             if($staff_row_style == "1"){
@@ -99,15 +99,15 @@ if ( class_exists( 'WPBakeryShortCodesContainer' ) ) {
             global $cl_style;
             extract(shortcode_atts(array(
                 'el_class'          => '',
-                'cl_style'          => '',
-                'cl_slides' => '',
-                'cl_scroll' => '',
+                'cl_style'          => '1',
+                'cl_slides' => '2',
+                'cl_scroll' => '2',
                 'cl_fade' => '',
                 'cl_speed' => '',
                 'cl_arrows' => '',
                 'cl_dots' => '',
-                'cl_infinite' => '',
-                'cl_auto' => '',
+                'cl_infinite' => '1',
+                'cl_auto' => '1',
             ), $atts));
             
             $output = '';

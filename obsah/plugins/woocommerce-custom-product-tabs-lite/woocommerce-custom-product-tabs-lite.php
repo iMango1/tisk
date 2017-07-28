@@ -5,12 +5,12 @@
  * Description: Extends WooCommerce to add a custom product view page tab
  * Author: SkyVerge
  * Author URI: http://www.skyverge.com/
- * Version: 1.3.0
- * Tested up to: 4.2
+ * Version: 1.5.0
+ * Tested up to: 4.4
  * Text Domain: woocommerce-custom-product-tabs-lite
  * Domain Path: /i18n/languages/
  *
- * Copyright: (c) 2012-2015 SkyVerge, Inc. (info@skyverge.com)
+ * Copyright: (c) 2012-2016 SkyVerge, Inc. (info@skyverge.com)
  *
  * License: GNU General Public License v3.0
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -18,34 +18,26 @@
  * @package     WC-Custom-Product-Tabs-Lite
  * @author      SkyVerge
  * @category    Plugin
- * @copyright   Copyright (c) 2012-2015, SkyVerge, Inc.
+ * @copyright   Copyright (c) 2012-2016, SkyVerge, Inc.
  * @license     http://www.gnu.org/licenses/gpl-3.0.html GNU General Public License v3.0
  */
 
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
+defined( 'ABSPATH' ) or exit;
 
 // Check if WooCommerce is active and bail if it's not
 if ( ! WooCommerceCustomProductTabsLite::is_woocommerce_active() ) {
 	return;
 }
 
-/**
- * The WooCommerceCustomProductTabsLite global object
- * @name $woocommerce_product_tabs_lite
- * @global WooCommerceCustomProductTabsLite $GLOBALS['woocommerce_product_tabs_lite']
- */
-$GLOBALS['woocommerce_product_tabs_lite'] = new WooCommerceCustomProductTabsLite();
-
 class WooCommerceCustomProductTabsLite {
 
 	private $tab_data = false;
 
 	/** plugin version number */
-	const VERSION = "1.3.0";
+	const VERSION = '1.5.0';
 
-	/** plugin text domain */
-	const TEXT_DOMAIN = 'woocommerce-custom-product-tabs-lite';
+	/** @var WooCommerceCustomProductTabsLite single instance of this plugin */
+	protected static $instance;
 
 	/** plugin version name */
 	const VERSION_OPTION_NAME = 'woocommerce_custom_product_tabs_lite_db_version';
@@ -61,6 +53,30 @@ class WooCommerceCustomProductTabsLite {
 
 		add_action( 'init',             array( $this, 'load_translation' ) );
 		add_action( 'woocommerce_init', array( $this, 'init' ) );
+	}
+
+
+	/**
+	 * Cloning instances is forbidden due to singleton pattern.
+	 *
+	 * @since 1.5.0
+	 */
+	public function __clone() {
+
+		/* translators: Placeholders: %s - plugin name */
+		_doing_it_wrong( __FUNCTION__, sprintf( esc_html__( 'You cannot clone instances of %s.', 'woocommerce-custom-product-tabs-lite' ), 'WooCommerce Custom Product Tabs Lite' ), '1.5.0' );
+	}
+
+
+	/**
+	 * Unserializing instances is forbidden due to singleton pattern.
+	 *
+	 * @since 1.5.0
+	 */
+	public function __wakeup() {
+
+		/* translators: Placeholders: %s - plugin name */
+		_doing_it_wrong( __FUNCTION__, sprintf( esc_html__( 'You cannot unserialize instances of %s.', 'woocommerce-custom-product-tabs-lite' ), 'WooCommerce Custom Product Tabs Lite' ), '1.5.0' );
 	}
 
 
@@ -117,7 +133,7 @@ class WooCommerceCustomProductTabsLite {
 
 		if ( $this->product_has_custom_tabs( $product ) ) {
 			foreach ( $this->tab_data as $tab ) {
-				$tab_title = __( $tab['title'], self::TEXT_DOMAIN );
+				$tab_title = __( $tab['title'], 'woocommerce-custom-product-tabs-lite' );
 				$tabs[ $tab['id'] ] = array(
 					'title'    => apply_filters( 'woocommerce_custom_product_tabs_lite_title', $tab_title, $product, $this ),
 					'priority' => 25,
@@ -166,7 +182,7 @@ class WooCommerceCustomProductTabsLite {
 	 * Adds a new tab to the Product Data postbox in the admin product interface
 	 */
 	public function product_write_panel_tab() {
-		echo "<li class=\"product_tabs_lite_tab\"><a href=\"#woocommerce_product_tabs_lite\">" . __( 'Custom Tab', self::TEXT_DOMAIN ) . "</a></li>";
+		echo "<li class=\"product_tabs_lite_tab\"><a href=\"#woocommerce_product_tabs_lite\">" . __( 'Custom Tab', 'woocommerce-custom-product-tabs-lite' ) . "</a></li>";
 	}
 
 
@@ -187,8 +203,8 @@ class WooCommerceCustomProductTabsLite {
 		foreach ( $tab_data as $tab ) {
 			// display the custom tab panel
 			echo '<div id="woocommerce_product_tabs_lite" class="panel wc-metaboxes-wrapper woocommerce_options_panel">';
-			woocommerce_wp_text_input( array( 'id' => '_wc_custom_product_tabs_lite_tab_title', 'label' => __( 'Tab Title', self::TEXT_DOMAIN ), 'description' => __( 'Required for tab to be visible', self::TEXT_DOMAIN ), 'value' => $tab['title'] ) );
-			$this->woocommerce_wp_textarea_input( array( 'id' => '_wc_custom_product_tabs_lite_tab_content', 'label' => __( 'Content', self::TEXT_DOMAIN ), 'placeholder' => __( 'HTML and text to display.', self::TEXT_DOMAIN ), 'value' => $tab['content'], 'style' => 'width:70%;height:21.5em;' ) );
+			woocommerce_wp_text_input( array( 'id' => '_wc_custom_product_tabs_lite_tab_title', 'label' => __( 'Tab Title', 'woocommerce-custom-product-tabs-lite' ), 'description' => __( 'Required for tab to be visible', 'woocommerce-custom-product-tabs-lite' ), 'value' => $tab['title'] ) );
+			$this->woocommerce_wp_textarea_input( array( 'id' => '_wc_custom_product_tabs_lite_tab_content', 'label' => __( 'Content', 'woocommerce-custom-product-tabs-lite' ), 'placeholder' => __( 'HTML and text to display.', 'woocommerce-custom-product-tabs-lite' ), 'value' => $tab['content'], 'style' => 'width:70%;height:21.5em;' ) );
 			echo '</div>';
 		}
 	}
@@ -260,6 +276,21 @@ class WooCommerceCustomProductTabsLite {
 
 
 	/**
+	 * Main Custom Product Tabs Lite Instance, ensures only one instance is/can be loaded
+	 *
+	 * @since 1.4.0
+	 * @see wc_custom_product_tabs_lite()
+	 * @return WooCommerceCustomProductTabsLite
+	 */
+	public static function instance() {
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new self();
+		}
+		return self::$instance;
+	}
+
+
+	/**
 	 * Lazy-load the product_tabs meta data, and return true if it exists,
 	 * false otherwise
 	 *
@@ -312,3 +343,23 @@ class WooCommerceCustomProductTabsLite {
 	}
 
 }
+
+
+/**
+ * Returns the One True Instance of Custom Product Tabs Lite
+ *
+ * @since 1.4.0
+ * @return \WooCommerceCustomProductTabsLite
+ */
+function wc_custom_product_tabs_lite() {
+	return WooCommerceCustomProductTabsLite::instance();
+}
+
+
+/**
+ * The WooCommerceCustomProductTabsLite global object
+ * @deprecated 1.4.0
+ * @name $woocommerce_product_tabs_lite
+ * @global WooCommerceCustomProductTabsLite $GLOBALS['woocommerce_product_tabs_lite']
+ */
+$GLOBALS['woocommerce_product_tabs_lite'] = wc_custom_product_tabs_lite();

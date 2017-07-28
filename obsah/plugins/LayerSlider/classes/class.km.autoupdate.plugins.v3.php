@@ -20,10 +20,8 @@ class KM_PluginUpdatesV3 extends KM_UpdatesV3 {
 		parent::__construct($config);
 
 		// Hook into Plugins API
-		if(get_option($config['authKey'], '0')) {
-			add_filter('pre_set_site_transient_update_plugins', array(&$this, 'set_update_transient'));
-			add_filter('plugins_api', array(&$this, 'set_updates_api_results'), 10, 3);
-		}
+		add_filter('pre_set_site_transient_update_plugins', array(&$this, 'set_update_transient'));
+		add_filter('plugins_api', array(&$this, 'set_updates_api_results'), 10, 3);
 
 		// AJAX actions for site authorization
 		add_action('wp_ajax_layerslider_authorize_site', array(&$this, 'handleActivation'));

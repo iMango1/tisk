@@ -159,11 +159,17 @@ class LS_Sliders {
 
 		global $wpdb;
 
-		// Slider data 
+		// Slider data
 		$data = !empty($data) ? $data : array(
 			'properties' => array('title' => $title),
 			'layers' => array(array()),
 		);
+
+		// Fix WP 4.2 issue with longer varchars
+		// than the column length
+		if(strlen($title) > 99) {
+			$title = substr($title, 0, (99-strlen($title)) );
+		}
 
 		// Insert slider, WPDB will escape data automatically
 		$wpdb->insert($wpdb->prefix.LS_DB_TABLE, array(
@@ -197,11 +203,17 @@ class LS_Sliders {
 
 		global $wpdb;
 
-		// Slider data 
+		// Slider data
 		$data = !empty($data) ? $data : array(
 			'properties' => array('title' => $title),
 			'layers' => array(array()),
 		);
+
+		// Fix WP 4.2 issue with longer varchars
+		// than the column length
+		if(strlen($title) > 99) {
+			$title = substr($title, 0, (99-strlen($title)) );
+		}
 
 		// Insert slider, WPDB will escape data automatically
 		$wpdb->update($wpdb->prefix.LS_DB_TABLE, array(
@@ -209,8 +221,8 @@ class LS_Sliders {
 				'slug' => $slug,
 				'data' => json_encode($data),
 				'date_m' => time()
-			), 
-			array('id' => $id), 
+			),
+			array('id' => $id),
 			array('%s', '%s', '%s', '%d')
 		);
 
@@ -338,7 +350,7 @@ class LS_Sliders {
 		$result = $wpdb->get_results("SELECT * FROM $table WHERE $ids ORDER BY id DESC LIMIT $limit", ARRAY_A);
 
 		// Decode slider data
-		if(is_array($result) && !empty($result)) { 
+		if(is_array($result) && !empty($result)) {
 			foreach($result as $key => $slider) {
 				$result[$key]['data'] = json_decode($slider['data'], true);
 			}

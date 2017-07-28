@@ -9,6 +9,7 @@
 # viktorhanacek <info@viktorhanacek.cz>, 2014-2015
 # Jakub Wagner <jakubwagner@gmail.com>, 2015
 # Jaroslav Ondra, 2014-2015
+# Lukáš Caha <lukas.caha@gmail.com>, 2015
 # Mike Jolley <mike.jolley@me.com>, 2015
 # desp <petr@silon.net>, 2015
 # Viktor Bezdek <viktor.bezdek@gmail.com>, 2015
@@ -18,8 +19,8 @@ msgstr ""
 "Project-Id-Version: WooCommerce\n"
 "Report-Msgid-Bugs-To: https://github.com/woothemes/woocommerce/issues\n"
 "POT-Creation-Date: 2015-08-24 16:25:51+00:00\n"
-"PO-Revision-Date: 2015-08-24 16:32+0000\n"
-"Last-Translator: Claudio Sanches <contato@claudiosmweb.com>\n"
+"PO-Revision-Date: 2015-09-21 10:59+0000\n"
+"Last-Translator: Jaroslav Ondra\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/woothemes/woocommerce/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,11 +31,11 @@ msgstr ""
 
 #: includes/admin/class-wc-admin-api-keys-table-list.php:26
 msgid "key"
-msgstr ""
+msgstr "klíč"
 
 #: includes/admin/class-wc-admin-api-keys-table-list.php:27
 msgid "keys"
-msgstr ""
+msgstr "klíče"
 
 #: includes/admin/class-wc-admin-api-keys-table-list.php:40
 #: includes/admin/class-wc-admin-post-types.php:244
@@ -46,26 +47,26 @@ msgstr "Popis"
 #: includes/admin/class-wc-admin-api-keys-table-list.php:41
 #: includes/admin/settings/views/html-keys-edit.php:62
 msgid "Consumer Key Ending In"
-msgstr ""
+msgstr "Klíč zákazníka platný do"
 
 #: includes/admin/class-wc-admin-api-keys-table-list.php:42
 #: includes/admin/settings/views/html-keys-edit.php:25
 msgid "User"
-msgstr ""
+msgstr "Uživatel"
 
 #: includes/admin/class-wc-admin-api-keys-table-list.php:43
 #: includes/admin/settings/views/html-keys-edit.php:40
 msgid "Permissions"
-msgstr ""
+msgstr "Oprávnění"
 
 #: includes/admin/class-wc-admin-api-keys-table-list.php:44
 #: includes/admin/settings/views/html-keys-edit.php:70
 msgid "Last Access"
-msgstr ""
+msgstr "Poslední přístup"
 
 #: includes/admin/class-wc-admin-api-keys-table-list.php:70
 msgid "API Key"
-msgstr ""
+msgstr "API klíč"
 
 #: includes/admin/class-wc-admin-api-keys-table-list.php:79
 #: includes/admin/class-wc-admin-webhooks-table-list.php:95
@@ -74,7 +75,7 @@ msgstr "ID: %d"
 
 #: includes/admin/class-wc-admin-api-keys-table-list.php:80
 msgid "View/Edit"
-msgstr ""
+msgstr "Zobrazit/Upravit"
 
 #: includes/admin/class-wc-admin-api-keys-table-list.php:81
 msgid "Revoke API Key"
@@ -83,7 +84,7 @@ msgstr "Odvolání API klíče"
 #: includes/admin/class-wc-admin-api-keys-table-list.php:81
 #: includes/admin/class-wc-admin-api-keys-table-list.php:171
 msgid "Revoke"
-msgstr ""
+msgstr "Odebrat"
 
 #: includes/admin/class-wc-admin-api-keys-table-list.php:136
 #: includes/admin/settings/views/html-keys-edit.php:47
@@ -103,24 +104,24 @@ msgstr "Čís/Zapisovat"
 #: includes/admin/class-wc-admin-api-keys-table-list.php:161
 #: includes/admin/settings/views/html-keys-edit.php:79
 msgid "Unknown"
-msgstr ""
+msgstr "Neznámý"
 
 #: includes/admin/class-wc-admin-api-keys.php:62
 #: includes/admin/settings/class-wc-settings-api.php:46
 msgid "Keys/Apps"
-msgstr ""
+msgstr "Klíče/Aplikace"
 
 #: includes/admin/class-wc-admin-api-keys.php:62
 msgid "Add Key"
-msgstr ""
+msgstr "Přidat klíč"
 
 #: includes/admin/class-wc-admin-api-keys.php:72
 msgid "Search Key"
-msgstr ""
+msgstr "Hledat klíč"
 
 #: includes/admin/class-wc-admin-api-keys.php:133
 msgid "API Key revoked successfully."
-msgstr ""
+msgstr "API klíč úspěšně uvolněn."
 
 #: includes/admin/class-wc-admin-api-keys.php:142
 #: includes/admin/class-wc-admin-api-keys.php:157
@@ -168,7 +169,7 @@ msgstr "Vložte hodnotu"
 
 #: includes/admin/class-wc-admin-assets.php:178
 msgid "Variation menu order (determines position in the list of variations)"
-msgstr ""
+msgstr "Pořadí variant v menu (určuje pozici ve výpisu variant)"
 
 #: includes/admin/class-wc-admin-assets.php:179
 msgid "Enter a value (fixed or %)"
@@ -218,15 +219,15 @@ msgstr ""
 
 #: includes/admin/class-wc-admin-assets.php:190
 msgid "Save changes before changing page?"
-msgstr ""
+msgstr "Uložit změny před úpravou stránky?"
 
 #: includes/admin/class-wc-admin-assets.php:191
 msgid "%qty% variation"
-msgstr ""
+msgstr "%qty% variant"
 
 #: includes/admin/class-wc-admin-assets.php:192
 msgid "%qty% variations"
-msgstr ""
+msgstr "%qty% variant"
 
 #: includes/admin/class-wc-admin-assets.php:204
 #: includes/admin/class-wc-admin-assets.php:325
@@ -387,17 +388,17 @@ msgstr "Váš produkt má varianty! Předtím, než změníte typ produktu, je d
 
 #: includes/admin/class-wc-admin-attributes.php:98
 msgid "Slug \"%s\" is too long (28 characters max). Shorten it, please."
-msgstr ""
+msgstr "Zkratka \"%s\" je příliš dlouhá (maximálně 28 znaků). Zkraťte ji prosím."
 
 #: includes/admin/class-wc-admin-attributes.php:100
 msgid ""
 "Slug \"%s\" is not allowed because it is a reserved term. Change it, please."
-msgstr ""
+msgstr "Zkratka \"%s\" není povolena protože se jedná o vyhrazený retězec. Změňte ji prosím."
 
 #: includes/admin/class-wc-admin-attributes.php:117
 #: includes/admin/class-wc-admin-attributes.php:146
 msgid "Please, provide an attribute name and slug."
-msgstr ""
+msgstr "Prosím vložte název vlastnosti a její zkratku."
 
 #: includes/admin/class-wc-admin-attributes.php:121
 #: includes/admin/class-wc-admin-attributes.php:154
@@ -414,7 +415,7 @@ msgstr "Upravit vlastnost"
 
 #: includes/admin/class-wc-admin-attributes.php:252
 msgid "Error: non-existing attribute ID."
-msgstr ""
+msgstr "Chyba: ID vlastnosti neexistuje."
 
 #: includes/admin/class-wc-admin-attributes.php:271
 #: includes/admin/class-wc-admin-attributes.php:437
@@ -645,41 +646,41 @@ msgstr "(Kopírovat)"
 #: includes/admin/class-wc-admin-help.php:41
 #: includes/admin/class-wc-admin-help.php:45
 msgid "General Settings"
-msgstr ""
+msgstr "Obecná nastavení"
 
 #: includes/admin/class-wc-admin-help.php:49
 msgid "Product Settings"
-msgstr ""
+msgstr "Nastavení produktu"
 
 #: includes/admin/class-wc-admin-help.php:53
 msgid "Tax Settings"
-msgstr ""
+msgstr "Nastavení daně"
 
 #: includes/admin/class-wc-admin-help.php:57
 msgid "Checkout Settings"
-msgstr ""
+msgstr "Nastavení pokladny"
 
 #: includes/admin/class-wc-admin-help.php:61
 #: includes/admin/class-wc-admin-help.php:85
 msgid "Shipping Settings"
-msgstr ""
+msgstr "Nastavení poštovného/dopravy"
 
 #: includes/admin/class-wc-admin-help.php:65
 msgid "Account Settings"
-msgstr ""
+msgstr "Nastavení účtu"
 
 #: includes/admin/class-wc-admin-help.php:69
 msgid "Email Settings"
-msgstr ""
+msgstr "Nastavení emailu"
 
 #: includes/admin/class-wc-admin-help.php:73
 msgid "Webhook Settings"
-msgstr ""
+msgstr "Nastavení Webhook"
 
 #: includes/admin/class-wc-admin-help.php:77
 #: includes/admin/class-wc-admin-setup-wizard.php:654
 msgid "PayPal Standard"
-msgstr ""
+msgstr "PayPal Standard"
 
 #: includes/admin/class-wc-admin-help.php:81
 msgid "Simplify Commerce"
@@ -702,11 +703,11 @@ msgstr "Místní vyzvednutí"
 #: includes/admin/class-wc-admin-help.php:109
 #: includes/admin/class-wc-admin-help.php:113
 msgid "Product Categories, Tags, Shipping Classes, &amp; Attributes"
-msgstr ""
+msgstr "Kategorie produktů, Štítky, Doručovací třídy, &amp; Vlastnosti"
 
 #: includes/admin/class-wc-admin-help.php:117
 msgid "Simple Products"
-msgstr ""
+msgstr "Jednoduché produkty"
 
 #: includes/admin/class-wc-admin-help.php:121
 #: includes/admin/class-wc-admin-help.php:188
@@ -730,12 +731,12 @@ msgstr "Slevové kupóny"
 #: includes/admin/class-wc-admin-help.php:137
 #: includes/admin/class-wc-admin-help.php:141
 msgid "Managing Orders"
-msgstr ""
+msgstr "Správa objednávek"
 
 #: includes/admin/class-wc-admin-help.php:164
 #: includes/admin/class-wc-admin-help.php:166
 msgid "WooCommerce 101"
-msgstr ""
+msgstr "WooCommerce 101"
 
 #: includes/admin/class-wc-admin-help.php:173
 #: includes/admin/class-wc-admin-help.php:175
@@ -778,7 +779,7 @@ msgstr ""
 
 #: includes/admin/class-wc-admin-help.php:188
 msgid "WordPress.org Forums"
-msgstr ""
+msgstr "Fórum Wordpress.org"
 
 #: includes/admin/class-wc-admin-help.php:188
 msgid "WooThemes Customer Support"
@@ -856,7 +857,7 @@ msgstr "Doručovací třídy"
 
 #: includes/admin/class-wc-admin-menus.php:74
 msgid "Sales Reports"
-msgstr ""
+msgstr "Zprávy o prodeji"
 
 #: includes/admin/class-wc-admin-menus.php:82
 msgid "WooCommerce Settings"
@@ -892,7 +893,7 @@ msgstr "Přidat do menu"
 
 #: includes/admin/class-wc-admin-menus.php:312
 msgid "Visit Store"
-msgstr ""
+msgstr "Navštívit obchod"
 
 #: includes/admin/class-wc-admin-meta-boxes.php:105
 #: includes/admin/class-wc-admin-pointers.php:157
@@ -950,7 +951,7 @@ msgstr "Recenze"
 
 #: includes/admin/class-wc-admin-notices.php:100
 msgid "Cheatin&#8217; huh?"
-msgstr ""
+msgstr "Podvádíte&#8217; he?"
 
 #: includes/admin/class-wc-admin-permalink-settings.php:36
 msgid "Product permalink base"
@@ -1005,13 +1006,13 @@ msgstr ""
 
 #: includes/admin/class-wc-admin-pointers.php:58
 msgid "Product Name"
-msgstr ""
+msgstr "Název produktu"
 
 #: includes/admin/class-wc-admin-pointers.php:59
 msgid ""
 "Give your new product a name here. This is a required field and will be what"
 " your customers will see in your store."
-msgstr ""
+msgstr "Zde pojmenujte Váš nový produkt. Toto pole je povinné a bude se zobrazovat zákazníkům v obchodě."
 
 #: includes/admin/class-wc-admin-pointers.php:74
 msgid "Product Description"
@@ -1021,34 +1022,34 @@ msgstr "Popis produktu"
 msgid ""
 "This is your products main body of content. Here you should describe your "
 "product in detail."
-msgstr ""
+msgstr "Toto je hlavní oblast popisu Vašeho produktu. Zde byste měli popsat svůj produkt důkladně."
 
 #: includes/admin/class-wc-admin-pointers.php:90
 msgid "Choose Product Type"
-msgstr ""
+msgstr "Zvolty typ produktu"
 
 #: includes/admin/class-wc-admin-pointers.php:91
 msgid ""
 "Choose a type for this product. Simple is suitable for most physical goods "
 "and services (we recommend setting up a simple product for now)."
-msgstr ""
+msgstr "Zvolte typ produktu. Jednoduchý je použitelný pro většinu fyzických produktů nebo služeb (doporučujeme nastavit na úvod jednoduchý produkt)."
 
 #: includes/admin/class-wc-admin-pointers.php:92
 msgid ""
 "Variable is for more complex products such as t-shirts with multiple sizes."
-msgstr ""
+msgstr "Produkt s variantami slouží pro složitější produkty jako jsou trička v různých velikostech."
 
 #: includes/admin/class-wc-admin-pointers.php:93
 msgid "Grouped products are for grouping several simple products into one."
-msgstr ""
+msgstr "Seskupené produkty slouží k seskupení několika jednoduchých produktů do jednoho."
 
 #: includes/admin/class-wc-admin-pointers.php:94
 msgid "Finally, external products are for linking off-site."
-msgstr ""
+msgstr "A  konečně, externí produkty slouží k odkazování mimo stránky."
 
 #: includes/admin/class-wc-admin-pointers.php:109
 msgid "Virtual Products"
-msgstr ""
+msgstr "Virtuální produkty"
 
 #: includes/admin/class-wc-admin-pointers.php:110
 msgid ""
@@ -1074,7 +1075,7 @@ msgstr "Ceny"
 
 #: includes/admin/class-wc-admin-pointers.php:142
 msgid "Next you'll need to give your product a price."
-msgstr ""
+msgstr "Dále bude potřebovat zadat cenu vašeho produktu."
 
 #: includes/admin/class-wc-admin-pointers.php:158
 msgid ""
@@ -1085,7 +1086,7 @@ msgstr ""
 #: includes/admin/class-wc-admin-pointers.php:169
 #: includes/admin/settings/class-wc-settings-products.php:176
 msgid "Product Images"
-msgstr ""
+msgstr "Obrázky produktu"
 
 #: includes/admin/class-wc-admin-pointers.php:170
 msgid ""
@@ -1101,7 +1102,7 @@ msgstr "Štítky produktu"
 msgid ""
 "You can optionally \"tag\" your products here. Tags as a method of labeling "
 "your products to make them easier for customers to find."
-msgstr ""
+msgstr "Zde můžete volitelně \"oštítkovat\" produkty. Štítky jako způsob označení produktů pro snadnější identifikaci zákazníkem."
 
 #: includes/admin/class-wc-admin-pointers.php:193
 msgid "Product Categories"
@@ -1115,7 +1116,7 @@ msgstr ""
 
 #: includes/admin/class-wc-admin-pointers.php:205
 msgid "Publish Your Product!"
-msgstr ""
+msgstr "Publikujte Váš produkt!"
 
 #: includes/admin/class-wc-admin-pointers.php:206
 msgid ""
@@ -1238,107 +1239,107 @@ msgstr "Koncept kupónu aktualizován."
 #: includes/admin/class-wc-admin-post-types.php:170
 msgid "%s product updated."
 msgid_plural "%s products updated."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s produkt aktualizován."
+msgstr[1] "%s produkty aktualizovány."
+msgstr[2] "%s produktů aktualizováno."
 
 #: includes/admin/class-wc-admin-post-types.php:171
 msgid "%s product not updated, somebody is editing it."
 msgid_plural "%s products not updated, somebody is editing them."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s produkt nebyl aktualizován, někdo jej upravuje."
+msgstr[1] "%s produkty nebyly aktualizovány, někdo je upravuje."
+msgstr[2] "%s produktů nebylo aktualizováno, někdo je upravuje."
 
 #: includes/admin/class-wc-admin-post-types.php:172
 msgid "%s product permanently deleted."
 msgid_plural "%s products permanently deleted."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s produkt trvale odstraněn."
+msgstr[1] "%s produkty trvale odstraněny."
+msgstr[2] "%s produktů trvale odstraněno."
 
 #: includes/admin/class-wc-admin-post-types.php:173
 msgid "%s product moved to the Trash."
 msgid_plural "%s products moved to the Trash."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s produkt přesunut do koše."
+msgstr[1] "%s produkty přesunuty do koše."
+msgstr[2] "%s produktů přesunuto do koše."
 
 #: includes/admin/class-wc-admin-post-types.php:174
 msgid "%s product restored from the Trash."
 msgid_plural "%s products restored from the Trash."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s produkt obnoven z koše."
+msgstr[1] "%s produkty obnoveny z koše."
+msgstr[2] "%s produktů obnoveno z koše."
 
 #: includes/admin/class-wc-admin-post-types.php:178
 msgid "%s order updated."
 msgid_plural "%s orders updated."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s objednávka aktualizována."
+msgstr[1] "%s objednávky aktualizovány."
+msgstr[2] "%s objednávek aktualizováno."
 
 #: includes/admin/class-wc-admin-post-types.php:179
 msgid "%s order not updated, somebody is editing it."
 msgid_plural "%s orders not updated, somebody is editing them."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s objednávka nebyla aktualizována, někdo ji upravuje."
+msgstr[1] "%s objednávky nebyly aktualizovány, někdo je upravuje."
+msgstr[2] "%s objednávek nebylo aktualizováno, někdo je upravuje."
 
 #: includes/admin/class-wc-admin-post-types.php:180
 msgid "%s order permanently deleted."
 msgid_plural "%s orders permanently deleted."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s objednávka byla trvale odstraněna."
+msgstr[1] "%s objednávky byly trvale odstraněny."
+msgstr[2] "%s objednávek bylo trvale odstraněno."
 
 #: includes/admin/class-wc-admin-post-types.php:181
 msgid "%s order moved to the Trash."
 msgid_plural "%s orders moved to the Trash."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s objednávka byla přesunuta do koše."
+msgstr[1] "%s objednávky byly přesunuty do koše."
+msgstr[2] "%s objednávek bylo přesunuto do koše."
 
 #: includes/admin/class-wc-admin-post-types.php:182
 msgid "%s order restored from the Trash."
 msgid_plural "%s orders restored from the Trash."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s objednávka byla obnovena z koše."
+msgstr[1] "%s objednávky byly obnoveny z koše."
+msgstr[2] "%s objednávek bylo obnoveno z koše."
 
 #: includes/admin/class-wc-admin-post-types.php:186
 msgid "%s coupon updated."
 msgid_plural "%s coupons updated."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s voucher aktualizován."
+msgstr[1] "%s vouchery aktualizovány."
+msgstr[2] "%s voucherů aktualizováno."
 
 #: includes/admin/class-wc-admin-post-types.php:187
 msgid "%s coupon not updated, somebody is editing it."
 msgid_plural "%s coupons not updated, somebody is editing them."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s voucher nebyl aktualizován, někdo jej upravuje."
+msgstr[1] "%s vouchery nebyly aktualizovány, někdo je upravuje."
+msgstr[2] "%s voucherů nebylo aktualizováno, někdo je upravuje."
 
 #: includes/admin/class-wc-admin-post-types.php:188
 msgid "%s coupon permanently deleted."
 msgid_plural "%s coupons permanently deleted."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s voucher trvale smazán."
+msgstr[1] "%s vouchery trvale smazány."
+msgstr[2] "%s voucherů trvale smazáno."
 
 #: includes/admin/class-wc-admin-post-types.php:189
 msgid "%s coupon moved to the Trash."
 msgid_plural "%s coupons moved to the Trash."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s voucher byl přesunut do koše."
+msgstr[1] "%s vouchery byly přesunuty do koše."
+msgstr[2] "%s voucherů bylo přesunuto do koše."
 
 #: includes/admin/class-wc-admin-post-types.php:190
 msgid "%s coupon restored from the Trash."
 msgid_plural "%s coupons restored from the Trash."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s voucher byl obnoven z koše."
+msgstr[1] "%s vouchery byly obnoveny z koše."
+msgstr[2] "%s voucherů bylo obnoveno z koše."
 
 #: includes/admin/class-wc-admin-post-types.php:210
 #: includes/admin/class-wc-admin-post-types.php:211
@@ -1993,50 +1994,50 @@ msgstr "Odznačit vše"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:59
 msgid "Introduction"
-msgstr ""
+msgstr "Úvod"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:64
 #: includes/admin/class-wc-admin-setup-wizard.php:234
 msgid "Page Setup"
-msgstr ""
+msgstr "Nastavení stánky"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:69
 msgid "Store Locale"
-msgstr ""
+msgstr "Lokalizace ochodu"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:74
 msgid "Shipping &amp; Tax"
-msgstr ""
+msgstr "Doprava &amp; Daně"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:79
 #: includes/admin/class-wc-admin-setup-wizard.php:648
 msgid "Payments"
-msgstr ""
+msgstr "Platby"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:84
 msgid "Ready!"
-msgstr ""
+msgstr "Hotovo!"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:147
 msgid "WooCommerce &rsaquo; Setup Wizard"
-msgstr ""
+msgstr "Průvodce nastavení &rsaquo; WooCommerce"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:163
 msgid "Return to the WordPress Dashboard"
-msgstr ""
+msgstr "Zpět na nástěnku WordPressu"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:211
 msgid ""
 "WooCommerce is available in %s. Would you like to use this translation?"
-msgstr ""
+msgstr "WooCommerce je dostupný v %s. Přejete si použít překlad?"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:213
 msgid "Install Translation"
-msgstr ""
+msgstr "Instalovat překlad"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:219
 msgid "Welcome to the world of WooCommerce!"
-msgstr ""
+msgstr "Vítejte ve světě WooCommerce!"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:220
 msgid ""
@@ -2054,42 +2055,42 @@ msgstr ""
 
 #: includes/admin/class-wc-admin-setup-wizard.php:223
 msgid "Let's Go!"
-msgstr ""
+msgstr "Můžeme začít!"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:224
 msgid "Not right now"
-msgstr ""
+msgstr "Teď ne"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:236
 msgid ""
 "Your store needs a few essential %spages%s. The following will be created "
 "automatically (if they do not already exist):"
-msgstr ""
+msgstr "Váš obchod potřebuje několik základních %spages%s. Následující stránky budou vytvořeny automaticky (pokud již neexistují):"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:240
 msgid "Page Name"
-msgstr ""
+msgstr "Jméno stránky"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:247
 msgid "The shop page will display your products."
-msgstr ""
+msgstr "Stránka obchodu bude zobrazovat Vaše produkty."
 
 #: includes/admin/class-wc-admin-setup-wizard.php:251
 msgid ""
 "The cart page will be where the customers go to view their cart and begin "
 "checkout."
-msgstr ""
+msgstr "Stránka košíku je místo, kde si zákazníci prohlédnou svůj nákup a přejdou do pokladny."
 
 #: includes/admin/class-wc-admin-setup-wizard.php:256
 msgid ""
 "The checkout page will be where the customers go to pay for their items."
-msgstr ""
+msgstr "Stránka pokladny je místo, kde budou zákazníci provádět platbu za nákup. "
 
 #: includes/admin/class-wc-admin-setup-wizard.php:262
 msgid ""
 "Registered customers will be able to manage their account details and view "
 "past orders on this page."
-msgstr ""
+msgstr "Registrovaní zákazníci budou moci na této stránce spravovat svůj účet a zobrazovat minulé objednávky."
 
 #: includes/admin/class-wc-admin-setup-wizard.php:268
 msgid ""
@@ -2103,35 +2104,35 @@ msgstr ""
 #: includes/admin/class-wc-admin-setup-wizard.php:537
 #: includes/admin/class-wc-admin-setup-wizard.php:690
 msgid "Continue"
-msgstr ""
+msgstr "Pokračovat"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:272
 #: includes/admin/class-wc-admin-setup-wizard.php:381
 #: includes/admin/class-wc-admin-setup-wizard.php:538
 #: includes/admin/class-wc-admin-setup-wizard.php:691
 msgid "Skip this step"
-msgstr ""
+msgstr "Přeskočit tento krok"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:307
 msgid "Store Locale Setup"
-msgstr ""
+msgstr "Nastavení lokalizace obchodu"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:311
 msgid "Where is your store based?"
-msgstr ""
+msgstr "Umístění Vašeho obchodu?"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:319
 msgid "Which currency will your store use?"
-msgstr ""
+msgstr "Jakou měnu bude Váš obchod používat?"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:321
 #: includes/admin/class-wc-admin-setup-wizard.php:322
 msgid "Choose a currency&hellip;"
-msgstr ""
+msgstr "Zvolte měnu&hellip;"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:329
 msgid "If your currency is not listed you can %sadd it later%s."
-msgstr ""
+msgstr "Pokud není Vaše měna ve výpisu můžete ji %spřidat později%s."
 
 #: includes/admin/class-wc-admin-setup-wizard.php:333
 #: includes/admin/settings/class-wc-settings-general.php:137
@@ -2173,7 +2174,7 @@ msgstr "Oddělovač desetinných míst"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:356
 msgid "Which unit should be used for product weights?"
-msgstr ""
+msgstr "Která jednotka má být použita pro váhu produktů?"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:359
 #: includes/admin/settings/class-wc-settings-products.php:429
@@ -2197,7 +2198,7 @@ msgstr "unce"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:367
 msgid "Which unit should be used for product dimensions?"
-msgstr ""
+msgstr "Která jednotka má být použita pro rozměry produktů?"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:370
 #: includes/admin/meta-boxes/class-wc-meta-box-order-data.php:193
@@ -2227,7 +2228,7 @@ msgstr "yard"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:431
 msgid "Shipping &amp; Tax Setup"
-msgstr ""
+msgstr "Nastavení dopravy &amp; daní"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:433
 msgid ""
@@ -2239,60 +2240,60 @@ msgstr ""
 
 #: includes/admin/class-wc-admin-setup-wizard.php:437
 msgid "Basic Shipping Setup"
-msgstr ""
+msgstr "Zakladní nastavení dopravy"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:441
 msgid "Will you be shipping products?"
-msgstr ""
+msgstr "Budete zasílat produkty?"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:444
 msgid "Yes, I will be shipping physical goods to customers"
-msgstr ""
+msgstr "Ano budu zasílat zásilky s produkty svým zákazníkům."
 
 #: includes/admin/class-wc-admin-setup-wizard.php:448
 msgid "<strong>Domestic</strong> shipping costs:"
-msgstr ""
+msgstr "<strong>Tuzemské</strong> náklady na dopravu:"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:450
 #: includes/admin/class-wc-admin-setup-wizard.php:456
 msgid "A total of %s per order and/or %s per item"
-msgstr ""
+msgstr "Celkem %s za objednávku a/nebo %s za položku"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:454
 msgid "<strong>International</strong> shipping costs:"
-msgstr ""
+msgstr "Náklady na <strong>mezinárodní</strong> dopravu:"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:461
 msgid "Basic Tax Setup"
-msgstr ""
+msgstr "Zakladní nastavení daní"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:465
 msgid "Will you be charging sales tax?"
-msgstr ""
+msgstr "Budete vyměřovat daň z prodeje?"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:468
 msgid "Yes, I will be charging sales tax"
-msgstr ""
+msgstr "Ano, budu vyměřovat daň z prodeje"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:472
 msgid "How will you enter product prices?"
-msgstr ""
+msgstr "Jak budete vkládat ceny produktů?"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:474
 msgid "I will enter prices inclusive of tax"
-msgstr ""
+msgstr "Budu vkládat ceny včetně daně"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:475
 msgid "I will enter prices exclusive of tax"
-msgstr ""
+msgstr "Budu vkládat ceny bez daně"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:497
 msgid "Import Tax Rates?"
-msgstr ""
+msgstr "Importovat daňové sazby?"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:499
 msgid "Yes, please import some starter tax rates"
-msgstr ""
+msgstr "Ano prosím, importovat základní daňové sazby"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:505
 msgid "State"
@@ -2300,11 +2301,11 @@ msgstr "Kraj"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:506
 msgid "Rate (%)"
-msgstr ""
+msgstr "Hodnocení (%)"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:508
 msgid "Tax Shipping"
-msgstr ""
+msgstr "Daň pro dopravu"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:527
 msgid ""
@@ -2316,7 +2317,7 @@ msgstr ""
 msgid ""
 "You can edit tax rates later from the %1$stax settings%3$s screen and read "
 "more about taxes in %2$sour documentation%3$s."
-msgstr ""
+msgstr "Sazby daně můžete upravit později na záložce %1$snastavení daní%3$s a více o daních se dozvíte v %2$snaší dokumentaci%3$s."
 
 #: includes/admin/class-wc-admin-setup-wizard.php:650
 msgid ""
@@ -2329,29 +2330,29 @@ msgstr ""
 msgid ""
 "To accept payments via PayPal on your store, simply enter your PayPal email "
 "address below."
-msgstr ""
+msgstr "Pro příjem plateb prostřednictvím PayPal ve Vašem obchodě, jednoduše vložte vaši PayPal emailovou adresu do pole níže."
 
 #: includes/admin/class-wc-admin-setup-wizard.php:659
 msgid "PayPal Email Address:"
-msgstr ""
+msgstr "Emailová adresa PayPal:"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:666
 msgid "Offline Payments"
-msgstr ""
+msgstr "Offline platby"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:667
 msgid ""
 "Offline gateways require manual processing, but can be useful in certain "
 "circumstances or for testing payments."
-msgstr ""
+msgstr "Offline platební brány vyžadují manuální zpracování, ale mohou se hodit za určitých okolností nebo pro testovací účely."
 
 #: includes/admin/class-wc-admin-setup-wizard.php:671
 msgid "Cheque Payments"
-msgstr ""
+msgstr "Platby šekem"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:673
 msgid "Enable payment via Cheques"
-msgstr ""
+msgstr "Povolit platby šekem"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:677
 msgid "Cash on Delivery"
@@ -2359,19 +2360,19 @@ msgstr "Hotově při doručení"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:679
 msgid "Enable cash on delivery"
-msgstr ""
+msgstr "Povolit platbu na dobírku"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:683
 msgid "Bank Transfer (BACS)"
-msgstr ""
+msgstr "Bankovní převod (BACS)"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:685
 msgid "Enable BACS payments"
-msgstr ""
+msgstr "Povolit bankovní převod"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:752
 msgid "Your Store is Ready!"
-msgstr ""
+msgstr "Váš obchod je připraven!"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:756
 #: includes/admin/views/html-notice-tracking.php:11
@@ -2391,19 +2392,19 @@ msgstr "Povolit"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:759
 msgid "No thanks"
-msgstr ""
+msgstr "Ne díky"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:766
 msgid "Next Steps"
-msgstr ""
+msgstr "Další kroky"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:768
 msgid "Create your first product!"
-msgstr ""
+msgstr "Vytvořte Váš první produkt!"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:772
 msgid "Learn More"
-msgstr ""
+msgstr "Zjistit více"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:774
 msgid "Watch the WC 101 video walkthroughs"
@@ -2419,7 +2420,7 @@ msgstr ""
 
 #: includes/admin/class-wc-admin-setup-wizard.php:777
 msgid "Read more about getting started"
-msgstr ""
+msgstr "Přečtěte si více o tom jak začít"
 
 #: includes/admin/class-wc-admin-status.php:50
 msgid "Product Transients Cleared"
@@ -2451,7 +2452,7 @@ msgstr "Daňové sazby úspěšně smazány"
 
 #: includes/admin/class-wc-admin-status.php:124
 msgid "Usage tracking settings successfully reset."
-msgstr ""
+msgstr "Nastavení sledování využití úspěšně resetováno."
 
 #: includes/admin/class-wc-admin-status.php:133
 msgid "There was an error calling %s::%s"
@@ -2561,11 +2562,11 @@ msgstr "<strong class=\"red\">Poznámka:</strong> Tato vloba odstraní všechna 
 
 #: includes/admin/class-wc-admin-status.php:199
 msgid "Reset Usage Tracking Settings"
-msgstr ""
+msgstr "Resetovat nastavení sledování využití"
 
 #: includes/admin/class-wc-admin-status.php:200
 msgid "Reset usage tracking settings"
-msgstr ""
+msgstr "Resetovat nastavení sledování využití"
 
 #: includes/admin/class-wc-admin-status.php:201
 msgid ""
@@ -2675,7 +2676,7 @@ msgstr "Cílová URL"
 #: includes/admin/class-wc-admin-webhooks-table-list.php:164
 #: includes/admin/class-wc-admin-webhooks-table-list.php:165
 msgid "Activated <span class=\"count\">(%s)</span>"
-msgstr ""
+msgstr "Aktivováno <span class=\"count\">(%s)</span>"
 
 #: includes/admin/class-wc-admin-webhooks-table-list.php:172
 #: includes/admin/class-wc-admin-webhooks-table-list.php:173
@@ -2712,7 +2713,7 @@ msgstr "Nemáte oprávnění vytvářet Webhooks!"
 
 #: includes/admin/class-wc-admin-webhooks.php:287
 msgid "You don't have permissions to delete Webhooks!"
-msgstr ""
+msgstr "Nemáte oprávnění k mazání webhooks!"
 
 #: includes/admin/class-wc-admin-webhooks.php:363
 msgid "1 webhook moved to the Trash."
@@ -2763,12 +2764,12 @@ msgstr ""
 #: includes/admin/class-wc-admin-webhooks.php:483
 #: includes/admin/class-wc-admin-webhooks.php:485
 msgid "&lsaquo; Previous"
-msgstr ""
+msgstr "&lsaquo; Předchozí"
 
 #: includes/admin/class-wc-admin-webhooks.php:489
 #: includes/admin/class-wc-admin-webhooks.php:491
 msgid "Next &rsaquo;"
-msgstr ""
+msgstr "Další &rsaquo;"
 
 #: includes/admin/class-wc-admin-welcome.php:46
 msgid "Welcome to WooCommerce"
@@ -2818,7 +2819,7 @@ msgstr "Překladatelé"
 
 #: includes/admin/class-wc-admin-welcome.php:220
 msgid "Improved Product Variation Editor"
-msgstr ""
+msgstr "Vylepšený editor variant produktů"
 
 #: includes/admin/class-wc-admin-welcome.php:221
 msgid ""
@@ -2840,7 +2841,7 @@ msgstr ""
 
 #: includes/admin/class-wc-admin-welcome.php:228
 msgid "Flat Rate Shipping, Simplified"
-msgstr ""
+msgstr "Paušální sazba poštovného, zjednodušená"
 
 #: includes/admin/class-wc-admin-welcome.php:229
 msgid ""
@@ -2896,7 +2897,7 @@ msgstr ""
 
 #: includes/admin/class-wc-admin-welcome.php:255
 msgid "Email Notification Improvements"
-msgstr ""
+msgstr "Vylepšení emailových upozornění"
 
 #: includes/admin/class-wc-admin-welcome.php:256
 msgid ""
@@ -2907,7 +2908,7 @@ msgstr ""
 
 #: includes/admin/class-wc-admin-welcome.php:259
 msgid "Shipping Method Priorities"
-msgstr ""
+msgstr "Pořadí způsobů dopravy"
 
 #: includes/admin/class-wc-admin-welcome.php:260
 msgid ""
@@ -3248,7 +3249,7 @@ msgstr "Telefon"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-order-data.php:167
 msgid "%s %s details"
-msgstr ""
+msgstr "%s %s detaily"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-order-data.php:171
 msgid "Payment via %s"
@@ -3361,7 +3362,7 @@ msgstr "Udělení přístupu"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-order-notes.php:54
 msgid "added on %1$s at %2$s"
-msgstr ""
+msgstr "vloženo v %1$s - %2$s"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-order-notes.php:55
 msgid "by %s"
@@ -3391,7 +3392,7 @@ msgstr "Soukromé poznámky"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-order-notes.php:76
 msgid "Note to customer"
-msgstr ""
+msgstr "Poznámka pro zákazníka"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-order-notes.php:78
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:438
@@ -3489,7 +3490,7 @@ msgstr "Platnost ceny po slevě"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:176
 msgid "The sale will end at the beginning of the set date."
-msgstr ""
+msgstr "Výprodej bude ukončen na začátku stanoveného data."
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:187
 #: includes/admin/meta-boxes/views/html-variation-admin.php:201
@@ -3746,14 +3747,14 @@ msgstr "Doručovací třídy jsou používány některými způsoby přepravy k 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:715
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:749
 msgid "Expand"
-msgstr ""
+msgstr "Rozbalit"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:419
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:478
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:715
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:749
 msgid "Close"
-msgstr ""
+msgstr "Zavřít"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:422
 msgid "Custom product attribute"
@@ -3761,7 +3762,7 @@ msgstr "Uživatelsky zadaná vlastnost produktu"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:480
 msgid "Save Attributes"
-msgstr ""
+msgstr "Uložit vlastnosti"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:489
 msgid "Up-Sells"
@@ -3802,11 +3803,11 @@ msgstr "Zadejte libovolnou poznámku pro zaslání zákazníkovi po zakoupení."
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:563
 msgid "Menu order"
-msgstr "Menu objednávek"
+msgstr "Pořadí v menu"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:563
 msgid "Custom ordering position."
-msgstr "Umístění vlastního objednání."
+msgstr "Pořadí vlastního třídění"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:571
 msgid "Enable reviews"
@@ -3824,7 +3825,7 @@ msgstr "Dozvědět se více"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:633
 msgid "Default Form Values"
-msgstr ""
+msgstr "Výchozí hodnoty formuláře"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:633
 msgid "These are the attributes that will be pre-selected on the frontend."
@@ -3836,11 +3837,11 @@ msgstr "žádná výchozí"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:677
 msgid "Add variation"
-msgstr ""
+msgstr "Přidat variantu"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:678
 msgid "Create variations from all attributes"
-msgstr ""
+msgstr "Vytvořit varianty ze všech vlastností"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:679
 msgid "Delete all variations"
@@ -3848,7 +3849,7 @@ msgstr "Vymazat všechny variace"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:681
 msgid "Toggle &quot;Enabled&quot;"
-msgstr "Přepnout &quot;polovelné&quot;"
+msgstr "Přepnout &quot;Povoleno&quot;"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:682
 msgid "Toggle &quot;Downloadable&quot;"
@@ -3864,35 +3865,35 @@ msgstr "Cenotvorba"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:686
 msgid "Set regular prices"
-msgstr ""
+msgstr "Nastavit bežné ceny"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:687
 msgid "Increase regular prices (fixed amount or percentage)"
-msgstr ""
+msgstr "Navýšit běžné ceny (pevná částka nebo procenta)"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:688
 msgid "Decrease regular prices (fixed amount or percentage)"
-msgstr ""
+msgstr "Snížit běžné ceny (pevná částka nebo procenta)"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:689
 msgid "Set sale prices"
-msgstr ""
+msgstr "Nastavit ceny po slevě"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:690
 msgid "Increase sale prices (fixed amount or percentage)"
-msgstr ""
+msgstr "Navýšit ceny po slevě (pevná částka nebo procenta)"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:691
 msgid "Decrease sale prices (fixed amount or percentage)"
-msgstr ""
+msgstr "Snížit ceny po slevě (pevná částka nebo procenta)"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:692
 msgid "Set scheduled sale dates"
-msgstr ""
+msgstr "Nastavit plánované datum výprodeje"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:695
 msgid "Toggle &quot;Manage stock&quot;"
-msgstr ""
+msgstr "Přepnout &quot;Spravovat sklad&quot;"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:704
 msgid "Downloadable products"
@@ -3904,7 +3905,7 @@ msgstr "Limit stahování"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:706
 msgid "Download expiry"
-msgstr ""
+msgstr "Limit stahování"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:710
 #: includes/admin/views/html-report-by-date.php:41
@@ -3915,39 +3916,39 @@ msgstr "Zobrazit"
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:747
 msgid "%s item"
 msgid_plural "%s items"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s pložka"
+msgstr[1] "%s položky"
+msgstr[2] "%s položek"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:718
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:752
 msgid "Go to the first page"
-msgstr ""
+msgstr "Zpět na první stránku"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:719
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:753
 msgid "Go to the previous page"
-msgstr ""
+msgstr "Zpět na předchozí stránku"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:721
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:755
 msgid "Select Page"
-msgstr ""
+msgstr "Vybrat stránku"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:722
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:756
 msgid "Current page"
-msgstr ""
+msgstr "Aktuální stránka"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:729
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:763
 msgid "Go to the next page"
-msgstr ""
+msgstr "Přejít na další stránku"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:730
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:764
 msgid "Go to the last page"
-msgstr ""
+msgstr "Přejít na poslední stránku"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:743
 #: includes/admin/settings/views/html-keys-edit.php:96
@@ -3963,12 +3964,12 @@ msgstr "Katalogové číslo produktu musí být unikátní."
 msgid ""
 "The downloadable file %s cannot be used as it does not have an allowed file "
 "type. Allowed types include: %s"
-msgstr ""
+msgstr "Tento soubor ke stažení %s  nemůže být použit, protože se jedná o nepovolený typ souboru. Povolené typy souborů jsou: %s"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:1196
 msgid ""
 "The downloadable file %s cannot be used as it does not exist on the server."
-msgstr ""
+msgstr "Tento soubor ke stažení %s nemůže být použit, protože nebyl nalezen na serveru."
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:1304
 msgid "Variation #%s of %s"
@@ -3976,13 +3977,13 @@ msgstr "Varianta #%s z %s"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:1348
 msgid "#%s &ndash; Variation SKU must be unique."
-msgstr ""
+msgstr "#%s &ndash; SKČ varianty musí být unikatní."
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:1468
 msgid ""
 "#%s &ndash; The downloadable file %s cannot be used as it does not have an "
 "allowed file type. Allowed types include: %s"
-msgstr ""
+msgstr "#%s &ndash; Tento soubor ke stažení %s  nemůže být použit, protože se jedná o nepovolený typ souboru. Povolené typy souborů jsou: %s"
 
 #: includes/admin/meta-boxes/class-wc-meta-box-product-data.php:1475
 msgid ""
@@ -4090,7 +4091,7 @@ msgstr "DPH"
 
 #: includes/admin/meta-boxes/views/html-order-items.php:125
 msgid "Coupon(s) Used"
-msgstr ""
+msgstr "Použitý(é) voucher/y "
 
 #: includes/admin/meta-boxes/views/html-order-items.php:140
 msgid "Discount"
@@ -4098,11 +4099,11 @@ msgstr "Sleva:"
 
 #: includes/admin/meta-boxes/views/html-order-items.php:140
 msgid "This is the total discount. Discounts are defined per line item."
-msgstr ""
+msgstr "Toto je Vaše celková sleva. Slevy jsou rozepsány i po položkách."
 
 #: includes/admin/meta-boxes/views/html-order-items.php:150
 msgid "This is the shipping and handling total costs for the order."
-msgstr ""
+msgstr "Toto je celkový součet poplatků za dopravu a manipulaci."
 
 #: includes/admin/meta-boxes/views/html-order-items.php:184
 msgid "Order Total"
@@ -4134,15 +4135,15 @@ msgstr "Přidat položku (položky)"
 
 #: includes/admin/meta-boxes/views/html-order-items.php:235
 msgid "To edit this order change the status back to \"Pending\""
-msgstr ""
+msgstr "Pro úpravu této objednávky změňte její stav zpět na \"Zpracovává se\""
 
 #: includes/admin/meta-boxes/views/html-order-items.php:235
 msgid "This order has been paid for and is no longer editable"
-msgstr ""
+msgstr "Tato objednávka již byla zaplacena a proto ji není možné upravovat."
 
 #: includes/admin/meta-boxes/views/html-order-items.php:238
 msgid "Add Tax"
-msgstr ""
+msgstr "Přidat daň"
 
 #: includes/admin/meta-boxes/views/html-order-items.php:241
 #: includes/admin/meta-boxes/views/html-order-refund.php:18
@@ -4175,7 +4176,7 @@ msgstr "Uložit"
 
 #: includes/admin/meta-boxes/views/html-order-items.php:268
 msgid "Restock refunded items"
-msgstr ""
+msgstr "Obnovit sklad u vrácených položek"
 
 #: includes/admin/meta-boxes/views/html-order-items.php:272
 msgid "Amount already refunded"
@@ -4196,7 +4197,7 @@ msgstr ""
 
 #: includes/admin/meta-boxes/views/html-order-items.php:299
 msgid "Payment Gateway"
-msgstr ""
+msgstr "Platební brána"
 
 #: includes/admin/meta-boxes/views/html-order-items.php:301
 msgid ""
@@ -4249,7 +4250,7 @@ msgstr "ID:"
 
 #: includes/admin/meta-boxes/views/html-order-shipping.php:23
 msgid "Shipping Name"
-msgstr ""
+msgstr "Název způsobu dopravy"
 
 #: includes/admin/meta-boxes/views/html-order-shipping.php:25
 msgid "Shipping Method"
@@ -4293,7 +4294,7 @@ msgstr "Vložte URL souboru"
 
 #: includes/admin/meta-boxes/views/html-variation-admin.php:19
 msgid "Drag and drop, or click to set menu order manually"
-msgstr ""
+msgstr "Uchopte a pusťte nebo klikněte pro manuální nastavení pořadí v menu"
 
 #: includes/admin/meta-boxes/views/html-variation-admin.php:33
 msgid "Any"
@@ -4301,11 +4302,11 @@ msgstr "Jakýkoliv"
 
 #: includes/admin/meta-boxes/views/html-variation-admin.php:64
 msgid "Remove this image"
-msgstr ""
+msgstr "Odstranit tento obrázek"
 
 #: includes/admin/meta-boxes/views/html-variation-admin.php:64
 msgid "Upload an image"
-msgstr ""
+msgstr "Náhrát obrázek"
 
 #: includes/admin/meta-boxes/views/html-variation-admin.php:68
 msgid ""
@@ -4334,7 +4335,7 @@ msgstr "Povolte tuto možnost pokud produkt nemůže být doručen nebo je jeho 
 
 #: includes/admin/meta-boxes/views/html-variation-admin.php:84
 msgid "Enable this option to enable stock management at variation level"
-msgstr ""
+msgstr "Povolte tuto možnost pokud chcete spravovat sklad na úrovni variant"
 
 #: includes/admin/meta-boxes/views/html-variation-admin.php:93
 msgid "Regular Price:"
@@ -4395,7 +4396,7 @@ msgstr "Daňová třída:"
 
 #: includes/admin/meta-boxes/views/html-variation-admin.php:195
 msgid "Variation Description:"
-msgstr ""
+msgstr "Popis varianty:"
 
 #: includes/admin/meta-boxes/views/html-variation-admin.php:245
 msgid "Download Limit:"
@@ -4412,9 +4413,9 @@ msgstr "Prodané v hodnotě %s za posledních %d dní"
 #: includes/admin/reports/class-wc-admin-report.php:449
 msgid "Sold 1 item in the last %d days"
 msgid_plural "Sold %d items in the last %d days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Prodán 1 předmět v posledních %d dnech"
+msgstr[1] "Prodány %d předměty v posledních %d dnech"
+msgstr[2] "Prodáno %d předmětů v posledních %d dnech"
 
 #: includes/admin/reports/class-wc-report-coupon-usage.php:99
 msgid "%s discounts in total"
@@ -4422,7 +4423,7 @@ msgstr "%s slev použito dohromady"
 
 #: includes/admin/reports/class-wc-report-coupon-usage.php:105
 msgid "%d coupons used in total"
-msgstr ""
+msgstr "celkem využito %d voucherů"
 
 #: includes/admin/reports/class-wc-report-coupon-usage.php:119
 #: includes/admin/reports/class-wc-report-customers.php:146
@@ -4533,7 +4534,7 @@ msgstr[2] ""
 
 #: includes/admin/reports/class-wc-report-customer-list.php:61
 msgid "Refreshed stats for %s"
-msgstr ""
+msgstr "Statistiky obnoveny pro %s"
 
 #: includes/admin/reports/class-wc-report-customer-list.php:66
 msgid "Search customers"
@@ -4541,7 +4542,7 @@ msgstr "Vyhledat zákazníky"
 
 #: includes/admin/reports/class-wc-report-customer-list.php:163
 msgid "Refresh stats"
-msgstr ""
+msgstr "Obnovit statistiky"
 
 #: includes/admin/reports/class-wc-report-customer-list.php:175
 msgid "View orders"
@@ -4565,7 +4566,7 @@ msgstr "Poloha"
 
 #: includes/admin/reports/class-wc-report-customer-list.php:233
 msgid "Money Spent"
-msgstr ""
+msgstr "Utraceno celkem"
 
 #: includes/admin/reports/class-wc-report-customer-list.php:234
 msgid "Last order"
@@ -4651,23 +4652,23 @@ msgstr "%s průměrné měsíční tržby"
 
 #: includes/admin/reports/class-wc-report-sales-by-date.php:350
 msgid "%s gross sales in this period"
-msgstr ""
+msgstr "%s hrubých tržeb v tomto období"
 
 #: includes/admin/reports/class-wc-report-sales-by-date.php:351
 msgid ""
 "This is the sum of the order totals after any refunds and including shipping"
 " and taxes."
-msgstr ""
+msgstr "Toto je celkový součet tržeb za objednávky po odečtení všeho co bylo vráceno a včetně dopravy a daně."
 
 #: includes/admin/reports/class-wc-report-sales-by-date.php:356
 msgid "%s net sales in this period"
-msgstr ""
+msgstr "%s čistých tržeb v tomto období"
 
 #: includes/admin/reports/class-wc-report-sales-by-date.php:357
 msgid ""
 "This is the sum of the order totals after any refunds and excluding shipping"
 " and taxes."
-msgstr ""
+msgstr "Toto je celkový součet tržeb za objednávky po odečtení všeho co bylo vráceno bez dopravy a daně."
 
 #: includes/admin/reports/class-wc-report-sales-by-date.php:369
 msgid "%s orders placed"
@@ -4680,9 +4681,9 @@ msgstr "%s položek zakoupeno"
 #: includes/admin/reports/class-wc-report-sales-by-date.php:380
 msgid "%s refunded %d order"
 msgid_plural "%s refunded %d orders"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%s vráceno %d objednávce"
+msgstr[1] "%s vráceno %d objednávkách"
+msgstr[2] "%s vráceno %d objednávkách"
 
 #: includes/admin/reports/class-wc-report-sales-by-date.php:385
 msgid "%s charged for shipping"
@@ -4711,11 +4712,11 @@ msgstr "Hodnota za přepravu"
 
 #: includes/admin/reports/class-wc-report-sales-by-date.php:558
 msgid "Gross Sales amount"
-msgstr ""
+msgstr "Objem hrubých tržeb"
 
 #: includes/admin/reports/class-wc-report-sales-by-date.php:568
 msgid "Net Sales amount"
-msgstr ""
+msgstr "Objem čistých tržeb"
 
 #: includes/admin/reports/class-wc-report-sales-by-product.php:85
 msgid "%s sales for the selected items"
@@ -4813,7 +4814,7 @@ msgstr "Daň celkem"
 #: includes/admin/reports/class-wc-report-taxes-by-code.php:149
 #: includes/admin/reports/class-wc-report-taxes-by-date.php:151
 msgid "This is the total tax for the rate (shipping tax + product tax)."
-msgstr ""
+msgstr "Toto je součet daně pro daňovou sazbu (sazba daně za dopravu + sazba daně z prodeje)."
 
 #: includes/admin/reports/class-wc-report-taxes-by-code.php:181
 #: includes/admin/reports/class-wc-report-taxes-by-date.php:196
@@ -5235,7 +5236,7 @@ msgstr "Vybrané země"
 
 #: includes/admin/settings/class-wc-settings-general.php:87
 msgid "Default Customer Address"
-msgstr ""
+msgstr "Výchozí adresa zákazníka"
 
 #: includes/admin/settings/class-wc-settings-general.php:89
 msgid ""
@@ -5330,15 +5331,15 @@ msgstr "Integrace"
 
 #: includes/admin/settings/class-wc-settings-products.php:45
 msgid "Display"
-msgstr ""
+msgstr "Zobrazit"
 
 #: includes/admin/settings/class-wc-settings-products.php:85
 msgid "Shop & Product Pages"
-msgstr ""
+msgstr "Stránky obchodu & produktů"
 
 #: includes/admin/settings/class-wc-settings-products.php:92
 msgid "Shop Page"
-msgstr ""
+msgstr "Stránka obchodu"
 
 #: includes/admin/settings/class-wc-settings-products.php:93
 msgid ""
@@ -5367,7 +5368,7 @@ msgstr "Ukázat produkty"
 
 #: includes/admin/settings/class-wc-settings-products.php:112
 msgid "Show categories &amp; subcategories"
-msgstr ""
+msgstr "Zobrazit katekorie &amp; podkategorie"
 
 #: includes/admin/settings/class-wc-settings-products.php:113
 #: includes/admin/settings/class-wc-settings-products.php:129
@@ -5420,7 +5421,7 @@ msgstr "Seřadit dle ceny (sestupně)"
 
 #: includes/admin/settings/class-wc-settings-products.php:154
 msgid "Add to cart behaviour"
-msgstr ""
+msgstr "Chování tlačítka Přidat do košíku"
 
 #: includes/admin/settings/class-wc-settings-products.php:155
 msgid "Redirect to the cart page after successful addition"
@@ -5465,11 +5466,11 @@ msgstr "Tato velikost se obvykle používá pro Galerie obrázků na stránce pr
 
 #: includes/admin/settings/class-wc-settings-products.php:225
 msgid "Product Image Gallery"
-msgstr ""
+msgstr "Galerie obrázků produktu"
 
 #: includes/admin/settings/class-wc-settings-products.php:226
 msgid "Enable Lightbox for product images"
-msgstr ""
+msgstr "Povolit Lightbox pro obrázky produktů"
 
 #: includes/admin/settings/class-wc-settings-products.php:229
 msgid ""
@@ -5681,15 +5682,15 @@ msgstr ""
 
 #: includes/admin/settings/class-wc-settings-shipping.php:121
 msgid "Default to shipping address"
-msgstr ""
+msgstr "Výchozí doručovací adresa"
 
 #: includes/admin/settings/class-wc-settings-shipping.php:122
 msgid "Default to billing address"
-msgstr ""
+msgstr "Výchozí fakturační adresa"
 
 #: includes/admin/settings/class-wc-settings-shipping.php:123
 msgid "Only ship to the customer's billing address"
-msgstr ""
+msgstr "Zasílat pouze na fakturační adresu zákazníka"
 
 #: includes/admin/settings/class-wc-settings-shipping.php:131
 msgid "Restrict shipping to Location(s)"
@@ -5775,7 +5776,7 @@ msgstr ""
 
 #: includes/admin/settings/views/html-keys-edit.php:109
 msgid "Consumer Key"
-msgstr ""
+msgstr "Klíč zákazníka"
 
 #: includes/admin/settings/views/html-keys-edit.php:112
 #: includes/admin/settings/views/html-keys-edit.php:120
@@ -5786,7 +5787,7 @@ msgstr "Zkopírováno!"
 #: includes/admin/settings/views/html-keys-edit.php:112
 #: includes/admin/settings/views/html-keys-edit.php:120
 msgid "Copy"
-msgstr ""
+msgstr "Kopírovat"
 
 #: includes/admin/settings/views/html-keys-edit.php:117
 msgid "Consumer Secret"
@@ -5885,7 +5886,7 @@ msgstr "Zvolte, zda má být tato daňová sazba použita také na poštovné."
 
 #: includes/admin/settings/views/html-settings-tax.php:48
 msgid "Tax rate ID"
-msgstr ""
+msgstr "ID daňové sazby"
 
 #: includes/admin/settings/views/html-settings-tax.php:101
 msgid "Insert row"
@@ -5917,11 +5918,11 @@ msgstr "Název daně"
 
 #: includes/admin/settings/views/html-webhook-log.php:13
 msgid "Method"
-msgstr ""
+msgstr "Způsob"
 
 #: includes/admin/settings/views/html-webhook-log.php:14
 msgid "Duration"
-msgstr ""
+msgstr "Trvání"
 
 #: includes/admin/settings/views/html-webhook-log.php:15
 #: includes/admin/settings/views/html-webhook-log.php:26
@@ -5941,7 +5942,7 @@ msgstr ""
 #: includes/admin/settings/views/html-webhook-logs.php:19
 #: includes/admin/settings/views/html-webhook-logs.php:27
 msgid "Request"
-msgstr ""
+msgstr "Požadavek"
 
 #: includes/admin/settings/views/html-webhook-logs.php:20
 #: includes/admin/settings/views/html-webhook-logs.php:28
@@ -5971,27 +5972,27 @@ msgstr ""
 
 #: includes/admin/settings/views/html-webhooks-edit.php:51
 msgid "Coupon Created"
-msgstr ""
+msgstr "Voucher vytvořen"
 
 #: includes/admin/settings/views/html-webhooks-edit.php:52
 msgid "Coupon Updated"
-msgstr ""
+msgstr "Voucher aktualizován"
 
 #: includes/admin/settings/views/html-webhooks-edit.php:53
 msgid "Coupon Deleted"
-msgstr ""
+msgstr "Voucher smazán"
 
 #: includes/admin/settings/views/html-webhooks-edit.php:54
 msgid "Customer Created"
-msgstr ""
+msgstr "Zákazník vytvořen"
 
 #: includes/admin/settings/views/html-webhooks-edit.php:55
 msgid "Customer Updated"
-msgstr ""
+msgstr "Zákazník aktualizován"
 
 #: includes/admin/settings/views/html-webhooks-edit.php:56
 msgid "Customer Deleted"
-msgstr ""
+msgstr "Zákazník smazán"
 
 #: includes/admin/settings/views/html-webhooks-edit.php:57
 msgid "Order Created"
@@ -6007,23 +6008,23 @@ msgstr "Objednávka zrušena"
 
 #: includes/admin/settings/views/html-webhooks-edit.php:60
 msgid "Product Created"
-msgstr ""
+msgstr "Produkt vytvořen"
 
 #: includes/admin/settings/views/html-webhooks-edit.php:61
 msgid "Product Updated"
-msgstr ""
+msgstr "Produkt aktualizován"
 
 #: includes/admin/settings/views/html-webhooks-edit.php:62
 msgid "Product Deleted"
-msgstr ""
+msgstr "Produkt smazán"
 
 #: includes/admin/settings/views/html-webhooks-edit.php:63
 msgid "Action"
-msgstr ""
+msgstr "Akce"
 
 #: includes/admin/settings/views/html-webhooks-edit.php:64
 msgid "Custom"
-msgstr ""
+msgstr "Vlastní"
 
 #: includes/admin/settings/views/html-webhooks-edit.php:75
 msgid "Action Event"
@@ -6035,7 +6036,7 @@ msgstr ""
 
 #: includes/admin/settings/views/html-webhooks-edit.php:84
 msgid "Custom Topic"
-msgstr ""
+msgstr "Vlastní téma"
 
 #: includes/admin/settings/views/html-webhooks-edit.php:85
 msgid "Enter the Custom Topic that will trigger this webhook."
@@ -6063,11 +6064,11 @@ msgstr ""
 #: includes/admin/settings/views/html-webhooks-edit.php:123
 #: includes/admin/settings/views/html-webhooks-edit.php:132
 msgid "Created at"
-msgstr ""
+msgstr "Vytvořeno"
 
 #: includes/admin/settings/views/html-webhooks-edit.php:140
 msgid "Updated at"
-msgstr ""
+msgstr "Aktualizováno"
 
 #: includes/admin/settings/views/html-webhooks-edit.php:151
 msgid "Save Webhook"
@@ -6157,7 +6158,7 @@ msgstr "Snížená sazba%sNulová sazba"
 
 #: includes/admin/settings/views/settings-tax.php:75
 msgid "Display Prices in the Shop:"
-msgstr ""
+msgstr "Zobrazit ceny v eshopu:"
 
 #: includes/admin/settings/views/settings-tax.php:81
 #: includes/admin/settings/views/settings-tax.php:93
@@ -6171,11 +6172,11 @@ msgstr "Bez daně"
 
 #: includes/admin/settings/views/settings-tax.php:87
 msgid "Display Prices During Cart and Checkout:"
-msgstr ""
+msgstr "Zobrazit ceny v košíku a pokladně:"
 
 #: includes/admin/settings/views/settings-tax.php:100
 msgid "Price Display Suffix:"
-msgstr ""
+msgstr "Přípona za cenou:"
 
 #: includes/admin/settings/views/settings-tax.php:105
 msgid ""
@@ -6187,7 +6188,7 @@ msgstr ""
 
 #: includes/admin/settings/views/settings-tax.php:109
 msgid "Display Tax Totals:"
-msgstr ""
+msgstr "Zobrazit součet daně:"
 
 #: includes/admin/settings/views/settings-tax.php:115
 msgid "As a single total"
@@ -6260,7 +6261,7 @@ msgstr ""
 
 #: includes/admin/views/html-admin-page-addons.php:116
 msgid "Download &amp; install"
-msgstr ""
+msgstr "Stáhnout &amp; instalovat"
 
 #: includes/admin/views/html-admin-page-status-logs.php:15
 msgid "Log file: %s (%s)"
@@ -6286,11 +6287,11 @@ msgstr ""
 
 #: includes/admin/views/html-admin-page-status-report.php:17
 msgid "Copy for Support"
-msgstr ""
+msgstr "Kopie pro podporu"
 
 #: includes/admin/views/html-admin-page-status-report.php:23
 msgid "WordPress Environment"
-msgstr ""
+msgstr "Prostředí WordPressu"
 
 #: includes/admin/views/html-admin-page-status-report.php:28
 msgid "Home URL"
@@ -6298,7 +6299,7 @@ msgstr "Domácí URl"
 
 #: includes/admin/views/html-admin-page-status-report.php:29
 msgid "The URL of your site's homepage."
-msgstr ""
+msgstr "Adresa domácí stránky vašeho webu."
 
 #: includes/admin/views/html-admin-page-status-report.php:33
 msgid "Site URL"
@@ -6306,7 +6307,7 @@ msgstr "URl webu"
 
 #: includes/admin/views/html-admin-page-status-report.php:34
 msgid "The root URL of your site."
-msgstr ""
+msgstr "Kořenová adresa Vašeho webu."
 
 #: includes/admin/views/html-admin-page-status-report.php:38
 msgid "WC Version"
@@ -6372,19 +6373,19 @@ msgstr ""
 
 #: includes/admin/views/html-admin-page-status-report.php:82
 msgid "Language"
-msgstr ""
+msgstr "Jazyk"
 
 #: includes/admin/views/html-admin-page-status-report.php:83
 msgid "The current language used by WordPress. Default = English"
-msgstr ""
+msgstr "Aktuální jazyková verze WordPressu. Výchozí = Angličtina"
 
 #: includes/admin/views/html-admin-page-status-report.php:91
 msgid "Server Environment"
-msgstr ""
+msgstr "Prostředí serveru"
 
 #: includes/admin/views/html-admin-page-status-report.php:96
 msgid "Server Info"
-msgstr ""
+msgstr "Informace o serveru"
 
 #: includes/admin/views/html-admin-page-status-report.php:97
 msgid "Information about the web server that is currently hosting your site."
@@ -6456,7 +6457,7 @@ msgstr "MySQL verze"
 
 #: includes/admin/views/html-admin-page-status-report.php:142
 msgid "The version of MySQL installed on your hosting server."
-msgstr ""
+msgstr "Instalovaná verze MySQL na serveru vašeho hostingu."
 
 #: includes/admin/views/html-admin-page-status-report.php:152
 msgid "Max Upload Size"
@@ -6469,11 +6470,11 @@ msgstr ""
 
 #: includes/admin/views/html-admin-page-status-report.php:157
 msgid "Default Timezone is UTC"
-msgstr ""
+msgstr "Výchozí časové pásmo je UTC"
 
 #: includes/admin/views/html-admin-page-status-report.php:158
 msgid "The default timezone for your server."
-msgstr ""
+msgstr "Výchozí časové pásmo Vašeho serveru."
 
 #: includes/admin/views/html-admin-page-status-report.php:162
 msgid "Default timezone is %s - it should be UTC"
@@ -6573,7 +6574,7 @@ msgstr ""
 
 #: includes/admin/views/html-admin-page-status-report.php:279
 msgid "Database"
-msgstr ""
+msgstr "Databáze"
 
 #: includes/admin/views/html-admin-page-status-report.php:284
 msgid "WC Database Version"
@@ -6587,11 +6588,11 @@ msgstr ""
 
 #: includes/admin/views/html-admin-page-status-report.php:306
 msgid "Table does not exist"
-msgstr ""
+msgstr "Tabulka neexistuje"
 
 #: includes/admin/views/html-admin-page-status-report.php:317
 msgid "Active Plugins"
-msgstr ""
+msgstr "Aktivní pluginy"
 
 #: includes/admin/views/html-admin-page-status-report.php:341
 msgid "Visit plugin homepage"
@@ -6599,7 +6600,7 @@ msgstr "Navštívit domácí stránku pluginu"
 
 #: includes/admin/views/html-admin-page-status-report.php:369
 msgid "Network enabled"
-msgstr ""
+msgstr "Povoleno v síti"
 
 #: includes/admin/views/html-admin-page-status-report.php:393
 msgid "Force SSL"
@@ -6629,7 +6630,7 @@ msgstr ""
 
 #: includes/admin/views/html-admin-page-status-report.php:419
 msgid "The number of decimal points shown in displayed prices."
-msgstr ""
+msgstr "Počet desetinných míst zobrazených v cenách eshopu."
 
 #: includes/admin/views/html-admin-page-status-report.php:432
 msgid "API Enabled"
@@ -6641,7 +6642,7 @@ msgstr "Je na vaší stránce povoleno REST API?"
 
 #: includes/admin/views/html-admin-page-status-report.php:437
 msgid "API Version"
-msgstr ""
+msgstr "Verze API"
 
 #: includes/admin/views/html-admin-page-status-report.php:438
 msgid "What version of the REST API does your site use?"
@@ -6725,7 +6726,7 @@ msgstr ""
 
 #: includes/admin/views/html-admin-page-status-report.php:609
 msgid "Child Theme"
-msgstr ""
+msgstr "Odvozená šablona"
 
 #: includes/admin/views/html-admin-page-status-report.php:610
 msgid "Displays whether or not the current theme is a child theme."
@@ -6740,27 +6741,27 @@ msgstr ""
 
 #: includes/admin/views/html-admin-page-status-report.php:620
 msgid "Parent Theme Name"
-msgstr ""
+msgstr "Název hlavní šablony"
 
 #: includes/admin/views/html-admin-page-status-report.php:621
 msgid "The name of the parent theme."
-msgstr ""
+msgstr "Název hlavní šablony."
 
 #: includes/admin/views/html-admin-page-status-report.php:625
 msgid "Parent Theme Version"
-msgstr ""
+msgstr "Verze hlavní šablony"
 
 #: includes/admin/views/html-admin-page-status-report.php:626
 msgid "The installed version of the parent theme."
-msgstr ""
+msgstr "Instalovaná verze hlavní šablony."
 
 #: includes/admin/views/html-admin-page-status-report.php:630
 msgid "Parent Theme Author URL"
-msgstr ""
+msgstr "Adresa autora hlavní šablony"
 
 #: includes/admin/views/html-admin-page-status-report.php:631
 msgid "The parent theme developers URL."
-msgstr ""
+msgstr "Adresa developera hlavní šablony."
 
 #: includes/admin/views/html-admin-page-status-report.php:636
 msgid "WooCommerce Support"
@@ -6826,7 +6827,7 @@ msgstr ""
 
 #: includes/admin/views/html-admin-page-status-tools.php:56
 msgid "Remove All Data"
-msgstr ""
+msgstr "Odstranit všechna data"
 
 #: includes/admin/views/html-admin-page-status-tools.php:62
 msgid ""
@@ -6947,11 +6948,11 @@ msgstr ""
 
 #: includes/admin/views/html-notice-install.php:13
 msgid "Run the Setup Wizard"
-msgstr ""
+msgstr "Spustit průvodce nastavením"
 
 #: includes/admin/views/html-notice-install.php:13
 msgid "Skip Setup"
-msgstr ""
+msgstr "Přeskočit průvodce"
 
 #: includes/admin/views/html-notice-template-check.php:13
 msgid ""
@@ -6969,7 +6970,7 @@ msgstr ""
 #: includes/admin/views/html-notice-template-check.php:14
 #: includes/admin/views/html-notice-theme-support.php:16
 msgid "Hide This Notice"
-msgstr ""
+msgstr "Skrýt toto oznámení"
 
 #: includes/admin/views/html-notice-theme-support.php:12
 msgid ""
@@ -6985,7 +6986,7 @@ msgstr ""
 
 #: includes/admin/views/html-notice-theme-support.php:15
 msgid "Theme Integration Guide"
-msgstr ""
+msgstr "Návod na integraci do šablony"
 
 #: includes/admin/views/html-notice-tracking.php:14
 msgid "No, do not bother me again"
