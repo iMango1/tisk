@@ -1,0 +1,20 @@
+.gopay_select{
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 1px dashed #B9B8B8;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.gopay_select:hover{background-color:#dddddd;}
+.gopay_select .gopay_select_input{
+  padding:9px;
+}  
+.gopay_select img{
+  height:30px;
+}
+.gopay_select span{
+  font-weight:bold;
+  padding-left:10px
+}

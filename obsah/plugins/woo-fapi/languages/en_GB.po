@@ -1,0 +1,292 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Canvas v5.4.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-25 20:07+0100\n"
+"PO-Revision-Date: 2014-11-25 20:07+0100\n"
+"Last-Translator: admin <magnus@jepson.no>\n"
+"Language-Team: \n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.6.10\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-woo-doprava-admin.php:117 admin/class-woo-doprava-admin.php:118
+msgid "Woo Doprava"
+msgstr ""
+
+# @ woothemes
+#: admin/class-woo-doprava-admin.php:144
+msgid "Settings"
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:22
+msgid "Platba na účet"
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:23
+msgid "Platba na bankovní účet."
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:73
+msgid "Enable/Disable"
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:75
+msgid "Enable Bank Transfer"
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:79
+msgid "Title"
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:81
+msgid "This controls the title which the user sees during checkout."
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:82
+msgid "Direct Bank Transfer"
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:86
+msgid "Description"
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:88
+msgid "Payment method description that the customer will see on your checkout."
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:89
+msgid ""
+"Make your payment directly into our bank account. Please use your Order ID "
+"as the payment reference. Your order won't be shipped until the funds have "
+"cleared in our account."
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:93
+msgid "Instructions"
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:95
+msgid "Instructions that will be added to the thank you page and emails."
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:100
+#: classes/class-vyzvednuti-na-miste.php:111
+#: classes/class-wc-gateway-dobirka.php:125
+msgid "Povolit způsob dopravy"
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:105
+#: classes/class-wc-gateway-dobirka.php:130
+msgid ""
+"Pokud je platba na dobírku aktivní, zde můžete definovat způsoby dopravy. "
+"Pro povolení všech způsobů dopravy, zanechte pole prázdné."
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:122
+msgid "Account Details"
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:128
+msgid "Account Name"
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:129 classes/class-platba-na-ucet.php:337
+msgid "Account Number"
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:130
+msgid "Bank Name"
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:131 classes/class-platba-na-ucet.php:341
+msgid "Sort Code"
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:132 classes/class-platba-na-ucet.php:345
+msgid "IBAN"
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:133
+msgid "BIC / Swift"
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:138
+msgid "+ Add Account"
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:138
+msgid "Remove selected account(s)"
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:324
+msgid "Our Bank Details"
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:349
+msgid "BIC"
+msgstr ""
+
+#: classes/class-platba-na-ucet.php:380
+msgid "Awaiting Pnu payment"
+msgstr ""
+
+#: classes/class-shipping-vyzvednuti-na-pobocce.php:22
+#: classes/class-shipping-vyzvednuti-na-pobocce.php:63
+msgid "Vyzvednutí na pobočce"
+msgstr ""
+
+#: classes/class-shipping-vyzvednuti-na-pobocce.php:23
+msgid "Vyzvednutí na pobočce eshopu"
+msgstr ""
+
+#: classes/class-shipping-vyzvednuti-na-pobocce.php:54
+msgid "Povolit vyzvednutí na pobočce"
+msgstr ""
+
+#: classes/class-shipping-vyzvednuti-na-pobocce.php:56
+msgid "Povolit tento způsob"
+msgstr ""
+
+#: classes/class-shipping-vyzvednuti-na-pobocce.php:60
+msgid "Název dopravy"
+msgstr ""
+
+#: classes/class-vyzvednuti-na-miste.php:24
+#: classes/class-vyzvednuti-na-miste.php:53
+#: classes/class-vyzvednuti-na-miste.php:95
+msgid "Platba na pobočce"
+msgstr ""
+
+#: classes/class-vyzvednuti-na-miste.php:25
+msgid "Platba při vyzvednutí na pobočce."
+msgstr ""
+
+#: classes/class-vyzvednuti-na-miste.php:54
+msgid "Umožňuje platbu na pobočce eshopu."
+msgstr ""
+
+#: classes/class-vyzvednuti-na-miste.php:85
+#: classes/class-vyzvednuti-na-miste.php:86
+msgid "Povolit platbu na pobočce"
+msgstr ""
+
+#: classes/class-vyzvednuti-na-miste.php:92
+#: classes/class-wc-gateway-dobirka.php:106
+msgid "Titulek"
+msgstr ""
+
+#: classes/class-vyzvednuti-na-miste.php:94
+#: classes/class-wc-gateway-dobirka.php:108
+msgid "Název platební metody, který uvidí zákazníci při objednávce."
+msgstr ""
+
+#: classes/class-vyzvednuti-na-miste.php:99
+#: classes/class-wc-gateway-dobirka.php:113
+msgid "Popis"
+msgstr ""
+
+#: classes/class-vyzvednuti-na-miste.php:101
+#: classes/class-wc-gateway-dobirka.php:115
+msgid "Popis platební metody, který se zobrazí zákazníkovi na stránce."
+msgstr ""
+
+#: classes/class-vyzvednuti-na-miste.php:102
+msgid "Platba v hotovosti na pobočce."
+msgstr ""
+
+#: classes/class-vyzvednuti-na-miste.php:105
+#: classes/class-wc-gateway-dobirka.php:119
+msgid "Instrukce"
+msgstr ""
+
+#: classes/class-vyzvednuti-na-miste.php:107
+#: classes/class-wc-gateway-dobirka.php:121
+msgid "Instrukce, které se zobrazí na děkovné stránce."
+msgstr ""
+
+#: classes/class-vyzvednuti-na-miste.php:108
+msgid "Platbu proveďte na pobočce obchodu."
+msgstr ""
+
+#: classes/class-vyzvednuti-na-miste.php:116
+msgid ""
+"Zde můžete definovat způsoby dopravy. Pro povolení všech způsobů dopravy, "
+"zanechte pole prázdné."
+msgstr ""
+
+#: classes/class-vyzvednuti-na-miste.php:191
+msgid "Platbu provede zákazník na pokladně."
+msgstr ""
+
+#: classes/class-wc-gateway-dobirka.php:34
+#: classes/class-wc-gateway-dobirka.php:36
+#: classes/class-wc-gateway-dobirka.php:73
+msgid "Dobírka"
+msgstr ""
+
+#: classes/class-wc-gateway-dobirka.php:74
+msgid "Umožňuje zákazníkům platit zboží při doručení (na dobírku)."
+msgstr ""
+
+#: classes/class-wc-gateway-dobirka.php:99
+#: classes/class-wc-gateway-dobirka.php:100
+msgid "Povolit platbu na dobírku"
+msgstr ""
+
+#: classes/class-wc-gateway-dobirka.php:109
+msgid "Platba na dobírku"
+msgstr ""
+
+#: classes/class-wc-gateway-dobirka.php:116
+msgid "Platba v hotovosti po doručení."
+msgstr ""
+
+#: classes/class-wc-gateway-dobirka.php:122
+msgid "Platbu proveďte až po doručení zboží."
+msgstr ""
+
+#: classes/class-wc-gateway-dobirka.php:241
+msgid "Platba dobírkou."
+msgstr ""
+
+#: classes/doprava.php:27
+msgid "Nastavení dopravy"
+msgstr ""
+
+#: classes/doprava.php:28
+msgid "Nastavení dopravy pro eshop "
+msgstr ""
+
+#: classes/doprava.php:66
+msgid "Aktivovat nastavení"
+msgstr ""
+
+#: classes/doprava.php:86
+msgid "Nastavení dopravců"
+msgstr ""
+
+#: classes/doprava.php:128 classes/doprava.php:185
+msgid "Choose countries&hellip;"
+msgstr ""
+
+#: classes/doprava.php:128 classes/doprava.php:185
+msgid "Country"
+msgstr ""
+
+#: classes/doprava.php:138 classes/doprava.php:195
+msgid "Select all"
+msgstr ""
+
+#: classes/doprava.php:139 classes/doprava.php:196
+msgid "Select none"
+msgstr ""

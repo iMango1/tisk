@@ -1,0 +1,30 @@
+/**
+ *
+ * Doprava admin style
+ *
+ */
+
+#doprava-wrap{
+  width:100%;
+}
+#doprava-wrap table{
+  width:100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+} 
+#doprava-wrap table th,#doprava-wrap table td{
+  padding:5px!important;
+  border:solid 1px #cccccc;
+  background:#ffffff;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+} 
+                                    ]
+tr.doprava_line th{
+  vertical-align: middle!important; 
+  text-align: center;
+}
+#doprava-wrap table th.bunka-small{width:10%;}
+#doprava-wrap table td input[type=text]{width:100%;}
