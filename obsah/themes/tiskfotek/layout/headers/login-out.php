@@ -6,7 +6,7 @@
 <div class="login-box">
     <a class="close-login" href="#"><i class="fa fa-times"></i></a>
         <div class="container">
-            <form name="loginform" id="loginform" action="<?php echo get_option('siteurl'); ?>/spravce" method="post">
+            <form name="loginform" id="loginform" action="<?php echo site_url(); ?>/spravce" method="post">
             <?php if(!$hid_mess){ ?>
                 <p><?php echo wp_kses($l_mess,it_allowed_tags()); ?></p>
             <?php } ?>

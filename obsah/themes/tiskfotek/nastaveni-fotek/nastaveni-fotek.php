@@ -996,7 +996,7 @@ SESSION<br>
 COOKIES<br>
 <?php // echo "<pre>",print_r($_COOKIE),"</pre>"; ?>
 -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/assets/js/chosen.jquery.min.js"></script>
 <script>
     $(".chosen-select").chosen({disable_search_threshold: 10});

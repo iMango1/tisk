@@ -135,7 +135,7 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
 
         <div id="sticky-anchor-tlacitka"></div>
 
-    <form id="fileupload" action="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/nastaveni-fotografii" method="POST" enctype="multipart/form-data">
+    <form id="fileupload" action="https://www.<?php echo $_NAZEV_WEBU; ?>.cz/nastaveni-fotografii" method="POST" enctype="multipart/form-data">
         <div class="row fileupload-buttonbar">
             <div class="col-lg-12">
                 <!-- The fileinput-button span is used to style the file input field as button -->
@@ -344,7 +344,7 @@ else{
 
 
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>    
 
     jQuery(function () {
@@ -378,10 +378,10 @@ SESSION<br>
 COOKIES<br>
 <?php // echo "<pre>",print_r($_COOKIE),"</pre>"; ?>
 -->
-<script type="text/javascript">
+<script type="text/javascript"> /*
 $('#fileupload').fileupload({
     dropZone: $('#dropzone')
-});
+}); */
 </script>
 <script>
     function sticky_relocate() {
@@ -544,15 +544,15 @@ OLD TIMEZ
 <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
 <script src="<?php echo get_template_directory_uri(); ?>/nahrani/js/vendor/jquery.ui.widget.js"></script>
 <!-- The Templates plugin is included to render the upload/download listings -->
-<script src="http://blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
+<script src="https://blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
 <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-<script src="http://blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
+<script src="https://blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
 <!-- The Canvas to Blob plugin is included for image resizing functionality -->
-<script src="http://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
+<script src="https://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
 <!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <!-- blueimp Gallery script -->
-<script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="https://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
 <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
 <script src="<?php echo get_template_directory_uri(); ?>/nahrani/js/jquery.iframe-transport.js"></script>
 <!-- The basic File Upload plugin -->

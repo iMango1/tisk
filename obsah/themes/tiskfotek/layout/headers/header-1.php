@@ -33,7 +33,7 @@ get_template_part( 'layout/headers/top-bar');
         <div class="logo left">
             <?php if(theme_option("header_logo_image")){ ?>
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="logo-img">
-                    <img alt="" src="<?php echo esc_url(theme_option('header_logo_image')); ?>">
+                    <img alt="" src="<?php echo esc_url(theme_option('header_logo_image'), 'https'); ?>">
                     <?php if(theme_option("site_slogan".$langcode)) { ?>
                         <span><?php echo esc_html(theme_option("site_slogan".$langcode)); ?></span>
                     <?php } ?>
