@@ -508,7 +508,7 @@ jQuery( document ).ready(function() {
         $wpnonce = $jednotlive[2];
                
         ?>
-  <script src="http://malsup.github.io/min/jquery.form.min.js"></script>
+  <script src="https://malsup.github.io/min/jquery.form.min.js"></script>
         <script>
 
 

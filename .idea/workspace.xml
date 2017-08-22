@@ -3,13 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="eb2886ae-ccfd-400a-b30d-6e457fa8bf15" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/header.php" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/layout/headers/header-1.php" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/layout/headers/header-1.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/layout/headers/login-out.php" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/layout/headers/login-out.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/multiupload.php" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/multiupload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/classes/fields/class-product-addon-field-file-upload.php" afterPath="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/classes/fields/class-product-addon-field-file-upload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/file_upload.php" afterPath="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/file_upload.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/nastaveni-fotek/nastaveni-fotek.php" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/nastaveni-fotek/nastaveni-fotek.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/nastaveni-fotek/nastaveni-fotek_o.php" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/nastaveni-fotek/nastaveni-fotek_o.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/cart/cart.php" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/cart/cart.php" />
     </list>
     <ignored path="!obsah_git.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,12 +54,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login-out.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login-out.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/layout/headers/login-out.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+            <state relative-caret-position="465">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="nastaveni-fotek.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/nastaveni-fotek/nastaveni-fotek.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7725">
+              <caret line="518" column="18" lean-forward="false" selection-start-line="518" selection-start-column="18" selection-end-line="518" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class-product-addon-field-file-upload.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/obsah/plugins/wooprodaddons271/classes/fields/class-product-addon-field-file-upload.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="99" column="17" lean-forward="true" selection-start-line="99" selection-start-column="17" selection-end-line="99" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="file_upload.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/file_upload.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" column="52" lean-forward="true" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+              <folding>
+                <marker date="1503415916000" expanded="true" signature="1935:1953" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,18 +110,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>functget_option</find>
-      <find>functiget_option</find>
-      <find>functioget_option</find>
-      <find>functionget_option</find>
-      <find>function get_option</find>
-      <find>fget_option</find>
-      <find>fuget_option</find>
-      <find>get_option</find>
-      <find>rel=&quot;home&quot; class=&quot;logo-img&quot;&gt;</find>
-      <find>fuesc_url</find>
-      <find>funesc_url</find>
-      <find>funcesc_url</find>
       <find>functiesc_url</find>
       <find>functioesc_url</find>
       <find>functionesc_url</find>
@@ -112,6 +128,18 @@
       <find>esc_url</find>
       <find>&lt;form name=&quot;loginform&quot; id=&quot;loginform&quot;</find>
       <find>siteurl</find>
+      <find>http://malsup.github.io/m</find>
+      <find>o</find>
+      <find>objednavky.</find>
+      <find>objednavky</find>
+      <find>gobjednavky</find>
+      <find>hobjednavky</find>
+      <find>htobjednavky</find>
+      <find>httpobjednavky</find>
+      <find>http:objednavky</find>
+      <find>http:/objednavky</find>
+      <find>http://objednavky</find>
+      <find>http://</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce</dir>
@@ -124,15 +152,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/nastaveni-fotek/nastaveni-fotek.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/single-product/add-to-cart/simple.php" root0="SKIP_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/cart/cart.php" root0="SKIP_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/nastaveni-fotek/nastaveni-fotek.php" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/server/php/UploadHandler.php" />
-        <option value="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/file_upload.php" />
         <option value="$USER_HOME$/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/vystupnidata/09_detail_jmenovcu.html" />
         <option value="$USER_HOME$/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/vystupnidata/09_detail_jednoho_jezdce.html" />
         <option value="$USER_HOME$/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/vystupnidata/09_detail-podle_id.html" />
@@ -142,18 +169,19 @@
         <option value="$PROJECT_DIR$/obsah/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-items.php" />
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/single-product/add-to-cart/variable.php" />
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/css/style.css" />
-        <option value="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/classes/fields/class-product-addon-field-file-upload.php" />
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/emails/customer-processing-order.php" />
         <option value="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/addon-end.php" />
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/single-product/add-to-cart/simple.php" />
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php" />
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/header.php" />
-        <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/nastaveni-fotek/nastaveni-fotek.php" />
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/nastaveni-fotek/nastaveni-fotek_o.php" />
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/cart/cart.php" />
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/multiupload.php" />
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/layout/headers/header-1.php" />
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/layout/headers/login-out.php" />
+        <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/nastaveni-fotek/nastaveni-fotek.php" />
+        <option value="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/classes/fields/class-product-addon-field-file-upload.php" />
+        <option value="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/file_upload.php" />
       </list>
     </option>
   </component>
@@ -169,7 +197,7 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="1280" />
-    <option name="y" value="-386" />
+    <option name="y" value="-280" />
     <option name="width" value="1920" />
     <option name="height" value="1080" />
   </component>
@@ -207,8 +235,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -237,6 +263,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -435,7 +463,8 @@
       <workItem from="1502309398752" duration="530000" />
       <workItem from="1502536888011" duration="3036000" />
       <workItem from="1502622890526" duration="56000" />
-      <workItem from="1502806271783" duration="281000" />
+      <workItem from="1502806271783" duration="1324000" />
+      <workItem from="1503413692215" duration="750000" />
     </task>
     <task id="LOCAL-00001" summary="IDE settings">
       <created>1476388701506</created>
@@ -584,11 +613,18 @@
       <option name="project" value="LOCAL" />
       <updated>1502226173268</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="HTTPS">
+      <created>1502807641468</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1502807641468</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114105000" />
+    <option name="totallyTimeSpent" value="115898000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -600,13 +636,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1280" y="-386" width="1920" height="1080" extended-state="0" />
+    <frame x="1280" y="-280" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18690096" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18849841" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288948" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297769" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18712871" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32756326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -618,7 +655,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18767123" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.322237" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -671,6 +707,74 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/multiupload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1502538303000" expanded="true" signature="18800:19821" ph="..." />
+            <marker date="1502538303000" expanded="true" signature="18813:18869" ph="..." />
+            <marker date="1502538303000" expanded="true" signature="18882:18999" ph="..." />
+            <marker date="1502538303000" expanded="true" signature="19012:19282" ph="..." />
+            <marker date="1502538303000" expanded="false" signature="19246:19255" ph="..." />
+            <marker date="1502538303000" expanded="true" signature="19320:19811" ph="..." />
+            <marker date="1502538303000" expanded="true" signature="19437:19561" ph="..." />
+            <marker date="1502538303000" expanded="true" signature="19665:19777" ph="..." />
+            <marker date="1502538303000" expanded="true" signature="20043:21704" ph="..." />
+            <marker date="1502538303000" expanded="true" signature="20061:20346" ph="..." />
+            <marker date="1502538303000" expanded="true" signature="20096:20332" ph="..." />
+            <marker date="1502538303000" expanded="true" signature="20367:20877" ph="..." />
+            <marker date="1502538303000" expanded="true" signature="20405:20717" ph="..." />
+            <marker date="1502538303000" expanded="true" signature="20890:20975" ph="..." />
+            <marker date="1502538303000" expanded="true" signature="20988:21694" ph="..." />
+            <marker date="1502538303000" expanded="true" signature="21236:21365" ph="..." />
+            <marker date="1502538303000" expanded="true" signature="21527:21660" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/layout/headers/login-out.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/nastaveni-fotek/nastaveni-fotek.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7770">
+          <caret line="518" column="18" lean-forward="true" selection-start-line="518" selection-start-column="18" selection-end-line="518" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/plugins/wooprodaddons271/classes/fields/class-product-addon-field-file-upload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1305">
+          <caret line="87" column="57" lean-forward="false" selection-start-line="87" selection-start-column="47" selection-end-line="87" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/file_upload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="57" column="43" lean-forward="true" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
+          <folding>
+            <marker date="1503415916000" expanded="true" signature="1935:1953" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/layout/headers/header-1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="35" column="93" lean-forward="false" selection-start-line="35" selection-start-column="93" selection-end-line="35" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/multiupload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -769,13 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/nastaveni-fotek/nastaveni-fotek.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="998" column="18" lean-forward="false" selection-start-line="998" selection-start-column="18" selection-end-line="998" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/cart/cart.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
@@ -833,8 +930,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/layout/headers/login-out.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+        <state relative-caret-position="465">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/nastaveni-fotek/nastaveni-fotek.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7725">
+          <caret line="518" column="18" lean-forward="false" selection-start-line="518" selection-start-column="18" selection-end-line="518" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/file_upload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="52" lean-forward="true" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
+          <folding>
+            <marker date="1503415916000" expanded="true" signature="1935:1953" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/plugins/wooprodaddons271/classes/fields/class-product-addon-field-file-upload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="99" column="17" lean-forward="true" selection-start-line="99" selection-start-column="17" selection-end-line="99" selection-end-column="17" />
           <folding />
         </state>
       </provider>

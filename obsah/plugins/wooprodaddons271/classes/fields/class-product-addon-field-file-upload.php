@@ -85,7 +85,7 @@ else
                     $_NAZEV_WEBU = $url_roz[1];
                     
                     
-                    $cele_url_fotky = "http://objednavky.$_NAZEV_WEBU.cz/".$_COOKIE["id_objednavky"]."/$pojmenovani";
+                    $cele_url_fotky = "https://objednavky.$_NAZEV_WEBU.cz/".$_COOKIE["id_objednavky"]."/$pojmenovani";
                     
                     rename("/home/web/$_NAZEV_WEBU.cz/objednavky/".$_COOKIE["id_objednavky"]."/".$_POST["nazev_f"], "/home/web/$_NAZEV_WEBU.cz/objednavky/".$_COOKIE["id_objednavky"]."/".$pojmenovani);
                     

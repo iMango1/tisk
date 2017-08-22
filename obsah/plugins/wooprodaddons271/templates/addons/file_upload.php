@@ -22,13 +22,7 @@
 -->
 
 	<?php 
-	/*
-    $fotky = $_POST["fotky"];
-  
-    
-    $fotka_kousek_url = array();
-    $fotka_nazev = array();
- */
+
 
     $url_img = $_SESSION[$kolotoc]["url_fotky"];
     $url_min = $_SESSION[$kolotoc]["url_miniatura"];
@@ -47,25 +41,9 @@
     $fotky_nazev[$kolotoc] = $fotka_kousek_url[$kolotoc][1];
 
 
-    //foreach ($fotky as $i => $fotka) {
-		 echo "<img src='$url_min' style='margin-right: 10px' class='fotka_objednavka'>";
-        echo "<input type='hidden' value='$url_min' data-price='".get_product_addon_price_for_display( $option['price'] )."' name='fotky[]'>";
-     //   echo "<input type='hidden' value='$url_up' data-price='".get_product_addon_price_for_display( $option['price'] )."' name='fotky_upload[]'>";
-        echo "<input type='hidden' value='$nazev_fotky' name='nazev_f'>";
-   //     echo "<input type='hidden' value='$typ_souboru' name='typ_s'>";
-
-
-// $_SESSION[$kolotoc]["url_fotky_upload"];
-    //    $fotka_kousek_url[$i] = explode("|/", $fotka);
-//	    $fotky_nazev[$i] = $fotka_kousek_url[$i][1];
-
-    //}
-        
-
-	?>
-
-
-<?php
+		echo "<img src='$url_min' style='margin-right: 10px' class='fotka_objednavka'>";
+		echo "<input type='hidden' value='$url_min' data-price='".get_product_addon_price_for_display( $option['price'] )."' name='fotky[]'>";
+		echo "<input type='hidden' value='$nazev_fotky' name='nazev_f'>";
 
 $loop = 0;
 $current_value = isset( $_POST['addon-' . sanitize_title( $addon['field-name'] ) ] ) ? $_POST[ 'addon-' . sanitize_title( $addon['field-name'] ) ] : '';
