@@ -13,12 +13,11 @@ global $kolotoc;
 
     $url = $_SERVER["SERVER_NAME"];
     $url_roz = explode(".", $url);
-    $_NAZEV_WEBU = $url_roz[1];
-
+    $_NAZEV_WEBU = $url_roz[1] . '.' . $url_roz[2];
     $id_objednavky = $_COOKIE["id_objednavky"];
 
-    $absolutni_cesta_objednavky = "/home/web/$_NAZEV_WEBU.cz/objednavky/$id_objednavky";
-    $absolutni_cesta_objednavky_thumb = "/home/web/$_NAZEV_WEBU.cz/objednavky/$id_objednavky/thumbnail";
+    $absolutni_cesta_objednavky = "/home/web/$_NAZEV_WEBU/objednavky/$id_objednavky";
+    $absolutni_cesta_objednavky_thumb = "/home/web/$_NAZEV_WEBU/objednavky/$id_objednavky/thumbnail";
 
 $nazev_fotky = $_SESSION["fotky"][$kolotoc];
 $url_img = $absolutni_cesta_objednavky."/".$nazev_fotky;

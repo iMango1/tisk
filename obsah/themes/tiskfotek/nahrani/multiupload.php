@@ -5,13 +5,12 @@
  */
 
 get_header();
-/*
+
 $url = $_SERVER["SERVER_NAME"];
 $url_roz = explode(".", $url);
 
-$_NAZEV_WEBU = $url_roz[1];
-*/
-$_NAZEV_WEBU = "skakaciatrakce";
+$_NAZEV_WEBU = $url_roz[1] . '.' . $url_roz[2];
+
 ?>
 
 <div id="sticky-anchor-kroky"></div>
@@ -135,7 +134,7 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
 
         <div id="sticky-anchor-tlacitka"></div>
 
-    <form id="fileupload" action="https://www.<?php echo $_NAZEV_WEBU; ?>.cz/nastaveni-fotografii" method="POST" enctype="multipart/form-data">
+    <form id="fileupload" action="https://www.<?php echo $_NAZEV_WEBU; ?>/nastaveni-fotografii" method="POST" enctype="multipart/form-data">
         <div class="row fileupload-buttonbar">
             <div class="col-lg-12">
                 <!-- The fileinput-button span is used to style the file input field as button -->
@@ -232,7 +231,7 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
                     </td>
                     <td>
                         <button class="btn btn-danger delete" data-type="DELETE"
-                                data-url="http://www.<?php echo $_NAZEV_WEBU; ?>.cz/obsah/themes/tiskfotek/nahrani/server/php/index.php?file=<?php echo $jen_foto[1]; ?>">
+                                data-url="http://www.<?php echo $_NAZEV_WEBU; ?>/obsah/themes/tiskfotek/nahrani/server/php/index.php?file=<?php echo $jen_foto[1]; ?>">
                             <i class="glyphicon glyphicon-trash"></i>
                             <span>Vymazat</span>
                         </button>
@@ -318,11 +317,11 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
 
 $id_objednavky = $_COOKIE["id_objednavky"];
 
-$absolutni_cesta_objednavky = "/home/web/$_NAZEV_WEBU.cz/objednavky/$id_objednavky";
-$absolutni_cesta_objednavky_thumb = "/home/web/$_NAZEV_WEBU.cz/objednavky/$id_objednavky/thumbnail";
+$absolutni_cesta_objednavky = "/home/web/$_NAZEV_WEBU/objednavky/$id_objednavky";
+$absolutni_cesta_objednavky_thumb = "/home/web/$_NAZEV_WEBU/objednavky/$id_objednavky/thumbnail";
 
-$absolutni_cesta_tmp = "/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/tmp-objednavky/$id_objednavky";
-$absolutni_cesta_tmp_thumb = "/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/tmp-objednavky/$id_objednavky/thumbnail";
+$absolutni_cesta_tmp = "/home/web/$_NAZEV_WEBU/www/obsah/themes/tiskfotek/nahrani/server/php/tmp-objednavky/$id_objednavky";
+$absolutni_cesta_tmp_thumb = "/home/web/$_NAZEV_WEBU/www/obsah/themes/tiskfotek/nahrani/server/php/tmp-objednavky/$id_objednavky/thumbnail";
 
 if (!is_dir($absolutni_cesta_objednavky)) {
     mkdir($absolutni_cesta_objednavky, 0777);

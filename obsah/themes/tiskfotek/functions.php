@@ -52,7 +52,7 @@ function nastavit_cookie_nove_objednavky()
 
     $currentURL = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
-    if( $currentURL == 'www.skakaciatrakce.cz/potvrzeni/' ) {
+    if( $currentURL == 'www.skakaciatrakce.cz/potvrzeni/' || $currentURL == 'www.tiskfotek.eu/potvrzeni/') {
         setcookie("id_objednavky", $id_objednavky, time() - 300, '/');
 
     }

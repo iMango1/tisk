@@ -15,7 +15,7 @@ global $_NAZEV_WEBU;
 
 $url = $_SERVER["SERVER_NAME"];
 $url_roz = explode(".", $url);
-$_NAZEV_WEBU = $url_roz[1];
+$_NAZEV_WEBU = $url_roz[1] . '.' . $url_roz[2];
 
 
 $diakritika = array(
@@ -56,11 +56,11 @@ date_default_timezone_set('Europe/Prague');
 
 $id_objednavky = $_COOKIE["id_objednavky"];
 
-$absolutni_cesta_objednavky = "/home/web/$_NAZEV_WEBU.cz/objednavky/$id_objednavky";
-$absolutni_cesta_objednavky_thumb = "/home/web/$_NAZEV_WEBU.cz/objednavky/$id_objednavky/thumbnail";
+$absolutni_cesta_objednavky = "/home/web/$_NAZEV_WEBU/objednavky/$id_objednavky";
+$absolutni_cesta_objednavky_thumb = "/home/web/$_NAZEV_WEBU/objednavky/$id_objednavky/thumbnail";
 
-$absolutni_cesta_tmp = "/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/tmp-objednavky/$id_objednavky";
-$absolutni_cesta_tmp_thumb = "/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/tmp-objednavky/$id_objednavky/thumbnail";
+$absolutni_cesta_tmp = "/home/web/$_NAZEV_WEBU/www/obsah/themes/tiskfotek/nahrani/server/php/tmp-objednavky/$id_objednavky";
+$absolutni_cesta_tmp_thumb = "/home/web/$_NAZEV_WEBU/www/obsah/themes/tiskfotek/nahrani/server/php/tmp-objednavky/$id_objednavky/thumbnail";
 
 if (!is_dir($absolutni_cesta_objednavky)) {
     mkdir($absolutni_cesta_objednavky, 0777);
@@ -146,8 +146,7 @@ jQuery(document).ready(function(){
 <div class="section sm-padding" id="nastaveni-fotek">
 	<div class="container">
         <div id="sticky-anchor"></div>
-        
-        
+
         <div class="kroky-nastaveni-blok">
             <div class="kroky_blok">
 		    <div class="krok jedna_upload aktivni"><a href="../../upload-fotografii"><span class="cislo">1</span> Upload fotografií</a></div>
@@ -156,7 +155,7 @@ jQuery(document).ready(function(){
             <div class="krok dva_upload nepristupne"><a><span class="cislo">4</span> Fakturační údaje</a></div>
             <div class="krok dva_upload nepristupne"><a><span class="cislo">5</span> Dokončení objednávky</a></div>
         </div>
-            
+
             <div class="nastavit-celkem">
                 <h3>Hromadné nastavení parametrů všech fotografií</h3>
                 <div class="col-md-2 format">
@@ -195,7 +194,7 @@ jQuery(document).ready(function(){
                     <i class="fa fa-times"></i>
                     </div>
                 </div>
-                <div class="col-md-2 vyber-fotopapiru">                   
+                <div class="col-md-2 vyber-fotopapiru">
                     <select class="addon addon-select chosen-select addon-3032-vyber-fotopapiru" name="addon-3032-vyber-fotopapiru" style="display: none;">
     					<option value="">Výběr fotopapíru</option>
 		                <option data-price="116" value="mat-enhanced-mate-1">MAT – Enhanced Mate</option>
@@ -208,14 +207,14 @@ jQuery(document).ready(function(){
                         <option data-price="135" value="lesk-premium-luster-8">LESK – Premium Luster</option>
                         <option data-price="154" value="lesk-smooth-gloss-9">LESK – Smooth Gloss</option>
                         <option data-price="250" value="pouze-platno-lesk-satin-canvas-10">POUZE PLÁTNO – LESK Satin canvas</option>
-                        <option data-price="250" value="pouze-platno-mat-exclusive-bez-ramu-11">POUZE PLÁTNO – MAT Exclusive – bez rámu</option>          		
+                        <option data-price="250" value="pouze-platno-mat-exclusive-bez-ramu-11">POUZE PLÁTNO – MAT Exclusive – bez rámu</option>
 	                </select>
                 </div>
                 <div class="col-md-2">
                    <div class="material">
                     <select class="addon addon-select chosen-select addon-3032-material" name="addon-3032-material" style="display: none;">
-		    			<option value="">Materiál</option>    
-		                <option data-price="" value="leskly-fotopapir-1">Lesklý fotopapír</option>                		
+		    			<option value="">Materiál</option>
+		                <option data-price="" value="leskly-fotopapir-1">Lesklý fotopapír</option>
 	                </select>
                   </div>
                   <div class="velikost-fotoobrazu">
@@ -244,7 +243,7 @@ jQuery(document).ready(function(){
                         <option data-price="" value="mat-matte-real-8">MAT – Matte REAL</option>
                         <option data-price="" value="mat-velvet-fine-art-9">MAT – Velvet FINE ART</option>
                         <option data-price="" value="pouze-platno-lesk-satin-canvas-10">POUZE PLÁTNO – LESK SATIN CANVAS</option>
-                        <option data-price="" value="pouze-platno-mat-exclusive-bez-ramu-11">POUZE PLÁTNO – MAT EXCLUSIVE – bez rámu</option>          		
+                        <option data-price="" value="pouze-platno-mat-exclusive-bez-ramu-11">POUZE PLÁTNO – MAT EXCLUSIVE – bez rámu</option>
 	               </select>
                </div>
                 </div>
@@ -253,14 +252,14 @@ jQuery(document).ready(function(){
 					    <option value="">Nalepit na desku?</option>
                         <option data-price="27.17" value="deska-rayboard-5mm-1">Deska Rayboard 5mm</option>
                         <option data-price="39.2" value="deska-rayboard-10mm-2">Deska Rayboard 10mm</option>
-                        <option data-price="" value="zadna-deska-3">Žádná deska</option>        		
+                        <option data-price="" value="zadna-deska-3">Žádná deska</option>
 	                </select>
                 </div>
                 <div class="col-md-2 typ">
                     <select class="addon addon-select chosen-select addon-3032-typ" name="addon-3032-typ" style="display: none;">
 					    <option value="">Typ</option>
                         <option data-price="" value="orez-1">Ořez</option>
-                        <option data-price="" value="plny-format-2">Plný formát</option>        		
+                        <option data-price="" value="plny-format-2">Plný formát</option>
 	                </select>
                 </div>
                 <div class="col-md-2 potvrzeni">
@@ -269,12 +268,12 @@ jQuery(document).ready(function(){
             </div>
         </div>
  <script>
-     
-jQuery( document ).ready(function() {  
-    
+
+jQuery( document ).ready(function() {
+
     jQuery(".nastavit-celkem .product-addon-format").show();
-    jQuery(".nastavit-celkem .product-addon-vlastni-format").hide();  
-    
+    jQuery(".nastavit-celkem .product-addon-vlastni-format").hide();
+
     jQuery('.nastavit-celkem .format select').change(function() {
         var selected = jQuery(this).val();
         //PŘI VÝBĚRU VLASNTÍHO FORMÁTU
@@ -286,7 +285,7 @@ jQuery( document ).ready(function() {
             jQuery(".nastavit-celkem .product-addon-vlastni-format input").attr("placeholder", "Napište zde rozměr v cm");
             jQuery(".nastavit-celkem .product-addon-vlastni-format").show();
             jQuery(".nastavit-celkem .product-addon-vlastni-format").append('<i class="fa fa-times"></i>');
-            
+
             //PO KLIKNUTÍ NA KŘÍŽEK
             jQuery(".nastavit-celkem .product-addon-vlastni-format .fa").click(function(){
                 //ZOBRAZENÍ FORMÁTU A SKRYTÍ VLASTNÍHO
@@ -296,8 +295,8 @@ jQuery( document ).ready(function() {
                 jQuery('.addon-wrap-3032-format .select-fotka-<?php echo $kolotoc; ?>').trigger("chosen:updated");
                 //VYMAZÁNÍ INPUTU
                 jQuery(".nastavit-celkem .product-addon-vlastni-format input").val("");
-                
-                
+
+
                 jQuery('.nastavit-celkem .velikost-fotoobrazu select').prop('selectedIndex',0);
                 jQuery('.nastavit-celkem .vyber-fotopapiru select').prop('selectedIndex',0);
                 //UPDATE RESETOVANÝCH INPUTjQuery('.nastavit-celkem .velikost-fotoobrazu select').trigger("chosen:updated");
@@ -315,7 +314,7 @@ jQuery( document ).ready(function() {
             });
         }
     });
-    
+
     //POČTY
     jQuery('.nastavit-celkem .product-addon-vlastni-format input').focusout(function() {
 
@@ -353,7 +352,7 @@ jQuery( document ).ready(function() {
             jQuery(".nastavit-celkem .material select").trigger("chosen:updated");
             //NASTAVENÍ POMLČEK PŘI NEVYPLNĚNÍ
             jQuery(".nastavit-celkem .nalepit-na-desku select").val("zadna-deska-3");
-            jQuery('.nastavit-celkem .nalepit-na-desku select').trigger("chosen:updated");        
+            jQuery('.nastavit-celkem .nalepit-na-desku select').trigger("chosen:updated");
         }
         if(typ == "velke"){
             //RESET ZADANÝCH HODNOT
@@ -378,13 +377,13 @@ jQuery( document ).ready(function() {
 });
 </script>
 <script>
-jQuery( document ).ready(function() {   
+jQuery( document ).ready(function() {
     var vysledek = "",predchozi = "";
     var celkovy_pocet = <?php echo $_SESSION["pocet_fotek"]; ?>;
     var mezipocet = 0, vys = 0;
 <?php for($i = 0; $i < $_SESSION["pocet_fotek"]; $i++){ ?>
-   
-    
+
+
     jQuery('.product-addon-format .fotka-<?php echo $i;?> select').change(function() {
         var selected = jQuery(':selected', this);
         var vybrano = jQuery(this).val();
@@ -399,7 +398,7 @@ jQuery( document ).ready(function() {
 
         }
         else if(vysledek == "Ostatní"){
-            
+
         }
         //nic není zakliknuto
         else {
@@ -424,7 +423,7 @@ jQuery( document ).ready(function() {
      });
     // console.log(mezipocet);
 <?php } ?>
-    
+
     jQuery('select').change(function() {
         if(mezipocet >= celkovy_pocet)
             jQuery(".pokracovat").removeClass("disabled");
@@ -487,26 +486,26 @@ jQuery( document ).ready(function() {
  <div class="footer-uploader row">
      <div class="col-md-6">
          <p>Digitální fotosběrna</p>
-     </div>   
+     </div>
      <div class="col-md-6">
          <p class="pull-right">Multiuploader 1.0.3</p>
-     </div>    
+     </div>
 </div>
 
-           <?php 
+           <?php
         global $woocommerce;
-        $kosik = $woocommerce->cart; 
+        $kosik = $woocommerce->cart;
         reset($kosik->cart_contents);
         $prvni = key($kosik->cart_contents);
         $k_vymazani = explode("kosik/",$kosik->get_remove_url($prvni));
-        
+
         $jednotlive =  explode("=",$k_vymazani[1]);
-        
+
         $id_item_pole = explode("&",$jednotlive[1]);
         $id_item = $id_item_pole[0];
-        
+
         $wpnonce = $jednotlive[2];
-               
+
         ?>
   <script src="https://malsup.github.io/min/jquery.form.min.js"></script>
         <script>
@@ -542,10 +541,10 @@ jQuery( document ).ready(function() {
                             <?php if($_SESSION["pridano"] == 1){ ?>
                             $.get("?remove_item=<?php echo $id_item;?>&_wpnonce=<?php echo $wpnonce;?>", function() {
                                 console.log("ODSTRANĚNO ->");
-                                location.href = 'http://www.<?php echo $_NAZEV_WEBU; ?>.cz/kosik';
+                                location.href = 'http://www.<?php echo $_NAZEV_WEBU; ?>/kosik';
                             });
                             <?php }else{ ?>
-                            location.href = 'http://www.<?php echo $_NAZEV_WEBU; ?>.cz/kosik';
+                            location.href = 'http://www.<?php echo $_NAZEV_WEBU; ?>/kosik';
                             <?php } ?>
                         }
                     }

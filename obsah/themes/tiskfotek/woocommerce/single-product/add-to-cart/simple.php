@@ -31,120 +31,124 @@ if(!function_exists("dalsi_klic")) {
 }
 ?>
 
-    <script>
-        jQuery( document ).ready(function() {
+<script>
+	jQuery( document ).ready(function() {
+
+		var zakladni_cena = 0;
+		var nova_cena = 0;
+		var cena_bez_mnozstvi = 0;
+		var cena_s_mnozstvim = 0;
+		var celkem = 0.00;
+		var cena_za_desku;
+		var pusa = 0;
+
+		//PŘI ZMĚNĚ SELECTU
+		jQuery(document).on("change", ".select-fotka-<?php echo $kolotoc; ?>", function(){
+
+			if(pusa == 1){
+				var fotoobraz = jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select").val();
+				if(fotoobraz != ""){
+					var fotoobraz_cena = jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select option:selected").data("price");
+
+					nova_cena = fotoobraz_cena;
+
+					jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
+					jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
+					jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-cena_bez_mn",(parseFloat(nova_cena)).toFixed(2));
+				}
+			}
 
 
-            var zakladni_cena = 0;
-            var nova_cena = 0;
-            var cena_bez_mnozstvi = 0;
-            var cena_s_mnozstvim = 0;
-            var celkem = 0.00;
-            var cena_za_desku;
-            var pusa = 0;
+			if(pusa == 0){
+				nova_cena = 0;
+				var vybr, deska, format, format_label;
 
-            //PŘI ZMĚNĚ SELECTU
-            //jQuery(".select-fotka-<?php echo $kolotoc; ?>").change(function() {
-            jQuery(document).on("change", ".select-fotka-<?php echo $kolotoc; ?>", function(){
-                //pusa = 1;
-                // console.log("pizzerino");
-                if(pusa == 1){
+				deska = jQuery('#fotka-<?php echo $kolotoc; ?> .product-addon-nalepit-na-desku select option:selected').val();
+
+				jQuery('.select-fotka-<?php echo $kolotoc; ?> option:selected').each(function() {
 
 
-                    var fotoobraz = jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select").val();
-                    if(fotoobraz != ""){
-                        var fotoobraz_cena = jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select option:selected").data("price");
+					format = jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select").val();
+					var fotoobraz = jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select").val();
+					var fotoobraz_cena = jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select option:selected").data("price");
 
-                        nova_cena = fotoobraz_cena;
+					var format_vybr = jQuery(this);
 
-                        jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
-                        jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
-                        jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-cena_bez_mn",(parseFloat(nova_cena)).toFixed(2));
-                    }
-                }
+					format_label = format_vybr.parent().attr('label');
+					if(format_label == "Fotografie" || format_label == "Obraz na plátně" || fotoobraz != "") {
 
+						jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru select').prop('selectedIndex',0);
 
-                if(pusa == 0){
-                    /* zak        console.log("pusa: " + pusa); */
-                    //  nova_cena = zakladni_cena;
-                    nova_cena = 0;
-                    var vybr, deska, format, format_label;
+						if (jQuery(this).data('price') == null || jQuery(this).data('price') == 'undefined') {
+							nova_cena = nova_cena;
+							if (fotoobraz_cena != "") {
+								nova_cena = fotoobraz_cena;
 
-                    deska = jQuery('#fotka-<?php echo $kolotoc; ?> .product-addon-nalepit-na-desku select option:selected').val();
-                    /* zak console.log("deskoid: " + deska); */
+							}
+						}
+						else if (!(jQuery(this).data('price'))) {
+							nova_cena = nova_cena;
+							if (fotoobraz_cena != "") {
+								nova_cena = fotoobraz_cena;
 
+								jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(
+									(parseFloat(nova_cena)).toFixed(2));
+								jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",
+									(parseFloat(nova_cena)).toFixed(2));
+								jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-cena_bez_mn",
+									(parseFloat(nova_cena)).toFixed(2));
+							}
 
+						}
+						else {
+							var dataPrice = jQuery(this).data('price');
+							if (dataPrice == 'undefined' || dataPrice == null || dataPrice == '') {
+								dataPrice = 0;
+							}
+							nova_cena += dataPrice;
+							cena_bez_mnozstvi = nova_cena;
+							var deska = jQuery(
+								'.addon-wrap-3032-nalepit-na-desku .select-fotka-<?php echo $kolotoc; ?>').val();
+							if (deska == "zadna-deska-3") {
+								nova_cena = cena_bez_mnozstvi * jQuery(
+										"#formular-<?php echo $kolotoc; ?> .items-num").val();
 
-                    jQuery('.select-fotka-<?php echo $kolotoc; ?> option:selected').each(function() {
+								jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
+								jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",
+									nova_cena.toFixed(2));
+								jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-cena_bez_mn",
+									(parseFloat(nova_cena)).toFixed(2));
+							}
 
+						}
+					} else {
+						var dataPrice = jQuery(this).data('price');
+						if (dataPrice == 'undefined' || dataPrice == null || dataPrice == '') {
+							dataPrice = 0;
+						}
+						nova_cena += dataPrice;
+						cena_bez_mnozstvi = nova_cena;
+						var deska = jQuery(
+							'.addon-wrap-3032-nalepit-na-desku .select-fotka-<?php echo $kolotoc; ?>').val();
+						if (deska == "zadna-deska-3") {
+							nova_cena = cena_bez_mnozstvi * jQuery(
+									"#formular-<?php echo $kolotoc; ?> .items-num").val();
 
+							jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
+							jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",
+								nova_cena.toFixed(2));
+							jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-cena_bez_mn",
+								(parseFloat(nova_cena)).toFixed(2));
+						}
+					}
 
-                        format = jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-format select").val();
+				});
 
-                        var fotoobraz = jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select").val();
-                        var fotoobraz_cena = jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-velikost-fotoobrazu select option:selected").data("price");
-
-                        var format_vybr = jQuery(this);
-
-
-
-                        format_label = format_vybr.parent().attr('label');
-
-                        //      console.log("čapkoid: "+format+" asd: "+format_label);
-
-                        if(format_label == "Fotografie" || format_label == "Obraz na plátně" || fotoobraz != ""){
-
-//console.error(jQuery(this).data("price"));
-                            jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru select').prop('selectedIndex',0);
-
-
-                            if( jQuery(this).data('price') == null ){
-                                nova_cena = nova_cena;
-                                if(fotoobraz_cena != ""){
-                                    nova_cena = fotoobraz_cena;
-
-                                }
-                            }
-                            else if (!(jQuery(this).data('price'))){
-                                //     console.log("<?php echo $kolotoc; ?> - money on my mind: " + fotoobraz_cena + ", " + fotoobraz);
-                                nova_cena = nova_cena;
-                                if(fotoobraz_cena != ""){
-                                    nova_cena = fotoobraz_cena;
-
-                                    /*     alert(fotoobraz);*/
-                                    jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html((parseFloat(nova_cena)).toFixed(2));
-                                    jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",(parseFloat(nova_cena)).toFixed(2));
-                                    jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-cena_bez_mn",(parseFloat(nova_cena)).toFixed(2));
-                                    //   console.log("stoInt(elect): "+nova_cena+", "+" parseint: "+ parseInt(nova_cena));
-                                }
-
-                            }
-                            else{
-                                //   alert("popokatepetl"+nova_cena);
-                                nova_cena += jQuery(this).data('price');
-                                cena_bez_mnozstvi = nova_cena;
-                                var deska = jQuery('.addon-wrap-3032-nalepit-na-desku .select-fotka-<?php echo $kolotoc; ?>').val();
-                                if(deska == "zadna-deska-3"){
-                                    nova_cena = cena_bez_mnozstvi * jQuery("#formular-<?php echo $kolotoc; ?> .items-num").val();
-
-                                    jQuery('.cena-fotka-<?php echo $kolotoc; ?> span').html(nova_cena.toFixed(2));
-                                    jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-soucasna-cena",nova_cena.toFixed(2));
-                                    jQuery('.cena-fotka-<?php echo $kolotoc; ?>').attr("data-cena_bez_mn",(parseFloat(nova_cena)).toFixed(2));
-                                    /* zak            console.log("select: "+nova_cena+", "+format_label + ", deska: " + deska);   */
-                                }
-
-                            }
-                            //    console.log("excuse me: " + nova_cena);
-                        }
-
-                    });
-
-                }
-            });
+			}
+		});
 
             jQuery(document).on("click", ".form-row.fotka-<?php echo $kolotoc; ?>", function(){
                 pusa = 0;
-                //console.log("pusa: " + pusa);
             });
 
 

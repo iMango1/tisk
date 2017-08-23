@@ -82,12 +82,12 @@ else
                     //nazev webu
                     $url = $_SERVER["SERVER_NAME"];
                     $url_roz = explode(".", $url);
-                    $_NAZEV_WEBU = $url_roz[1];
+                    $_NAZEV_WEBU = $url_roz[1] . '.' . $url_roz[2];
                     
                     
-                    $cele_url_fotky = "https://objednavky.$_NAZEV_WEBU.cz/".$_COOKIE["id_objednavky"]."/$pojmenovani";
+                    $cele_url_fotky = "https://objednavky.$_NAZEV_WEBU/".$_COOKIE["id_objednavky"]."/$pojmenovani";
                     
-                    rename("/home/web/$_NAZEV_WEBU.cz/objednavky/".$_COOKIE["id_objednavky"]."/".$_POST["nazev_f"], "/home/web/$_NAZEV_WEBU.cz/objednavky/".$_COOKIE["id_objednavky"]."/".$pojmenovani);
+                    rename("/home/web/$_NAZEV_WEBU/objednavky/".$_COOKIE["id_objednavky"]."/".$_POST["nazev_f"], "/home/web/$_NAZEV_WEBU/objednavky/".$_COOKIE["id_objednavky"]."/".$pojmenovani);
                     
 					$cart_item_data[] = array( //přidané i
 						'name' 		=> "Fotky",
@@ -126,7 +126,7 @@ else
          //nazev webu
                     $url = $_SERVER["SERVER_NAME"];
                     $url_roz = explode(".", $url);
-                    $_NAZEV_WEBU = $url_roz[1];
+                    $_NAZEV_WEBU = $url_roz[1] . '.' . $url_roz[2];
                     
         
         $id_zak = get_current_user_id();

@@ -34,7 +34,7 @@
     $nazev_slozky = $_COOKIE["id_objednavky"];
     $nazev_fotky = $_SESSION["fotky"][$kolotoc];
 
-    $url_min = "http://objednavky.$_NAZEV_WEBU.cz/$nazev_slozky/thumbnail/$nazev_fotky";
+    $url_min = "http://objednavky.$_NAZEV_WEBU/$nazev_slozky/thumbnail/$nazev_fotky";
 
 
     $fotka_kousek_url[$kolotoc] = explode("objednavky/", $url_img);

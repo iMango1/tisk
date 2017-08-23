@@ -12,7 +12,7 @@ global $vsechny_nahrane_fotky;
 global $objednavka_id;
 $url = $_SERVER["SERVER_NAME"];
 $url_roz = explode(".", $url);
-$_NAZEV_WEBU = $url_roz[1];
+$_NAZEV_WEBU = $url_roz[1] . '.' . $url_roz[2];
 
 
 
@@ -60,7 +60,7 @@ if(get_current_user_id() == "0"){
     $rand_id_uzivatele = rand(1000,99999);
 
     
-    $slozky = scandir("/home/web/$_NAZEV_WEBU.cz/objednavky");
+    $slozky = scandir("/home/web/$_NAZEV_WEBU/objednavky");
     foreach($slozky as $slozka){
         while (strpos($slozka,$rand_id_uzivatele."---") !== false) {
             $rand_id_uzivatele = rand(1000,99999);
@@ -78,7 +78,7 @@ else {
 $_SESSION["nazev_slozky"] = $objednavka_id;
 $_SESSION["status"] = 1;
 
-mkdir("/home/web/$_NAZEV_WEBU.cz/objednavky/$objednavka_id", 0777);
+mkdir("/home/web/$_NAZEV_WEBU/objednavky/$objednavka_id", 0777);
 
     foreach ($fotky_pred_kop as $i => $fotka_pred_kop) {
         $fotka_kousek_url[$i] = explode("|/", $fotka_pred_kop);
@@ -93,13 +93,13 @@ $fotky = array();
         $bez_diakritiky = strtr( $s_dia, $diakritika );
         $fotka_nazev_pred_kop = $bez_diakritiky;
         
-        $stare_jmeno = "/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/$s_dia";
-        $nove_jmeno = "/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/$bez_diakritiky";
+        $stare_jmeno = "/home/web/$_NAZEV_WEBU/www/obsah/themes/tiskfotek/nahrani/server/php/files|/$s_dia";
+        $nove_jmeno = "/home/web/$_NAZEV_WEBU/www/obsah/themes/tiskfotek/nahrani/server/php/files|/$bez_diakritiky";
         
         rename($stare_jmeno,$nove_jmeno);
         
-        $co = "http://www.$_NAZEV_WEBU.cz/obsah/themes/tiskfotek/nahrani/server/php/files|/$fotka_nazev_pred_kop";
-        $kam = "/home/web/$_NAZEV_WEBU.cz/objednavky/$objednavka_id/$fotka_nazev_pred_kop";
+        $co = "http://www.$_NAZEV_WEBU/obsah/themes/tiskfotek/nahrani/server/php/files|/$fotka_nazev_pred_kop";
+        $kam = "/home/web/$_NAZEV_WEBU/objednavky/$objednavka_id/$fotka_nazev_pred_kop";
         copy($co,$kam);  
 
         $fotky[$kolotoc] = $kam;
@@ -556,10 +556,10 @@ jQuery( document ).ready(function() {
                             <?php if($_SESSION["pridano"] == 1){ ?>
                                 $.get("?remove_item=<?php echo $id_item;?>&_wpnonce=<?php echo $wpnonce;?>", function() {
                                     console.log("ODSTRANĚNO ->");
-                                    location.href = 'http://www.<?php echo $_NAZEV_WEBU; ?>.cz/kosik'; 
+                                    location.href = 'http://www.<?php echo $_NAZEV_WEBU; ?>/kosik'; 
                                 });
                             <?php }else{ ?>
-                                location.href = 'http://www.<?php echo $_NAZEV_WEBU; ?>.cz/kosik'; 
+                                location.href = 'http://www.<?php echo $_NAZEV_WEBU; ?>/kosik'; 
                             <?php } ?>
                         }   
                 }
