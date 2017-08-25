@@ -40,25 +40,25 @@ class Product_Addon_Field_File_Upload extends Product_Addon_Field {
                 $fotka_kousek_url[$i] = explode("---", $fotka);
                 $fotka_plus_id_objednavky[$i] = $fotka_kousek_url[$i][1];
                 $fotky_nazev[$i] = substr($fotka_kousek_url[$i][1],20,strlen($fotka_kousek_url[$i][1]));
-              
+
             }
 
-                
+
 			if (! empty( $fotky_nazev )) {
                 $upload = array();
-                
-                
+
+
                 foreach ($fotky_nazev as $i => $fotka_nazev)
                     $upload = $this->handle_upload($fotka_nazev);
-                
+
             //    foreach($fotky as $i => $fotka) // přidané
 				if ( empty( $upload['error'] ) && ! empty( $upload ) ) {
-                    
+
 					$value  = $upload;
-                 
+
                     $originalni_nazev = $fotka_nazev;
-                    
-                 
+
+
                     $format = $_POST["addon-3032-format"];
                     $fotopapir = $_POST["addon-3032-vyber-fotopapiru"];
                     $material = $_POST["addon-3032-material"];
@@ -66,29 +66,29 @@ class Product_Addon_Field_File_Upload extends Product_Addon_Field {
                     $deska = $_POST["addon-3032-nalepit-na-desku"];
                     $typ = $_POST["addon-3032-typ"];
                     $pocet = $_POST["quantity"];
-                    
+
                 $format_kousek = explode("-", $format);
                 $deska_kousek = explode("-", $deska);
                 $fotoobraz_kousek = explode("-", $velikost_fotoobrazu);
-                
+
                 $deska_bez_cisla = $deska_kousek[0]."-".$deska_kousek[1]."-".$deska_kousek[2];
                 $fotoobraz_bez_cisla = $fotoobraz_kousek[0]."-".$fotoobraz_kousek[1]."-".$fotoobraz_kousek[2]."-".$fotoobraz_kousek[3]."-".$fotoobraz_kousek[4]."-".$fotoobraz_kousek[5]."-".$fotoobraz_kousek[6];
-                    
+
 if($format_kousek[0] == "fotoobraz")
     $pojmenovani = $format_kousek[0]."__".$pocet."ks__".$fotoobraz_bez_cisla."__".$_POST["nazev_f"];
 else
-    $pojmenovani = $format_kousek[0]."__".$pocet."ks__".$deska_bez_cisla."__".$_POST["nazev_f"];              
-                    
+    $pojmenovani = $format_kousek[0]."__".$pocet."ks__".$deska_bez_cisla."__".$_POST["nazev_f"];
+
                     //nazev webu
                     $url = $_SERVER["SERVER_NAME"];
                     $url_roz = explode(".", $url);
                     $_NAZEV_WEBU = $url_roz[1] . '.' . $url_roz[2];
-                    
-                    
-                    $cele_url_fotky = "https://objednavky.$_NAZEV_WEBU/".$_COOKIE["id_objednavky"]."/$pojmenovani";
-                    
+
+
+                    $cele_url_fotky = "http://objednavky.$_NAZEV_WEBU/".$_COOKIE["id_objednavky"]."/$pojmenovani";
+
                     rename("/home/web/$_NAZEV_WEBU/objednavky/".$_COOKIE["id_objednavky"]."/".$_POST["nazev_f"], "/home/web/$_NAZEV_WEBU/objednavky/".$_COOKIE["id_objednavky"]."/".$pojmenovani);
-                    
+
 					$cart_item_data[] = array( //přidané i
 						'name' 		=> "Fotky",
 						'value'		=> $cele_url_fotky,
@@ -111,10 +111,10 @@ else
 		return $cart_item_data;
 	}
 
-    
+
     public function handle_upload( $file ) {
         global $woocommerce, $muj_post;
-        
+
 		include_once( ABSPATH . 'wp-admin/includes/file.php' );
 		include_once( ABSPATH . 'wp-admin/includes/media.php' );
 
@@ -127,15 +127,15 @@ else
                     $url = $_SERVER["SERVER_NAME"];
                     $url_roz = explode(".", $url);
                     $_NAZEV_WEBU = $url_roz[1] . '.' . $url_roz[2];
-                    
-        
+
+
         $id_zak = get_current_user_id();
 
         //KOMENTÁŘ     mkdir("/home/web/$_NAZEV_WEBU.cz/objednavky/$id_objednavky", 0777);
 
         //KOMENTÁŘ     if (!file_exists('/home/web/$_NAZEV_WEBU.cz/www/obsah/uploads/product_addons_uploads/'.$id_zak))
             //KOMENTÁŘ         mkdir("/home/web/$_NAZEV_WEBU.cz/www/obsah/uploads/product_addons_uploads/$id_zak", 0777);
-        
+
     //KOMENTÁŘ    $co = "http://www.$_NAZEV_WEBU.cz/obsah/themes/tiskfotek/nahrani/server/php/files|$file";
     //    $co = "/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/$file";
         //KOMENTÁŘ    $kam = "/home/web/$_NAZEV_WEBU.cz/www/obsah/uploads/product_addons_uploads/$id_zak/$file";
@@ -143,24 +143,24 @@ else
 
 
         //KOMENTÁŘ    $upload = copy($co,$kam);
-	
+
         //	remove_filter( 'upload_dir',  array( $this, 'upload_dir' ) );
-        
+
         //KOMENTÁŘ unlink("/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/$file");
-    //    unlink("/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/thumbnail/$file");        
-        
+    //    unlink("/home/web/$_NAZEV_WEBU.cz/www/obsah/themes/tiskfotek/nahrani/server/php/files|/thumbnail/$file");
+
 		return true;
 	}
     /*
     public function get_cart_item_data() {
 		$cart_item_data           = array();
-		
+
 		foreach ( $this->addon['options'] as $option ) {
 
 			$field_name = $this->get_field_name() . '-' . sanitize_title( $option['label'] );
-                
+
 			if ( ! empty( $_FILES[ $field_name ] ) && ! empty( $_FILES[ $field_name ]['name'] ) ) {
-                
+
 				//$upload = $this->handle_upload( $_FILES[ $field_name ] );
                 echo $_POST[ $field_name ] );
                 $upload = $this->handle_upload( $_POST[ $field_name ] );
@@ -188,21 +188,21 @@ else
 
 		return $cart_item_data;
 	}
-    
+
     */
 
-    
-    
+
+
 	/**
 	 * Handle file upload
 	 * @param  string $file
 	 * @return array
 	 */
-    
-    
+
+
     /*
-    
-    
+
+
 	public function handle_upload( $file ) {
 		include_once( ABSPATH . 'wp-admin/includes/file.php' );
 		include_once( ABSPATH . 'wp-admin/includes/media.php' );
@@ -237,7 +237,7 @@ else
 			$pathdata['url']    = str_replace( $pathdata['subdir'], $subdir, $pathdata['url'] );
 			$pathdata['subdir'] = str_replace( $pathdata['subdir'], $subdir, $pathdata['subdir'] );
 		}
-		
+
 		return apply_filters( 'woocommerce_product_addons_upload_dir', $pathdata );
-	}	
+	}
 }

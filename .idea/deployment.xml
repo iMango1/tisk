@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="Tisk fotek">
+  <component name="PublishConfigData" autoUpload="Always" serverName="tiskfotek.eu">
     <serverData>
-      <paths name="Tisk fotek">
+      <paths name="skakaciatrakce">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/obsah" local="$PROJECT_DIR$/obsah" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="tiskfotek.eu">
         <serverdata>
           <mappings>
             <mapping deploy="/obsah" local="$PROJECT_DIR$/obsah" web="/" />

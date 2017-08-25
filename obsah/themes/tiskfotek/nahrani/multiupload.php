@@ -214,7 +214,7 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
                             <span class="preview">
                                
                                 <img
-                                    src="http://www.skakaciatrakce.cz/obsah/themes/tiskfotek/nahrani/server/php/tmp-objednavky/<?php echo $_COOKIE["id_objednavky"]; ?>/thumbnail/<?php echo $jen_foto[1]; ?>"
+                                    src="https://www.<?php echo $_NAZEV_WEBU; ?>/obsah/themes/tiskfotek/nahrani/server/php/tmp-objednavky/<?php echo $_COOKIE["id_objednavky"]; ?>/thumbnail/<?php echo $jen_foto[1]; ?>"
                                     style="max-width:100px; max-heihgt:100px">
 
                             </span>
@@ -231,7 +231,7 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
                     </td>
                     <td>
                         <button class="btn btn-danger delete" data-type="DELETE"
-                                data-url="http://www.<?php echo $_NAZEV_WEBU; ?>/obsah/themes/tiskfotek/nahrani/server/php/index.php?file=<?php echo $jen_foto[1]; ?>">
+                                data-url="https://www.<?php echo $_NAZEV_WEBU; ?>/obsah/themes/tiskfotek/nahrani/server/php/index.php?file=<?php echo $jen_foto[1]; ?>">
                             <i class="glyphicon glyphicon-trash"></i>
                             <span>Vymazat</span>
                         </button>
