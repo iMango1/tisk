@@ -6,19 +6,23 @@
  * 
  * This file is part of the WP-Members plugin by Chad Butler
  * You can find out more about this plugin at http://rocketgeek.com
- * Copyright (c) 2006-2016  Chad Butler
+ * Copyright (c) 2006-2017  Chad Butler
  * WP-Members(tm) is a trademark of butlerblog.com
  *
  * @package WordPress
  * @subpackage WP-Members
  * @author Chad Butler
- * @copyright 2006-2016
+ * @copyright 2006-2017
  *
  * Functions included:
  * - wpmem_a_build_captcha_options
  * - wpmem_update_captcha
  */
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit();
+}
 
 /**
  * Builds the captcha options.
@@ -52,7 +56,7 @@ function wpmem_a_build_captcha_options() {
 
 					<h3><?php _e( 'Manage reCAPTCHA Options', 'wp-members' ); ?></h3>
 					<div class="inside">
-						<form name="updatecaptchaform" id="updatecaptchaform" method="post" action="<?php echo $_SERVER['REQUEST_URI']?>">
+						<form name="updatecaptchaform" id="updatecaptchaform" method="post" action="<?php echo wpmem_admin_form_post_url(); ?>">
 						<?php wp_nonce_field( 'wpmem-update-captcha' ); ?>
 							<table class="form-table">
 							<?php // if reCAPTCHA is enabled...

@@ -6,18 +6,22 @@
  * 
  * This file is part of the WP-Members plugin by Chad Butler
  * You can find out more about this plugin at http://rocketgeek.com
- * Copyright (c) 2006-2016  Chad Butler
+ * Copyright (c) 2006-2017  Chad Butler
  * WP-Members(tm) is a trademark of butlerblog.com
  *
  * @package WP-Members
  * @author Chad Butler
- * @copyright 2006-2016
+ * @copyright 2006-2017
  *
  * Functions included:
  * - wpmem_a_build_emails
  * - wpmem_update_emails
  */
 
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit();
+}
 
 /**
  * Builds the emails panel.
@@ -42,7 +46,7 @@ function wpmem_a_build_emails() {
 						<?php _e( 'A list of shortcodes is available here.', 'wp-members' ); ?></a>
 						</p>
 						<hr />
-						<form name="updateemailform" id="updateemailform" method="post" action="<?php echo $_SERVER['REQUEST_URI']; ?>"> 
+						<form name="updateemailform" id="updateemailform" method="post" action="<?php echo wpmem_admin_form_post_url(); ?>"> 
 						<?php wp_nonce_field( 'wpmem-update-emails' ); ?>
 							<table class="form-table"> 
 								<tr valign="top"> 

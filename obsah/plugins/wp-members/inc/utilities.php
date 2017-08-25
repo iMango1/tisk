@@ -48,7 +48,7 @@ if ( ! function_exists( 'wpmem_create_formfield' ) ):
  * @param  string $class    Optional for setting a specific CSS class for the field.
  * @return string $str      The field returned as a string.
  */
-function wpmem_create_formfield( $name, $type, $value, $valtochk=null, $class='textbox' ) {
+function wpmem_create_formfield( $name, $type, $value, $valtochk=null, $class='textbox', $placeholder = "") {
 	global $wpmem;
 	$args = array(
 		'name'     => $name,
@@ -56,6 +56,7 @@ function wpmem_create_formfield( $name, $type, $value, $valtochk=null, $class='t
 		'value'    => $value,
 		'compare'  => $valtochk,
 		'class'    => $class,
+		'placeholder' => $placeholder
 	);
 	return $wpmem->forms->create_form_field( $args );
 }

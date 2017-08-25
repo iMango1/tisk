@@ -6,12 +6,12 @@
  * 
  * This file is part of the WP-Members plugin by Chad Butler
  * You can find out more about this plugin at http://rocketgeek.com
- * Copyright (c) 2006-2016  Chad Butler
+ * Copyright (c) 2006-2017  Chad Butler
  * WP-Members(tm) is a trademark of butlerblog.com
  *
  * @package WP-Members
  * @author Chad Butler
- * @copyright 2006-2016
+ * @copyright 2006-2017
  *
  * Functions included:
  * - wpmem_bulk_user_action
@@ -30,21 +30,10 @@
  * - wpmem_set_user_status
  */
 
-
-/**
- * Actions and filters
- */
-add_action( 'admin_footer-users.php', 'wpmem_bulk_user_action' );
-add_action( 'load-users.php', 'wpmem_users_page_load' );
-add_action( 'admin_notices', 'wpmem_users_admin_notices' );
-add_filter( 'views_users', 'wpmem_users_views' );
-add_filter( 'manage_users_columns', 'wpmem_add_user_column' );
-add_action( 'manage_users_custom_column', 'wpmem_add_user_column_content', 10, 3 );
-add_action( 'wpmem_post_register_data', 'wpmem_set_new_user_non_active' );
-add_action( 'wpmem_user_activated', 'wpmem_set_activated_user' );
-add_action( 'wpmem_user_deactivated', 'wpmem_set_deactivated_user' );
-add_filter( 'user_row_actions', 'wpmem_insert_activate_link', 10, 2 );
-
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit();
+}
 
 /**
  * Function to add activate/export to the bulk dropdown list.
@@ -222,7 +211,7 @@ function wpmem_users_admin_notices() {
 
 	global $pagenow, $user_action_msg;
 	 if( $pagenow == 'users.php' && isset( $_REQUEST['activated'] ) ) {
-		$message = $_REQUEST['activated'];
+		$message = esc_html( $_REQUEST['activated'] );
 		echo "<div class=\"updated\"><p>{$message}</p></div>";
 	}
 

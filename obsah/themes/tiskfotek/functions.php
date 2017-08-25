@@ -1023,7 +1023,7 @@ function wpmem_login_form( $page, $arr )
 	// build the input rows
 	foreach ( $inputs as $input ) {
 		$label = '<label for="' . $input['tag'] . '" class="col-sm-4 control-label">' . $input['name'] . '</label>';
-		$field = wpmem_create_formfield( $input['tag'], $input['type'], '', '', $input['class'], $input['name'] );
+		$field = wpmem_create_formfield( $input['tag'], $input['type'], '', '', $input['class'], $input['name'], $input['name']);
 		$field_before = ( $wrap_inputs ) ? '<div class="' . $input['div'] . '">' : '';
 		$field_after  = ( $wrap_inputs ) ? '</div>' : '';
 		$rows[] = array( 
@@ -1260,7 +1260,7 @@ function wpmem_inc_registration( $toggle = 'new', $heading = '' )
 	} else { 
 		// this is a new registration
 		$val   = ( isset( $_POST['log'] ) ) ? stripslashes( $_POST['log'] ) : '';
-		$label = '<label for="username" class="col-sm-4 control-label">' . __( 'Choose a Username', 'wp-members' ) . $req_mark . '</label>';
+		$label = '<label for="username" class="col-sm-4 control-label"">' . __( 'Choose a Username', 'wp-members' ) . $req_mark . '</label>';
 		$input = wpmem_create_formfield( 'log', 'text', $val, '', 'form-control', 'Uživatelské jméno*' );
 
 	}
