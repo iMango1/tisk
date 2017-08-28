@@ -45,7 +45,7 @@ class GopayConfig {
 			return "https://gate.gopay.cz/gw/pay-full-v2";
 			
 		} else {
-			return "https://testgw.gopay.cz/gw/pay-full-v2";
+			return "https://gw.sandbox.gopay.com/gw/pay-full-v2";
 			
 		}
 	}
@@ -61,7 +61,7 @@ class GopayConfig {
 			return "https://gate.gopay.cz/axis/EPaymentServiceV2?wsdl";		
 			
 		} else {
-			return "https://testgw.gopay.cz/axis/EPaymentServiceV2?wsdl";	
+			return "https://gw.sandbox.gopay.com/axis/EPaymentServiceV2?wsdl";	
 			
 		}
 	}		
@@ -78,7 +78,7 @@ class GopayConfig {
 			return "https://gate.gopay.cz/gw/pay-base-v2";
 			
 		} else {
-			return "https://testgw.gopay.cz/gw/pay-base-v2";
+			return "https://gw.sandbox.gopay.com/gw/pay-base-v2";
 			
 		}
 	}
@@ -95,7 +95,7 @@ class GopayConfig {
 			return "https://gate.gopay.cz/gw/services/get-account-statement";	
 			
 		} else {
-			return "https://testgw.gopay.cz/gw/services/get-account-statement";
+			return "https://gw.sandbox.gopay.com/gw/services/get-account-statement";
 			
 		}
 	}

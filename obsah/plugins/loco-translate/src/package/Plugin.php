@@ -82,7 +82,9 @@ class Loco_package_Plugin extends Loco_package_Bundle {
             }
             $cached = apply_filters('loco_plugins_data', $cached );
             uasort( $cached, '_sort_uname_callback' );
-            wp_cache_set('plugins', $cached, 'loco');
+            // Intended as in-memory cache so adding short expiry for object caching plugins that may persist it.
+            // All actions that invoke `wp_clean_plugins_cache` should purge this. See Loco_hooks_AdminHooks
+            wp_cache_set('plugins', $cached, 'loco', 3600 );
         }
         return $cached;
     }
@@ -198,7 +200,7 @@ class Loco_package_Plugin extends Loco_package_Bundle {
         // plugin must be registered with at least a name and "basedir"
         $data = self::get_plugin($handle);
         if( ! $data ){
-            throw new Loco_error_Exception( sprintf( __('Plugin not found: %s','loco'),$handle) );
+            throw new Loco_error_Exception( sprintf( __('Plugin not found: %s','loco-translate'),$handle) );
         }
 
         // lazy resolve of base directory from "basedir" property that we added

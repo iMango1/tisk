@@ -73,7 +73,9 @@ class Toret_GoPay_Define {
       asort( $gopay_method_order );
       
         foreach($gopay_method_order as $key => $item ){
-          $payment_methods[$key] = $default_payment_methods[$key]; 
+          if( !empty( $default_payment_methods[$key] ) ){
+            $payment_methods[$key] = $default_payment_methods[$key]; 
+          }
         }
    
     }else{

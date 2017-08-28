@@ -1,0 +1,314 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce GoPay\n"
+"POT-Creation-Date: 2017-07-19 22:01+0200\n"
+"PO-Revision-Date: 2017-07-19 22:01+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: woocommerce-gopay.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: admin/class-woocommerce-gopay-admin.php:90
+#: admin/class-woocommerce-gopay-admin.php:91
+msgid "Toret plugins"
+msgstr ""
+
+#: admin/class-woocommerce-gopay-admin.php:105
+#: admin/class-woocommerce-gopay-admin.php:106
+#: public/includes/class-wc-gateway-gopay.php:137
+msgid "GoPay"
+msgstr ""
+
+#: admin/views/admin.php:39
+msgid "Licenční klíč"
+msgstr ""
+
+#: admin/views/admin.php:72
+msgid "Záznamy"
+msgstr ""
+
+#: admin/views/admin.php:74
+msgid "Smazat log"
+msgstr ""
+
+#: admin/views/admin.php:78
+msgid "Datum"
+msgstr ""
+
+#: admin/views/admin.php:79
+msgid "Záznam"
+msgstr ""
+
+#: admin/views/admin.php:80
+msgid "Poznámka"
+msgstr ""
+
+#: admin/views/admin.php:81
+msgid "Status"
+msgstr ""
+
+#: admin/views/admin.php:82
+msgid "Kontext"
+msgstr ""
+
+#: includes/define.php:21 public/includes/class-wc-gateway-gopay.php:218
+msgid "Platební karta"
+msgstr ""
+
+#: includes/define.php:22 public/includes/class-wc-gateway-gopay.php:219
+msgid "Paysafecard"
+msgstr ""
+
+#: includes/define.php:23 public/includes/class-wc-gateway-gopay.php:220
+msgid "PayPal"
+msgstr ""
+
+#: includes/define.php:24 public/includes/class-wc-gateway-gopay.php:221
+msgid "superCash"
+msgstr ""
+
+#: includes/define.php:25 public/includes/class-wc-gateway-gopay.php:222
+msgid "Premium SMS"
+msgstr ""
+
+#: includes/define.php:26 public/includes/class-wc-gateway-gopay.php:223
+msgid "Mobilní platba – M-Platba"
+msgstr ""
+
+#: includes/define.php:27
+msgid "Platba KB "
+msgstr ""
+
+#: includes/define.php:28 public/includes/class-wc-gateway-gopay.php:225
+msgid "Platba RB"
+msgstr ""
+
+#: includes/define.php:29 public/includes/class-wc-gateway-gopay.php:226
+msgid "Platba mBank"
+msgstr ""
+
+#: includes/define.php:30 public/includes/class-wc-gateway-gopay.php:227
+msgid "Platba Fio Banky"
+msgstr ""
+
+#: includes/define.php:31 public/includes/class-wc-gateway-gopay.php:228
+msgid "Platba Česká spořitelna"
+msgstr ""
+
+#: includes/define.php:32 public/includes/class-wc-gateway-gopay.php:229
+msgid "Bankovní převod"
+msgstr ""
+
+#: includes/define.php:33 public/includes/class-wc-gateway-gopay.php:230
+msgid "GoPay účet"
+msgstr ""
+
+#: includes/define.php:48
+msgid "Česká Spořitelna"
+msgstr ""
+
+#: includes/define.php:49 public/includes/class-wc-gateway-gopay.php:231
+msgid "UniCredit Bank"
+msgstr ""
+
+#: includes/define.php:50
+msgid "Komerční Banka"
+msgstr ""
+
+#: includes/define.php:51
+msgid "Platební karty A"
+msgstr ""
+
+#: includes/define.php:52
+msgid "Platební karty B"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:129
+msgid "Povolit/Zakázat"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:131
+msgid "Povolit GoPay platební modul."
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:134
+msgid "Titulek:"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:136
+msgid "Název platební metody. Zobrazí se při výběru platební metody."
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:139
+msgid "Popis:"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:141
+msgid "Popis, který uživatel uvidí při výběru platební metody."
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:142
+msgid ""
+"Zaplaťte přes GoPay nebo můžete platit kreditní kartou, pokud nemáte GoPay "
+"účet."
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:144
+msgid "Ikona platební metody:"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:146
+msgid "Url ikony zobrazené při výběru platební metody."
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:149
+msgid "GoID"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:151
+msgid "GoID e-shopu, které vám bylo přiděleno"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:153
+msgid "Secure key"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:155
+msgid "Secure key e-shopu, které vám bylo přiděleno."
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:157
+msgid "Test mód"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:159
+msgid "Aktivace/deaktivace testovacího prostředí GoPay."
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:162
+msgid "Notifikace"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:165
+msgid "URL pro zpracovávání notifikací."
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:167
+msgid "Povolit výběr platebních metod"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:169
+msgid "Pokud není aktivní, platební metoda bude zvolena karta."
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:172
+msgid "Povolit způsob dopravy"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:177
+msgid ""
+"Pokud je platba na dobírku aktivní, zde můžete definovat způsoby dopravy. "
+"Pro povolení všech způsobů dopravy, zanechte pole prázdné."
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:182
+msgid "Povolit GoPay platební metody"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:187
+msgid "Vyberte, které platební metody budou dostupné."
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:195
+msgid "Povolit GoPay pro země"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:200
+msgid "Vyberte, pro které země bude GoPay dostupná."
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:224
+msgid "Platba KB"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:232
+msgid "Slovenská sporiteľňa"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:233
+msgid "Všeobecná úverová "
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:234
+msgid "Tatra banka"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:235
+msgid "Poštová banka"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:236
+msgid "Sberbank"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:237
+msgid "Československá obchodná banka"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:238
+msgid "OTP banka "
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:239
+msgid "ZunoPay"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:244
+msgid "Řazení metod"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:249
+msgid "Název"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:250
+msgid "Pořadí"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:507
+msgid "GoPay platební brána"
+msgstr ""
+
+#: public/includes/class-wc-gateway-gopay.php:508
+msgid "GoPay je platební brána pro online platby v České republice."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WooCommerce GoPay"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "http://toret.cz"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Platební brána GoPay pro WooCommerce"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Vladislav Musílek"
+msgstr ""

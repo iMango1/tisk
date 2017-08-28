@@ -3,8 +3,8 @@
 Contributors: yithemes
 Tags: custom, order, status, statuses, custom order, custom status, custom order status, custom statuses, status custom, custom order statuses, woocommerce, products, themes, yit, e-commerce, shop, yith, premium, yithemes
 Requires at least: 3.5.1
-Tested up to: 4.3.1
-Stable tag: 1.0.6
+Tested up to: 4.8.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,28 +40,58 @@ YITH WooCommerce Custom Order Status adds:
 
 == Changelog ==
 
-= 1.0.6 =
+= Version 1.1.2 - Released: 08 Aug 2018 =
 
-* Tweak: improved the generation of the slug of order status
+* Fix - white screen issue
 
-= 1.0.5 =
+= Version 1.1.1 - Released: 07 Aug 2018 =
 
-* Fixed: minor bug
+* New - support to WordPress 4.8.1
+* New - support to WooCommerce 3.1.1
+* New - How To section
+* Update - language file
 
-= 1.0.3 =
+= Version 1.1.0 - Released: 13 Mar 2017 =
 
-* Fixed: minor bug
+* New - support to WooCommerce 2.7.0-RC1
 
-= 1.0.2 =
+= Version 1.0.9 - Released: Jan 12, 2017 =
 
-* Added: Support to WooCommerce 2.4.4
+* New - support to WordPress 4.7
+* Fix - woocommerce payment gateway drag and drop issues
 
-= 1.0.1 =
+= Version 1.0.8 - Released: May 10, 2016 =
 
-* Added: Support to WordPress 4.2.4
-* Added: Support to WooCommerce 2.4.2
+* New - support to WordPress 4.5.2
+* Fix - order status bug in My Account page
 
-= 1.0.0 =
+= Version 1.0.7 - Released: May 02, 2016 =
+
+* New - support to Wordpress 4.5.1
+* New - support to WooCommerce 2.5.5
+
+= Version 1.0.6 - Released: Nov 10, 2015 =
+
+* Tweak - improved the generation of the slug of order status
+
+= Version 1.0.5 - Released: Oct 28, 2015 =
+
+* Fix - minor bug
+
+= Version 1.0.3 - Released: Sep 14, 2015 =
+
+* Fix - minor bug
+
+= Version 1.0.2 - Released: Aug 14, 2015 =
+
+* New - Support to WooCommerce 2.4.4
+
+= Version 1.0.1 - Released: Aug 12, 2015 =
+
+* New - Support to WordPress 4.2.4
+* New - Support to WooCommerce 2.4.2
+
+= Version 1.0.0 =
 
 * Initial release
 
@@ -79,6 +109,6 @@ If you have created your own language pack, or have an update for an existing on
 
 == Upgrade notice ==
 
-= 1.0.0 =
+= Version 1.0.0 =
 
 Initial release

@@ -219,17 +219,17 @@
         <div class="landing-container">
             <div class="premium-cta">
                 <p>
-                    <?php echo sprintf( __('Upgrade to %1$spremium version%2$s of %1$sYITH WooCommerce Custom Order Status%2$s to benefit from all features!','yith-wccos'),'<span class="highlight">','</span>' );?>
+                    <?php echo sprintf( __('Upgrade to %1$spremium version%2$s of %1$sYITH WooCommerce Custom Order Status%2$s to benefit from all features!','yith-woocommerce-custom-order-status'),'<span class="highlight">','</span>' );?>
                 </p>
                 <a href="<?php echo $this->get_premium_landing_uri() ?>" target="_blank" class="premium-cta-button button btn">
-                    <span class="highlight"><?php _e('UPGRADE','yith-wccos');?></span>
-                    <span><?php _e('to the premium version','yith-wccos');?></span>
+                    <span class="highlight"><?php _e('UPGRADE','yith-woocommerce-custom-order-status');?></span>
+                    <span><?php _e('to the premium version','yith-woocommerce-custom-order-status');?></span>
                 </a>
             </div>
         </div>
     </div>
     <div class="one section section-even clear">
-        <h1><?php _e('Premium Features','yith-wccos');?></h1>
+        <h1><?php _e('Premium Features','yith-woocommerce-custom-order-status');?></h1>
         <div class="landing-container">
             <div class="col-1">
                 <img src="<?php echo YITH_WCCOS_ASSETS_URL?>/images/01.png" alt="WooCommerce status" />
@@ -237,10 +237,10 @@
             <div class="col-2">
                 <div class="section-title">
                     <img src="<?php echo YITH_WCCOS_ASSETS_URL?>/images/01-icon.png" alt="icon 01"/>
-                    <h2><?php _e('WooCommerce status ','yith-wccos');?></h2>
+                    <h2><?php _e('WooCommerce status ','yith-woocommerce-custom-order-status');?></h2>
                 </div>
                 <p>
-                    <?php echo sprintf(__('With the premium version of the plugin, all the %1$sWooCommerce order status%2$s can be overwritten. Customize them following your needs, and make the management of your orders more comfortable and functional to your business.', 'yith-wccos'), '<b>', '</b>');?>
+                    <?php echo sprintf(__('With the premium version of the plugin, all the %1$sWooCommerce order status%2$s can be overwritten. Customize them following your needs, and make the management of your orders more comfortable and functional to your business.', 'yith-woocommerce-custom-order-status'), '<b>', '</b>');?>
                 </p>
             </div>
         </div>
@@ -250,10 +250,10 @@
             <div class="col-2">
                 <div class="section-title">
                     <img src="<?php echo YITH_WCCOS_ASSETS_URL?>/images/02-icon.png" alt="icon 02" />
-                    <h2><?php _e('Icon or text?','yith-wccos');?></h2>
+                    <h2><?php _e('Icon or text?','yith-woocommerce-custom-order-status');?></h2>
                 </div>
                 <p>
-                    <?php echo sprintf(__('It is always hard to find quickly an order in a long list, especially if there are no identifying traits that make it stand from the other. With the %1$sYITH WooCommerce Custom Order Status%2$s plugin, you can assign an icon or a textual label to each orderstatus, choosing the color you want so that you can see them immediately.', 'yith-wccos'), '<b>', '</b>');?>
+                    <?php echo sprintf(__('It is always hard to find quickly an order in a long list, especially if there are no identifying traits that make it stand from the other. With the %1$sYITH WooCommerce Custom Order Status%2$s plugin, you can assign an icon or a textual label to each orderstatus, choosing the color you want so that you can see them immediately.', 'yith-woocommerce-custom-order-status'), '<b>', '</b>');?>
                 </p>
             </div>
             <div class="col-1">
@@ -269,10 +269,10 @@
             <div class="col-2">
                 <div class="section-title">
                     <img src="<?php echo YITH_WCCOS_ASSETS_URL?>/images/03-icon.png" alt="icon 03" />
-                    <h2><?php _e( 'Following actions ','yith-wccos');?></h2>
+                    <h2><?php _e( 'Following actions ','yith-woocommerce-custom-order-status');?></h2>
                 </div>
                 <p>
-                    <?php echo sprintf(__('A list of actions you will be able to apply when the order will change its status. The premium version of the plugin offers you this too.%3$s%1$sCreate your logic sequence of actions%2$s and, with a simple click, your order will get the status you have indicated.', 'yith-wccos'), '<b>', '</b>','<br>');?>
+                    <?php echo sprintf(__('A list of actions you will be able to apply when the order will change its status. The premium version of the plugin offers you this too.%3$s%1$sCreate your logic sequence of actions%2$s and, with a simple click, your order will get the status you have indicated.', 'yith-woocommerce-custom-order-status'), '<b>', '</b>','<br>');?>
                 </p>
             </div>
         </div>
@@ -282,10 +282,10 @@
             <div class="col-2">
                 <div class="section-title">
                     <img src="<?php echo YITH_WCCOS_ASSETS_URL?>/images/04-icon.png" alt="icon 04" />
-                    <h2><?php _e('User interaction ','yith-wccos');?></h2>
+                    <h2><?php _e('User interaction ','yith-woocommerce-custom-order-status');?></h2>
                 </div>
                 <p>
-                    <?php echo sprintf(__('For both WooCommerce order status and your customized ones, the plugin will let your users %1$scancel an order%2$s or %1$sdownload%2$s possible files depending on the selected order status.', 'yith-wccos'), '<b>', '</b>');?>
+                    <?php echo sprintf(__('For both WooCommerce order status and your customized ones, the plugin will let your users %1$scancel an order%2$s or %1$sdownload%2$s possible files depending on the selected order status.', 'yith-woocommerce-custom-order-status'), '<b>', '</b>');?>
                 </p>
             </div>
             <div class="col-1">
@@ -301,10 +301,10 @@
             <div class="col-2">
                 <div class="section-title">
                     <img src="<?php echo YITH_WCCOS_ASSETS_URL?>/images/05-icon.png" alt="icon 05" />
-                    <h2><?php _e('Report','yith-wccos');?></h2>
+                    <h2><?php _e('Report','yith-woocommerce-custom-order-status');?></h2>
                 </div>
                 <p>
-                    <?php echo sprintf( __('Who said that the %1$sWooCommerce report%2$s has to trace only the "Completed" orders? With a simple click, you can include also all the other orders with one or more status.Simple, useful and unique!','yith-wccos'),'<b>','</b>'); ?>
+                    <?php echo sprintf( __('Who said that the %1$sWooCommerce report%2$s has to trace only the "Completed" orders? With a simple click, you can include also all the other orders with one or more status.Simple, useful and unique!','yith-woocommerce-custom-order-status'),'<b>','</b>'); ?>
                 </p>
             </div>
         </div>
@@ -314,10 +314,10 @@
             <div class="col-2">
                 <div class="section-title">
                     <img src="<?php echo YITH_WCCOS_ASSETS_URL?>/images/06-icon.png" alt="icon 06" />
-                    <h2><?php _e('Customizable emails','yith-wccos');?></h2>
+                    <h2><?php _e('Customizable emails','yith-woocommerce-custom-order-status');?></h2>
                 </div>
                 <p>
-                    <?php echo sprintf( __( 'Even the orders assigned to one of your customized status will generate an email for the %1$sadministrator%2$s and/or the %1$susers%2$s that have purchased.%3$sConfigure the settings in the related section, and your email will be ready in few steps.','yith-wccos' ),'<b>','</b>','<br>' ) ?>
+                    <?php echo sprintf( __( 'Even the orders assigned to one of your customized status will generate an email for the %1$sadministrator%2$s and/or the %1$susers%2$s that have purchased.%3$sConfigure the settings in the related section, and your email will be ready in few steps.','yith-woocommerce-custom-order-status' ),'<b>','</b>','<br>' ) ?>
                 </p>
             </div>
             <div class="col-1">
@@ -329,11 +329,11 @@
         <div class="landing-container">
             <div class="premium-cta">
                 <p>
-                    <?php echo sprintf( __('Upgrade to %1$spremium version%2$s of %1$sYITH WooCommerce Custom Order Status%2$s to benefit from all features!','yith-wccos'),'<span class="highlight">','</span>' );?>
+                    <?php echo sprintf( __('Upgrade to %1$spremium version%2$s of %1$sYITH WooCommerce Custom Order Status%2$s to benefit from all features!','yith-woocommerce-custom-order-status'),'<span class="highlight">','</span>' );?>
                 </p>
                 <a href="<?php echo $this->get_premium_landing_uri() ?>" target="_blank" class="premium-cta-button button btn">
-                    <span class="highlight"><?php _e('UPGRADE','yith-wccos');?></span>
-                    <span><?php _e('to the premium version','yith-wccos');?></span>
+                    <span class="highlight"><?php _e('UPGRADE','yith-woocommerce-custom-order-status');?></span>
+                    <span><?php _e('to the premium version','yith-woocommerce-custom-order-status');?></span>
                 </a>
             </div>
         </div>

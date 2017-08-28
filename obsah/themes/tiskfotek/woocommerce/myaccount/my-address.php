@@ -53,7 +53,9 @@ $col = 1;
 					'city'        => get_user_meta( $customer_id, $name . '_city', true ),
 					'state'       => get_user_meta( $customer_id, $name . '_state', true ),
 					'postcode'    => get_user_meta( $customer_id, $name . '_postcode', true ),
-					'country'     => get_user_meta( $customer_id, $name . '_country', true )
+					'country'     => get_user_meta( $customer_id, $name . '_country', true ),
+					'billing_ic'  => get_user_meta( $customer_id, $name . 'billing_ic', true),
+					'billing_dic' => get_user_meta( $customer_id, $name . 'billing_dic', true)
 				), $customer_id, $name );
 
 				$formatted_address = WC()->countries->get_formatted_address( $address );

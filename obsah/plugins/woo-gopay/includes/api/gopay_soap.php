@@ -345,6 +345,8 @@ class GopaySoap {
 
 		try {
 			ini_set("soap.wsdl_cache_enabled","0");
+
+
 	  		$go_client = new SoapClient(GopayConfig::ws(), array());
 
 	  		$paymentChannelsString = (!empty($paymentChannels)) ? join($paymentChannels, ",") : "";

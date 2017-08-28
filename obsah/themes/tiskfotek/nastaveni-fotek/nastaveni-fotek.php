@@ -450,7 +450,7 @@ jQuery( document ).ready(function() {
 
         for($i = 0; $i < $pocet_fotek; $i++) {
             $nazev_fotky = $_SESSION["fotky"][$i];
-            $url_min = "http://objednavky.skakaciatrakce.cz/$nazev_slozky/thumbnail/$nazev_fotky";
+            $url_min = "http://objednavky.tiskfotek.eu/$nazev_slozky/thumbnail/$nazev_fotky";
             echo "<img src='$url_min' height='100px'><br>";
         }
 */

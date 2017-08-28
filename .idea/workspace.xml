@@ -1,54 +1,304 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb2886ae-ccfd-400a-b30d-6e457fa8bf15" name="Default" comment="">
+    <list default="true" id="eb2886ae-ccfd-400a-b30d-6e457fa8bf15" name="Default" comment="update">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/languages/plugins/woocommerce-cs_CZ.mo" afterPath="$PROJECT_DIR$/obsah/languages/plugins/woocommerce-cs_CZ.mo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/font/loco.eot" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/font/loco.eot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/font/loco.ttf" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/font/loco.ttf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/font/loco.woff" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/font/loco.woff" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/lang/wp-members-cs_CZ.mo" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/lang/wp-members-cs_CZ.mo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/languages/yith-plugin-fw-it_IT.mo" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/languages/yith-plugin-fw-it_IT.mo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/languages/cs_CZ.mo" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/languages/cs_CZ.mo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/uploads/2011/07/windmill148-672x372.jpg" afterPath="$PROJECT_DIR$/obsah/uploads/2011/07/windmill148-672x372.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/admin.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/admin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/css/admin.css" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/css/admin.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/dialogs.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/dialogs.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/includes/api.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/includes/api.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/includes/class-wp-members-admin-api.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/includes/class-wp-members-admin-api.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/includes/class-wp-members-sortable-user-columns.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/includes/class-wp-members-sortable-user-columns.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/includes/class-wp-members-tinymce-buttons.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/includes/class-wp-members-tinymce-buttons.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/js/admin.js" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/js/admin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/js/shortcodes_tinymce_4.js" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/js/shortcodes_tinymce_4.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/post.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/post.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/tab-about.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/tab-about.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/tab-captcha.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/tab-captcha.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/tab-dialogs.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/tab-dialogs.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/tab-emails.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/tab-emails.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/tab-fields.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/tab-fields.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/tab-options.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/tab-options.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/user-export.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/user-export.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/user-profile.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/user-profile.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/users.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/admin/users.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/changelog.txt" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/changelog.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/css/generic-no-float.css" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/css/generic-no-float.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/css/generic-rigid.css" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/css/generic-rigid.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/css/wp-members-2014-no-float.css" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/css/wp-members-2014-no-float.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/css/wp-members-2015-no-float.css" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/css/wp-members-2015-no-float.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/css/wp-members-2016-no-float.css" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/css/wp-members-2016-no-float.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/api.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/api.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/class-wp-members-api.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/class-wp-members-api.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/class-wp-members-forms.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/class-wp-members-forms.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/class-wp-members-widget.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/class-wp-members-widget.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/class-wp-members.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/class-wp-members.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/core.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/core.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/dialogs.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/dialogs.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/email.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/email.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/forms.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/forms.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/register.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/register.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/shortcodes.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/shortcodes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/sidebar.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/sidebar.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/users.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/users.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/cache/minify/000000/VY7RDsMgCEV_aK1ZumTfY5UZVhWHkGb7-ta9aBNezoF7w2IUjSOGOWG-LY28FSjoNuDudvQBpHMirUOEoeLPrnFsYRvCVa0qQrlzoYqCo_FoI4U_P8xeBryfT2axTqYXcZqeBrOL6qGa9zkfBf7ObdOODw.js.old" afterPath="$PROJECT_DIR$/obsah/cache/minify/000000/VY7RDsMgCEV_aK1ZumTfY5UZVhWHkGb7-ta9aBNezoF7w2IUjSOGOWG-LY28FSjoNuDudvQBpHMirUOEoeLPrnFsYRvCVa0qQrlzoYqCo_FoI4U_P8xeBryfT2axTqYXcZqeBrOL6qGa9zkfBf7ObdOODw.js.old" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/languages/plugins/woocommerce-cs_CZ.po" afterPath="$PROJECT_DIR$/obsah/languages/plugins/woocommerce-cs_CZ.po" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/custom-user-profile-photo/3five_cupp.php" afterPath="$PROJECT_DIR$/obsah/plugins/custom-user-profile-photo/3five_cupp.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/custom-user-profile-photo/readme.txt" afterPath="$PROJECT_DIR$/obsah/plugins/custom-user-profile-photo/readme.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/lib/compiled/gettext.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/lib/compiled/gettext.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/lib/compiled/locales.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/lib/compiled/locales.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/lib/compiled/phpunit.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/lib/compiled/phpunit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/lib/compiled/plurals.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/lib/compiled/plurals.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/loco.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/loco.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/loco.xml" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/loco.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/css/admin.css" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/css/admin.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/css/editor.css" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/css/editor.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/css/poview.css" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/css/poview.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/css/skins/blue.css" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/css/skins/blue.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/css/skins/coffee.css" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/css/skins/coffee.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/css/skins/ectoplasm.css" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/css/skins/ectoplasm.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/css/skins/light.css" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/css/skins/light.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/css/skins/midnight.css" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/css/skins/midnight.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/css/skins/ocean.css" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/css/skins/ocean.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/css/skins/sunrise.css" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/css/skins/sunrise.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/font/loco.svg" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/font/loco.svg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/js/editor.js" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/js/editor.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/js/min/admin.js" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/js/min/admin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/js/poview.js" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/pub/js/poview.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/readme.txt" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/readme.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/Locale.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/Locale.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/Navigation.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/Navigation.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/RootController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/RootController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/bundle/BaseController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/bundle/BaseController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/bundle/ConfController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/bundle/ConfController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/bundle/DebugController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/bundle/DebugController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/bundle/SetupController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/bundle/SetupController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/bundle/ViewController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/bundle/ViewController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/config/BaseController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/config/BaseController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/config/PrefsController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/config/PrefsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/config/SettingsController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/config/SettingsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/config/VersionController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/config/VersionController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/file/BaseController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/file/BaseController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/file/DeleteController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/file/DeleteController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/file/EditController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/file/EditController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/file/InfoController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/file/InfoController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/file/ViewController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/file/ViewController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/init/InitPoController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/init/InitPoController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/init/InitPotController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/init/InitPotController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/list/BaseController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/list/BaseController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/list/PluginsController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/list/PluginsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/list/ThemesController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/admin/list/ThemesController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/ajax/DownloadController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/ajax/DownloadController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/ajax/FsConnectController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/ajax/FsConnectController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/ajax/MsginitController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/ajax/MsginitController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/ajax/PingController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/ajax/PingController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/ajax/SaveController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/ajax/SaveController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/ajax/SyncController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/ajax/SyncController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/ajax/XgettextController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/ajax/XgettextController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/api/WordPressFileSystem.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/api/WordPressFileSystem.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/compat/PosixExtension.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/compat/PosixExtension.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/config/FormModel.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/config/FormModel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/config/XMLModel.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/config/XMLModel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/data/Option.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/data/Option.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/data/Permissions.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/data/Permissions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/data/Settings.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/data/Settings.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/error/Debug.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/error/Debug.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/error/Exception.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/error/Exception.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/error/Notice.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/error/Notice.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/error/Success.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/error/Success.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/error/Warning.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/error/Warning.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/error/WriteException.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/error/WriteException.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/error/XmlParseException.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/error/XmlParseException.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/fs/File.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/fs/File.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/fs/FileFinder.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/fs/FileFinder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/fs/FileWriter.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/fs/FileWriter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/fs/LocaleDirectory.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/fs/LocaleDirectory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/gettext/Data.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/gettext/Data.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/gettext/Extraction.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/gettext/Extraction.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/gettext/Metadata.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/gettext/Metadata.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/hooks/AdminHooks.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/hooks/AdminHooks.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/hooks/LoadHelper.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/hooks/LoadHelper.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/js/Strings.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/js/Strings.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/mvc/AdminController.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/mvc/AdminController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/mvc/AdminRouter.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/mvc/AdminRouter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/mvc/AjaxRouter.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/mvc/AjaxRouter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/mvc/FileParams.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/mvc/FileParams.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/mvc/PostParams.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/mvc/PostParams.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/mvc/ViewParams.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/mvc/ViewParams.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/output/Buffer.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/output/Buffer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/package/Core.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/package/Core.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/package/Debugger.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/package/Debugger.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/package/Header.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/package/Header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/package/Plugin.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/package/Plugin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/package/Project.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/package/Project.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/test/DummyFtpConnect.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/test/DummyFtpConnect.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/test/WordPressTestCase.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/src/test/WordPressTestCase.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/alias.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/alias.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/conf.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/conf.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/debug.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/debug.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/inc-po-table.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/inc-po-table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/setup.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/setup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/setup/author.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/setup/author.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/setup/conf.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/setup/conf.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/setup/core.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/setup/core.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/setup/inc-nav.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/setup/inc-nav.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/setup/meta.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/setup/meta.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/setup/none.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/setup/none.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/setup/partial.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/setup/partial.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/setup/saved.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/setup/saved.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/view.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/bundle/view.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/common/inc-fsconn.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/common/inc-fsconn.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/common/inc-table-filter.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/common/inc-table-filter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/config/prefs.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/config/prefs.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/config/settings.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/config/settings.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/config/version.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/config/version.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/debug.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/debug.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/errors/file-isdir.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/errors/file-isdir.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/errors/file-missing.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/errors/file-missing.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/errors/no-tokenizer.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/errors/no-tokenizer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/delete.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/delete.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/edit-po.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/edit-po.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/edit-pot.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/edit-pot.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/editor.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/editor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/info-mo.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/info-mo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/info-other.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/info-other.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/info-po.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/info-po.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/info-pot.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/info-pot.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/info.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/info.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/msgcat.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/msgcat.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/view-mo.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/view-mo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/view-po.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/view-po.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/view-pot.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/file/view-pot.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/help/side-bar.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/help/side-bar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/help/tab-settings.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/help/tab-settings.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/help/tab-support.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/help/tab-support.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/init/init-po.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/init/init-po.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/init/init-pot.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/init/init-pot.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/init/init-prompt.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/init/init-prompt.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/list/inc-table.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/list/inc-table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/root.php" afterPath="$PROJECT_DIR$/obsah/plugins/loco-translate/tpl/admin/root.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/woo-gopay/README.txt" afterPath="$PROJECT_DIR$/obsah/plugins/woo-gopay/README.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/woo-gopay/admin/views/admin.php" afterPath="$PROJECT_DIR$/obsah/plugins/woo-gopay/admin/views/admin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/woo-gopay/includes/api/gopay_config.php" afterPath="$PROJECT_DIR$/obsah/plugins/woo-gopay/includes/api/gopay_config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/woo-gopay/includes/api/gopay_soap.php" afterPath="$PROJECT_DIR$/obsah/plugins/woo-gopay/includes/api/gopay_soap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/woo-gopay/includes/api/payment_methods.php" afterPath="$PROJECT_DIR$/obsah/plugins/woo-gopay/includes/api/payment_methods.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/woo-gopay/includes/define.php" afterPath="$PROJECT_DIR$/obsah/plugins/woo-gopay/includes/define.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/woo-gopay/public/class-woocommerce-gopay.php" afterPath="$PROJECT_DIR$/obsah/plugins/woo-gopay/public/class-woocommerce-gopay.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/woo-gopay/public/includes/class-wc-gateway-gopay.php" afterPath="$PROJECT_DIR$/obsah/plugins/woo-gopay/public/includes/class-wc-gateway-gopay.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/woo-gopay/public/views/notify.php" afterPath="$PROJECT_DIR$/obsah/plugins/woo-gopay/public/views/notify.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/woo-gopay/public/views/response.php" afterPath="$PROJECT_DIR$/obsah/plugins/woo-gopay/public/views/response.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/woo-gopay/woocommerce-gopay.php" afterPath="$PROJECT_DIR$/obsah/plugins/woo-gopay/woocommerce-gopay.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/woocommerce-pdf-invoices-packing-slips/includes/class-wcpdf-settings.php" afterPath="$PROJECT_DIR$/obsah/plugins/woocommerce-pdf-invoices-packing-slips/includes/class-wcpdf-settings.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/woocommerce-pdf-invoices-packing-slips/readme.txt" afterPath="$PROJECT_DIR$/obsah/plugins/woocommerce-pdf-invoices-packing-slips/readme.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/woocommerce-pdf-invoices-packing-slips/woocommerce-pdf-invoices-packingslips.php" afterPath="$PROJECT_DIR$/obsah/plugins/woocommerce-pdf-invoices-packing-slips/woocommerce-pdf-invoices-packingslips.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/woocommerce/templates/checkout/form-login.php" afterPath="$PROJECT_DIR$/obsah/plugins/woocommerce/templates/checkout/form-login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/classes/fields/class-product-addon-field-file-upload.php" afterPath="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/classes/fields/class-product-addon-field-file-upload.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/utilities.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/utilities.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/wp-registration.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/inc/wp-registration.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/readme.txt" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/readme.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/uninstall.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/uninstall.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/wp-members-install.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/wp-members-install.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/wp-members-tos.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/wp-members-tos.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/wp-members.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/wp-members.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-members/lang/wp-members-cs_CZ.po" afterPath="$PROJECT_DIR$/obsah/plugins/wp-members/lang/wp-members-cs_CZ.po" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/css/admin.css" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/css/admin.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/css/admin.min.css" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/css/admin.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/css/admin.min.css.map" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/css/admin.min.css.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/includes/class-commands.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/includes/class-commands.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/includes/class-wp-optimization.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/includes/class-wp-optimization.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/includes/class-wp-optimize-options.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/includes/class-wp-optimize-options.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/includes/class-wp-optimizer.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/includes/class-wp-optimizer.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/includes/updraft-notices.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/includes/updraft-notices.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/includes/wp-optimize-notices.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/includes/wp-optimize-notices.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/js/wpadmin.js" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/js/wpadmin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/js/wpadmin.min.js" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/js/wpadmin.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/languages/wp-optimize.pot" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/languages/wp-optimize.pot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/autodraft.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/autodraft.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/commentmeta.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/commentmeta.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/optimizetables.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/optimizetables.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/orphandata.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/orphandata.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/pingbacks.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/pingbacks.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/postmeta.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/postmeta.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/revisions.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/revisions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/spam.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/spam.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/trackbacks.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/trackbacks.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/transient.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/transient.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/unapproved.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/optimizations/unapproved.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/readme.txt" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/readme.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/templates/admin-page-header.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/templates/admin-page-header.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/templates/admin-settings.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/templates/admin-settings.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/templates/may-also-like.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/templates/may-also-like.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/templates/notices/horizontal-notice.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/templates/notices/horizontal-notice.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/templates/notices/thanks-for-using-main-dash.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/templates/notices/thanks-for-using-main-dash.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/templates/optimizations-table.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/templates/optimizations-table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/templates/optimize-table.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/templates/optimize-table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/templates/status-box-contents.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/templates/status-box-contents.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/templates/tables-body.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/templates/tables-body.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/templates/tables.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/templates/tables.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wp-optimize/wp-optimize.php" afterPath="$PROJECT_DIR$/obsah/plugins/wp-optimize/wp-optimize.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/README.txt" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/README.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/assets/css/admin.css" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/assets/css/admin.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/assets/js/metabox_options.js" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/assets/js/metabox_options.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/class.yith-wccos-admin.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/class.yith-wccos-admin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/class.yith-wccos-frontend.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/class.yith-wccos-frontend.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/class.yith-wccos.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/class.yith-wccos.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/init.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/init.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/css/metaboxes.css" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/css/metaboxes.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/css/yit-plugin-panel.css" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/css/yit-plugin-panel.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/css/yit-upgrader.css" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/css/yit-upgrader.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/js/metabox.js" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/js/metabox.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/js/metabox.min.js" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/js/metabox.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/js/multisite-updater.js" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/js/multisite-updater.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/js/multisite-updater.min.js" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/js/multisite-updater.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/js/yit-cpt-unlimited.js" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/js/yit-cpt-unlimited.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/js/yit-cptu-sortable-posts.js" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/js/yit-cptu-sortable-posts.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/js/yit-plugin-panel.js" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/js/yit-plugin-panel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/js/yit-plugin-panel.min.js" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/js/yit-plugin-panel.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/js/yit-wp-pointer.js" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/js/yit-wp-pointer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/js/yit-wp-pointer.min.js" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/assets/js/yit-wp-pointer.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/init.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/init.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/languages/yith-plugin-fw-it_IT.po" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/languages/yith-plugin-fw-it_IT.po" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/languages/yith-plugin-fw.pot" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/languages/yith-plugin-fw.pot" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/lib/yit-cpt-unlimited.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/lib/yit-cpt-unlimited.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/lib/yit-metabox.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/lib/yit-metabox.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/lib/yit-plugin-common.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/lib/yit-plugin-common.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/lib/yit-plugin-gradients.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/lib/yit-plugin-gradients.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/lib/yit-plugin-panel-wc.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/lib/yit-plugin-panel-wc.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/lib/yit-plugin-panel.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/lib/yit-plugin-panel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/lib/yit-plugin-subpanel.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/lib/yit-plugin-subpanel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/lib/yit-pointers.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/lib/yit-pointers.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/lib/yit-upgrade.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/lib/yit-upgrade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/lib/yit-video.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/lib/yit-video.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/licence/assets/css/yit-licence.css" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/licence/assets/css/yit-licence.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/licence/assets/js/yit-licence.js" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/licence/assets/js/yit-licence.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/licence/assets/js/yit-licence.min.js" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/licence/assets/js/yit-licence.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/licence/lib/yit-licence.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/licence/lib/yit-licence.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/licence/lib/yit-plugin-licence.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/licence/lib/yit-plugin-licence.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/licence/lib/yit-theme-licence.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/licence/lib/yit-theme-licence.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/licence/templates/panel/activation/activation-panel.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/licence/templates/panel/activation/activation-panel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/tab.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/tab.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/ajax-products.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/ajax-products.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/categories.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/categories.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/checkbox.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/checkbox.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/chosen.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/chosen.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/colorpicker.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/colorpicker.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/contactform.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/contactform.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/datepicker.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/datepicker.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/hidden.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/hidden.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/icon-list.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/icon-list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/image-gallery.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/image-gallery.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/images.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/images.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/number.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/number.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/onoff.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/onoff.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/preview.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/preview.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/responsivesliders.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/responsivesliders.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/select-icon.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/select-icon.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/select-mailchimp.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/select-mailchimp.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/select.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/select.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/sidebar-layout.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/sidebar-layout.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/sidebarlist.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/sidebarlist.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/sidebars.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/sidebars.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/simple-text.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/simple-text.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/text-array.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/text-array.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/text.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/text.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/textarea-editor.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/textarea-editor.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/textarea.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/textarea.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/title.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/title.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/typography.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/typography.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/upload.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/metaboxes/types/upload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/infobox.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/infobox.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/chosen.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/chosen.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/connected-list.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/connected-list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/on-off.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/on-off.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/select-mailchimp.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/select-mailchimp.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/select.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/select.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/slider.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/slider.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/text-button.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/text-button.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/text.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/text.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/textarea-codemirror.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/textarea-codemirror.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/textarea.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/textarea.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/upload.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/types/upload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/videobox.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/videobox.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/woocommerce/woocommerce-form.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/woocommerce/woocommerce-form.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/woocommerce/woocommerce-panel.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/woocommerce/woocommerce-panel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/woocommerce/woocommerce-upload.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/templates/panel/woocommerce/woocommerce-upload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/yit-deactive-plugin.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/yit-deactive-plugin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/yit-functions.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/yit-functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/yit-plugin-registration-hook.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/yit-plugin-registration-hook.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/yit-plugin.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-fw/yit-plugin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-options/premium-options.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/plugin-options/premium-options.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/templates/premium.php" afterPath="$PROJECT_DIR$/obsah/plugins/yith-woocommerce-custom-order-status/templates/premium.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/languages/cs_CZ.po" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/languages/cs_CZ.po" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/multiupload.php" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/multiupload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/nastaveni-fotek/nastaveni-fotek.php" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/nastaveni-fotek/nastaveni-fotek.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/checkout/form-login.php" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/checkout/form-login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/myaccount/my-account.php" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/myaccount/my-account.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/myaccount/my-address.php" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/myaccount/my-address.php" />
     </list>
     <ignored path="!obsah_git.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -72,44 +322,64 @@
       <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5">
-              <caret line="986" column="10" lean-forward="false" selection-start-line="986" selection-start-column="10" selection-end-line="986" selection-end-column="10" />
+            <state relative-caret-position="14535">
+              <caret line="969" column="20" lean-forward="false" selection-start-line="969" selection-start-column="20" selection-end-line="969" selection-end-column="20" />
               <folding>
-                <marker date="1503674572000" expanded="true" signature="3488:3551" ph="SELECT * FRO... tskf_postmeta" />
-                <marker date="1503674572000" expanded="true" signature="8780:8840" ph="SELECT * FRO... tskf_postmeta" />
-                <marker date="1503674572000" expanded="true" signature="11690:11738" ph="SELECT * FRO... tskf_postmeta" />
-                <marker date="1503674572000" expanded="true" signature="31864:31882" ph="..." />
-                <marker date="1503674572000" expanded="true" signature="41382:41416" ph="..." />
-                <marker date="1503674572000" expanded="true" signature="43187:43222" ph="..." />
-                <marker date="1503674572000" expanded="true" signature="54834:55520" ph="..." />
-                <marker date="1503674572000" expanded="true" signature="54880:55507" ph="..." />
-                <marker date="1503674572000" expanded="true" signature="54984:55497" ph="..." />
-                <marker date="1503674572000" expanded="true" signature="55007:55482" ph="..." />
-                <marker date="1503674572000" expanded="true" signature="55047:55263" ph="..." />
-                <marker date="1503674572000" expanded="true" signature="55299:55470" ph="..." />
+                <marker date="1503815100000" expanded="true" signature="3483:3546" ph="SELECT * FRO... tskf_postmeta" />
+                <marker date="1503815100000" expanded="true" signature="8775:8835" ph="SELECT * FRO... tskf_postmeta" />
+                <marker date="1503815100000" expanded="true" signature="11685:11733" ph="SELECT * FRO... tskf_postmeta" />
+                <marker date="1503815100000" expanded="true" signature="31725:31743" ph="..." />
+                <marker date="1503815100000" expanded="true" signature="31875:31893" ph="..." />
+                <marker date="1503815100000" expanded="true" signature="41378:41412" ph="..." />
+                <marker date="1503815100000" expanded="true" signature="43183:43218" ph="..." />
+                <marker date="1503815100000" expanded="true" signature="54829:55515" ph="..." />
+                <marker date="1503815100000" expanded="true" signature="54875:55502" ph="..." />
+                <marker date="1503815100000" expanded="true" signature="54979:55492" ph="..." />
+                <marker date="1503815100000" expanded="true" signature="55002:55477" ph="..." />
+                <marker date="1503815100000" expanded="true" signature="55042:55258" ph="..." />
+                <marker date="1503815100000" expanded="true" signature="55294:55465" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utilities.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/obsah/plugins/wp-members/inc/utilities.php">
+      <file leaf-file-name="registration-form.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce-simple-registration/templates/registration-form.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="46" column="23" lean-forward="false" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
+            <state relative-caret-position="705">
+              <caret line="53" column="143" lean-forward="false" selection-start-line="53" selection-start-column="143" selection-end-line="53" selection-end-column="143" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="my-address.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/myaccount/my-address.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="339">
+              <caret line="46" column="96" lean-forward="false" selection-start-line="46" selection-start-column="96" selection-end-line="46" selection-end-column="96" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="woocommerce-simple-registration.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce-simple-registration/woocommerce-simple-registration.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1005">
+              <caret line="76" column="21" lean-forward="false" selection-start-line="76" selection-start-column="21" selection-end-line="76" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/obsah/plugins/wp-members/inc/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="236" column="7" lean-forward="true" selection-start-line="236" selection-start-column="7" selection-end-line="236" selection-end-column="7" />
+            <state relative-caret-position="3615">
+              <caret line="272" column="75" lean-forward="false" selection-start-line="272" selection-start-column="75" selection-end-line="272" selection-end-column="75" />
               <folding>
-                <marker date="1503612120000" expanded="false" signature="9:196" ph=" WP-Members API Functions ..." />
-                <marker date="1503612120000" expanded="true" signature="12129:12219" ph="SELECT ID FR... ${$wpdb-&gt;posts}" />
+                <marker date="1503796980000" expanded="true" signature="9:196" ph=" WP-Members API Functions ..." />
               </folding>
             </state>
           </provider>
@@ -126,37 +396,40 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>skakacia</find>
-      <find>skakaciat</find>
-      <find>skakaciatr</find>
-      <find>skakaciatrak</find>
-      <find>skakaciatrakc</find>
-      <find>skakaciatrakce</find>
-      <find>console</find>
-      <find>$_NAZEV_WEBU</find>
-      <find>$_NAZEV_WEBU.</find>
-      <find>$_NAZEV_WEBU.c</find>
-      <find>$_NAZEV_WEBU.ch</find>
-      <find>$_NAZEV_WEBU.cz</find>
-      <find>https://objednavky</find>
-      <find>o</find>
-      <find>http:</find>
-      <find>objednavky.</find>
-      <find>h</find>
-      <find>http/</find>
-      <find>'http://www.tiskfotek.eu/obsah/themes/tiskfotek/nahrani/server/php/index.php?</find>
-      <find>'http://www.tiskfotek.eu/obsah/themes/tiskfoteknahrani/server/php/index.php?</find>
-      <find>'http://www.tiskfotek.eu/obsah/themes/nahrani/server/php/index.php?</find>
-      <find>nahrani/server/php/index.php?</find>
-      <find>http:/</find>
-      <find>MEMORY_</find>
-      <find>Nastavení cen parametrů</find>
-      <find>Nastavení cen parametrů</find>
-      <find>class=&quot;col-sm-4 control-label&quot;</find>
-      <find>col-sm-4 control-label</find>
-      <find>create_form_field</find>
+      <find>tskf_postmeta</find>
       <find>wpmem_convert_tag</find>
+      <find>col-sm-4 control-label</find>
+      <find>wpmem_chk_qstr</find>
+      <find>wpmem_shortcode</find>
+      <find>wpmem_msg</find>
+      <find>l</find>
+      <find>log</find>
+      <find>https://www.tiskfotek.eu/prihlaseni/</find>
+      <find>form</find>
+      <find>ol-sm-6 registrace-zobrazeni</find>
+      <find>save</find>
+      <find>regi</find>
+      <find>valid</find>
+      <find>wpmem_create_formfield</find>
+      <find>Uživatelské jméno</find>
+      <find>je vyžadovaná položka</find>
+      <find>Omlouváme se, uživatelské jméno je vyžadovaná položka</find>
+      <find>foreach</find>
+      <find>&quot;log</find>
+      <find>inputs as</find>
+      <find>$inputs</find>
+      <find>Registrace nového uživatele</find>
+      <find>registrace-zobrazeni</find>
+      <find>strana regis</find>
+      <find>Vytvořit účet</find>
+      <find>thu mbnail</find>
+      <find>registration-form woocommerce</find>
+      <find>woocommerce_register_form_start</find>
+      <find>myaccount_address</find>
     </findStrings>
+    <replaceStrings>
+      <replace>g-radek</replace>
+    </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce</dir>
       <dir>$PROJECT_DIR$/obsah/themes/tiskfotek</dir>
@@ -199,9 +472,11 @@
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/multiupload.php" />
         <option value="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/classes/fields/class-product-addon-field-file-upload.php" />
         <option value="$PROJECT_DIR$/../../wp-config.php" />
-        <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php" />
-        <option value="$PROJECT_DIR$/obsah/plugins/wp-members/inc/utilities.php" />
         <option value="$PROJECT_DIR$/obsah/plugins/wp-members/inc/api.php" />
+        <option value="$PROJECT_DIR$/obsah/plugins/wp-members/inc/utilities.php" />
+        <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php" />
+        <option value="$PROJECT_DIR$/obsah/plugins/woocommerce-simple-registration/templates/registration-form.php" />
+        <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/myaccount/my-address.php" />
       </list>
     </option>
   </component>
@@ -276,72 +551,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="obsah" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="!obsah_git" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="!obsah_git" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="obsah" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="!obsah_git" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="!obsah_git" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="obsah" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-members" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="!obsah_git" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="!obsah_git" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="obsah" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wp-members" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="inc" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -567,7 +776,12 @@
       <workItem from="1503582785316" duration="307000" />
       <workItem from="1503601251799" duration="835000" />
       <workItem from="1503603604813" duration="2471000" />
-      <workItem from="1503669900389" duration="2176000" />
+      <workItem from="1503669900389" duration="4703000" />
+      <workItem from="1503734695068" duration="1384000" />
+      <workItem from="1503815047718" duration="243000" />
+      <workItem from="1503861153839" duration="1265000" />
+      <workItem from="1503929300479" duration="875000" />
+      <workItem from="1503940096949" duration="205000" />
     </task>
     <task id="LOCAL-00001" summary="IDE settings">
       <created>1476388701506</created>
@@ -744,11 +958,18 @@
       <option name="project" value="LOCAL" />
       <updated>1503669916754</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="update">
+      <created>1503676622970</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1503676622970</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129538000" />
+    <option name="totallyTimeSpent" value="136037000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -763,13 +984,11 @@
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14943457" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15670437" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288948" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297769" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32178217" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1849315" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32756326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4520548" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288948" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -780,7 +999,9 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18415841" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32178217" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -825,7 +1046,8 @@
     <MESSAGE value="Úprava https" />
     <MESSAGE value="Úpravy cen + url" />
     <MESSAGE value="Úpravy cen + url na ostré" />
-    <option name="LAST_COMMIT_MESSAGE" value="Úpravy cen + url na ostré" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -836,61 +1058,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/nastaveni-fotek/nastaveni-fotek_o.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8415">
-          <caret line="561" column="87" lean-forward="false" selection-start-line="561" selection-start-column="87" selection-end-line="561" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/multiupload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1503606772000" expanded="true" signature="18777:19798" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18790:18846" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18859:18976" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18989:19259" ph="..." />
-            <marker date="1503606772000" expanded="false" signature="19223:19232" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19297:19788" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19414:19538" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19642:19754" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20020:21681" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20038:20323" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20073:20309" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20344:20854" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20382:20694" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20867:20952" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20965:21671" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="21213:21342" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="21504:21637" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/file_upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="34" lean-forward="false" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
-          <folding>
-            <marker date="1503517006000" expanded="true" signature="1932:1950" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/nastaveni-fotek/nastaveni-fotek.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8190">
-          <caret line="546" column="83" lean-forward="true" selection-start-line="546" selection-start-column="83" selection-end-line="546" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/nastaveni-fotek/nastaveni-fotek_o.php">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8370">
           <caret line="561" column="87" lean-forward="false" selection-start-line="561" selection-start-column="87" selection-end-line="561" selection-end-column="87" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -898,25 +1067,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1503606772000" expanded="true" signature="18777:19798" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18790:18846" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18859:18976" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18989:19259" ph="..." />
-            <marker date="1503606772000" expanded="false" signature="19223:19232" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19297:19788" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19414:19538" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19642:19754" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20020:21681" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20038:20323" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20073:20309" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20344:20854" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20382:20694" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20867:20952" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20965:21671" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="21213:21342" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="21504:21637" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -931,7 +1081,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7770">
           <caret line="518" column="18" lean-forward="false" selection-start-line="518" selection-start-column="18" selection-end-line="518" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -946,9 +1095,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="27" column="52" lean-forward="false" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
-          <folding>
-            <marker date="1503517006000" expanded="true" signature="1932:1950" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -956,25 +1102,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2205">
           <caret line="147" column="45" lean-forward="false" selection-start-line="147" selection-start-column="45" selection-end-line="147" selection-end-column="45" />
-          <folding>
-            <marker date="1503606772000" expanded="true" signature="18777:19798" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18790:18846" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18859:18976" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18989:19259" ph="..." />
-            <marker date="1503606772000" expanded="false" signature="19223:19232" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19297:19788" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19414:19538" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19642:19754" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20020:21681" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20038:20323" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20073:20309" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20344:20854" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20382:20694" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20867:20952" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20965:21671" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="21213:21342" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="21504:21637" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -989,7 +1116,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7770">
           <caret line="518" column="18" lean-forward="false" selection-start-line="518" selection-start-column="18" selection-end-line="518" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -997,9 +1123,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="27" column="52" lean-forward="false" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
-          <folding>
-            <marker date="1503517006000" expanded="true" signature="1932:1950" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1021,25 +1144,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1503606772000" expanded="true" signature="18777:19798" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18790:18846" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18859:18976" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18989:19259" ph="..." />
-            <marker date="1503606772000" expanded="false" signature="19223:19232" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19297:19788" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19414:19538" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19642:19754" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20020:21681" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20038:20323" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20073:20309" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20344:20854" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20382:20694" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20867:20952" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20965:21671" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="21213:21342" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="21504:21637" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1054,7 +1158,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7725">
           <caret line="518" column="18" lean-forward="false" selection-start-line="518" selection-start-column="18" selection-end-line="518" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1069,9 +1172,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="27" column="52" lean-forward="true" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
-          <folding>
-            <marker date="1503517006000" expanded="true" signature="1932:1950" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1079,25 +1179,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1503606772000" expanded="true" signature="18777:19798" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18790:18846" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18859:18976" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18989:19259" ph="..." />
-            <marker date="1503606772000" expanded="false" signature="19223:19232" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19297:19788" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19414:19538" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19642:19754" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20020:21681" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20038:20323" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20073:20309" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20344:20854" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20382:20694" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20867:20952" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20965:21671" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="21213:21342" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="21504:21637" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1112,7 +1193,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7770">
           <caret line="518" column="18" lean-forward="true" selection-start-line="518" selection-start-column="18" selection-end-line="518" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1127,9 +1207,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="855">
           <caret line="57" column="43" lean-forward="true" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
-          <folding>
-            <marker date="1503517006000" expanded="true" signature="1932:1950" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1144,25 +1221,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1503606772000" expanded="true" signature="18777:19798" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18790:18846" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18859:18976" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18989:19259" ph="..." />
-            <marker date="1503606772000" expanded="false" signature="19223:19232" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19297:19788" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19414:19538" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19642:19754" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20020:21681" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20038:20323" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20073:20309" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20344:20854" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20382:20694" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20867:20952" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20965:21671" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="21213:21342" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="21504:21637" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1184,25 +1242,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1503606772000" expanded="true" signature="18777:19798" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18790:18846" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18859:18976" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18989:19259" ph="..." />
-            <marker date="1503606772000" expanded="false" signature="19223:19232" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19297:19788" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19414:19538" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19642:19754" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20020:21681" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20038:20323" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20073:20309" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20344:20854" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20382:20694" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20867:20952" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20965:21671" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="21213:21342" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="21504:21637" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1281,7 +1320,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1289,25 +1327,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="230" column="25" lean-forward="false" selection-start-line="230" selection-start-column="25" selection-end-line="230" selection-end-column="25" />
-          <folding>
-            <marker date="1503606772000" expanded="true" signature="18777:19798" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18790:18846" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18859:18976" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="18989:19259" ph="..." />
-            <marker date="1503606772000" expanded="false" signature="19223:19232" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19297:19788" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19414:19538" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="19642:19754" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20020:21681" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20038:20323" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20073:20309" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20344:20854" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20382:20694" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20867:20952" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="20965:21671" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="21213:21342" ph="..." />
-            <marker date="1503606772000" expanded="true" signature="21504:21637" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1315,9 +1334,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <marker date="1503517006000" expanded="true" signature="1932:1950" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1325,7 +1341,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1333,7 +1348,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="546" column="83" lean-forward="false" selection-start-line="546" selection-start-column="83" selection-end-line="546" selection-end-column="83" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1341,47 +1355,76 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="651">
           <caret line="561" column="87" lean-forward="false" selection-start-line="561" selection-start-column="87" selection-end-line="561" selection-end-column="87" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/obsah/plugins/wp-members/inc/utilities.php">
+    <entry file="file://$PROJECT_DIR$/obsah/plugins/wp-members/inc/deprecated.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="46" column="23" lean-forward="false" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5">
-          <caret line="986" column="10" lean-forward="false" selection-start-line="986" selection-start-column="10" selection-end-line="986" selection-end-column="10" />
-          <folding>
-            <marker date="1503674572000" expanded="true" signature="3488:3551" ph="SELECT * FRO... tskf_postmeta" />
-            <marker date="1503674572000" expanded="true" signature="8780:8840" ph="SELECT * FRO... tskf_postmeta" />
-            <marker date="1503674572000" expanded="true" signature="11690:11738" ph="SELECT * FRO... tskf_postmeta" />
-            <marker date="1503674572000" expanded="true" signature="31864:31882" ph="..." />
-            <marker date="1503674572000" expanded="true" signature="41382:41416" ph="..." />
-            <marker date="1503674572000" expanded="true" signature="43187:43222" ph="..." />
-            <marker date="1503674572000" expanded="true" signature="54834:55520" ph="..." />
-            <marker date="1503674572000" expanded="true" signature="54880:55507" ph="..." />
-            <marker date="1503674572000" expanded="true" signature="54984:55497" ph="..." />
-            <marker date="1503674572000" expanded="true" signature="55007:55482" ph="..." />
-            <marker date="1503674572000" expanded="true" signature="55047:55263" ph="..." />
-            <marker date="1503674572000" expanded="true" signature="55299:55470" ph="..." />
-          </folding>
+        <state relative-caret-position="-2244">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/obsah/plugins/wp-members/inc/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="236" column="7" lean-forward="true" selection-start-line="236" selection-start-column="7" selection-end-line="236" selection-end-column="7" />
+        <state relative-caret-position="3615">
+          <caret line="272" column="75" lean-forward="false" selection-start-line="272" selection-start-column="75" selection-end-line="272" selection-end-column="75" />
           <folding>
-            <marker date="1503612120000" expanded="false" signature="9:196" ph=" WP-Members API Functions ..." />
-            <marker date="1503612120000" expanded="true" signature="12129:12219" ph="SELECT ID FR... ${$wpdb-&gt;posts}" />
+            <marker date="1503796980000" expanded="true" signature="9:196" ph=" WP-Members API Functions ..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14535">
+          <caret line="969" column="20" lean-forward="false" selection-start-line="969" selection-start-column="20" selection-end-line="969" selection-end-column="20" />
+          <folding>
+            <marker date="1503815100000" expanded="true" signature="3483:3546" ph="SELECT * FRO... tskf_postmeta" />
+            <marker date="1503815100000" expanded="true" signature="8775:8835" ph="SELECT * FRO... tskf_postmeta" />
+            <marker date="1503815100000" expanded="true" signature="11685:11733" ph="SELECT * FRO... tskf_postmeta" />
+            <marker date="1503815100000" expanded="true" signature="31725:31743" ph="..." />
+            <marker date="1503815100000" expanded="true" signature="31875:31893" ph="..." />
+            <marker date="1503815100000" expanded="true" signature="41378:41412" ph="..." />
+            <marker date="1503815100000" expanded="true" signature="43183:43218" ph="..." />
+            <marker date="1503815100000" expanded="true" signature="54829:55515" ph="..." />
+            <marker date="1503815100000" expanded="true" signature="54875:55502" ph="..." />
+            <marker date="1503815100000" expanded="true" signature="54979:55492" ph="..." />
+            <marker date="1503815100000" expanded="true" signature="55002:55477" ph="..." />
+            <marker date="1503815100000" expanded="true" signature="55042:55258" ph="..." />
+            <marker date="1503815100000" expanded="true" signature="55294:55465" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/plugins/wp-members/inc/utilities.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="55" column="29" lean-forward="false" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce-simple-registration/woocommerce-simple-registration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="76" column="21" lean-forward="false" selection-start-line="76" selection-start-column="21" selection-end-line="76" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce-simple-registration/templates/registration-form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="53" column="143" lean-forward="false" selection-start-line="53" selection-start-column="143" selection-end-line="53" selection-end-column="143" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/myaccount/my-address.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="46" column="96" lean-forward="false" selection-start-line="46" selection-start-column="96" selection-end-line="46" selection-end-column="96" />
+          <folding />
         </state>
       </provider>
     </entry>

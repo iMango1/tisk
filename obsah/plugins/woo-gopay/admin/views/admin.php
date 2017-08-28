@@ -16,6 +16,17 @@ $licence_key  = get_option('wooshop-gopay-licence-key');
 $licence_info = get_option('wooshop-gopay-info');
 global $lic;
 
+if(function_exists('mcrypt_encrypt')) {
+    echo "mcrypt is loaded!";
+} else {
+    echo "mcrypt isn't loaded!";
+}
+echo '<br />';
+if(class_exists('SOAPClient')) {
+    echo "SOAP is loaded!";
+} else {
+    echo "SOAP isn't loaded!";
+}
 ?>
 
 <div class="wrap">
@@ -25,7 +36,7 @@ global $lic;
     <div class="t-col-12">
       <div class="toret-box box-info">
           <div class="box-header">
-            <h3 class="box-title"><?php _e('Kurzy',$this->plugin_slug); ?></h3>
+            <h3 class="box-title"><?php _e('Licenční klíč',$this->plugin_slug); ?></h3>
           </div>
           <div class="box-body">
             <?php 
@@ -54,7 +65,7 @@ global $lic;
       </div>
     </div>  
     <div class="clear"></div>
-
+    
     <div class="t-col-12">
       <div class="toret-box box-info">
         <div class="box-header">

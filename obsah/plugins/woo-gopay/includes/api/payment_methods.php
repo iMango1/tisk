@@ -24,7 +24,7 @@ class PaymentMethodElement {
 	var $logo = null;
 	var $offline = null;
 	
-	public function PaymentMethodElement($code,
+	public function __construct($code,
 			$paymentMethodName,
 			$description,
 			$logo,

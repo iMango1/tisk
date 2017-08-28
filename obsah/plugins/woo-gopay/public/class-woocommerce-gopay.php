@@ -16,7 +16,7 @@ class Woocommerce_Gopay {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '2.0.1';
+	const VERSION = '2.2.2';
 
 	/**
 	 * Plugin slug
@@ -52,7 +52,7 @@ class Woocommerce_Gopay {
 		// Load public-facing style sheet and JavaScript.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-    add_action( 'init', array( $this, 'output_buffer' ) );
+    	add_action( 'init', array( $this, 'output_buffer' ) );
   
 
 	}
@@ -210,7 +210,7 @@ class Woocommerce_Gopay {
 	 * @since    1.0.0
 	 */
 	private static function single_activate() {
-
+		
 		global $wpdb;
 
 		$wpdb->hide_errors();
@@ -240,7 +240,7 @@ class Woocommerce_Gopay {
 	         	) $collate;
 	      	";
 		    dbDelta( $table );
-  
+  		
 
 	}
 

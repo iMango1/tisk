@@ -52,7 +52,7 @@ function nastavit_cookie_nove_objednavky()
 
     $currentURL = $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
-    if( $currentURL == 'www.skakaciatrakce.cz/potvrzeni/' || $currentURL == 'www.tiskfotek.eu/potvrzeni/') {
+    if( $currentURL == 'www.tiskfotek.eu/potvrzeni/' || $currentURL == 'www.tiskfotek.eu/potvrzeni/') {
         setcookie("id_objednavky", $id_objednavky, time() - 300, '/');
 
     }
@@ -946,8 +946,8 @@ function wpmem_inc_login( $page="page", $redirect_to = null )
 	$str .= "<p>Jste zde poprvé a přejete si vytvořit zákaznický účte? Nabízí spousty výhod. Pro vytvoření účtu klikně na tlačítko \"Vytvořit účet\".</p>\n";
 
 	$link = apply_filters( 'wpmem_reg_link', WPMEM_REGURL );
-	/*$str  .= '<div style="text-align:center;"><a class="btn btn-primary contact-btn" href="' . $link . '">Vytvořit účet</a></div>'; */
-	$str  .= '<div style="text-align:center;"><button class="btn btn-primary contact-btn registrace-tlacitko">Vytvořit účet</button></div>';
+	$str  .= '<div style="text-align:center;"><a class="btn btn-primary contact-btn registrace-tlacitk" href="' . $link . '">Vytvořit účet</a></div>';
+	//$str  .= '<div style="text-align:center;"><button class="btn btn-primary contact-btn registrace-tlacitko">Vytvořit účet</button></div>';
     
 	$str .= "</div>\n"; 
 	$str .= "</div>\n"; 
@@ -1023,7 +1023,7 @@ function wpmem_login_form( $page, $arr )
 	// build the input rows
 	foreach ( $inputs as $input ) {
 		$label = '<label for="' . $input['tag'] . '" class="col-sm-4 control-label">' . $input['name'] . '</label>';
-		$field = wpmem_create_formfield( $input['tag'], $input['type'], '', '', $input['class'], $input['name'], $input['name']);
+		$field = wpmem_create_formfield( $input['tag'], $input['type'], '', '', $input['class'], $input['name'] );
 		$field_before = ( $wrap_inputs ) ? '<div class="' . $input['div'] . '">' : '';
 		$field_after  = ( $wrap_inputs ) ? '</div>' : '';
 		$rows[] = array( 
@@ -1260,7 +1260,7 @@ function wpmem_inc_registration( $toggle = 'new', $heading = '' )
 	} else { 
 		// this is a new registration
 		$val   = ( isset( $_POST['log'] ) ) ? stripslashes( $_POST['log'] ) : '';
-		$label = '<label for="username" class="col-sm-4 control-label"">' . __( 'Choose a Username', 'wp-members' ) . $req_mark . '</label>';
+		$label = '<label for="username" class="col-sm-4 control-label">' . __( 'Choose a Username', 'wp-members' ) . $req_mark . '</label>';
 		$input = wpmem_create_formfield( 'log', 'text', $val, '', 'form-control', 'Uživatelské jméno*' );
 
 	}

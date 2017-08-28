@@ -1,6 +1,7 @@
 <?php
                         
 
+
   Toret_GoPay_Log::save( $_SERVER['REQUEST_URI'], 'n', 'notify', 'Notifikace z GoPay' ); 
   
   //Get GoPay Gateway instance
@@ -14,16 +15,29 @@
     /*
 	 * Parametry obsazene v notifikaci platby, predavane od GoPay e-shopu
 	 */
-	$returnedPaymentSessionId       = $_GET['paymentSessionId'];
+	$returnedPaymentSessionId   	= $_GET['paymentSessionId'];
 	$returnedParentPaymentSessionId = $_GET['parentPaymentSessionId'];
-	$returnedGoId                   = $_GET['targetGoId'];
-	$returnedOrderNumber            = $_GET['orderNumber'];
-	$returnedEncryptedSignature     = $_GET['encryptedSignature'];
-  	$payment_method = get_post_meta($returnedOrderNumber,'_selected_paymentchannel');
+	$returnedGoId               	= $_GET['targetGoId'];
+	$returnedOrderNumber        	= $_GET['orderNumber'];
+	$returnedEncryptedSignature 	= $_GET['encryptedSignature'];
+    $payment_method             	= $_GET['p1'];
+    $returnedWooOrderId         	= $_GET['p2'];
+    $gopay_product_name         	= $_GET['p3'];
+    $gopay_order_id             	= $_GET['p4'];
+
+  	$payment_method = get_post_meta($returnedWooOrderId,'_selected_paymentchannel');
   
   	//Get order object
-	$order = new WC_Order( $returnedOrderNumber );
-  
+	$order = wc_get_order( $returnedWooOrderId );
+  	$order_key = Toret_Order_Compatibility::get_order_total( $order );
+  	$order_status = Toret_Order_Compatibility::get_order_status( $order );
+  		//Woo 3.0.+ compatibility
+  		$version = toret_check_wc_version();
+  		if( $version === false ){
+  			$order_id = $order->id;
+  		}else{
+  			$order_id = $order->get_id();
+  		}
   
   
   
@@ -31,13 +45,13 @@
     
     	//Set null parent session id
       	$returnedParentPaymentSessionId = null;
-		//Control returned session id and saved id
-      	$paymentSessionId = get_post_meta( $order->id, '_paymentSessionId', true );
+      	//Control returned session id and saved id
+      	$paymentSessionId = get_post_meta( $order_id, '_paymentSessionId', true );
       	//If not equal, its false notify - redirect
 		if($paymentSessionId != $returnedPaymentSessionId){
 		  
 		  	Toret_GoPay_Log::save( 'Neshoduje se paymentSessionId a returnedPaymentSessionId v notifikaci', 'e', 'notify', 'Notifikace z GoPay' ); 
-         	header("HTTP/1.1 500 Internal Server Error");
+         	header("HTTP/1.1 200 Neshoduje se paymentSessionId a returnedPaymentSessionId v notifikaci");
 			exit(0);
 		  
 		}	
@@ -56,7 +70,7 @@
   
   
   
-  	$gopay_currency = get_post_meta($order->id,'gopay_order_currency',true);
+  	$gopay_currency = get_post_meta($order_id,'gopay_order_currency',true);
 	
 	/**
    	 * This detect active woocommerce currency switcher plugin
@@ -106,10 +120,10 @@
 					(float)$returnedGoId,
 					(float)$returnedPaymentSessionId,
 					(float)$returnedParentPaymentSessionId,
-					$returnedOrderNumber,
+					(float)$returnedOrderNumber,
 					$returnedEncryptedSignature,
 					(float)$gopay->goid,
-					$order->id,
+					(float)$gopay_order_id,
 					$gopay->secure_key);
 
 		/*
@@ -118,10 +132,10 @@
 		$result = GopaySoap::isPaymentDone(
 										(float)$returnedPaymentSessionId,
 										(float)$gopay->goid,
-										$order->id,
+										$gopay_order_id,
 										(int)$price,
 										$gopay_currency,
-										$order->billing_first_name.' '.$order->billing_last_name,
+										$gopay_product_name,
 										$gopay->secure_key);
 	
   
@@ -135,11 +149,11 @@
 			if ( empty( $returnedParentPaymentSessionId ) ) {
 				// notifikace o bezne platbe
 	
-				if ($order->status != 'processing' AND $order->status != 'completed') {
+				if ( $order_status != 'completed' ) {
 	
-        			if ( class_exists('WC_Pre_Orders_Order') && WC_Pre_Orders_Order::order_contains_pre_order( $order->id ) ) {
+        			if ( class_exists('WC_Pre_Orders_Order') && WC_Pre_Orders_Order::order_contains_pre_order( $order_id ) ) {
           
-            			$order->update_status('pre-ordered',$order->id);
+            			$order->update_status('pre-ordered',$order_id);
            				//TODO: maybe set some functions
         			}else{
 					
@@ -158,7 +172,7 @@
           				$items = $order->get_items();
           				$has_virtual = true;
           				foreach($items as $item){
-            				$product = new WC_Product( $item['product_id'] );
+            				$product = wc_get_product( $item['product_id'] );
               					if( !$product->is_virtual() ){
                   					$has_virtual = false;
               					}
@@ -192,7 +206,7 @@
 		} else if ( $result["sessionState"] == GopayHelper::CANCELED) {
 			/* Platba byla zrusena objednavajicim */
 			$gopay->cancelPayment();
-			$status = 'failed';
+			$status = 'cancelled';
       		$set_status = apply_filters( 'gopay_notify_payment_canceled', $status, $order );  
 			$order->update_status($set_status,$returnedPaymentSessionId);
 			Toret_GoPay_Log::save( 'Stav objednávky byl nastaven na selhalo', 'e', 'notify', 'Platba byla zrusena objednavajicim' ); 
@@ -221,7 +235,7 @@
 		} else {
 			$order->update_status('failed',$returnedPaymentSessionId);
 			Toret_GoPay_Log::save( 'Došlo k neočekávané chybě', 'e', 'notify', 'HTTP/1.1 500 Internal Server Error' ); 
-			header("HTTP/1.1 500 Internal Server Error");
+			header("HTTP/1.1 200 Došlo k neočekávané chybě");
 			exit(0);
 		
 		}
@@ -231,7 +245,7 @@
 		Toret_GoPay_Log::save( serialize( $e ) , 'e', 'notify', 'Chyba kontroly zaplacenosti objednávky' ); 
 
 		$order->update_status( 'failed', $returnedPaymentSessionId );
-		header( "HTTP/1.1 500 Internal Server Error" );
+		header("HTTP/1.1 200 Chyba kontroly zaplacenosti objednávky");
 		exit( 0 );
 	}
 ?>

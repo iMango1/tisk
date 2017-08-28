@@ -3,7 +3,7 @@
  * Plugin Name:       WooCommerce GoPay
  * Plugin URI:        http://toret.cz
  * Description:       Platební brána GoPay pro WooCommerce
- * Version:           2.0.1
+ * Version:           2.2.2
  * Author:            Vladislav Musílek
  * Author URI:        http://toret.cz
  * Text Domain:       woocommerce-gopay
@@ -19,13 +19,17 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+if ( !in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+    return false;
+}
+
 //Define
 define( 'WOOGPLANG', substr(get_bloginfo('language'),0,2) );
 define( 'WOOGPDIR', plugin_dir_path( __FILE__ ) );
 define( 'WOOGPURL', plugin_dir_url( __FILE__ ) );
-define( 'WOOGPVERSION', '2.0.0' );
+define( 'WOOGPVERSION', '2.2.2' );
 
-define('GOPAY_CALLBACK_URL', get_site_url().'?wc-api=WC_Gateway_Woo_GoPay&gopay=response');
+
 
 require_once( plugin_dir_path( __FILE__ ) . 'includes/plugin-update-checker-master/plugin-update-checker.php' );
 $MyUpdateChecker = PucFactory::buildUpdateChecker(
@@ -33,6 +37,9 @@ $MyUpdateChecker = PucFactory::buildUpdateChecker(
     __FILE__,
     'woo-gopay' 
 );
+
+//Incude compatibility library
+require_once( plugin_dir_path( __FILE__ ) . 'includes/compatibility/toret_compatibility.php' );
 
 /**
  * Include GoPay files
@@ -46,6 +53,7 @@ require_once( plugin_dir_path( __FILE__ ) . 'includes/api/gopay_config.php');
 /*----------------------------------------------------------------------------*
  * Public-Facing Functionality
  *----------------------------------------------------------------------------*/
+
 require_once( plugin_dir_path( __FILE__ ) . 'includes/define.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'includes/countries.php' );
 require_once( plugin_dir_path( __FILE__ ) . 'includes/helpers.php' );
@@ -70,6 +78,21 @@ if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
 
 }
 
+/**
+ *
+ * Check WooCommerce version
+ *
+ */ 
+if( !function_exists( 'toret_check_wc_version' ) ){
+
+    function toret_check_wc_version( $version = '2.6.14' ){
+        if ( function_exists( 'WC' ) && ( version_compare( WC()->version, $version, ">" ) ) ) {
+            return true;
+        }else{
+            return false;
+        }
+    }   
+}
 
 /**
  * Custom endpoint

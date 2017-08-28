@@ -12,14 +12,92 @@ License URI:
 * Plugin je možné nainstalovat pomocí FTP, nebo nahráním Zip souboru v administraci
 
 = Minimální požadavky =
-* WordPress 3.8 nebo vyšší
-* PHP version 5.2.4 nebo vyšší
+* WordPress 4.0 nebo vyšší
+* PHP version 5.6 nebo vyšší
 * MySQL version 5.0 nebo vyšší
 
 == Changelog ==
 
+= 2.2.2 =
+* Opraveno chování filtru gopay_order_id, při jeho nepoužití
+
+= 2.2.1 =
+* Upravena funkčnost předávání dat na GoPay, při response a notfikaci, s ohledem na použití filtru gopay_order_id
+
+= 2.2.0 =
+* Doplněna funkce, kdy, při použití pluginu WPML, bude návratová url, respektovat zvolený jazyk.
+* Opravena nekompatibilita a konflikt, při používání nastavení menu v administraci
+
+= 2.1.9 =
+* Zpětná kompatibilita reduce stock pro WooCommerce 2.6
+
+= 2.1.8 =
+* Po zrušení objednávky zákazníkem se upraví stav na failed, ne na cancelled - aby bylo možné znovu zaplatit
+
+= 2.1.7 =
+* Úprava chování po zrušení objednávky
+* Snížení stavu skladu až po návratu z GoPay, dle stavu platby
+
+= 2.1.6 =
+* Úprava detekce vybranné dopravní metody z ohledem na zpětnou kompatibilitu
+
+= 2.1.5 =
+* Úprava kontroly povolené dopravní metody z ohledem na zpětnou kompatibilitu
+
+= 2.1.4 =
+* Pokud není povolená žádná dopravní metoda, vrátí podmínka true - zpětná kompatibilita pro dopravní metody, které nejsou aktualizované pro dopravní zóny.
+
+= 2.1.3 =
+* Oprava aktivní platební metody
+
+= 2.1.2 =
+* Oprava získání statusu objednávky pro verze 2.6+
+
+= 2.1.1 =
+* Aktualizace tříd pro kompatibilitu s WooCommerce 3.0.+
+
+= 2.1.0 =
+* Doplněny třídy, pro kompatibilitu s WooCommerce 3.0.+
+* Změněna testovací url na novou verzi
+* Přidána podpora pro doručovací adresu
+
+= 2.0.9 =
+* Upraven kód, pro kompatibilitu s WooCommerce 3.0.+
+
+= 2.0.8 =
+* Oprava překlepu u detekce subsription
+
+= 2.0.7 =
+* Změna stavu objednávky, při zrušení zákazníkem, na cancelled
+
+= 2.0.6 =
+* Detekce měny nahrazena metodou get_order_currency()
+* Přidána ochrana proti provedení notifikace dříve než odpovědi z brány
+* Změna zadání ceny objednávky 
+* Odstranění metody get_eshop_currency()
+* Odstranění metody get_wpml_currency()
+* Odstranění metody get_gopay_payment_price()
+* Odstranění metody get_woocs_price()
+* Přidán custom field gopay-response-message pro uložení exception při response
+
+= 2.0.5 =
+* fixed invalid argument in GoPay payment class
+
+= 2.0.4 =
+* fixed fatal error in 2.0.3 version
+
+= 2.0.3 =
+* fixed invalid argument in user account
+
+= 2.0.2 =
+* filter gopay_create_payment_product_name pro název produktu u objednávky
+* oprava nadpisu u formuláře pro licenční klíč
+
 = 2.0.1 =
-* Oprava nastavení stavu objednávky opětovné platby u sehlané objednávky
+* Oprava nastavení stavu objednávky opětovné platby u selhané objednávky
+* Přesun přenosu čísla oobjednávky z WooCommerce do položky p2
+* Nový filter gopay_order_id, umožňující manipulaci s optickým číslem objednávky
+* Do kontroly notifikace byly přidány i objednávky ve stavu Zpracovává se
 
 = 2.0.0 =
 * Kompatibilita s PHP 7.0

@@ -1,15 +1,15 @@
 <?php
 /*
 Plugin Name: Custom User Profile Photo
-Plugin URI: http://3five.com
+Plugin URI: http://vincentlistrani.com
 Description: A simple and effective custom WordPress user profile photo plugin. This plugin leverages the WordPress
 Media Uploader functionality. To use this plugin go to the users tab and select a user. The new field can be found
 below the password fields for that user.
-Author: 3five
-Author URI: http://3five.com
+Author: VincentListrani
+Author URI: http://vincentlistrani.com
 Text Domain: custom-user-profile-photo
 Domain Path: /languages/
-Version: 0.5.1
+Version: 0.5.3
 */
 
 /**
@@ -58,6 +58,7 @@ Version: 0.5.1
 function cupp_load_plugin_textdomain() {
 	load_plugin_textdomain( 'custom-user-profile-photo', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 }
+
 add_action( 'init', 'cupp_load_plugin_textdomain' );
 
 /**
@@ -135,11 +136,11 @@ function cupp_profile_img_fields( $user ) {
 					<div id="cupp_options">
 						<input type="radio" id="upload_option" name="img_option" value="upload" class="tog" checked>
 						<label
-							for="upload_option"><?php _e( 'Upload New Image', 'custom-user-profile-photo' ); ?></label><br>
+								for="upload_option"><?php _e( 'Upload New Image', 'custom-user-profile-photo' ); ?></label><br>
 
 						<input type="radio" id="external_option" name="img_option" value="external" class="tog">
 						<label
-							for="external_option"><?php _e( 'Use External URL', 'custom-user-profile-photo' ); ?></label><br>
+								for="external_option"><?php _e( 'Use External URL', 'custom-user-profile-photo' ); ?></label><br>
 					</div>
 
 					<!-- Hold the value here if this is a WPMU image -->
@@ -287,16 +288,23 @@ add_filter( 'get_avatar', 'cupp_avatar', 1, 5 );
 /**
  * Get a WordPress User by ID or email
  *
- * @param int|object|string $identifier User object, UD or email address.
+ * @param int|object|string $identifier User object, ID or email address.
  *
  * @return WP_User
  */
 function cupp_get_user_by_id_or_email( $identifier ) {
+	// If an integer is passed.
 	if ( is_numeric( $identifier ) ) {
 		return get_user_by( 'id', (int) $identifier );
 	}
 
-	if ( property_exists( $identifier, 'user_id' ) ) {
+	// If the WP_User object is passed.
+	if ( is_object( $identifier ) && property_exists( $identifier, 'ID' ) ) {
+		return get_user_by( 'id', (int) $identifier->ID );
+	}
+
+	// If the WP_Comment object is passed.
+	if ( is_object( $identifier ) && property_exists( $identifier, 'user_id' ) ) {
 		return get_user_by( 'id', (int) $identifier->user_id );
 	}
 
