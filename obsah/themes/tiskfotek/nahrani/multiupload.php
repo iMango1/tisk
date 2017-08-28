@@ -205,6 +205,7 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
                 $id_a_fotka = $foto_roz[1];
                 $jen_foto = explode("/",$id_a_fotka);
                 $url = dirname(__FILE__)."/server/php/tmp-objednavky/".$foto_roz[1];
+                $photoPath = dirname(__FILE__)."/server/php/tmp-objednavky/".$foto_roz[1];
 
                 if($jen_foto[1] != ""){
 
@@ -231,7 +232,7 @@ Můžete nahrávat komprimované soubory ve formátech ZIP a RAR. Vhodná a rych
                     </td>
                     <td>
                         <button class="btn btn-danger delete" data-type="DELETE"
-                                data-url="http://www.<?php echo $_NAZEV_WEBU; ?>/obsah/themes/tiskfotek/nahrani/server/php/index.php?file=<?php echo $jen_foto[1]; ?>">
+                                data-url="https://www.<?php echo $_NAZEV_WEBU; ?>/obsah/themes/tiskfotek/nahrani/server/php/index.php?file=<?php echo $jen_foto[1]; ?>">
                             <i class="glyphicon glyphicon-trash"></i>
                             <span>Vymazat</span>
                         </button>
