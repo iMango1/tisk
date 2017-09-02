@@ -62,8 +62,12 @@ jQuery( document ).ready(function() {
             //NASTAVENÍ POMLČEK PŘI NEVYPLNĚNÍ
             jQuery("#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku select").val("zadna-deska-3");
             jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-nalepit-na-desku select').trigger("chosen:updated");
-
-
+			// NASTAVENÍ FOTOPAPÍRU
+	        jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru select').val("mat-enhanced-mate-1");
+	        jQuery('#fotka-<?php echo $kolotoc; ?> .addon-wrap-3032-vyber-fotopapiru select').trigger("chosen:updated");
+	        jQuery("#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-vyber-fotopapiru").find( "a.chosen-single" ).css( "background", "transparent", "important" );
+	        jQuery("#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-vyber-fotopapiru").find( "a.chosen-single" ).css( "color", "#999", "important" );
+	        jQuery("#fotka-<?php echo $kolotoc; ?> div.product-addon.product-addon-vyber-fotopapiru").find( "span" ).removeClass( "vyborna" );
         }
         else if(vysledek == "Obraz na plátně"){
             //RESET ZADANÝCH HODNOT
