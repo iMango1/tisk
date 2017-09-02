@@ -39,8 +39,7 @@ if ( $customer_orders ) : ?>
 
 		<tbody><?php
 			foreach ( $customer_orders as $customer_order ) {
-				$order      = wc_get_order();
-				$order->populate( $customer_order );
+				$order = new WC_Order( $customer_order );
 				$item_count = $order->get_item_count();
 
 				?><tr class="order">

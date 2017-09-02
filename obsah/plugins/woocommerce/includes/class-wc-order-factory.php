@@ -38,6 +38,7 @@ class WC_Order_Factory {
 			return false;
 		}
 
+
 		$order_id  = absint( $the_order->ID );
 		$post_type = $the_order->post_type;
 

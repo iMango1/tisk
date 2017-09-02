@@ -14,23 +14,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 $customer_id = get_current_user_id();
 
 if ( ! wc_ship_to_billing_address_only() && get_option( 'woocommerce_calc_shipping' ) !== 'no' ) {
-	$page_title = apply_filters( 'woocommerce_my_account_my_address_title', __( 'My Addresses', 'woocommerce' ) );
+	$page_title = apply_filters( 'woocommerce_my_account_my_address_title', __( 'Mé adresy', 'woocommerce' ) );
 	$get_addresses    = apply_filters( 'woocommerce_my_account_get_addresses', array(
 		'billing' => __( 'Billing Address', 'woocommerce' ),
 		'shipping' => __( 'Shipping Address', 'woocommerce' )
 	), $customer_id );
 } else {
-	$page_title = apply_filters( 'woocommerce_my_account_my_address_title', __( 'My Address', 'woocommerce' ) );
+	$page_title = apply_filters( 'woocommerce_my_account_my_address_title', __( 'Mé adresy', 'woocommerce' ) );
 	$get_addresses    = apply_filters( 'woocommerce_my_account_get_addresses', array(
 		'billing' =>  __( 'Billing Address', 'woocommerce' )
 	), $customer_id );
 }
 
-$col = 1;
+$col = 1; 
 ?>
 
 <h3 class="block-head"><?php echo $page_title; ?></h3>
-
 <p class="myaccount_address">
 	<?php echo apply_filters( 'woocommerce_my_account_my_address_description', __( 'The following addresses will be used on the checkout page by default.', 'woocommerce' ) ); ?>
 </p>
