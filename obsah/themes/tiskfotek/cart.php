@@ -88,9 +88,9 @@ $_SESSION["status"] = 0;
 								echo $thumbnail;
 							else
 								printf( '<a href="%s">%s</a>', $_product->get_permalink( $cart_item ), $thumbnail );
-                                
+
                                 */
-                
+
                             echo $cart_item["addons"][0]["display"];
 						?>
 					</td>
@@ -98,7 +98,7 @@ $_SESSION["status"] = 0;
 					<td class="product-name">
 						<?php
                            //echo "<pre>",print_r($cart_item["addons"]),"</pre>";
-				/*			
+				/*
                             if ( ! $_product->is_visible() )
 								echo apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key );
 							else
@@ -106,10 +106,10 @@ $_SESSION["status"] = 0;
 */
 							// Meta data
 							//echo WC()->cart->get_item_data( $cart_item );
-                            
+
                             ?>
                             <div class="row">
-                               <?php 
+                               <?php
   //  echo "<pre>",print_r($cart_item),"</pre>";
 ?>
                                 <div class="col-md-6">
@@ -118,7 +118,7 @@ $_SESSION["status"] = 0;
                                     <dt><?php echo $cart_item["addons"][1]["name"]; ?></dt>
                                     <dd><p><?php echo $cart_item["addons"][1]["value"]; ?></p></dd>
                                     <?php } ?>
-                                    
+
                                     <?php if($cart_item["addons"][2]["name"] != "id_objednavky - id"){ ?>
                                     <dt><?php echo $cart_item["addons"][2]["name"]; ?></dt>
                                     <dd><p><?php echo $cart_item["addons"][2]["value"]; ?></p></dd>
@@ -137,7 +137,7 @@ $_SESSION["status"] = 0;
                                 </div>
                             </div>
                             <?php
-                
+
                				// Backorder notification
                				if ( $_product->backorders_require_notification() && $_product->is_on_backorder( $cart_item['quantity'] ) )
                					echo '<p class="backorder_notification">' . __( 'Available on backorder', 'woocommerce' ) . '</p>';
@@ -199,16 +199,16 @@ $_SESSION["status"] = 0;
 
 					</div>
 
-    
+
                 <div class="right">
-				<input type="submit" class="btn btn-default" name="update_cart" value="<?php _e( 'Update Cart', 'woocommerce' ); ?>" /> 
+				<input type="submit" class="btn btn-default" name="update_cart" value="<?php _e( 'Update Cart', 'woocommerce' ); ?>" />
                 <?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
 				<?php do_action( 'woocommerce_cart_actions' ); ?>
 
 				<?php wp_nonce_field( 'woocommerce-cart' ); ?>
                 </div>
-    
-    </div>    
+
+    </div>
 
 
 <div class="celkem-obal">
@@ -217,7 +217,7 @@ $_SESSION["status"] = 0;
 
 	<?php woocommerce_cart_totals(); ?>
 
-    
+
     	<?php if ( WC()->cart->coupons_enabled() ) { ?>
 	<div class="kupony-obal">
       <!--              <div class="coupon left">
@@ -228,7 +228,7 @@ $_SESSION["status"] = 0;
 
 					</div>-->
 				<?php } ?>
-    
+
                 <div class="right">
 <!--				<input type="submit" class="btn btn-default" name="update_cart" value="<?php _e( 'Update Cart', 'woocommerce' ); ?> /> --> <input type="submit" class="btn main-bg" name="proceed" value="Přejít na další krok<?php // _e( 'Proceed to Checkout', 'woocommerce' ); ?>" />
                 <?php do_action( 'woocommerce_proceed_to_checkout' ); ?>
@@ -236,17 +236,17 @@ $_SESSION["status"] = 0;
 
 				<?php wp_nonce_field( 'woocommerce-cart' ); ?>
                 </div>
-    
-    </div>    
+
+    </div>
 </div>
 </form>
  <div class="footer-uploader">
             <div class="col-md-6">
                 <p>Digitální fotosběrna</p>
-            </div>   
+            </div>
             <div class="col-md-6">
                 <p class="pull-right">Multiuploader 1.0.3</p>
-            </div>    
+            </div>
 </div>
 
 <?php do_action( 'woocommerce_after_cart' ); ?>

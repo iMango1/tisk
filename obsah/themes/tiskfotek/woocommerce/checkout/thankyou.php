@@ -32,7 +32,8 @@ if ( $order ) : ?>
 		</p>
 
 	<?php else : ?>
-        <div class="kroky-nastaveni-blok" style="margin-bottom:20px;">
+
+		<div class="kroky-nastaveni-blok" style="margin-bottom:20px;">
             <div class="kroky_blok">
                 <div class="krok jedna_upload aktivni"><a><span class="cislo">1</span> Upload fotografií</a></div>
                 <div class="krok dva_upload aktivni"><a><span class="cislo">2</span> Nastavení parametrů tisku</a></div>
@@ -67,10 +68,45 @@ if ( $order ) : ?>
 		</ul>
 		<div class="clear"></div>
 
+		<?php
+
+		//nazev webu
+		$url = $_SERVER["SERVER_NAME"];
+		$url_roz = explode(".", $url);
+		$_NAZEV_WEBU = $url_roz[1] . '.' . $url_roz[2];
+
+
+		$orderId = $_COOKIE['id_objednavky'] != $_SESSION['orderId'] ? $_SESSION['orderId'] : $_COOKIE['id_objednavky'];
+
+		if (get_current_user_id() == 3) { // 3 -> Lukáš
+			//	echo "<pre>", print_r($order->get_items()), "</pre>";
+		}
+
+		// rename order photos folder
+		rename(
+			"/home/web/$_NAZEV_WEBU/objednavky/" . $orderId,
+			"/home/web/$_NAZEV_WEBU/objednavky/" . $order->get_order_number()
+		);
+
+		// rename photos url
+		if (get_current_user_id() == 3) { // 3 -> Lukáš
+			foreach ($order->get_items() as $orderItems) {
+				foreach ($orderItems as $key => $orderItem) {
+
+
+					var_dump($key, $orderItem);
+					echo "<hr>";
+				}
+			}
+		}
+
+		?>
+
 	<?php endif; ?>
 
 	<?php do_action( 'woocommerce_thankyou_' . $order->payment_method, $order->id ); ?>
 	<?php do_action( 'woocommerce_thankyou', $order->id ); ?>
+
 
 <?php else : ?>
 

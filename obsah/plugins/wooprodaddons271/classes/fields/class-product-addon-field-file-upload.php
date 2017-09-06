@@ -88,7 +88,9 @@ else
                     $cele_url_fotky = "https://objednavky.$_NAZEV_WEBU/".$_COOKIE["id_objednavky"]."/$pojmenovani";
                     
                     rename("/home/web/$_NAZEV_WEBU/objednavky/".$_COOKIE["id_objednavky"]."/".$_POST["nazev_f"], "/home/web/$_NAZEV_WEBU/objednavky/".$_COOKIE["id_objednavky"]."/".$pojmenovani);
-                    
+
+                    $_SESSION['orderId'] = $_COOKIE["id_objednavky"];
+
 					$cart_item_data[] = array( //přidané i
 						'name' 		=> "Fotky",
 						'value'		=> $cele_url_fotky,

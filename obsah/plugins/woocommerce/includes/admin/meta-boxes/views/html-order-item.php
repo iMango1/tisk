@@ -43,8 +43,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php 
             $url_fotky = $item["Fotky"];
             $rozkouskovane = explode('"',$url_fotky);
-            
-            echo "<a href='".$rozkouskovane[1]."' data-lightbox='fotky' target='_blank'><img src='".$rozkouskovane[1]."' width='80'></a>";
+			$changedDirectoryName = 1504726146;
+			if(strtotime($order->order_date) < $changedDirectoryName) {
+				$orderUrl = $rozkouskovane[1];
+			} else {
+				// todo LS
+				// rename photo folder url
+				$urlSplit = explode('/',$rozkouskovane[1]);
+				$oldOrderId = $urlSplit[3];
+				$newOrderId = $order->get_order_number();
+				$orderUrl = str_replace($oldOrderId, $newOrderId, $rozkouskovane[1]);
+			}
+
+            echo "<a href='".$orderUrl."' data-lightbox='fotky' target='_blank'><img src='".$orderUrl."' width='80'></a>";
             
         ?>
 	</td>

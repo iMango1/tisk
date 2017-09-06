@@ -83,22 +83,27 @@ if ( wc_tax_enabled() ) {
 			</tr>
 		</thead>
 		<tbody id="order_line_items">
-        <p style="padding-top: 20px; margin-left: 20px; font-weight:normal; font-size: 23px;">ID OBJEDNÁVKY NA FTP: <span style="color: rgb(153,114,181);">
+        <p style="padding-top: 20px; margin-left: 20px; font-weight:normal; font-size: 18px;">ID OBJEDNÁVKY NA FTP: <span style="color: rgb(153,114,181);">
 			<?php
-			$pom = 0;
-			foreach($line_items as $klicek => $polozka) {
-				foreach($polozka as $klicek2 => $polozka) {
-					if($klicek2 == "Fotky") {
-						$pole_polozka = explode("/", $polozka);
-						echo $pole_polozka[7];
-						$pom = 1;
-						break;
-					}
-				}
-				if($pom == 1)
-					break;
-			}
 
+			$changedDirectoryName = 1504726146;
+			if(strtotime($order->order_date) < $changedDirectoryName) {
+				$pom = 0;
+				foreach($line_items as $klicek => $polozka) {
+					foreach($polozka as $klicek2 => $polozka) {
+						if($klicek2 == "Fotky") {
+							$pole_polozka = explode("/", $polozka);
+							echo $pole_polozka[7];
+							$pom = 1;
+							break;
+						}
+					}
+					if($pom == 1)
+						break;
+				}
+			} else {
+				echo $order->get_order_number();
+			}
 			?>
 		</span>
 		</p>
@@ -107,8 +112,7 @@ if ( wc_tax_enabled() ) {
   
         
             foreach ( $line_items as $item_id => $item ) {
-            //    echo "<pre>",print_r($item),"</pre>";    
-				
+
                 $_product  = $order->get_product_from_item( $item );
 				$item_meta = $order->get_item_meta( $item_id );
 
