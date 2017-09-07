@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eb2886ae-ccfd-400a-b30d-6e457fa8bf15" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-item.php" afterPath="$PROJECT_DIR$/obsah/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-item.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-items.php" afterPath="$PROJECT_DIR$/obsah/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-items.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/classes/fields/class-product-addon-field-file-upload.php" afterPath="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/classes/fields/class-product-addon-field-file-upload.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/cart.php" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/cart.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/checkout/thankyou.php" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/checkout/thankyou.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php" />
     </list>
     <ignored path="!obsah_git.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,20 +24,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="thankyou.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="thankyou.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/checkout/thankyou.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="814">
-              <caret line="92" column="58" lean-forward="true" selection-start-line="92" selection-start-column="58" selection-end-line="92" selection-end-column="58" />
+            <state relative-caret-position="1125">
+              <caret line="81" column="69" lean-forward="false" selection-start-line="81" selection-start-column="69" selection-end-line="81" selection-end-column="69" />
               <folding>
-                <marker date="1504729624000" expanded="true" signature="1054:1690" ph="..." />
-                <marker date="1504729624000" expanded="true" signature="1091:1675" ph="..." />
                 <marker date="1504729624000" expanded="true" signature="1742:1781" ph="..." />
-                <marker date="1504729624000" expanded="true" signature="1944:1981" ph="..." />
-                <marker date="1504729624000" expanded="true" signature="1966:1981" ph="..." />
-                <marker date="1504729624000" expanded="true" signature="2110:2125" ph="..." />
-                <marker date="1504729624000" expanded="true" signature="2294:2309" ph="..." />
-                <marker date="1504729624000" expanded="true" signature="2492:2507" ph="..." />
               </folding>
             </state>
           </provider>
@@ -50,11 +39,9 @@
       <file leaf-file-name="html-order-items.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-items.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
+            <state relative-caret-position="1320">
               <caret line="88" column="12" lean-forward="false" selection-start-line="88" selection-start-column="12" selection-end-line="105" selection-end-column="13" />
               <folding>
-                <element signature="n#style#0;n#p#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#p#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
                 <marker date="1504726358000" expanded="true" signature="5528:5645" ph="SELECT ID FR... $" />
                 <marker date="1504726358000" expanded="true" signature="17840:17923" ph="SELECT * FRO... $" />
                 <marker date="1504726358000" expanded="true" signature="17993:18554" ph="..." />
@@ -67,8 +54,8 @@
       <file leaf-file-name="html-order-item.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-item.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="653">
-              <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+            <state relative-caret-position="870">
+              <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -77,8 +64,8 @@
       <file leaf-file-name="standard_1.php" pinned="false" current-in-tab="false">
         <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_1.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="742" column="27" lean-forward="true" selection-start-line="742" selection-start-column="27" selection-end-line="742" selection-end-column="27" />
+            <state relative-caret-position="11130">
+              <caret line="742" column="27" lean-forward="false" selection-start-line="742" selection-start-column="27" selection-end-line="742" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -87,7 +74,7 @@
       <file leaf-file-name="class-wc-meta-box-order-data.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce/includes/admin/meta-boxes/class-wc-meta-box-order-data.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
+            <state relative-caret-position="2400">
               <caret line="169" column="19" lean-forward="false" selection-start-line="169" selection-start-column="19" selection-end-line="169" selection-end-column="19" />
               <folding>
                 <marker date="1503683160000" expanded="true" signature="6981:6987" ph="→" />
@@ -101,7 +88,7 @@
       <file leaf-file-name="wc-order-functions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce/includes/wc-order-functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
+            <state relative-caret-position="3225">
               <caret line="224" column="38" lean-forward="false" selection-start-line="224" selection-start-column="38" selection-end-line="224" selection-end-column="38" />
               <folding>
                 <marker date="1504030954000" expanded="true" signature="7665:7758" ph="SELECT post_... $" />
@@ -132,7 +119,7 @@
         <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce/includes/class-wc-order-factory.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="555">
-              <caret line="37" column="25" lean-forward="true" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+              <caret line="37" column="25" lean-forward="false" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
               <folding>
                 <element signature="e#1207#1265#0#PHP" expanded="false" />
               </folding>
@@ -140,24 +127,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="483">
+              <caret line="932" column="19" lean-forward="true" selection-start-line="932" selection-start-column="19" selection-end-line="932" selection-end-column="19" />
               <folding>
-                <marker date="1504727414000" expanded="true" signature="3483:3546" ph="SELECT * FRO... tskf_postmeta" />
-                <marker date="1504727414000" expanded="true" signature="8775:8835" ph="SELECT * FRO... tskf_postmeta" />
-                <marker date="1504727414000" expanded="true" signature="11685:11733" ph="SELECT * FRO... tskf_postmeta" />
-                <marker date="1504727414000" expanded="true" signature="31725:31743" ph="..." />
-                <marker date="1504727414000" expanded="true" signature="41378:41412" ph="..." />
-                <marker date="1504727414000" expanded="true" signature="43183:43218" ph="..." />
-                <marker date="1504727414000" expanded="true" signature="54829:55515" ph="..." />
-                <marker date="1504727414000" expanded="true" signature="54875:55502" ph="..." />
-                <marker date="1504727414000" expanded="true" signature="54979:55492" ph="..." />
-                <marker date="1504727414000" expanded="true" signature="55002:55477" ph="..." />
-                <marker date="1504727414000" expanded="true" signature="55042:55258" ph="..." />
-                <marker date="1504727414000" expanded="true" signature="55294:55465" ph="..." />
+                <marker date="1504730076000" expanded="true" signature="3483:3546" ph="SELECT * FRO... tskf_postmeta" />
+                <marker date="1504730076000" expanded="true" signature="8775:8835" ph="SELECT * FRO... tskf_postmeta" />
+                <marker date="1504730076000" expanded="true" signature="11685:11733" ph="SELECT * FRO... tskf_postmeta" />
+                <marker date="1504730076000" expanded="true" signature="31727:31745" ph="..." />
+                <marker date="1504730076000" expanded="true" signature="31875:31893" ph="..." />
+                <marker date="1504730076000" expanded="true" signature="41527:41561" ph="..." />
+                <marker date="1504730076000" expanded="true" signature="43332:43367" ph="..." />
+                <marker date="1504730076000" expanded="true" signature="54978:55664" ph="..." />
+                <marker date="1504730076000" expanded="true" signature="55024:55651" ph="..." />
+                <marker date="1504730076000" expanded="true" signature="55128:55641" ph="..." />
+                <marker date="1504730076000" expanded="true" signature="55151:55626" ph="..." />
+                <marker date="1504730076000" expanded="true" signature="55191:55407" ph="..." />
+                <marker date="1504730076000" expanded="true" signature="55443:55614" ph="..." />
               </folding>
             </state>
           </provider>
@@ -166,7 +154,7 @@
       <file leaf-file-name="abstract-wc-order.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce/includes/abstracts/abstract-wc-order.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
+            <state relative-caret-position="5130">
               <caret line="342" column="21" lean-forward="false" selection-start-line="342" selection-start-column="21" selection-end-line="342" selection-end-column="21" />
               <folding>
                 <marker date="1503683100000" expanded="true" signature="5834:6073" ph="DELETE FROM " />
@@ -196,19 +184,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$page_title</find>
-      <find>v</find>
-      <find>velké form</find>
-      <find>velké formáty</find>
-      <find>woocommerce_checkout_place_order</find>
-      <find>or</find>
-      <find>order-&gt;id</find>
-      <find>ob</find>
       <find>$id_objednavky</find>
       <find>objednavky</find>
       <find>\	\	\	rename\(\&quot;\/home\/web\/\$_NAZEV_WEBU\/objednavky\/\&quot;\.\$_COOKIE\[\&quot;id_objednavky\&quot;\]\.\&quot;\/\&quot;\.\$_POST\[\&quot;nazev_f\&quot;\]\, \&quot;\/home\/web\/\$_NAZEV_WEBU\/objednavky\/\&quot;\.\$_COOKIE\[\&quot;id_objednavky\&quot;\]\.\&quot;\/\&quot;\.\$pojmenovani\)\;\n</find>
-      <find>rename(&quot;/home/web/$_NAZEV_WEBU/objednavky/&quot;.$_COOKIE[&quot;id_objednavky&quot;].&quot;/&quot;.$_POST[&quot;nazev_f&quot;], &quot;/home/web/$_NAZEV_WEBU/objednavky/&quot;.$_COOKIE[&quot;id_objednavky&quot;].&quot;/&quot;.$pojmenovani);</find>
-      <find>rename(&quot;/home/web/$_NAZEV_WEBU/objednavky/&quot;.$_COOKIE[&quot;id_objednavky&quot;].&quot;/&quot;.$_POST[&quot;nazev_f&quot;], &quot;/home/web/$_NAZEV_WEBU/objednavky/&quot;.$_COOKIE[&quot;id_objednavky&quot;].&quot;/&quot;.$pojmenovani);</find>
       <find>rename(&quot;/home/web/$_NAZEV_WEBU/objednavky/&quot;.$_COOKIE[&quot;id_objednavky&quot;].&quot;/&quot;.$_POST[&quot;nazev_f&quot;], &quot;/home/web/$_NAZEV_WEBU/objednavky/&quot;.$_COOKIE[&quot;id_objednavky&quot;].&quot;/&quot;.$pojmenovani);</find>
       <find>class=&quot;order&quot;</find>
       <find>$_COOKIE[&quot;id_objednavky&quot;]</find>
@@ -226,6 +204,15 @@
       <find>Podrobnosti Objednávka č.</find>
       <find>class=&quot;order_number&quot;</find>
       <find>$line_items</find>
+      <find>mu</find>
+      <find>muj-ucer</find>
+      <find>muj-ucet</find>
+      <find>href=&quot;/muj-ucet/&quot;</find>
+      <find>href=&quot;/muj-ucet/</find>
+      <find>href=&quot;/muj-ucet</find>
+      <find>href=&quot;muj-ucet</find>
+      <find>btn btn-primary contact-btn registrace-tlacitk</find>
+      <find>woocommerce-FormRow woocommerce-FormRow--first form-row form-row-first</find>
     </findStrings>
     <replaceStrings>
       <replace>g-radek</replace>
@@ -285,11 +272,11 @@
         <option value="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/select.php" />
         <option value="$PROJECT_DIR$/obsah/plugins/woocommerce/includes/class-wc-checkout.php" />
         <option value="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/classes/fields/class-product-addon-field-file-upload.php" />
-        <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php" />
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/cart.php" />
         <option value="$PROJECT_DIR$/obsah/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-items.php" />
         <option value="$PROJECT_DIR$/obsah/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-item.php" />
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/checkout/thankyou.php" />
+        <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php" />
       </list>
     </option>
   </component>
@@ -539,8 +526,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -773,7 +760,8 @@
       <workItem from="1504386917209" duration="30000" />
       <workItem from="1504640247062" duration="469000" />
       <workItem from="1504673513969" duration="6000" />
-      <workItem from="1504719903973" duration="6442000" />
+      <workItem from="1504719903973" duration="6948000" />
+      <workItem from="1504802496320" duration="262000" />
     </task>
     <task id="LOCAL-00001" summary="IDE settings">
       <created>1476388701506</created>
@@ -978,11 +966,18 @@
       <option name="project" value="LOCAL" />
       <updated>1504385948054</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Změna id objednávky + hotfix">
+      <created>1504729656121</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1504729656121</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="155754000" />
+    <option name="totallyTimeSpent" value="156522000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -997,15 +992,14 @@
     <frame x="1280" y="-386" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15761448" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10543131" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288948" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297769" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32178217" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18316832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4520548" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22310969" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14696486" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23762377" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -1014,6 +1008,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18316832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1035,7 +1030,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Odstranění nepotřebných komentářů v multiupload.php" />
     <MESSAGE value="Odstranění SNAD nepotřebných komentářů v addon-end.php" />
     <MESSAGE value="Přidání chybějících středníků" />
     <MESSAGE value="PŘED MEGA PŘEDĚLÁVKOU" />
@@ -1060,7 +1054,8 @@
     <MESSAGE value="Oprava multiuploadu" />
     <MESSAGE value="Oprava orders" />
     <MESSAGE value="Defaultní fotopapír pro velký formát" />
-    <option name="LAST_COMMIT_MESSAGE" value="Defaultní fotopapír pro velký formát" />
+    <MESSAGE value="Změna id objednávky + hotfix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Změna id objednávky + hotfix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1256,7 +1251,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="37" column="47" lean-forward="false" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1264,7 +1258,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="39" column="55" lean-forward="false" selection-start-line="39" selection-start-column="55" selection-end-line="39" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1272,7 +1265,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="49" column="96" lean-forward="false" selection-start-line="49" selection-start-column="96" selection-end-line="49" selection-end-column="96" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1280,7 +1272,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="955">
           <caret line="146" column="0" lean-forward="false" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1288,7 +1279,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="692">
           <caret line="313" column="0" lean-forward="true" selection-start-line="313" selection-start-column="0" selection-end-line="313" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1296,7 +1286,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="271" column="40" lean-forward="false" selection-start-line="271" selection-start-column="40" selection-end-line="271" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1304,7 +1293,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="471">
           <caret line="45" column="104" lean-forward="true" selection-start-line="45" selection-start-column="104" selection-end-line="45" selection-end-column="104" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1312,7 +1300,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="280" column="17" lean-forward="false" selection-start-line="280" selection-start-column="17" selection-end-line="280" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1320,7 +1307,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="206">
           <caret line="337" column="45" lean-forward="true" selection-start-line="337" selection-start-column="45" selection-end-line="337" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1328,9 +1314,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="18" column="42" lean-forward="false" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
-          <folding>
-            <element signature="e#6#112#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1338,9 +1321,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="66" column="120" lean-forward="false" selection-start-line="66" selection-start-column="120" selection-end-line="66" selection-end-column="120" />
-          <folding>
-            <marker date="1504644033000" expanded="true" signature="233:296" ph="SELECT * FRO... tskf_postmeta" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1348,7 +1328,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="481">
           <caret line="45" column="25" lean-forward="true" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1363,7 +1342,7 @@
     <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce/includes/class-wc-order-factory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
-          <caret line="37" column="25" lean-forward="true" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
+          <caret line="37" column="25" lean-forward="false" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
           <folding>
             <element signature="e#1207#1265#0#PHP" expanded="false" />
           </folding>
@@ -1372,7 +1351,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce/includes/wc-order-functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
+        <state relative-caret-position="3225">
           <caret line="224" column="38" lean-forward="false" selection-start-line="224" selection-start-column="38" selection-end-line="224" selection-end-column="38" />
           <folding>
             <marker date="1504030954000" expanded="true" signature="7665:7758" ph="SELECT post_... $" />
@@ -1388,36 +1367,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding>
-            <marker date="1504727414000" expanded="true" signature="3483:3546" ph="SELECT * FRO... tskf_postmeta" />
-            <marker date="1504727414000" expanded="true" signature="8775:8835" ph="SELECT * FRO... tskf_postmeta" />
-            <marker date="1504727414000" expanded="true" signature="11685:11733" ph="SELECT * FRO... tskf_postmeta" />
-            <marker date="1504727414000" expanded="true" signature="31725:31743" ph="..." />
-            <marker date="1504727414000" expanded="true" signature="41378:41412" ph="..." />
-            <marker date="1504727414000" expanded="true" signature="43183:43218" ph="..." />
-            <marker date="1504727414000" expanded="true" signature="54829:55515" ph="..." />
-            <marker date="1504727414000" expanded="true" signature="54875:55502" ph="..." />
-            <marker date="1504727414000" expanded="true" signature="54979:55492" ph="..." />
-            <marker date="1504727414000" expanded="true" signature="55002:55477" ph="..." />
-            <marker date="1504727414000" expanded="true" signature="55042:55258" ph="..." />
-            <marker date="1504727414000" expanded="true" signature="55294:55465" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/cart.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1923">
           <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-          <folding>
-            <element signature="e#1988#2090#0#PHP" expanded="true" />
-            <element signature="e#7535#7600#0#PHP" expanded="true" />
-            <marker date="1504727862000" expanded="true" signature="2865:2872" ph="×" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1425,13 +1378,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="81" column="32" lean-forward="true" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce/includes/abstracts/abstract-wc-order.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
+        <state relative-caret-position="5130">
           <caret line="342" column="21" lean-forward="false" selection-start-line="342" selection-start-column="21" selection-end-line="342" selection-end-column="21" />
           <folding>
             <marker date="1503683100000" expanded="true" signature="5834:6073" ph="DELETE FROM " />
@@ -1451,7 +1403,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce/includes/admin/meta-boxes/class-wc-meta-box-order-data.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
+        <state relative-caret-position="2400">
           <caret line="169" column="19" lean-forward="false" selection-start-line="169" selection-start-column="19" selection-end-line="169" selection-end-column="19" />
           <folding>
             <marker date="1503683160000" expanded="true" signature="6981:6987" ph="→" />
@@ -1463,19 +1415,17 @@
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_1.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="742" column="27" lean-forward="true" selection-start-line="742" selection-start-column="27" selection-end-line="742" selection-end-column="27" />
+        <state relative-caret-position="11130">
+          <caret line="742" column="27" lean-forward="false" selection-start-line="742" selection-start-column="27" selection-end-line="742" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-items.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
+        <state relative-caret-position="1320">
           <caret line="88" column="12" lean-forward="false" selection-start-line="88" selection-start-column="12" selection-end-line="105" selection-end-column="13" />
           <folding>
-            <element signature="n#style#0;n#p#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#0;n#tbody#0;n#table#0;n#div#0;n#!!top" expanded="true" />
             <marker date="1504726358000" expanded="true" signature="5528:5645" ph="SELECT ID FR... $" />
             <marker date="1504726358000" expanded="true" signature="17840:17923" ph="SELECT * FRO... $" />
             <marker date="1504726358000" expanded="true" signature="17993:18554" ph="..." />
@@ -1486,25 +1436,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-item.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="653">
-          <caret line="63" column="0" lean-forward="true" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        <state relative-caret-position="870">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/checkout/thankyou.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="92" column="58" lean-forward="true" selection-start-line="92" selection-start-column="58" selection-end-line="92" selection-end-column="58" />
+        <state relative-caret-position="1125">
+          <caret line="81" column="69" lean-forward="false" selection-start-line="81" selection-start-column="69" selection-end-line="81" selection-end-column="69" />
           <folding>
-            <marker date="1504729624000" expanded="true" signature="1054:1690" ph="..." />
-            <marker date="1504729624000" expanded="true" signature="1091:1675" ph="..." />
             <marker date="1504729624000" expanded="true" signature="1742:1781" ph="..." />
-            <marker date="1504729624000" expanded="true" signature="1944:1981" ph="..." />
-            <marker date="1504729624000" expanded="true" signature="1966:1981" ph="..." />
-            <marker date="1504729624000" expanded="true" signature="2110:2125" ph="..." />
-            <marker date="1504729624000" expanded="true" signature="2294:2309" ph="..." />
-            <marker date="1504729624000" expanded="true" signature="2492:2507" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="932" column="19" lean-forward="true" selection-start-line="932" selection-start-column="19" selection-end-line="932" selection-end-column="19" />
+          <folding>
+            <marker date="1504730076000" expanded="true" signature="3483:3546" ph="SELECT * FRO... tskf_postmeta" />
+            <marker date="1504730076000" expanded="true" signature="8775:8835" ph="SELECT * FRO... tskf_postmeta" />
+            <marker date="1504730076000" expanded="true" signature="11685:11733" ph="SELECT * FRO... tskf_postmeta" />
+            <marker date="1504730076000" expanded="true" signature="31727:31745" ph="..." />
+            <marker date="1504730076000" expanded="true" signature="31875:31893" ph="..." />
+            <marker date="1504730076000" expanded="true" signature="41527:41561" ph="..." />
+            <marker date="1504730076000" expanded="true" signature="43332:43367" ph="..." />
+            <marker date="1504730076000" expanded="true" signature="54978:55664" ph="..." />
+            <marker date="1504730076000" expanded="true" signature="55024:55651" ph="..." />
+            <marker date="1504730076000" expanded="true" signature="55128:55641" ph="..." />
+            <marker date="1504730076000" expanded="true" signature="55151:55626" ph="..." />
+            <marker date="1504730076000" expanded="true" signature="55191:55407" ph="..." />
+            <marker date="1504730076000" expanded="true" signature="55443:55614" ph="..." />
           </folding>
         </state>
       </provider>

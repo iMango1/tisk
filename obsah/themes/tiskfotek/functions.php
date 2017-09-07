@@ -946,7 +946,8 @@ function wpmem_inc_login( $page="page", $redirect_to = null )
 	$str .= "<p>Jste zde poprvé a přejete si vytvořit zákaznický účte? Nabízí spousty výhod. Pro vytvoření účtu klikně na tlačítko \"Vytvořit účet\".</p>\n";
 
 	$link = apply_filters( 'wpmem_reg_link', WPMEM_REGURL );
-	$str  .= '<div style="text-align:center;"><a class="btn btn-primary contact-btn registrace-tlacitk" href="' . $link . '">Vytvořit účet</a></div>';
+	//$str  .= '<div style="text-align:center;"><a class="btn btn-primary contact-btn registrace-tlacitk" href="' . $link . '">Vytvořit účet</a></div>';
+	$str  .= '<div style="text-align:center;"><a class="btn btn-primary contact-btn registrace-tlacitk" href="/registrace/">Vytvořit účet</a></div>';
 	//$str  .= '<div style="text-align:center;"><button class="btn btn-primary contact-btn registrace-tlacitko">Vytvořit účet</button></div>';
     
 	$str .= "</div>\n"; 
