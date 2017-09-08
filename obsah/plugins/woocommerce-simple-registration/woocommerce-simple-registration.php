@@ -189,15 +189,23 @@ class WooCommerce_Simple_Registration {
 			return;
 		}
 		?>
-		<p class="woocommerce-FormRow woocommerce-FormRow--first form-row form-row-first">
-			<label for="reg_sr_firstname"><?php _e( 'First Name', 'woocommerce-simple-registration' ); ?></label>
-			<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="sr_firstname" id="reg_sr_firstname" value="<?php if ( ! empty( $_POST['sr_firstname'] ) ) echo esc_attr( $_POST['sr_firstname'] ); ?>" />
-		</p>
+		<div class="row">
+			<div class="col-md-6">
+				<p class="woocommerce-FormRow woocommerce-FormRow--first form-row form-row-first">
+					<label for="reg_sr_firstname"><?php _e( 'First Name', 'woocommerce-simple-registration' ); ?></label>
+					<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="sr_firstname" id="reg_sr_firstname" value="<?php if ( ! empty( $_POST['sr_firstname'] ) ) echo esc_attr( $_POST['sr_firstname'] ); ?>" />
+				</p>
+			</div>
+			<div class="col-md-6">
+				<p class="woocommerce-FormRow woocommerce-FormRow--last form-row form-row-last">
+					<label for="reg_sr_lastname"><?php _e( 'Last Name', 'woocommerce-simple-registration' ); ?></label>
+					<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="sr_lastname" id="reg_sr_lastname" value="<?php if ( ! empty( $_POST['sr_lastname'] ) ) echo esc_attr( $_POST['sr_lastname'] ); ?>" />
+				</p>
+			</div>
+		</div>
 
-		<p class="woocommerce-FormRow woocommerce-FormRow--last form-row form-row-last">
-			<label for="reg_sr_lastname"><?php _e( 'Last Name', 'woocommerce-simple-registration' ); ?></label>
-			<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="sr_lastname" id="reg_sr_lastname" value="<?php if ( ! empty( $_POST['sr_lastname'] ) ) echo esc_attr( $_POST['sr_lastname'] ); ?>" />
-		</p>
+
+
 		<?php
 	}
 

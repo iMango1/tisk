@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb2886ae-ccfd-400a-b30d-6e457fa8bf15" name="Default" comment="">
+    <list default="true" id="eb2886ae-ccfd-400a-b30d-6e457fa8bf15" name="Default" comment="[WIP] vzhled registrace">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php" afterPath="$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/woocommerce-simple-registration/templates/registration-form.php" afterPath="$PROJECT_DIR$/obsah/plugins/woocommerce-simple-registration/templates/registration-form.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/obsah/plugins/woocommerce-simple-registration/woocommerce-simple-registration.php" afterPath="$PROJECT_DIR$/obsah/plugins/woocommerce-simple-registration/woocommerce-simple-registration.php" />
     </list>
     <ignored path="!obsah_git.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -105,69 +106,54 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="order-details.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/order/order-details.php">
+      <file leaf-file-name="registration-form.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce-simple-registration/templates/registration-form.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="13" column="16" lean-forward="false" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
+            <state relative-caret-position="555">
+              <caret line="43" column="18" lean-forward="false" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="class-wc-order-factory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce/includes/class-wc-order-factory.php">
+      <file leaf-file-name="woocommerce-simple-registration.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce-simple-registration/woocommerce-simple-registration.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="25" lean-forward="false" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
-              <folding>
-                <element signature="e#1207#1265#0#PHP" expanded="false" />
-              </folding>
+            <state relative-caret-position="306">
+              <caret line="86" column="9" lean-forward="true" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="wp-members-tos.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/obsah/plugins/wp-members/wp-members-tos.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="932" column="19" lean-forward="true" selection-start-line="932" selection-start-column="19" selection-end-line="932" selection-end-column="19" />
+            <state relative-caret-position="12315">
+              <caret line="821" column="5" lean-forward="false" selection-start-line="821" selection-start-column="5" selection-end-line="821" selection-end-column="5" />
               <folding>
-                <marker date="1504730076000" expanded="true" signature="3483:3546" ph="SELECT * FRO... tskf_postmeta" />
-                <marker date="1504730076000" expanded="true" signature="8775:8835" ph="SELECT * FRO... tskf_postmeta" />
-                <marker date="1504730076000" expanded="true" signature="11685:11733" ph="SELECT * FRO... tskf_postmeta" />
-                <marker date="1504730076000" expanded="true" signature="31727:31745" ph="..." />
-                <marker date="1504730076000" expanded="true" signature="31875:31893" ph="..." />
-                <marker date="1504730076000" expanded="true" signature="41527:41561" ph="..." />
-                <marker date="1504730076000" expanded="true" signature="43332:43367" ph="..." />
-                <marker date="1504730076000" expanded="true" signature="54978:55664" ph="..." />
-                <marker date="1504730076000" expanded="true" signature="55024:55651" ph="..." />
-                <marker date="1504730076000" expanded="true" signature="55128:55641" ph="..." />
-                <marker date="1504730076000" expanded="true" signature="55151:55626" ph="..." />
-                <marker date="1504730076000" expanded="true" signature="55191:55407" ph="..." />
-                <marker date="1504730076000" expanded="true" signature="55443:55614" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="abstract-wc-order.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce/includes/abstracts/abstract-wc-order.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5130">
-              <caret line="342" column="21" lean-forward="false" selection-start-line="342" selection-start-column="21" selection-end-line="342" selection-end-column="21" />
-              <folding>
-                <marker date="1503683100000" expanded="true" signature="5834:6073" ph="DELETE FROM " />
-                <marker date="1503683100000" expanded="true" signature="6132:6227" ph="DELETE FROM " />
-                <marker date="1503683100000" expanded="true" signature="6297:6505" ph="DELETE FROM " />
-                <marker date="1503683100000" expanded="true" signature="6557:6627" ph="DELETE FROM " />
-                <marker date="1503683100000" expanded="true" signature="39161:39279" ph="SELECT order... $" />
-                <marker date="1503683100000" expanded="true" signature="44080:44226" ph="SELECT meta_... $" />
-                <marker date="1503683100000" expanded="true" signature="44903:45028" ph="SELECT meta_... $" />
-                <marker date="1503683100000" expanded="true" signature="57279:57285" ph=" " />
-                <marker date="1503683100000" expanded="true" signature="57730:57736" ph=" " />
-                <marker date="1503683100000" expanded="true" signature="57934:57940" ph=" " />
-                <marker date="1503683100000" expanded="true" signature="69680:69862" ph="SELECT downl... $" />
+                <marker date="1504814825000" expanded="true" signature="3483:3546" ph="SELECT * FRO... tskf_postmeta" />
+                <marker date="1504814825000" expanded="true" signature="8775:8835" ph="SELECT * FRO... tskf_postmeta" />
+                <marker date="1504814825000" expanded="true" signature="11685:11733" ph="SELECT * FRO... tskf_postmeta" />
+                <marker date="1504814825000" expanded="true" signature="31875:31893" ph="..." />
+                <marker date="1504814825000" expanded="true" signature="41527:41561" ph="..." />
+                <marker date="1504814825000" expanded="true" signature="43332:43367" ph="..." />
+                <marker date="1504814825000" expanded="true" signature="54978:55664" ph="..." />
+                <marker date="1504814825000" expanded="true" signature="55024:55651" ph="..." />
+                <marker date="1504814825000" expanded="true" signature="55128:55641" ph="..." />
+                <marker date="1504814825000" expanded="true" signature="55151:55626" ph="..." />
+                <marker date="1504814825000" expanded="true" signature="55191:55407" ph="..." />
+                <marker date="1504814825000" expanded="true" signature="55443:55614" ph="..." />
               </folding>
             </state>
           </provider>
@@ -184,35 +170,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$id_objednavky</find>
-      <find>objednavky</find>
-      <find>\	\	\	rename\(\&quot;\/home\/web\/\$_NAZEV_WEBU\/objednavky\/\&quot;\.\$_COOKIE\[\&quot;id_objednavky\&quot;\]\.\&quot;\/\&quot;\.\$_POST\[\&quot;nazev_f\&quot;\]\, \&quot;\/home\/web\/\$_NAZEV_WEBU\/objednavky\/\&quot;\.\$_COOKIE\[\&quot;id_objednavky\&quot;\]\.\&quot;\/\&quot;\.\$pojmenovani\)\;\n</find>
-      <find>rename(&quot;/home/web/$_NAZEV_WEBU/objednavky/&quot;.$_COOKIE[&quot;id_objednavky&quot;].&quot;/&quot;.$_POST[&quot;nazev_f&quot;], &quot;/home/web/$_NAZEV_WEBU/objednavky/&quot;.$_COOKIE[&quot;id_objednavky&quot;].&quot;/&quot;.$pojmenovani);</find>
-      <find>class=&quot;order&quot;</find>
-      <find>$_COOKIE[&quot;id_objednavky&quot;]</find>
-      <find>id_o</find>
-      <find>id_objednavky</find>
-      <find>URL na f</find>
-      <find>URL na ftp</find>
-      <find>F</find>
-      <find>FTP</find>
-      <find>ID OBJEDNÁVKY NA FTP:</find>
-      <find>time</find>
-      <find>order_date</find>
-      <find>$post</find>
-      <find>order</find>
-      <find>Podrobnosti Objednávka č.</find>
-      <find>class=&quot;order_number&quot;</find>
-      <find>$line_items</find>
-      <find>mu</find>
-      <find>muj-ucer</find>
-      <find>muj-ucet</find>
-      <find>href=&quot;/muj-ucet/&quot;</find>
-      <find>href=&quot;/muj-ucet/</find>
-      <find>href=&quot;/muj-ucet</find>
-      <find>href=&quot;muj-ucet</find>
       <find>btn btn-primary contact-btn registrace-tlacitk</find>
       <find>woocommerce-FormRow woocommerce-FormRow--first form-row form-row-first</find>
+      <find>reg_email</find>
+      <find>id=&quot;billing_city&quot;</find>
+      <find>id=&quot;billing_city</find>
+      <find>idbilling_city</find>
+      <find>billing_city</find>
+      <find>for=&quot;billing_city&quot;</find>
+      <find>for=&quot;billing_city</find>
+      <find>for=`billing_city</find>
+      <find>for=billing_city</find>
+      <find>for=''billing_city</find>
+      <find>for='billing_city</find>
+      <find>for='billing_city'</find>
+      <find>class=&quot;req&quot;</find>
+      <find>woocommerce_register_form</find>
+      <find>billing_postcode</find>
+      <find>billing_company</find>
+      <find>Adres</find>
+      <find>Adresa*</find>
+      <find>Adresa</find>
+      <find>Spam</find>
+      <find>Spam trap</find>
+      <find>for=&quot;billing_country&quot;</find>
+      <find>Země*</find>
+      <find>Země*</find>
+      <find>billing_address_1</find>
+      <find>woocommerce_simple_registration</find>
+      <find>&lt;</find>
+      <find>&lt;p&gt;</find>
     </findStrings>
     <replaceStrings>
       <replace>g-radek</replace>
@@ -226,6 +213,7 @@
       <dir>$PROJECT_DIR$/obsah/plugins/woocommerce/includes/admin/meta-boxes/views</dir>
       <dir>$PROJECT_DIR$/obsah/plugins/woocommerce/includes/admin</dir>
       <dir>$PROJECT_DIR$/obsah/plugins/woocommerce</dir>
+      <dir>$PROJECT_DIR$/obsah/plugins/wp-members</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -260,7 +248,6 @@
         <option value="$PROJECT_DIR$/../../wp-config.php" />
         <option value="$PROJECT_DIR$/obsah/plugins/wp-members/inc/api.php" />
         <option value="$PROJECT_DIR$/obsah/plugins/wp-members/inc/utilities.php" />
-        <option value="$PROJECT_DIR$/obsah/plugins/woocommerce-simple-registration/templates/registration-form.php" />
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/multiupload.php" />
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/js/jquery.fileupload-image.js" />
         <option value="$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/file_upload.php" />
@@ -276,7 +263,10 @@
         <option value="$PROJECT_DIR$/obsah/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-items.php" />
         <option value="$PROJECT_DIR$/obsah/plugins/woocommerce/includes/admin/meta-boxes/views/html-order-item.php" />
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/checkout/thankyou.php" />
+        <option value="$PROJECT_DIR$/obsah/plugins/woocommerce-simple-registration/templates/registration-form.php" />
+        <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/myaccount/form-login.php" />
         <option value="$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php" />
+        <option value="$PROJECT_DIR$/obsah/plugins/woocommerce-simple-registration/woocommerce-simple-registration.php" />
       </list>
     </option>
   </component>
@@ -291,10 +281,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1280" />
-    <option name="y" value="-386" />
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="width" value="1280" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -330,6 +318,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -371,6 +361,76 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="!obsah_git" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="!obsah_git" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obsah" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-members" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="!obsah_git" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="!obsah_git" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obsah" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="woocommerce-simple-registration" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="!obsah_git" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="!obsah_git" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="obsah" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="plugins" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="woocommerce-simple-registration" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -526,15 +586,13 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/obsah" />
-    <property name="SearchEverywhereHistoryKey" value="func&#9;FILE&#9;file:///Users/lukstankovic/Documents/weby/iMango/tiskfotek/!obsah_git/obsah/themes/tiskfotek/functions.php&#10;car&#9;FILE&#9;file:///Users/lukstankovic/Documents/weby/iMango/tiskfotek/!obsah_git/obsah/themes/tiskfotek/cart.php&#10;function&#9;FILE&#9;file:///Users/lukstankovic/Documents/weby/iMango/tiskfotek/!obsah_git/obsah/themes/tiskfotek/functions.php&#10;mult&#9;FILE&#9;file:///Users/lukstankovic/Documents/weby/iMango/tiskfotek/!obsah_git/obsah/themes/tiskfotek/nahrani/multiupload.php&#10;functions.php&#9;FILE&#9;file:///Users/lukstankovic/Documents/weby/iMango/tiskfotek/!obsah_git/obsah/themes/tiskfotek/functions.php&#10;si&#9;FILE&#9;file:///Users/lukstankovic/Weby/tiskfotek/!obsah_git/obsah/plugins/woocommerce/templates/single-product/add-to-cart/simple.php&#10;simple.php&#9;FILE&#9;file:///Users/lukstankovic/Weby/tiskfotek/!obsah_git/obsah/plugins/woocommerce/templates/single-product/add-to-cart/simple.php" />
+    <property name="SearchEverywhereHistoryKey" value="registration-form.php&#9;FILE&#9;file:///Users/lukstankovic/Documents/weby/iMango/tiskfotek/!obsah_git/obsah/plugins/woocommerce-simple-registration/templates/registration-form.php&#10;func&#9;FILE&#9;file:///Users/lukstankovic/Documents/weby/iMango/tiskfotek/!obsah_git/obsah/themes/tiskfotek/functions.php&#10;car&#9;FILE&#9;file:///Users/lukstankovic/Documents/weby/iMango/tiskfotek/!obsah_git/obsah/themes/tiskfotek/cart.php&#10;function&#9;FILE&#9;file:///Users/lukstankovic/Documents/weby/iMango/tiskfotek/!obsah_git/obsah/themes/tiskfotek/functions.php&#10;mult&#9;FILE&#9;file:///Users/lukstankovic/Documents/weby/iMango/tiskfotek/!obsah_git/obsah/themes/tiskfotek/nahrani/multiupload.php&#10;functions.php&#9;FILE&#9;file:///Users/lukstankovic/Documents/weby/iMango/tiskfotek/!obsah_git/obsah/themes/tiskfotek/functions.php&#10;si&#9;FILE&#9;file:///Users/lukstankovic/Weby/tiskfotek/!obsah_git/obsah/plugins/woocommerce/templates/single-product/add-to-cart/simple.php&#10;simple.php&#9;FILE&#9;file:///Users/lukstankovic/Weby/tiskfotek/!obsah_git/obsah/plugins/woocommerce/templates/single-product/add-to-cart/simple.php" />
     <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
@@ -761,7 +819,8 @@
       <workItem from="1504640247062" duration="469000" />
       <workItem from="1504673513969" duration="6000" />
       <workItem from="1504719903973" duration="6948000" />
-      <workItem from="1504802496320" duration="262000" />
+      <workItem from="1504802496320" duration="2100000" />
+      <workItem from="1504882802093" duration="256000" />
     </task>
     <task id="LOCAL-00001" summary="IDE settings">
       <created>1476388701506</created>
@@ -973,11 +1032,18 @@
       <option name="project" value="LOCAL" />
       <updated>1504729656121</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Tlačítko registrace">
+      <created>1504813904824</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1504813904824</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156522000" />
+    <option name="totallyTimeSpent" value="158616000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -989,17 +1055,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1280" y="-386" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10543131" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12600969" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288948" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297769" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32178217" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4520548" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14696486" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14696486" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23762377" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -1010,6 +1075,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18316832" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32178217" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1030,7 +1096,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Odstranění SNAD nepotřebných komentářů v addon-end.php" />
     <MESSAGE value="Přidání chybějících středníků" />
     <MESSAGE value="PŘED MEGA PŘEDĚLÁVKOU" />
     <MESSAGE value="MEGA ZMĚNA! POŘÁD POMALÉ ALE FUNKČNÍ!" />
@@ -1055,7 +1120,8 @@
     <MESSAGE value="Oprava orders" />
     <MESSAGE value="Defaultní fotopapír pro velký formát" />
     <MESSAGE value="Změna id objednávky + hotfix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Změna id objednávky + hotfix" />
+    <MESSAGE value="Tlačítko registrace" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tlačítko registrace" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1064,34 +1130,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/obsah/plugins/wooprodaddons271/templates/addons/file_upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="57" column="43" lean-forward="true" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/layout/headers/header-1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="35" column="93" lean-forward="false" selection-start-line="35" selection-start-column="93" selection-end-line="35" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/multiupload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/layout/headers/login-out.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="31" lean-forward="false" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/layout/headers/header-1.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -1212,20 +1250,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce-simple-registration/woocommerce-simple-registration.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="76" column="21" lean-forward="false" selection-start-line="76" selection-start-column="21" selection-end-line="76" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce-simple-registration/templates/registration-form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="53" column="143" lean-forward="false" selection-start-line="53" selection-start-column="143" selection-end-line="53" selection-end-column="143" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/nahrani/server/php/UploadHandler.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="14610">
@@ -1335,7 +1359,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="13" column="16" lean-forward="false" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1343,27 +1366,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
           <caret line="37" column="25" lean-forward="false" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
-          <folding>
-            <element signature="e#1207#1265#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce/includes/wc-order-functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3225">
-          <caret line="224" column="38" lean-forward="false" selection-start-line="224" selection-start-column="38" selection-end-line="224" selection-end-column="38" />
-          <folding>
-            <marker date="1504030954000" expanded="true" signature="7665:7758" ph="SELECT post_... $" />
-            <marker date="1504030954000" expanded="true" signature="16849:16924" ph="DELETE FROM " />
-            <marker date="1504030954000" expanded="true" signature="16973:17051" ph="DELETE FROM " />
-            <marker date="1504030954000" expanded="true" signature="19723:19922" ph="SELECT posts... $" />
-            <marker date="1504030954000" expanded="true" signature="21346:21425" ph="SELECT COUNT... $" />
-            <marker date="1504030954000" expanded="true" signature="28400:28486" ph="SELECT tax_r... $" />
-            <marker date="1504030954000" expanded="true" signature="30738:30912" ph="SELECT DISTI... $" />
-            <marker date="1504030954000" expanded="true" signature="31106:31672" ph="SELECT DISTI... $" />
-            <marker date="1504030954000" expanded="true" signature="31764:31884" ph="SELECT order... $" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1385,19 +1387,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5130">
           <caret line="342" column="21" lean-forward="false" selection-start-line="342" selection-start-column="21" selection-end-line="342" selection-end-column="21" />
-          <folding>
-            <marker date="1503683100000" expanded="true" signature="5834:6073" ph="DELETE FROM " />
-            <marker date="1503683100000" expanded="true" signature="6132:6227" ph="DELETE FROM " />
-            <marker date="1503683100000" expanded="true" signature="6297:6505" ph="DELETE FROM " />
-            <marker date="1503683100000" expanded="true" signature="6557:6627" ph="DELETE FROM " />
-            <marker date="1503683100000" expanded="true" signature="39161:39279" ph="SELECT order... $" />
-            <marker date="1503683100000" expanded="true" signature="44080:44226" ph="SELECT meta_... $" />
-            <marker date="1503683100000" expanded="true" signature="44903:45028" ph="SELECT meta_... $" />
-            <marker date="1503683100000" expanded="true" signature="57279:57285" ph=" " />
-            <marker date="1503683100000" expanded="true" signature="57730:57736" ph=" " />
-            <marker date="1503683100000" expanded="true" signature="57934:57940" ph=" " />
-            <marker date="1503683100000" expanded="true" signature="69680:69862" ph="SELECT downl... $" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1452,25 +1441,87 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/myaccount/form-login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="85" column="61" lean-forward="false" selection-start-line="85" selection-start-column="61" selection-end-line="85" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/woocommerce/checkout/form-billing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="55" column="16" lean-forward="true" selection-start-line="55" selection-start-column="16" selection-end-line="56" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/obsah/themes/tiskfotek/functions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="932" column="19" lean-forward="true" selection-start-line="932" selection-start-column="19" selection-end-line="932" selection-end-column="19" />
+        <state relative-caret-position="12315">
+          <caret line="821" column="5" lean-forward="false" selection-start-line="821" selection-start-column="5" selection-end-line="821" selection-end-column="5" />
           <folding>
-            <marker date="1504730076000" expanded="true" signature="3483:3546" ph="SELECT * FRO... tskf_postmeta" />
-            <marker date="1504730076000" expanded="true" signature="8775:8835" ph="SELECT * FRO... tskf_postmeta" />
-            <marker date="1504730076000" expanded="true" signature="11685:11733" ph="SELECT * FRO... tskf_postmeta" />
-            <marker date="1504730076000" expanded="true" signature="31727:31745" ph="..." />
-            <marker date="1504730076000" expanded="true" signature="31875:31893" ph="..." />
-            <marker date="1504730076000" expanded="true" signature="41527:41561" ph="..." />
-            <marker date="1504730076000" expanded="true" signature="43332:43367" ph="..." />
-            <marker date="1504730076000" expanded="true" signature="54978:55664" ph="..." />
-            <marker date="1504730076000" expanded="true" signature="55024:55651" ph="..." />
-            <marker date="1504730076000" expanded="true" signature="55128:55641" ph="..." />
-            <marker date="1504730076000" expanded="true" signature="55151:55626" ph="..." />
-            <marker date="1504730076000" expanded="true" signature="55191:55407" ph="..." />
-            <marker date="1504730076000" expanded="true" signature="55443:55614" ph="..." />
+            <marker date="1504814825000" expanded="true" signature="3483:3546" ph="SELECT * FRO... tskf_postmeta" />
+            <marker date="1504814825000" expanded="true" signature="8775:8835" ph="SELECT * FRO... tskf_postmeta" />
+            <marker date="1504814825000" expanded="true" signature="11685:11733" ph="SELECT * FRO... tskf_postmeta" />
+            <marker date="1504814825000" expanded="true" signature="31875:31893" ph="..." />
+            <marker date="1504814825000" expanded="true" signature="41527:41561" ph="..." />
+            <marker date="1504814825000" expanded="true" signature="43332:43367" ph="..." />
+            <marker date="1504814825000" expanded="true" signature="54978:55664" ph="..." />
+            <marker date="1504814825000" expanded="true" signature="55024:55651" ph="..." />
+            <marker date="1504814825000" expanded="true" signature="55128:55641" ph="..." />
+            <marker date="1504814825000" expanded="true" signature="55151:55626" ph="..." />
+            <marker date="1504814825000" expanded="true" signature="55191:55407" ph="..." />
+            <marker date="1504814825000" expanded="true" signature="55443:55614" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce-simple-registration/templates/registration-form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="43" column="18" lean-forward="false" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce/includes/wc-order-functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3225">
+          <caret line="224" column="38" lean-forward="false" selection-start-line="224" selection-start-column="38" selection-end-line="224" selection-end-column="38" />
+          <folding>
+            <marker date="1504030954000" expanded="true" signature="7665:7758" ph="SELECT post_... $" />
+            <marker date="1504030954000" expanded="true" signature="16849:16924" ph="DELETE FROM " />
+            <marker date="1504030954000" expanded="true" signature="16973:17051" ph="DELETE FROM " />
+            <marker date="1504030954000" expanded="true" signature="19723:19922" ph="SELECT posts... $" />
+            <marker date="1504030954000" expanded="true" signature="21346:21425" ph="SELECT COUNT... $" />
+            <marker date="1504030954000" expanded="true" signature="28400:28486" ph="SELECT tax_r... $" />
+            <marker date="1504030954000" expanded="true" signature="30738:30912" ph="SELECT DISTI... $" />
+            <marker date="1504030954000" expanded="true" signature="31106:31672" ph="SELECT DISTI... $" />
+            <marker date="1504030954000" expanded="true" signature="31764:31884" ph="SELECT order... $" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/plugins/wp-members/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/plugins/wp-members/wp-members-tos.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/obsah/plugins/woocommerce-simple-registration/woocommerce-simple-registration.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="86" column="9" lean-forward="true" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
